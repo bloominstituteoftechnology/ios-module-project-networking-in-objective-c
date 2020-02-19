@@ -114,6 +114,9 @@ NOTE: Make sure you choose a location for your Simulator if you don't test this 
 	* `uvIndex`
 
 3. After parsing the "CurrentWeather.json", update the UI using the model object.
+	1. Use the LSIWeatherIcons.h to load the correct icon (? if missing)
+	2. Use LSICardinalDirections.h to convert wind direction (bearing) from 30º to NE.
+	3. Parse the model in the LSIWeatherViewController.m when you "fetch the weather" (Look for the `TODO:`), tomorrow you'll update this to do the actual weather requests.
 
 #### Daily Weather
 
