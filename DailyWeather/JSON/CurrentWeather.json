@@ -1,0 +1,21 @@
+{
+    "time": 1581003354,
+    "summary": "Clear",
+    "icon": "clear-day",
+    "nearestStormDistance": 17,
+    "nearestStormBearing": 333,
+    "precipIntensity": 0,
+    "precipProbability": 0,
+    "temperature": 48.35,
+    "apparentTemperature": 47.4,
+    "dewPoint": 41.38,
+    "humidity": 0.77,
+    "pressure": 1023.2,
+    "windSpeed": 3.45,
+    "windGust": 4.44,
+    "windBearing": 24,
+    "cloudCover": 0.02,
+    "uvIndex": 0,
+    "visibility": 10,
+    "ozone": 280.8
+}

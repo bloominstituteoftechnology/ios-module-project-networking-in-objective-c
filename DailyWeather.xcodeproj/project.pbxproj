@@ -25,6 +25,14 @@
 		BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69317023FD918B00C0DF09 /* LSIWeatherIcons.m */; };
 		BD69317523FD91D700C0DF09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD69317423FD91D700C0DF09 /* Main.storyboard */; };
 		BD69317623FD91D700C0DF09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD69317423FD91D700C0DF09 /* Main.storyboard */; };
+		BDFC8F6823FD959A00A39B21 /* HourlyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6423FD959A00A39B21 /* HourlyWeather.json */; };
+		BDFC8F6923FD959A00A39B21 /* HourlyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6423FD959A00A39B21 /* HourlyWeather.json */; };
+		BDFC8F6A23FD959A00A39B21 /* CurrentWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6523FD959A00A39B21 /* CurrentWeather.json */; };
+		BDFC8F6B23FD959A00A39B21 /* CurrentWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6523FD959A00A39B21 /* CurrentWeather.json */; };
+		BDFC8F6C23FD959A00A39B21 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6623FD959A00A39B21 /* Weather.json */; };
+		BDFC8F6D23FD959A00A39B21 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6623FD959A00A39B21 /* Weather.json */; };
+		BDFC8F6E23FD959A00A39B21 /* DailyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6723FD959A00A39B21 /* DailyWeather.json */; };
+		BDFC8F6F23FD959A00A39B21 /* DailyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6723FD959A00A39B21 /* DailyWeather.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +71,10 @@
 		BD69317023FD918B00C0DF09 /* LSIWeatherIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherIcons.m; sourceTree = "<group>"; };
 		BD69317123FD918B00C0DF09 /* LSIWeatherIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIWeatherIcons.h; sourceTree = "<group>"; };
 		BD69317423FD91D700C0DF09 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BDFC8F6423FD959A00A39B21 /* HourlyWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HourlyWeather.json; sourceTree = "<group>"; };
+		BDFC8F6523FD959A00A39B21 /* CurrentWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrentWeather.json; sourceTree = "<group>"; };
+		BDFC8F6623FD959A00A39B21 /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		BDFC8F6723FD959A00A39B21 /* DailyWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyWeather.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +123,7 @@
 				BD69317423FD91D700C0DF09 /* Main.storyboard */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
+				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
 				BD69314123FD905300C0DF09 /* Assets.xcassets */,
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
@@ -160,6 +173,17 @@
 				BD69317023FD918B00C0DF09 /* LSIWeatherIcons.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BDFC8F6323FD958300A39B21 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				BDFC8F6523FD959A00A39B21 /* CurrentWeather.json */,
+				BDFC8F6723FD959A00A39B21 /* DailyWeather.json */,
+				BDFC8F6423FD959A00A39B21 /* HourlyWeather.json */,
+				BDFC8F6623FD959A00A39B21 /* Weather.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,8 +266,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFC8F6E23FD959A00A39B21 /* DailyWeather.json in Resources */,
 				BD69317523FD91D700C0DF09 /* Main.storyboard in Resources */,
+				BDFC8F6A23FD959A00A39B21 /* CurrentWeather.json in Resources */,
+				BDFC8F6823FD959A00A39B21 /* HourlyWeather.json in Resources */,
 				BD69314523FD905300C0DF09 /* LaunchScreen.storyboard in Resources */,
+				BDFC8F6C23FD959A00A39B21 /* Weather.json in Resources */,
 				BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +280,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFC8F6F23FD959A00A39B21 /* DailyWeather.json in Resources */,
+				BDFC8F6D23FD959A00A39B21 /* Weather.json in Resources */,
+				BDFC8F6B23FD959A00A39B21 /* CurrentWeather.json in Resources */,
 				BD69317623FD91D700C0DF09 /* Main.storyboard in Resources */,
+				BDFC8F6923FD959A00A39B21 /* HourlyWeather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
