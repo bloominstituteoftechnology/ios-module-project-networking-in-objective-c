@@ -90,6 +90,12 @@ Create model objects to parse the data into the following model objects.
 
 NOTE: Make sure you choose a location for your Simulator if you don't test this on a device, since you won't get a location until you do.
 
+#### Starter Project
+
+Your team lead created a starter project with the icons, helper files, and location services so that you can focus on the weather.
+
+Review the provided files before you begin.
+
 #### Current Weather
 
 1. [Review the APIs value types](https://darksky.net/dev/docs#data-point) (and if they are optional) for the required fields.
