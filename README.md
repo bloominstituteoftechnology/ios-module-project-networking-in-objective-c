@@ -1,4 +1,4 @@
-# Module Project for Data Modeling in Objective-C and Networking in Objective-C (2 day project)
+# Today's Weather (2 day project)
 
 ## Introduction
 
