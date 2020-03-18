@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpH-wY-CZ0">
-                                <rect key="frame" x="0.0" y="338.5" width="414" height="537.5"/>
+                                <rect key="frame" x="0.0" y="339" width="414" height="558"/>
                                 <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-bs-c1t">
@@ -29,7 +29,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.3411764706" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iBS-vD-jD4"/>
-                                    <barButtonItem image="info.circle" catalog="system" id="CZf-cy-pft">
+                                    <barButtonItem image="info.circle.fill" catalog="system" id="CZf-cy-pft">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </barButtonItem>
                                 </items>
@@ -38,18 +38,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="VpH-wY-CZ0" secondAttribute="bottom" constant="20" symbolic="YES" id="5To-fG-vbn"/>
+                            <constraint firstAttribute="bottom" secondItem="VpH-wY-CZ0" secondAttribute="bottom" constant="-1" id="5To-fG-vbn"/>
                             <constraint firstItem="VpH-wY-CZ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8AG-zB-4pR"/>
                             <constraint firstItem="21h-7W-lbb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DXX-oB-PGT"/>
                             <constraint firstItem="21h-7W-lbb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UdQ-JR-f96"/>
                             <constraint firstItem="21h-7W-lbb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Y9i-tf-TKL"/>
                             <constraint firstItem="21h-7W-lbb" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" constant="20.599999999999966" id="dv1-rR-gUO"/>
                             <constraint firstItem="21h-7W-lbb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ljA-bI-xJL"/>
-                            <constraint firstItem="VpH-wY-CZ0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="uaP-Zd-z7M"/>
+                            <constraint firstItem="VpH-wY-CZ0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" constant="20.399999999999977" id="uaP-Zd-z7M"/>
                             <constraint firstItem="VpH-wY-CZ0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wcv-OF-nhz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="toolbar" destination="DG0-bs-c1t" id="tHS-fO-l0S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,6 +107,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.circle" catalog="system" width="64" height="60"/>
+        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
