@@ -17,7 +17,47 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21h-7W-lbb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="379"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-qo-FXH">
+                                        <rect key="frame" x="175" y="80" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="P5S-mH-eQJ"/>
+                                            <constraint firstAttribute="width" constant="64" id="m4k-5a-REz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Fransisco, CA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-pk-1T6">
+                                        <rect key="frame" x="8" y="144" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-vI-QVN">
+                                        <rect key="frame" x="8" y="178" width="398" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48°F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0N-p4-nM9">
+                                        <rect key="frame" x="8" y="215" width="398" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Q80-pk-1T6" firstAttribute="top" secondItem="pzz-qo-FXH" secondAttribute="bottom" id="0ls-Ry-1qs"/>
+                                    <constraint firstItem="k0N-p4-nM9" firstAttribute="leading" secondItem="21h-7W-lbb" secondAttribute="leading" constant="8" id="4vj-Rb-ssN"/>
+                                    <constraint firstItem="jDE-vI-QVN" firstAttribute="leading" secondItem="21h-7W-lbb" secondAttribute="leading" constant="8" id="70h-l9-gQx"/>
+                                    <constraint firstItem="pzz-qo-FXH" firstAttribute="centerX" secondItem="21h-7W-lbb" secondAttribute="centerX" id="9AX-kN-XUj"/>
+                                    <constraint firstAttribute="trailing" secondItem="k0N-p4-nM9" secondAttribute="trailing" constant="8" id="BXf-Xb-uLV"/>
+                                    <constraint firstItem="pzz-qo-FXH" firstAttribute="top" secondItem="21h-7W-lbb" secondAttribute="top" constant="80" id="DS6-Ct-btz"/>
+                                    <constraint firstItem="k0N-p4-nM9" firstAttribute="top" secondItem="jDE-vI-QVN" secondAttribute="bottom" constant="16" id="Sm8-ea-LDW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q80-pk-1T6" secondAttribute="trailing" constant="8" id="cJy-EI-bdE"/>
+                                    <constraint firstItem="Q80-pk-1T6" firstAttribute="leading" secondItem="21h-7W-lbb" secondAttribute="leading" constant="8" id="d2t-fz-Ucf"/>
+                                    <constraint firstAttribute="trailing" secondItem="jDE-vI-QVN" secondAttribute="trailing" constant="8" id="ipt-bM-q6I"/>
+                                    <constraint firstItem="jDE-vI-QVN" firstAttribute="top" secondItem="Q80-pk-1T6" secondAttribute="bottom" id="kiP-A8-ucY"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpH-wY-CZ0">
                                 <rect key="frame" x="0.0" y="339" width="414" height="558"/>
@@ -107,6 +147,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear-day" width="130" height="130"/>
         <image name="info.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
