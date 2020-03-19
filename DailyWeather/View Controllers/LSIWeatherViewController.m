@@ -99,21 +99,21 @@
     // Summary
     self.summaryLabel.text = weatherForcast.summary;
     // Temperature
-    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.temperature];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.temperature.doubleValue];
     
     // WIND
-    NSString *bearing = [LSICardinalDirection directionForHeading:weatherForcast.windBearing];
-    self.windSpeedLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", bearing, weatherForcast.windSpeed];
+    NSString *bearing = [LSICardinalDirection directionForHeading:weatherForcast.windBearing.doubleValue];
+    self.windSpeedLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", bearing, weatherForcast.windSpeed.doubleValue];
     // FEELS LIKE
-    self.appTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.apparentTemperature];
+    self.appTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.apparentTemperature.doubleValue];
     // HUMIDITY
-    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.humidity * 100.0];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.humidity.doubleValue * 100.0];
     // PRESSURE
-    self.pressureLabel.text = [NSString stringWithFormat:@"%0.2f inHg", weatherForcast.pressure]; // is this right?
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.2f inHg", weatherForcast.pressure.doubleValue]; // is this right?
     // CHANCE OF RAIN
-    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.precipProbablity];
+    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.precipProbablity.doubleValue];
     // UV INDEX
-    self.uvIndexLabel.text = [NSString stringWithFormat:@"%i", weatherForcast.uvIndex];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%i", weatherForcast.uvIndex.intValue];
     
     // TODO: Transparent toolbar with info button (Settings)
     [self.toolbar setBackgroundImage:[UIImage new]

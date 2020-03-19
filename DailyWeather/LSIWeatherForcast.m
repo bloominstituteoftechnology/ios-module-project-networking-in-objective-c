@@ -13,15 +13,15 @@
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(double)precipProbability
-             precipIntensity:(double)precipIntensity
-                 temperature:(double)temperature
-         apparentTemperature:(double)apparentTemperature
-                    humidity:(double)humidity
-                    pressure:(double)pressure
-                   windSpeed:(double)windSpeed
-                 windBearing:(double)windBearing
-                     uvIndex:(int)uvIndex {
+           precipProbability:(NSNumber *)precipProbability
+             precipIntensity:(NSNumber *)precipIntensity
+                 temperature:(NSNumber *)temperature
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex {
     
     if (self = [super init]) {
         
@@ -62,14 +62,15 @@
     self = [self initWithTime:time
                       summary:summary
                          icon:icon
-            precipProbability:precipProbability.doubleValue precipIntensity:precipIntensity.doubleValue
-                  temperature:temperature.doubleValue
-          apparentTemperature:apparentTemperature.doubleValue
-                     humidity:humidity.doubleValue
-                     pressure:pressure.doubleValue
-                    windSpeed:windSpeed.doubleValue
-                  windBearing:windBearing.doubleValue
-                      uvIndex:uvIndex.intValue];
+            precipProbability:precipProbability
+              precipIntensity:precipIntensity
+                  temperature:temperature
+          apparentTemperature:apparentTemperature
+                     humidity:humidity
+                     pressure:pressure
+                    windSpeed:windSpeed
+                  windBearing:windBearing
+                      uvIndex:uvIndex];
     
     return self;
 }
