@@ -67,6 +67,10 @@
     return self;
 }
 
+- (void)setPlacemark:(CLPlacemark *)placemark {
+    _placemark = placemark;
+    self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", placemark.locality ,placemark.administrativeArea];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
