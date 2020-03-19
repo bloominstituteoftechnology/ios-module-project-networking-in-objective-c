@@ -217,6 +217,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="9Sl-33-t3b" id="GZA-Gc-VxF"/>
+                        <outlet property="summary" destination="D5J-Kg-XZX" id="fKL-cg-qtn"/>
+                        <outlet property="temperature" destination="6MZ-38-ZKt" id="Nu3-AC-hUp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

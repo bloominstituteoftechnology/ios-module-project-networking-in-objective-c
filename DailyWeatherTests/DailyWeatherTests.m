@@ -11,6 +11,7 @@
 #import "AMSCurrentForecast.h"
 #import "AMSDailyWeather.h"
 #import "AMSHourlyWeather.h"
+#import "AMSWeather.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -26,7 +27,6 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
     if (error) { XCTFail(@"Parsing error: %@", error); }
-    NSLog(@"JSON: %@", json);
     
     AMSCurrentForecast *forecast = [[AMSCurrentForecast alloc] initWithDictionary:json];
     
@@ -42,7 +42,6 @@
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
     if (error) { XCTFail(@"Parsing error: %@", error); }
-    NSLog(@"JSON: %@", json);
     
     NSDictionary *element = json[0];
     
@@ -60,7 +59,6 @@
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
     if (error) { XCTFail(@"Parsing error: %@", error); }
-    NSLog(@"JSON: %@", json);
     
     NSDictionary *element = json[0];
     
@@ -71,5 +69,20 @@
     XCTAssertEqualObjects(time, forecast.time);
 }
 
+- (void)testParseWeather {
+    NSData *data = loadFile(@"Weather.json", DailyWeatherTests.class);
+    
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    if (error) { XCTFail(@"Parsing error: %@", error); }
+    
+    AMSWeather *forecast = [[AMSWeather alloc] initWithDictionary:json];
+    
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+    XCTAssertEqualObjects(time, forecast.currently.time);
+    XCTAssertEqualObjects(@"Clear throughout the day.", forecast.daily[0].summary);
+    XCTAssertEqualObjects(@"clear-night", forecast.hourly[0].icon);
+}
 
 @end

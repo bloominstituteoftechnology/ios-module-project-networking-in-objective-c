@@ -10,6 +10,7 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "AMSWeatherController.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +19,9 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (weak, nonatomic) IBOutlet UILabel *temperature;
+@property (weak, nonatomic) IBOutlet UILabel *summary;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
@@ -56,9 +60,16 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
+    _temperature.text = forecast.weather.currently.temperature.stringValue;
+    _summary.text = forecast.weather.currently.summary;
     
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+}
+
+- (void)setPlacemark:(CLPlacemark *)placemark {
+    _placemark = placemark;
+    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", placemark.locality, placemark.administrativeArea];
+    
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names

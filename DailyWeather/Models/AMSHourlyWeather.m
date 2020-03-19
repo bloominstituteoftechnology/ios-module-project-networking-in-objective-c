@@ -30,7 +30,7 @@
         _icon = icon.copy;
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
-        _precipType = precipType;
+        _precipType = precipType.copy;
         _temperatureLow = temperatureLow;
         _temperatureHigh = temperatureHigh;
         _apparentTemperature = apparentTemperature;

@@ -34,7 +34,7 @@
         _sunsetTime = sunsetTime;
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
-        _precipType = precipType;
+        _precipType = precipType.copy;
         _temperatureLow = temperatureLow;
         _temperatureHigh = temperatureHigh;
         _apparentTemperature = apparentTemperature;

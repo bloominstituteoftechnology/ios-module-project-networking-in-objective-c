@@ -41,6 +41,8 @@
 		FA6F753924239F0E00721038 /* AMSHourlyWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6F753724239F0E00721038 /* AMSHourlyWeather.m */; };
 		FA6F753C2423A4C700721038 /* AMSWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6F753B2423A4C700721038 /* AMSWeather.m */; };
 		FA6F753D2423A4C700721038 /* AMSWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6F753B2423A4C700721038 /* AMSWeather.m */; };
+		FA6F75402423B3F400721038 /* AMSWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6F753F2423B3F400721038 /* AMSWeatherController.m */; };
+		FA6F75412423B3F400721038 /* AMSWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6F753F2423B3F400721038 /* AMSWeatherController.m */; };
 		FAA5E65824238CF100FD857B /* AMSCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E65724238CF100FD857B /* AMSCurrentForecast.m */; };
 		FAA5E65B24239B1700FD857B /* AMSCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E65724238CF100FD857B /* AMSCurrentForecast.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		FA6F753724239F0E00721038 /* AMSHourlyWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSHourlyWeather.m; sourceTree = "<group>"; };
 		FA6F753A2423A4C700721038 /* AMSWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSWeather.h; sourceTree = "<group>"; };
 		FA6F753B2423A4C700721038 /* AMSWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSWeather.m; sourceTree = "<group>"; };
+		FA6F753E2423B3F400721038 /* AMSWeatherController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSWeatherController.h; sourceTree = "<group>"; };
+		FA6F753F2423B3F400721038 /* AMSWeatherController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSWeatherController.m; sourceTree = "<group>"; };
 		FAA5E65624238CF100FD857B /* AMSCurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSCurrentForecast.h; sourceTree = "<group>"; };
 		FAA5E65724238CF100FD857B /* AMSCurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSCurrentForecast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +140,7 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				FA6F75422423B3FB00721038 /* Model Controllers */,
 				FAA5E65524238CC700FD857B /* Models */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
@@ -207,6 +212,15 @@
 				BDFC8F6623FD959A00A39B21 /* Weather.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		FA6F75422423B3FB00721038 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA6F753E2423B3F400721038 /* AMSWeatherController.h */,
+				FA6F753F2423B3F400721038 /* AMSWeatherController.m */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		FAA5E65524238CC700FD857B /* Models */ = {
@@ -336,6 +350,7 @@
 			files = (
 				FA6F753424239EFE00721038 /* AMSDailyWeather.m in Sources */,
 				FA6F753824239F0E00721038 /* AMSHourlyWeather.m in Sources */,
+				FA6F75402423B3F400721038 /* AMSWeatherController.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				FA6F753C2423A4C700721038 /* AMSWeather.m in Sources */,
@@ -358,6 +373,7 @@
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				FAA5E65B24239B1700FD857B /* AMSCurrentForecast.m in Sources */,
 				FA6F753D2423A4C700721038 /* AMSWeather.m in Sources */,
+				FA6F75412423B3F400721038 /* AMSWeatherController.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
