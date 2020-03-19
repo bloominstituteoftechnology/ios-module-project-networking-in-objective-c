@@ -37,7 +37,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48°F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0N-p4-nM9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="49°F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0N-p4-nM9">
                                         <rect key="frame" x="8" y="215" width="398" height="72"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,7 +206,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="appTemperatureLabel" destination="MJj-LH-tho" id="g4h-k8-xRc"/>
+                        <outlet property="humidityLabel" destination="qIi-VD-5TO" id="Ucb-Lp-N1S"/>
+                        <outlet property="imageView" destination="pzz-qo-FXH" id="nZv-yv-0qO"/>
+                        <outlet property="locationLabel" destination="Q80-pk-1T6" id="VzT-jg-Etd"/>
+                        <outlet property="precipProbabilityLabel" destination="lVl-eH-I2c" id="d9Z-eA-E2D"/>
+                        <outlet property="pressureLabel" destination="Lxs-fa-Fjn" id="rMQ-W1-R1w"/>
+                        <outlet property="summaryLabel" destination="jDE-vI-QVN" id="i6I-LI-q7W"/>
+                        <outlet property="temperatureLabel" destination="k0N-p4-nM9" id="LJb-MX-meC"/>
                         <outlet property="toolbar" destination="DG0-bs-c1t" id="tHS-fO-l0S"/>
+                        <outlet property="uvIndexLabel" destination="bzY-sG-mBg" id="7Qa-rf-8p3"/>
+                        <outlet property="windSpeedLabel" destination="eSv-BV-V0K" id="ZFb-DW-INV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -247,6 +257,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="x1x-qq-phj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>

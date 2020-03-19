@@ -28,8 +28,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
     
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"Today's Weather v.1.04";
-        cell.textLabel.textColor = UIColor.systemBlueColor;
+        cell.textLabel.text = @"Today's Weather v.1.0";
+        //cell.textLabel.textColor = UIColor.systemBlueColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     

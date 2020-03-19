@@ -8,8 +8,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
 #import "LSIWeatherIcons.h"
+#import "LSICardinalDirection.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForcast.h"
+#import "LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -19,8 +22,20 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
-@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+// MARK: - Outlets
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *appTemperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipProbabilityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -60,6 +75,42 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
+    // Change later
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    if (error) {  // if (error != nil) {
+        NSLog(@"Error parsing JSON: %@", error);
+    }
+    NSLog(@"JSON: %@", json);
+
+    //NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354 / 1000.0];
+    LSIWeatherForcast *weatherForcast = [[LSIWeatherForcast alloc] initWithDictionary:json];
+    
+    // PUT IN UPDATEVIEWS LATER!
+    
+    // Icon
+    self.imageView.image = [LSIWeatherIcons weatherImageForIconName:weatherForcast.icon];
+    // Summary
+    self.summaryLabel.text = weatherForcast.summary;
+    // Temperature
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.temperature];
+    
+    // WIND
+    NSString *bearing = [LSICardinalDirection directionForHeading:weatherForcast.windBearing];
+    self.windSpeedLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", bearing, weatherForcast.windSpeed];
+    // FEELS LIKE
+    self.appTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.apparentTemperature];
+    // HUMIDITY
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.humidity * 100.0];
+    // PRESSURE
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.2f inHg", weatherForcast.pressure]; // is this right?
+    // CHANCE OF RAIN
+    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.precipProbablity];
+    // UV INDEX
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%i", weatherForcast.uvIndex];
+    
     // TODO: Transparent toolbar with info button (Settings)
     [self.toolbar setBackgroundImage:[UIImage new]
                   forToolbarPosition:UIBarPositionAny
@@ -68,7 +119,9 @@
     [self.toolbar setShadowImage:[UIImage new]
               forToolbarPosition:UIBarPositionAny];
     
+    
     // TODO: Handle settings button pressed
+    // NO!
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
