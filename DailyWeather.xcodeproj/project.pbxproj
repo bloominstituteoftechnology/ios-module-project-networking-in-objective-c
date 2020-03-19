@@ -140,21 +140,14 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				FA6F75422423B3FB00721038 /* Model Controllers */,
-				FAA5E65524238CC700FD857B /* Models */,
-				BD69313523FD905200C0DF09 /* AppDelegate.h */,
-				BD69313623FD905200C0DF09 /* AppDelegate.m */,
-				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
-				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
 				BD69317423FD91D700C0DF09 /* Main.storyboard */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				FA6F75422423B3FB00721038 /* Model Controllers */,
+				FAA5E65524238CC700FD857B /* Models */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
-				BD69314123FD905300C0DF09 /* Assets.xcassets */,
-				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
-				BD69314623FD905300C0DF09 /* Info.plist */,
-				BD69314723FD905300C0DF09 /* main.m */,
+				FADD63BC2423D4B100C44759 /* Resources */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -236,6 +229,21 @@
 				FA6F753B2423A4C700721038 /* AMSWeather.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FADD63BC2423D4B100C44759 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD69313523FD905200C0DF09 /* AppDelegate.h */,
+				BD69313623FD905200C0DF09 /* AppDelegate.m */,
+				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
+				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
+				BD69314123FD905300C0DF09 /* Assets.xcassets */,
+				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
+				BD69314723FD905300C0DF09 /* main.m */,
+				BD69314623FD905300C0DF09 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,7 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = DailyWeather/Info.plist;
+				INFOPLIST_FILE = DailyWeather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = DailyWeather/Info.plist;
+				INFOPLIST_FILE = DailyWeather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
