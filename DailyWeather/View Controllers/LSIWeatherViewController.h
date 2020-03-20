@@ -19,5 +19,7 @@ typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
 - (void)requestWeatherForLocation:(CLLocation *)location;
 
+@property (nonatomic) BOOL testing;
+
 @end
 

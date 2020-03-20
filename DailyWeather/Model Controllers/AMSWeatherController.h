@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) AMSWeather *weather;
 
+typedef void(^completionHandler)(AMSWeather * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error);
+
+- (void)getJson:(completionHandler)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

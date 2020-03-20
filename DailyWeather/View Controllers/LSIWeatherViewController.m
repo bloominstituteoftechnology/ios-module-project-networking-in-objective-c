@@ -13,6 +13,7 @@
 #import "AMSWeatherController.h"
 #import "LSICardinalDirection.h"
 #import "LSIWeatherIcons.h"
+#import "DailyWeather-Swift.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -21,6 +22,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
 //Top Outlets
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
@@ -35,8 +37,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
+@property (weak, nonatomic) IBOutlet CustomSegmentedControl *detailSegment;
+@property (weak, nonatomic) IBOutlet UIView *forecastView;
 
-- (void)setUpViews;
+
+- (void)setUpViews:(AMSWeather *)weather;
 
 @end
 
@@ -72,19 +77,42 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
-    [self setUpViews];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segmentChanged:) name:@"SegmentChanged" object:nil];
+    
+    if (_testing == NO) {
+        [self getWeather];
+    } else {
+        AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
+        [self setUpViews:forecast.weather];
+    }
 }
 
-- (void)setUpViews {
+-(void)getWeather {
     AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
-    _weatherImageView.image = [LSIWeatherIcons weatherImageForIconName:forecast.weather.currently.icon];
-    _temperatureLabel.text = [NSString stringWithFormat:@"%d°", forecast.weather.currently.temperature.intValue];
-    _windLabel.text = [NSString stringWithFormat:@"%@ %d mph", [LSICardinalDirection directionForHeading:forecast.weather.currently.windBearing.doubleValue], forecast.weather.currently.windSpeed.intValue];
-    _feelsLikeLabel.text = [NSString stringWithFormat:@"%d°", forecast.weather.currently.apparentTemperature.intValue];
-    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", forecast.weather.currently.humidity.doubleValue*100];
-    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", forecast.weather.currently.pressure.doubleValue/33.8639];
-    _chanceOfRainLabel.text = [NSString stringWithFormat:@"%.0f%%", forecast.weather.currently.precipProbability.doubleValue*100];
-    _uvIndexLabel.text = [NSString stringWithFormat:@"%d", forecast.weather.currently.uvIndex.intValue];
+    [forecast getJson:^(AMSWeather * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [self setUpViews:data];
+    }];
+}
+
+- (void)setUpViews:(AMSWeather *)weather {
+    self->_weatherImageView.image = [LSIWeatherIcons weatherImageForIconName:weather.currently.icon];
+    self->_temperatureLabel.text = [NSString stringWithFormat:@"%d°", weather.currently.temperature.intValue];
+    self->_windLabel.text = [NSString stringWithFormat:@"%@ %d mph", [LSICardinalDirection directionForHeading:weather.currently.windBearing.doubleValue], weather.currently.windSpeed.intValue];
+    self->_feelsLikeLabel.text = [NSString stringWithFormat:@"%d°", weather.currently.apparentTemperature.intValue];
+    self->_humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", weather.currently.humidity.doubleValue*100];
+    self->_pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", weather.currently.pressure.doubleValue/33.8639];
+    self->_chanceOfRainLabel.text = [NSString stringWithFormat:@"%.0f%%", weather.currently.precipProbability.doubleValue*100];
+    self->_uvIndexLabel.text = [NSString stringWithFormat:@"%d", weather.currently.uvIndex.intValue];
+}
+
+-(void)segmentChanged: (NSNotification *)notification {
+    long segmentIndex = _detailSegment.selectedIndex;
+    if (segmentIndex == 0) {
+        [_forecastView setHidden:YES];
+    } else if (segmentIndex == 1 || segmentIndex == 2) {
+        [_forecastView setHidden:NO];
+    }
 }
 
 - (void)setPlacemark:(CLPlacemark *)placemark {
