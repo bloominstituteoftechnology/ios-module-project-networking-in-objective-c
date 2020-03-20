@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AMSForcast.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AMSDailyWeather : NSObject
+@interface AMSDailyWeather : NSObject <AMSForcast>
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;

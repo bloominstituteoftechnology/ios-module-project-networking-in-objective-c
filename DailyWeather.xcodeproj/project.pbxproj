@@ -47,6 +47,7 @@
 		FAA5E65B24239B1700FD857B /* AMSCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E65724238CF100FD857B /* AMSCurrentForecast.m */; };
 		FADD63BF2424BB3600C44759 /* IBDesignables.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD63BE2424BB3600C44759 /* IBDesignables.swift */; };
 		FADD63C22424C3BC00C44759 /* AMSWeatherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD63C12424C3BC00C44759 /* AMSWeatherTableViewController.m */; };
+		FADD63C52424CBB100C44759 /* AMSWeatherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD63C42424CBB100C44759 /* AMSWeatherTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,9 @@
 		FADD63BE2424BB3600C44759 /* IBDesignables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBDesignables.swift; sourceTree = "<group>"; };
 		FADD63C02424C3BC00C44759 /* AMSWeatherTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSWeatherTableViewController.h; sourceTree = "<group>"; };
 		FADD63C12424C3BC00C44759 /* AMSWeatherTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSWeatherTableViewController.m; sourceTree = "<group>"; };
+		FADD63C32424CBB100C44759 /* AMSWeatherTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSWeatherTableViewCell.h; sourceTree = "<group>"; };
+		FADD63C42424CBB100C44759 /* AMSWeatherTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMSWeatherTableViewCell.m; sourceTree = "<group>"; };
+		FADD63C62424D13D00C44759 /* AMSForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMSForcast.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 				BD69316C23FD912000C0DF09 /* LSISettingsTableVC.m */,
 				FADD63C02424C3BC00C44759 /* AMSWeatherTableViewController.h */,
 				FADD63C12424C3BC00C44759 /* AMSWeatherTableViewController.m */,
+				FADD63C32424CBB100C44759 /* AMSWeatherTableViewCell.h */,
+				FADD63C42424CBB100C44759 /* AMSWeatherTableViewCell.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				FA6F753724239F0E00721038 /* AMSHourlyWeather.m */,
 				FA6F753A2423A4C700721038 /* AMSWeather.h */,
 				FA6F753B2423A4C700721038 /* AMSWeather.m */,
+				FADD63C62424D13D00C44759 /* AMSForcast.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,6 +376,7 @@
 			files = (
 				FA6F753424239EFE00721038 /* AMSDailyWeather.m in Sources */,
 				FA6F753824239F0E00721038 /* AMSHourlyWeather.m in Sources */,
+				FADD63C52424CBB100C44759 /* AMSWeatherTableViewCell.m in Sources */,
 				FA6F75402423B3F400721038 /* AMSWeatherController.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,

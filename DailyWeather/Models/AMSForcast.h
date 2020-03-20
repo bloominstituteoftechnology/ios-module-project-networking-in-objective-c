@@ -1,17 +1,16 @@
 //
-//  AMSHourlyWeather.h
+//  AMSForcast.h
 //  DailyWeather
 //
-//  Created by Alexander Supe on 19.03.20.
+//  Created by Alexander Supe on 20.03.20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "AMSForcast.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AMSHourlyWeather : NSObject <AMSForcast>
+@protocol AMSForcast <NSObject>
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;
@@ -27,23 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSNumber *windSpeed;
 @property (nonatomic, readonly) NSNumber *windBearing;
 @property (nonatomic, readonly) NSNumber *uvIndex;
-
-- (instancetype)initWithTime:(NSDate *)time
-                     summary:(NSString *)summary
-                        icon:(NSString *)icon
-           precipProbability:(NSNumber *)precipProbability
-             precipIntensity:(NSNumber *)precipIntensity
-                  precipType:(NSString *)precipType
-              temperatureLow:(NSNumber *)temperatureLow
-             temperatureHigh:(NSNumber *)temperatureHigh
-         apparentTemperature:(NSNumber *)apparentTemperature
-                    humidity:(NSNumber *)humidity
-                    pressure:(NSNumber *)pressure
-                   windSpeed:(NSNumber *)windSpeed
-                 windBearing:(NSNumber *)windBearing
-                     uvIndex:(NSNumber *)uvIndex;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

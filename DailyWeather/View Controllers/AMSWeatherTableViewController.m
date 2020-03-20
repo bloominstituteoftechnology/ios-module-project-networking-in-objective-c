@@ -7,6 +7,9 @@
 //
 
 #import "AMSWeatherTableViewController.h"
+#import "AMSWeatherTableViewCell.h"
+#import "AMSForcast.h"
+#import "LSIWeatherIcons.h"
 
 @interface AMSWeatherTableViewController ()
 
@@ -16,78 +19,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return _isDaily ? self.weather.daily.count : self.weather.hourly.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    AMSWeatherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    //    [cell.textLabel setText:_isDaily ? [_weather.daily[indexPath.row]summary] : [_weather.hourly[indexPath.row]summary]];
+    NSObject<AMSForcast> *thisWeather = _isDaily ? _weather.daily[indexPath.row] : _weather.hourly[indexPath.row];
     
-    // Configure the cell...
+    NSString *lowTemp = [NSString stringWithFormat:@"%d°", thisWeather.temperatureLow.intValue];
+    if (_isDaily) {
+        [cell.lowTempLabel setText: lowTemp];
+    } else {
+        [cell.lowTempLabel setText: @" "];
+    }
+    NSString *highTemp = [NSString stringWithFormat:@"%d°", thisWeather.temperatureHigh.intValue];
+    [cell.highTempLabel setText: highTemp];
     
+    NSString *condition = thisWeather.icon;
+    [cell.imageView setImage:[LSIWeatherIcons weatherImageForIconName:condition]];
+    
+    NSString *time = _isDaily ? [self getDate:thisWeather.time] : [self getTime:thisWeather.time];
+    [cell.timeLabel setText: time];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)getTime:(NSDate *)date {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    return [formatter stringFromDate:date];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (NSString *)getDate:(NSDate *)date {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.doesRelativeDateFormatting = YES;
+    return [formatter stringFromDate:date];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)setWeather:(AMSWeather * _Nonnull)weather {
+    _weather = weather;
+    [self.tableView reloadData];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+- (void)setIsDaily:(BOOL)isDaily {
+    _isDaily = isDaily;
+    [self.tableView reloadData];
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

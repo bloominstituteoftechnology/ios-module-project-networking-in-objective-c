@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AMSWeather.h"
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^completionHandler)(AMSWeather * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 
-- (void)getJson:(completionHandler)completion;
+- (void)getJson:(completionHandler)completion
+       location:(CLLocationCoordinate2D)location;
 
 @end
 

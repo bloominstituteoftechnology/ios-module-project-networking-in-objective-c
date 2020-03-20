@@ -50,8 +50,8 @@
     NSNumber *precipProbability = dictionary[@"precipProbability"];
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
-    NSNumber *temperatureLow = dictionary[@"temperatureLow"];
-    NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
+    NSNumber *temperatureLow = nil;
+    NSNumber *temperatureHigh = dictionary[@"temperature"];
     NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
     NSNumber *humidity = dictionary[@"humidity"];
     NSNumber *pressure = dictionary[@"pressure"];

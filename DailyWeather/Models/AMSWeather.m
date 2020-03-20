@@ -7,6 +7,7 @@
 //
 
 #import "AMSWeather.h"
+#import "AMSForcast.h"
 
 @implementation AMSWeather
 

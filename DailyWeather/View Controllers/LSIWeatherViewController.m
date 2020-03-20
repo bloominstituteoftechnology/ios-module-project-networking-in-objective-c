@@ -14,13 +14,14 @@
 #import "LSICardinalDirection.h"
 #import "LSIWeatherIcons.h"
 #import "DailyWeather-Swift.h"
+#import "AMSWeatherTableViewController.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
 @property CLLocationManager *locationManager;
-@property CLLocation *location;
+@property (nonatomic) CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
 //Top Outlets
@@ -39,7 +40,9 @@
 
 @property (weak, nonatomic) IBOutlet CustomSegmentedControl *detailSegment;
 @property (weak, nonatomic) IBOutlet UIView *forecastView;
+@property (nonatomic) AMSWeatherTableViewController *forecastTableView;
 
+@property (nonatomic) AMSWeather *weather;
 
 - (void)setUpViews:(AMSWeather *)weather;
 
@@ -80,19 +83,15 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segmentChanged:) name:@"SegmentChanged" object:nil];
     
-    if (_testing == NO) {
-        [self getWeather];
-    } else {
-        AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
-        [self setUpViews:forecast.weather];
-    }
+    self.forecastTableView = [self childViewControllers].firstObject;
 }
 
 -(void)getWeather {
     AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
     [forecast getJson:^(AMSWeather * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self->_weather = data;
         [self setUpViews:data];
-    }];
+    } location: _location.coordinate];
 }
 
 - (void)setUpViews:(AMSWeather *)weather {
@@ -110,9 +109,20 @@
     long segmentIndex = _detailSegment.selectedIndex;
     if (segmentIndex == 0) {
         [_forecastView setHidden:YES];
-    } else if (segmentIndex == 1 || segmentIndex == 2) {
+    } else if (segmentIndex == 1) {
         [_forecastView setHidden:NO];
+        [_forecastTableView setWeather:self.weather];
+        [_forecastTableView setIsDaily:NO];
+    } else if (segmentIndex == 2) {
+        [_forecastView setHidden:NO];
+        [_forecastTableView setWeather:self.weather];
+        [_forecastTableView setIsDaily:YES];
     }
+}
+
+- (void)setLocation:(CLLocation *)location {
+    _location = location;
+    [self getWeather];
 }
 
 - (void)setPlacemark:(CLPlacemark *)placemark {
@@ -163,29 +173,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
                 self.placemark = place;
-                [self updateViews];
             });
             requestedLocation = NO;
         }];
     }
-}
-
-- (void)requestWeatherForLocation:(CLLocation *)location {
-    
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
-}
-
-- (void)updateViews {
-    if (self.placemark) {
-        // TODO: Update the City, State label
-    }
-    
-    // TODO: Update the UI based on the current forecast
 }
 
 @end
@@ -203,9 +194,6 @@
     
     CLLocation *location = locations.firstObject;
     
-    // 1. Request Weather for location
-    
-    [self requestWeatherForLocation: location];
     
     // 2. Request User-Friendly Place Names for Lat/Lon coordinate
     
