@@ -11,6 +11,7 @@
 		1B5679B32422D1D30021454B /* LSIWeatherForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5679B12422D1D30021454B /* LSIWeatherForcast.m */; };
 		1B5679BC242404530021454B /* LSIWeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5679BB242404530021454B /* LSIWeatherFetcher.m */; };
 		1B5679BF242404D20021454B /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5679BE242404D20021454B /* LSIDailyForecast.m */; };
+		1B5679CC2424FD380021454B /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5679BE242404D20021454B /* LSIDailyForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -352,6 +353,7 @@
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
 				1B5679B32422D1D30021454B /* LSIWeatherForcast.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
+				1B5679CC2424FD380021454B /* LSIDailyForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
