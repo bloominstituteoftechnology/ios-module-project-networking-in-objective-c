@@ -40,6 +40,7 @@
 
 @property (weak, nonatomic) IBOutlet CustomSegmentedControl *detailSegment;
 @property (weak, nonatomic) IBOutlet UIView *forecastView;
+@property (weak, nonatomic) IBOutlet UIStackView *detailStack;
 @property (nonatomic) AMSWeatherTableViewController *forecastTableView;
 
 @property (nonatomic) AMSWeather *weather;
@@ -109,12 +110,15 @@
     long segmentIndex = _detailSegment.selectedIndex;
     if (segmentIndex == 0) {
         [_forecastView setHidden:YES];
+        [_detailStack setHidden:NO];
     } else if (segmentIndex == 1) {
         [_forecastView setHidden:NO];
+        [_detailStack setHidden:YES];
         [_forecastTableView setWeather:self.weather];
         [_forecastTableView setIsDaily:NO];
     } else if (segmentIndex == 2) {
         [_forecastView setHidden:NO];
+        [_detailStack setHidden:YES];
         [_forecastTableView setWeather:self.weather];
         [_forecastTableView setIsDaily:YES];
     }

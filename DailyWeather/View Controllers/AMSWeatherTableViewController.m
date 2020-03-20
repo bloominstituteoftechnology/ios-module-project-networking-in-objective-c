@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self tableView] setBackgroundColor:UIColor.clearColor];
 }
 
 #pragma mark - Table view data source
@@ -32,17 +33,21 @@
     //    [cell.textLabel setText:_isDaily ? [_weather.daily[indexPath.row]summary] : [_weather.hourly[indexPath.row]summary]];
     NSObject<AMSForcast> *thisWeather = _isDaily ? _weather.daily[indexPath.row] : _weather.hourly[indexPath.row];
     
+    [cell setBackgroundColor:UIColor.clearColor];
+    
+    [cell.lowTempLabel setFont:[UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightRegular]];
     NSString *lowTemp = [NSString stringWithFormat:@"%d°", thisWeather.temperatureLow.intValue];
     if (_isDaily) {
         [cell.lowTempLabel setText: lowTemp];
     } else {
         [cell.lowTempLabel setText: @" "];
     }
+    [cell.highTempLabel setFont:[UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightRegular]];
     NSString *highTemp = [NSString stringWithFormat:@"%d°", thisWeather.temperatureHigh.intValue];
     [cell.highTempLabel setText: highTemp];
     
     NSString *condition = thisWeather.icon;
-    [cell.imageView setImage:[LSIWeatherIcons weatherImageForIconName:condition]];
+    [cell.conditionImageView setImage:[LSIWeatherIcons weatherImageForIconName:condition]];
     
     NSString *time = _isDaily ? [self getDate:thisWeather.time] : [self getTime:thisWeather.time];
     [cell.timeLabel setText: time];
@@ -57,8 +62,7 @@
 
 - (NSString *)getDate:(NSDate *)date {
     NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.dateStyle = NSDateFormatterShortStyle;
-    formatter.doesRelativeDateFormatting = YES;
+    [formatter setDateFormat:@"EEEE"];
     return [formatter stringFromDate:date];
 }
 

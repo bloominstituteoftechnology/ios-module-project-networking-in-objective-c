@@ -14,7 +14,7 @@
 
 - (void)getJson:(completionHandler)completion
        location:(CLLocationCoordinate2D)location {
-    NSURL *url = [NSURL URLWithString:@"/"];
+    NSURL *url = [NSURL URLWithString:@""];
     NSURL *finalURL = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"%.4f,%.4f",location.latitude, location.longitude]];
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
