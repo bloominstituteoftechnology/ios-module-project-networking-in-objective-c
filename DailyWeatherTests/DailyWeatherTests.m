@@ -84,7 +84,7 @@
     XCTAssertEqualObjects(@"rain", dailyForecast.precipType);
     XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow.doubleValue, 0.0001);
     XCTAssertEqualWithAccuracy(61.22, dailyForecast.temperatureHigh.doubleValue, 0.0001);
-    //XCTAssertEqualWithAccuracy(60.72, dailyForecast.apparentTemperature.doubleValue, 0.0001); // apptemphigh?
+    XCTAssertEqualWithAccuracy(60.72, dailyForecast.apparentTemperature.doubleValue, 0.0001); // apptemphigh?
     XCTAssertEqualWithAccuracy(0.78, dailyForecast.humidity.doubleValue, 0.0001);
     XCTAssertEqualWithAccuracy(1021.8, dailyForecast.pressure.doubleValue, 0.0001);
     XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed.doubleValue, 0.0001);

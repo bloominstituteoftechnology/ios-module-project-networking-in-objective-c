@@ -39,7 +39,7 @@
         _precipType = [precipType copy];
         _temperatureLow = temperatureLow;
         _temperatureHigh = temperatureHigh;
-        _apparentTemperature = apparentTemperature;
+        _apparentTemperature = apparentTemperature; // HIGH
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
@@ -63,7 +63,7 @@
     NSString *precipType = dictionary[@"precipType"];
     NSNumber *temperatureLow = dictionary[@"temperatureLow"];
     NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
-    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperatureHigh"]; // HIGH
     NSNumber *humidity = dictionary[@"humidity"];
     NSNumber *pressure = dictionary[@"pressure"];
     NSNumber *windSpeed = dictionary[@"windSpeed"];

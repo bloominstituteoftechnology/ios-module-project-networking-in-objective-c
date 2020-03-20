@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *precipType; // Optional
 @property (nonatomic, readonly) NSNumber *temperatureLow; // Optional
 @property (nonatomic, readonly) NSNumber *temperatureHigh; // Optional
-@property (nonatomic, readonly) NSNumber *apparentTemperature; // Optional
+@property (nonatomic, readonly) NSNumber *apparentTemperature; // Optional HIGH
 @property (nonatomic, readonly) NSNumber *humidity; // Optional
 @property (nonatomic, readonly) NSNumber *pressure; // Optional
 @property (nonatomic, readonly) NSNumber *windSpeed; // Optional
