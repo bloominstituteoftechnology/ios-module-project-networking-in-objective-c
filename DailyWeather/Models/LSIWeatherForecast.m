@@ -41,7 +41,6 @@
     return self;
 }
 
-// dictionary right now is basically just the whole object
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     
     NSNumber *timeNumber = dictionary[@"time"];
