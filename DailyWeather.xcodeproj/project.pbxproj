@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B669F02E2447B763002E27CE /* LSICurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = B669F02D2447B763002E27CE /* LSICurrentWeather.m */; };
 		B669F02F2447B763002E27CE /* LSICurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = B669F02D2447B763002E27CE /* LSICurrentWeather.m */; };
+		B669F0312447BF1C002E27CE /* WeatherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B669F0302447BF1C002E27CE /* WeatherTest.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		B669F02C2447B763002E27CE /* LSICurrentWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentWeather.h; sourceTree = "<group>"; };
 		B669F02D2447B763002E27CE /* LSICurrentWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentWeather.m; sourceTree = "<group>"; };
+		B669F0302447BF1C002E27CE /* WeatherTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherTest.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				BD69315123FD905400C0DF09 /* DailyWeatherTests.m */,
 				BD69315323FD905400C0DF09 /* Info.plist */,
+				B669F0302447BF1C002E27CE /* WeatherTest.m */,
 			);
 			path = DailyWeatherTests;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B669F0312447BF1C002E27CE /* WeatherTest.m in Sources */,
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
