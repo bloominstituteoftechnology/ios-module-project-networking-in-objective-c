@@ -74,7 +74,7 @@
                                     <constraint firstItem="hdr-a5-1Zh" firstAttribute="centerX" secondItem="7y8-Ij-hOt" secondAttribute="centerX" id="jcI-W5-3Cw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLh-ck-NIF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLh-ck-NIF" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="358.33333333333331" width="414" height="537.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7W-mS-6st" userLabel="DetailViews">
@@ -201,39 +201,37 @@
                                                     <constraint firstItem="JWd-Ry-hzs" firstAttribute="leading" secondItem="EBK-Wf-pg6" secondAttribute="leading" constant="236" id="UWy-Re-hjN"/>
                                                 </constraints>
                                             </stackView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMp-mj-4rM">
-                                                <rect key="frame" x="0.0" y="448.66666666666669" width="374" height="49"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <items>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Hzy-RV-66R"/>
-                                                    <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="PhH-pA-OFv">
-                                                        <color key="tintColor" red="1" green="0.99830236429999997" blue="0.99514961239999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <action selector="toolBarPressed:" destination="BYZ-38-t0r" id="FqG-l4-Tsp"/>
-                                                            <segue destination="1WV-3B-qSb" kind="show" id="V2u-MX-Olp"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                </items>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="barTintColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </toolbar>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.3411764706" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="LMp-mj-4rM" secondAttribute="bottom" constant="20" id="51C-lz-cP2"/>
                                             <constraint firstAttribute="trailing" secondItem="EBK-Wf-pg6" secondAttribute="trailing" id="Jyp-xA-41c"/>
-                                            <constraint firstItem="LMp-mj-4rM" firstAttribute="leading" secondItem="a7W-mS-6st" secondAttribute="leading" id="XCo-dN-OYr"/>
                                             <constraint firstItem="EBK-Wf-pg6" firstAttribute="leading" secondItem="a7W-mS-6st" secondAttribute="leading" id="eHF-Jm-k9C"/>
                                             <constraint firstItem="EBK-Wf-pg6" firstAttribute="top" secondItem="a7W-mS-6st" secondAttribute="top" id="n5j-SF-Duc"/>
-                                            <constraint firstAttribute="trailing" secondItem="LMp-mj-4rM" secondAttribute="trailing" id="ofr-Mh-tV8"/>
                                         </constraints>
                                     </view>
+                                    <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-ak-mj7">
+                                        <rect key="frame" x="20" y="489" width="374" height="49"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Cm9-sS-gcY"/>
+                                            <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="hvh-Vt-L9b">
+                                                <color key="tintColor" red="0.96990638969999998" green="0.61320751910000004" blue="0.0357950218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <segue destination="1WV-3B-qSb" kind="show" id="zZH-wX-Bq6"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </toolbar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Wew-ak-mj7" secondAttribute="bottom" id="5kd-NT-h4L"/>
                                     <constraint firstItem="a7W-mS-6st" firstAttribute="top" secondItem="BLh-ck-NIF" secondAttribute="top" constant="20" id="DdH-sb-phK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wew-ak-mj7" secondAttribute="trailing" constant="20" id="SRf-R7-ndK"/>
                                     <constraint firstItem="a7W-mS-6st" firstAttribute="leading" secondItem="BLh-ck-NIF" secondAttribute="leading" constant="20" id="bf1-v5-srt"/>
                                     <constraint firstAttribute="trailing" secondItem="a7W-mS-6st" secondAttribute="trailing" constant="20" id="cMS-Ab-A5d"/>
+                                    <constraint firstItem="Wew-ak-mj7" firstAttribute="leading" secondItem="BLh-ck-NIF" secondAttribute="leading" constant="20" id="f9p-kS-4Ck"/>
                                     <constraint firstAttribute="bottom" secondItem="a7W-mS-6st" secondAttribute="bottom" id="qVn-dm-SK7"/>
                                 </constraints>
                             </view>
@@ -252,7 +250,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bottomToolBar" destination="LMp-mj-4rM" id="ByG-RQ-QcS"/>
                         <outlet property="chanceOfRainLabel" destination="fsz-pd-A0k" id="l72-UL-NEy"/>
                         <outlet property="feelsLikeLabel" destination="auc-jV-Twr" id="6nZ-WQ-4xV"/>
                         <outlet property="humidityLabel" destination="P3A-7I-tfF" id="Tlp-Zy-iK7"/>
