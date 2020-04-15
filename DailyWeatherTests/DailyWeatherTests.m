@@ -19,16 +19,13 @@
 @implementation DailyWeatherTests
 
 - (void)testParseWeatherForcast {
-
-    // TODO: Use LSIFileHelper to load JSON from your test bundle
     NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForecast class]);
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    if (error) {  // if (error != nil) {
+    if (error) {
         XCTFail(@"Error parsing JSON: %@", error);
     }
-    //NSLog(@"JSON: %@", json);
 
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354 / 1000.0];
     LSIWeatherForecast *weatherForcast = [[LSIWeatherForecast alloc] initWithDictionary:json];
@@ -50,7 +47,6 @@
 
 }
 
-// TODO: Create Unit Tests for each separate JSON file
 - (void)testParseDailyWeather {
     
     NSData *data = loadFile(@"DailyWeather.json", [LSIDailyForecast class]);
@@ -58,10 +54,9 @@
 
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 
-    if (error) {  // if (error != nil) {
+    if (error) {
         XCTFail(@"Error parsing JSON: %@", error);
     }
-    //NSLog(@"JSON: %@", json);
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1580976000 / 1000.0];
     NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:1581001860 / 1000.0];
     NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:1581039540 / 1000.0];

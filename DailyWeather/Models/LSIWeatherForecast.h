@@ -12,18 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
-@property (nonatomic, readonly) NSDate *time; // Required
-@property (nonatomic, readonly, copy) NSString *summary; // Optional
-@property (nonatomic, readonly, copy) NSString *icon; // Optional
-@property (nonatomic, readonly) NSNumber *precipProbablity; // Optional
-@property (nonatomic, readonly) NSNumber *precipIntensity; // Optional
-@property (nonatomic, readonly) NSNumber *temperature; // Optional
-@property (nonatomic, readonly) NSNumber *apparentTemperature; // Optional
-@property (nonatomic, readonly) NSNumber *humidity; // Optional
-@property (nonatomic, readonly) NSNumber *pressure; // Optional
-@property (nonatomic, readonly) NSNumber *windSpeed; // Optional
-@property (nonatomic, readonly) NSNumber *windBearing; // Optional
-@property (nonatomic, readonly) NSNumber *uvIndex; // Optional
+@property (nonatomic, readonly) NSDate *time;
+@property (nonatomic, readonly, copy) NSString *summary;
+@property (nonatomic, readonly, copy) NSString *icon;
+@property (nonatomic, readonly) NSNumber *precipProbablity;
+@property (nonatomic, readonly) NSNumber *precipIntensity;
+@property (nonatomic, readonly) NSNumber *temperature;
+@property (nonatomic, readonly) NSNumber *apparentTemperature;
+@property (nonatomic, readonly) NSNumber *humidity;
+@property (nonatomic, readonly) NSNumber *pressure;
+@property (nonatomic, readonly) NSNumber *windSpeed;
+@property (nonatomic, readonly) NSNumber *windBearing;
+@property (nonatomic, readonly) NSNumber *uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
