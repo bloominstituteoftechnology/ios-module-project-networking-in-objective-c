@@ -111,7 +111,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" image="info.circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="1WV-3B-qSb" kind="show" identifier="ShowSettingsSegue" id="fQ5-BU-ok2"/>
+                                                    <segue destination="1WV-3B-qSb" kind="showDetail" identifier="ShowSettingsSegue" id="fQ5-BU-ok2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -161,6 +161,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chanceOfRainLabel" destination="hM2-2h-tLQ" id="A4E-U0-Y3R"/>
+                        <outlet property="feelsLikeTempLabel" destination="9g7-f2-0vT" id="rnf-sN-6cb"/>
+                        <outlet property="humidityLabel" destination="leP-Yz-Laz" id="XTs-77-mpB"/>
+                        <outlet property="locationLabel" destination="AS8-SR-GkY" id="6mB-gg-EtO"/>
+                        <outlet property="pressureLabel" destination="iz6-r0-Bj7" id="QmK-Yz-c1A"/>
+                        <outlet property="summaryLabel" destination="NKd-Jx-AFb" id="fwi-BS-Odd"/>
+                        <outlet property="temperatureLabel" destination="H93-t6-mRH" id="ROq-lB-E73"/>
+                        <outlet property="uvIndexLabel" destination="gMV-C2-kc1" id="gX1-Eu-is5"/>
+                        <outlet property="weatherImage" destination="Zh7-5k-Fj7" id="ARZ-Px-vOO"/>
+                        <outlet property="windSpeedLabel" destination="ovt-zC-zMF" id="Gnw-uc-d2F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,34 +187,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VersionCell" textLabel="yoE-oG-FOr" style="IBUITableViewCellStyleDefault" id="pRT-5y-TZg" customClass="LSISettingsTableViewController">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="yoE-oG-FOr" style="IBUITableViewCellStyleDefault" id="pRT-5y-TZg" customClass="LSISettingsTableViewController">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pRT-5y-TZg" id="3J9-Sj-ZGG">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Today's Weather v.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yoE-oG-FOr">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yoE-oG-FOr">
                                             <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DarkSkyCell" textLabel="WI8-Ye-VMU" style="IBUITableViewCellStyleDefault" id="u0j-Vq-qrS" customClass="LSISettingsTableViewController">
-                                <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u0j-Vq-qrS" id="eCZ-uA-bKV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Powered by Dark Sky" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WI8-Ye-VMU">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
