@@ -54,7 +54,7 @@ Design Requirements are as follows:
 
 * 60% height of the iPhone screen (fill remaining space below top view)
 	* Edge to edge color (0 point margins)
-	* Color: HEX: 0x0057B6 
+	* Color: HEX: `0057B6`
 	* Light style Home indicator
 * Weather "Details Views"
 	* Title
