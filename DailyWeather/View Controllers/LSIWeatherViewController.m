@@ -14,10 +14,27 @@
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
+//MARK:- Properties
 
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+//MARK:- IBOutlets
+
+@property (strong, nonatomic) IBOutlet UIImageView *weatherSymbolImageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+@property (strong, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 
 @end
 
@@ -25,6 +42,7 @@
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+
 
 @end
 
@@ -49,10 +67,15 @@
     return self;
 }
 
+- (IBAction)toolBarPressed:(UIBarButtonItem *)sender {
+    NSLog(@"Hello");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+   
+   
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
