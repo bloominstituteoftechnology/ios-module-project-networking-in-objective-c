@@ -18,16 +18,22 @@
     
 }
 
-#pragma mark - Table view data source
+// MARK: - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
     
     if (indexPath.row == 0) {
+        cell.textLabel.text = @"Today's Weather v.1.0";
+        //cell.textLabel.textColor = UIColor.systemBlueColor;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    if (indexPath.row == 1) {
         cell.textLabel.text = @"Powered by Dark Sky";
         cell.textLabel.textColor = UIColor.systemBlueColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -38,7 +44,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
+    if (indexPath.row == 1) {
         NSURL *url =  [NSURL URLWithString:@"https://darksky.net/poweredby/"];
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
     }

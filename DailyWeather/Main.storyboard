@@ -194,6 +194,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="appTemperatureLabel" destination="kUT-1G-zsm" id="Kem-zB-XVf"/>
+                        <outlet property="humidityLabel" destination="4WL-9J-y9p" id="TrC-1Y-muN"/>
+                        <outlet property="imageView" destination="wcd-e0-Bxl" id="5wS-44-ugf"/>
+                        <outlet property="locationLabel" destination="U4s-Wa-24p" id="roD-DO-tyF"/>
+                        <outlet property="precipProbabilityLabel" destination="7PD-jV-E8B" id="UMi-Jc-Z0Q"/>
+                        <outlet property="pressureLabel" destination="Enm-yA-tSw" id="1ok-3l-McO"/>
+                        <outlet property="summaryLabel" destination="U70-c6-Oh0" id="bmz-zD-9Dw"/>
+                        <outlet property="temperatureLabel" destination="JO9-17-WiA" id="o62-hf-NWE"/>
+                        <outlet property="uvIndexLabel" destination="3bv-8I-5X4" id="FEu-Wq-Khf"/>
+                        <outlet property="windSpeedLabel" destination="Ajf-OS-zBb" id="7xE-YG-Lzx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
