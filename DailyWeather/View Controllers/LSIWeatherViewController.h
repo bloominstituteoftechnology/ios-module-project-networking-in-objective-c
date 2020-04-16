@@ -9,7 +9,7 @@
 
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
-@interface LSIWeatherViewController : UIViewController
+@interface LSIWeatherViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource>
 
 
 //- (void)requestCurrentLocationWithCompletion:(LSILocationHandler)completionHandler;

@@ -32,15 +32,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
-
-@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
-@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
-@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
-@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
-@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
-
 @property (strong, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -54,7 +48,9 @@
 
 @implementation LSIWeatherViewController
 
-
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return 10;
+//}
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -78,7 +74,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _collectionView.dataSource = self;
+    _collectionView.dataSource = self;
     [self decodeDataAndUpdateViews];
    
     self.locationManager.delegate = self;
@@ -126,12 +125,7 @@
     LSICurrentWeather * currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherJSON];
     
     self.temperatureLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.temperature,@"°F"];
-    self.humidityLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.humidity,@"%"];
-    self.weatherSymbolImageView.image = [UIImage imageNamed:currentWeather.icon];
-    self.feelsLikeLabel.text = [NSString stringWithFormat:@"%.0f%@",currentWeather.apparentTemperature,@"°F"];
-    self.pressureLabel.text = [NSString stringWithFormat:@"%.0f%@",currentWeather.pressure,@" inHg"];
-    self.uvIndexLabel.text = [NSString stringWithFormat:@"%d",currentWeather.uvIndex];
-    self.windSpeedLabel.text = [NSString stringWithFormat:@"E %.2f mph",currentWeather.windSpeed];
+
 }
 
 
@@ -198,5 +192,6 @@
     // Stop updating location after getting one (NOTE: this is faster than doing a single location request)
     [manager stopUpdatingLocation];
 }
+
 
 @end
