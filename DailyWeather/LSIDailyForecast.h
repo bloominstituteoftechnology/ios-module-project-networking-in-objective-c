@@ -12,6 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIDailyForecast : NSObject
 
+@property NSString *icon;
+@property NSString *summary;
+@property double precipIntensity;
+@property double precipProbability;
+@property double humidity;
+@property double windSpeed;
+@property double windBearing;
+@property double uvIndex;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END
