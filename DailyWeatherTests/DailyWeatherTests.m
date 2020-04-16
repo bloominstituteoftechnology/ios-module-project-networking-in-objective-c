@@ -39,6 +39,7 @@
     XCTAssertEqualWithAccuracy(48.35, currentForecast.temperature, 0.0001);
     XCTAssertEqualObjects(@"clear-day", currentForecast.icon);
     XCTAssertEqualObjects(time, currentForecast.time);
+    
     // For now we'll just set the alert to nil, you may want to use @"" instead
     XCTAssertEqualWithAccuracy(47.4, currentForecast.apparentTemperature, 0.0001);
     XCTAssertEqualWithAccuracy(0.77, currentForecast.humidity, 0.0001);
