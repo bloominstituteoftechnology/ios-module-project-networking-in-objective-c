@@ -10,4 +10,19 @@
 
 @implementation LSICurrentForecast
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        
+        NSTimeInterval unixTime = [dictionary[@"time"] doubleValue];
+        _time = [NSDate dateWithTimeIntervalSince1970:unixTime];
+        _summary = dictionary[@"summary"];
+        _icon = dictionary[@"icon"];
+        _temperature = [dictionary[@"temperature"] doubleValue];
+        _windSpeed = [dictionary[@"windSpeed"] doubleValue];
+        _windBearing = [dictionary[@"windBearing"] doubleValue];
+    }
+    return self;
+}
+
 @end
