@@ -26,8 +26,8 @@
     self = [super init];
     if (self) {
         _time = time;
-        _summary = summary;
-        _icon = icon;
+        _summary = [summary copy];
+        _icon = [icon copy];
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _temperature = temperature;
@@ -39,10 +39,7 @@
         _uvIndex = uvIndex;
     }
     return self;
-    
-    
-    
-    
+ 
 }
 
 
