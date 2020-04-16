@@ -7,13 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class LSICurrentForcast;
-@class <#name#>
+@class LSIHourlyForecast;
+@class LSIDailyForecast;
 
 @interface LSIWeather : NSObject
+
+@property CLLocationCoordinate2D location;
+@property LSICurrentForcast *currently;
+@property NSArray<LSIDailyForecast *> *daily;
+@property NSArray<LSIHourlyForecast *> *hourly;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

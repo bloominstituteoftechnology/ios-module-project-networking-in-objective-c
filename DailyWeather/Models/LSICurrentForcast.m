@@ -6,11 +6,9 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIWeatherForcast.h"
+#import "LSICurrentForcast.h"
 
 @implementation LSICurrentForcast
-
-// day 2 commit
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
