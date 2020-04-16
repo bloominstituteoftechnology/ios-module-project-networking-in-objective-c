@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+@class LSICurrentWeather;
+@class LSIDailyWeather;
+@class LSIHourlyWeather;
+
 @interface LSIWeatherForecast : NSObject
 
 @property (nonatomic, readonly) NSDate *time; // Required
