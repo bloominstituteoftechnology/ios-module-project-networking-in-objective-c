@@ -16,8 +16,7 @@
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
-             temperatureHigh:(double)temperatureHigh
-              temperatureLow:(double)temperatureLow
+             temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -32,8 +31,7 @@
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _precipType = precipType;
-        _temperatureHigh = temperatureHigh;
-        _temperatureLow = temperatureLow;
+        _temperature = temperature;
         _apparentTemperature = apparentTemperature;
         _humidity = humidity;
         _pressure = pressure;
@@ -53,8 +51,7 @@
     NSNumber *precipProbability = dictionary[@"precipProbability"];
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
-    NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
-    NSNumber *temperatureLow = dictionary[@"temperatureLow"];
+    NSNumber *temperature = dictionary[@"temperature"];
     NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
     NSNumber *humidity = dictionary[@"humidity"];
     NSNumber *pressure = dictionary[@"pressure"];
@@ -65,9 +62,10 @@
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeNumber.longValue];
     
     
-    if (time && summary && icon && precipProbability && precipIntensity && precipType && temperatureHigh && temperatureLow && apparentTemperature && humidity && pressure && windSpeed && windBearing && uvIndex) {
+    if (time && summary && icon && precipProbability && temperature && apparentTemperature && humidity && pressure && windSpeed && windBearing && uvIndex) {
         
-        self = [self initWithTime:time summary:summary icon:icon precipProbability:precipProbability.doubleValue precipIntensity:precipIntensity.doubleValue precipType:precipType temperatureHigh:temperatureHigh.doubleValue temperatureLow:temperatureLow.doubleValue apparentTemperature:apparentTemperature.doubleValue humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.doubleValue];
+        self = [self initWithTime:time summary:summary icon:icon precipProbability:precipProbability.doubleValue precipIntensity:precipIntensity.doubleValue precipType:precipType
+                   temperature:temperature.doubleValue apparentTemperature:apparentTemperature.doubleValue humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.doubleValue];
     }
     
     return self;

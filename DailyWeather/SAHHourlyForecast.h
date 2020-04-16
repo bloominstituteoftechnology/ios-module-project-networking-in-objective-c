@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property double precipProbability;
 @property double precipIntensity;
 @property NSString *precipType;
-@property double temperatureHigh;
-@property double temperatureLow;
+@property double temperature;
 @property double apparentTemperature;
 @property double humidity;
 @property double pressure;
@@ -33,8 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
-             temperatureHigh:(double)temperatureHigh
-              temperatureLow:(double)temperatureLow
+             temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure

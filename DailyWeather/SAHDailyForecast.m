@@ -61,7 +61,7 @@
     NSString *precipType = dictionary[@"precipType"];
     NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
     NSNumber *temperatureLow = dictionary[@"temperatureLow"];
-    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperatureHigh"];
     NSNumber *humidity = dictionary[@"humidity"];
     NSNumber *pressure = dictionary[@"pressure"];
     NSNumber *windSpeed = dictionary[@"windSpeed"];
@@ -76,6 +76,7 @@
     if (time && summary && icon && sunriseTime && sunsetTime && precipProbability && precipIntensity && precipType && temperatureHigh && temperatureLow && apparentTemperature && humidity && pressure && windSpeed && windBearing && uvIndex) {
         
         self = [self initWithTime:time summary:summary icon:icon sunriseTime:sunriseTime sunsetTime:sunsetTime precipProbability:precipProbability.doubleValue precipIntensity:precipIntensity.doubleValue precipType:precipType temperatureHigh:temperatureHigh.doubleValue temperatureLow:temperatureLow.doubleValue apparentTemperature:apparentTemperature.doubleValue humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.doubleValue];
+        
     }
     
     return self;
