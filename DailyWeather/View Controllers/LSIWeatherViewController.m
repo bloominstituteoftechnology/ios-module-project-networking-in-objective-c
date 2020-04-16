@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForecast.h"
+#import "LSICurrentForecast.h"
+#import "LSIWeatherIcons.h"
+#import "LSISettingsTableVC.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -32,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *feelsLikeTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 
 
@@ -73,9 +78,27 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+    [self.toolBar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.toolBar setShadowImage:[UIImage new]
+              forToolbarPosition:UIBarPositionAny];
 }
+
+
+- (IBAction)settingsTapped:(UIBarButtonItem *)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    LSISettingsTableVC *settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"LSISettingsTableVC"];
+    
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    
+    [self presentViewController:navigationVC animated:YES completion:nil];
+    
+}
+
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location

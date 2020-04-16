@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="114" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-zc-dtg">
-                                <rect key="frame" x="20" y="442.5" width="394" height="419.5"/>
+                                <rect key="frame" x="20" y="568.5" width="394" height="243.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="oMc-Ue-yGC">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="243.5"/>
@@ -60,7 +60,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="135" translatesAutoresizingMaskIntoConstraints="NO" id="Olc-T8-HEo">
-                                        <rect key="frame" x="194" y="0.0" width="200" height="419.5"/>
+                                        <rect key="frame" x="194" y="0.0" width="200" height="243.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="GLN-8G-1l4">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="243.5"/>
@@ -106,14 +106,6 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-a1-4vW">
-                                                <rect key="frame" x="180" y="378.5" width="20" height="41"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <state key="normal" image="info.circle.fill" catalog="system"/>
-                                                <connections>
-                                                    <segue destination="1WV-3B-qSb" kind="showDetail" identifier="ShowSettingsSegue" id="fQ5-BU-ok2"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -149,6 +141,24 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VbN-4G-jlW">
+                                <rect key="frame" x="-35" y="818" width="467" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="vhz-zs-4wz">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YeS-ko-kol">
+                                            <rect key="frame" x="20" y="1.5" width="427" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <state key="normal" image="info.circle.fill" catalog="system"/>
+                                        </button>
+                                        <connections>
+                                            <action selector="settingsTapped:" destination="BYZ-38-t0r" id="Gof-ya-1SL"/>
+                                            <segue destination="1WV-3B-qSb" kind="showDetail" id="yKm-Uk-MA2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -156,7 +166,7 @@
                             <constraint firstItem="lVx-yE-i3e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2GV-Pl-bhl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TOS-zc-dtg" secondAttribute="trailing" id="ECh-UI-26H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lVx-yE-i3e" secondAttribute="trailing" id="MHG-Dh-Qrr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TOS-zc-dtg" secondAttribute="bottom" id="nIe-1N-tTR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TOS-zc-dtg" secondAttribute="bottom" constant="50" id="nIe-1N-tTR"/>
                             <constraint firstItem="lVx-yE-i3e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sac-rG-Aqx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -169,6 +179,7 @@
                         <outlet property="pressureLabel" destination="iz6-r0-Bj7" id="QmK-Yz-c1A"/>
                         <outlet property="summaryLabel" destination="NKd-Jx-AFb" id="fwi-BS-Odd"/>
                         <outlet property="temperatureLabel" destination="H93-t6-mRH" id="ROq-lB-E73"/>
+                        <outlet property="toolBar" destination="VbN-4G-jlW" id="qhd-b6-g8f"/>
                         <outlet property="uvIndexLabel" destination="gMV-C2-kc1" id="gX1-Eu-is5"/>
                         <outlet property="weatherImage" destination="Zh7-5k-Fj7" id="ARZ-Px-vOO"/>
                         <outlet property="windSpeedLabel" destination="ovt-zC-zMF" id="Gnw-uc-d2F"/>
