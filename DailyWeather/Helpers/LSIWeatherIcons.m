@@ -54,4 +54,11 @@ static NSString *unknownIcon = @"questionmark.circle.fill";
     return [UIImage imageNamed:icon];;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 @end
