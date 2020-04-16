@@ -14,14 +14,14 @@
 #import "LSIDailyForecast.h"
 #import "LSIDailyForecastResult.h"
 
-@interface WeatherTest : XCTestCase
+@interface LSIWeatherTest : XCTestCase
 
 @end
 
-@implementation WeatherTest
+@implementation LSIWeatherTest
 
 - (void)testParseCurrentWeather {
-    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [WeatherTest class]);
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherTest class]);
     NSError *error = nil;
 
     NSDictionary *currentWeatherJSON = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error: &error ];
@@ -40,7 +40,7 @@
 }
 
 - (void)testParseDailyForecastArray {
-    NSData *dailyForecastData = loadFile(@"DailyWeather.json", [WeatherTest class]);
+    NSData *dailyForecastData = loadFile(@"DailyWeather.json", [LSIWeatherTest class]);
     NSError *error = nil;
     
     NSArray *json = [NSJSONSerialization JSONObjectWithData:dailyForecastData options:0 error:&error]; // JSON is array
@@ -50,8 +50,7 @@
     LSIDailyForecast *firstItem = [dailyForecastArray.result objectAtIndex:0];
     XCTAssertTrue(dailyForecastArray.result.count == 8 );
     XCTAssertNotNil(firstItem);
-//    XCTAssertEqual(4, firstItem.uvIndex);
-    
+    NSLog(@"First Item %@",firstItem);
     
 }
 @end
