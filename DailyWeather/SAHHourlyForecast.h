@@ -1,5 +1,5 @@
 //
-//  SAHDailyForecast.h
+//  SAHHourlyForecast.h
 //  DailyWeather
 //
 //  Created by scott harris on 4/16/20.
@@ -10,30 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//time (unix time)
-//summary
-//icon
-//sunriseTime
-//sunsetTime
-//precipProbability
-//precipIntensity
-//precipType ("rain", "snow", or "sleet", or nil)
-//temperatureLow
-//temperatureHigh
-//apparentTemperature (Feels like)
-//humidity
-//pressure
-//windSpeed
-//windBearing
-//uvIndex
-
-@interface SAHDailyForecast : NSObject
+@interface SAHHourlyForecast : NSObject
 
 @property NSDate *time;
 @property NSString *summary;
 @property NSString *icon;
-@property NSDate *sunriseTime;
-@property NSDate *sunsetTime;
 @property double precipProbability;
 @property double precipIntensity;
 @property NSString *precipType;
@@ -49,12 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSDate *)sunriseTime
-                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
-                 temperatureHigh:(double)temperatureHigh
+             temperatureHigh:(double)temperatureHigh
               temperatureLow:(double)temperatureLow
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
