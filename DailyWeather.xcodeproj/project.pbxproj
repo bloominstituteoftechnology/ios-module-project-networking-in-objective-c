@@ -219,14 +219,14 @@
 		E1A53D272447A2CC00004DCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1A53D362447BB8A00004DCE /* LSIWeather.h */,
+				E1A53D372447BB8A00004DCE /* LSIWeather.m */,
 				E1A53D282447A35300004DCE /* LSICurrentForcast.h */,
 				E1A53D292447A35300004DCE /* LSICurrentForcast.m */,
 				E1A53D2E2447B6FB00004DCE /* LSIDailyForecast.h */,
 				E1A53D2F2447B6FB00004DCE /* LSIDailyForecast.m */,
 				E1A53D322447BB7100004DCE /* LSIHourlyForecast.h */,
 				E1A53D332447BB7100004DCE /* LSIHourlyForecast.m */,
-				E1A53D362447BB8A00004DCE /* LSIWeather.h */,
-				E1A53D372447BB8A00004DCE /* LSIWeather.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
