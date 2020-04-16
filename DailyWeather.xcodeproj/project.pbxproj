@@ -35,6 +35,10 @@
 		BDFC8F6F23FD959A00A39B21 /* DailyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6723FD959A00A39B21 /* DailyWeather.json */; };
 		BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
 		BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
+		D27311A02447BE05006781D9 /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = D273119F2447BE05006781D9 /* LSIWeatherForecast.m */; };
+		D27311A12447BE05006781D9 /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = D273119F2447BE05006781D9 /* LSIWeatherForecast.m */; };
+		D27311A42447BEDA006781D9 /* SAHCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = D27311A32447BEDA006781D9 /* SAHCurrentForecast.m */; };
+		D27311A52447BEDA006781D9 /* SAHCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = D27311A32447BEDA006781D9 /* SAHCurrentForecast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		BDFC8F6723FD959A00A39B21 /* DailyWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyWeather.json; sourceTree = "<group>"; };
 		BDFC8F7023FD999000A39B21 /* LSICardinalDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSICardinalDirection.h; sourceTree = "<group>"; };
 		BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSICardinalDirection.m; sourceTree = "<group>"; };
+		D273119E2447BE05006781D9 /* LSIWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForecast.h; sourceTree = "<group>"; };
+		D273119F2447BE05006781D9 /* LSIWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherForecast.m; sourceTree = "<group>"; };
+		D27311A22447BEDA006781D9 /* SAHCurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAHCurrentForecast.h; sourceTree = "<group>"; };
+		D27311A32447BEDA006781D9 /* SAHCurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAHCurrentForecast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,10 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69314723FD905300C0DF09 /* main.m */,
+				D273119E2447BE05006781D9 /* LSIWeatherForecast.h */,
+				D273119F2447BE05006781D9 /* LSIWeatherForecast.m */,
+				D27311A22447BEDA006781D9 /* SAHCurrentForecast.h */,
+				D27311A32447BEDA006781D9 /* SAHCurrentForecast.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -302,9 +314,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
+				D27311A42447BEDA006781D9 /* SAHCurrentForecast.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
+				D27311A02447BE05006781D9 /* LSIWeatherForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
@@ -323,7 +337,9 @@
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
+				D27311A52447BEDA006781D9 /* SAHCurrentForecast.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
+				D27311A12447BE05006781D9 /* LSIWeatherForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 7SF2KFH336;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,7 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 7SF2KFH336;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +514,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 7SF2KFH336;
 				INFOPLIST_FILE = DailyWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +534,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 7SF2KFH336;
 				INFOPLIST_FILE = DailyWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
