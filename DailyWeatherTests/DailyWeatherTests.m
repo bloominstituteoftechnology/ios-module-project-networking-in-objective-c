@@ -37,6 +37,7 @@
 }
 
 - (void)testParseDailyWeather {
+    
 }
 
 - (void)testParseHourlyWeather {
