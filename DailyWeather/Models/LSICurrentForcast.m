@@ -10,6 +10,8 @@
 
 @implementation LSICurrentForcast
 
+// day 2 commit
+
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
