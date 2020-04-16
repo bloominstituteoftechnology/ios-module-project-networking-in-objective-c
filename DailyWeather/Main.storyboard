@@ -10,7 +10,6 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="LSIWeatherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -109,8 +108,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="SAX-oi-lpT">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="49.333333333333336"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUMIDTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peK-gq-ckn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="15.666666666666666"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUMIDiTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peK-gq-ckn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="15.666666666666666"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" red="0.64462631940000004" green="0.69936877490000005" blue="0.77822405100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -132,7 +131,7 @@
                                                         <color key="textColor" red="0.64462631940000004" green="0.69936877490000005" blue="0.77822405100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.35 inHg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTg-Sa-5lY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="30.35 inHg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTg-Sa-5lY">
                                                         <rect key="frame" x="0.0" y="15.666666666666625" width="138" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -203,7 +202,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="apparentTemperatureLabel" destination="xdX-a0-Wut" id="sAT-Oo-PV4"/>
+                        <outlet property="humidityLabel" destination="xQB-EX-RGb" id="PuY-Pb-Vl3"/>
+                        <outlet property="iconIV" destination="KJE-jo-A0M" id="RKB-7X-uFL"/>
+                        <outlet property="locationLabel" destination="zZr-yt-KQO" id="nws-bo-GJJ"/>
+                        <outlet property="pressureLabel" destination="nTg-Sa-5lY" id="wrS-9l-AGF"/>
+                        <outlet property="rainLabel" destination="nv5-i2-ZHI" id="quY-a3-Nmc"/>
+                        <outlet property="summaryLabel" destination="dsQ-Se-Awu" id="MJv-Zw-Xxf"/>
+                        <outlet property="temperatureLabel" destination="oBT-In-oXE" id="77Y-rj-YYw"/>
+                        <outlet property="uvIndexLabel" destination="gLc-5T-h0F" id="LDh-4Q-XTb"/>
+                        <outlet property="windLabel" destination="pYP-pA-0Ae" id="BPf-9D-9Ok"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="373.91304347826087" y="130.58035714285714"/>
         </scene>

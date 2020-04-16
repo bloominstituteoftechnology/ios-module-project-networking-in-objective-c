@@ -1,6 +1,6 @@
 //
-//  UFOWeather.h
-//  DailyWeather
+//  LSIDailyForecast.h
+//  DailyForecast
 //
 //  Created by Ufuk Türközü on 15.04.20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UFOWeather : NSObject
+@interface LSIDailyForecast : NSObject
 
-@property (nonatomic, readonly) int time;
+@property (nonatomic, readonly, copy) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;
 @property (nonatomic, readonly,copy) NSString *icon;
 @property (nonatomic, readonly) double precipIntensity;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double windBearing;
 @property (nonatomic, readonly) double uvIndex;
 
-- (instancetype)initWithTime:(int)time
+- (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
              precipIntensity:(double)precipIntensity
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
                      uvIndex:(double)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
- 
+
 @end
 
 NS_ASSUME_NONNULL_END
