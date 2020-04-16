@@ -24,6 +24,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSICurrentForecast *forecast;
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -152,20 +153,39 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+  if(!_requestedLocation) {
+        _requestedLocation = YES;
+        __block BOOL requestedLocation = _requestedLocation;
+        
+        [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
+            
+            NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
+            self.placemark = place;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateViews];
+            });
+            requestedLocation = NO;
+        }];
+    }
     
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+       self.locationLabel.text = [NSString stringWithFormat:@"%@, %@",
+                               self.placemark.locality,
+                               self.placemark.administrativeArea];
+        self.summaryLabel.text = self.forecast.summary;
     }
     
-    // TODO: Update the UI based on the current forecast
+    if (self.forecast) {
+        
+        NSLog(@"TEMP: %@", self.forecast);
+        self.temperatureLabel.text = [NSString stringWithFormat: @"%0.0fºF", self.forecast.temperature];
+        
+        self.weatherImage.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
+    }
 }
 
 @end
