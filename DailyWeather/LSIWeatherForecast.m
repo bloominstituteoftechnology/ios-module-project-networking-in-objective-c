@@ -96,7 +96,6 @@
     }
     
     if (timeInUnix) {
-//        double timeDouble = [NSDate dateWithTimeIntervalSince1970:timeInUnix.longValue];
         _time = [NSDate dateWithTimeIntervalSince1970:timeInUnix.longValue];
         _summary = summary;
         _icon = icon;
