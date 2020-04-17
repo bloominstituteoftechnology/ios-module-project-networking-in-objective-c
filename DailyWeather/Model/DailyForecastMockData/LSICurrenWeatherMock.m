@@ -6,9 +6,9 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSICurrentWeather.h"
+#import "LSICurrenWeatherMock.h"
 
-@implementation LSICurrentWeather
+@implementation LSICurrenWeatherMock
 
 
 - (instancetype)initWithTime:(NSDate *)time

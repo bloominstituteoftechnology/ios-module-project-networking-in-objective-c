@@ -186,9 +186,9 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-ml-ou4">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-ml-ou4">
                                         <rect key="frame" x="0.0" y="122.33333333333334" width="414" height="350.33333333333326"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DailyWeatherCell" rowHeight="62" id="YyR-2N-fqB">
@@ -232,8 +232,10 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
+                                                            <color key="backgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="K7e-hH-H1X" secondAttribute="trailing" constant="8" id="GHm-qv-aMZ"/>
                                                         <constraint firstAttribute="bottom" secondItem="K7e-hH-H1X" secondAttribute="bottom" constant="8" id="cH7-1I-xd4"/>
@@ -262,7 +264,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7y8-Ij-hOt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ch3-wv-sCA"/>
                             <constraint firstItem="BLh-ck-NIF" firstAttribute="top" secondItem="7y8-Ij-hOt" secondAttribute="bottom" id="J66-tt-jKx"/>

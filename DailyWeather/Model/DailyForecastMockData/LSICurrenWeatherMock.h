@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSICurrentWeather : NSObject
+@interface LSICurrenWeatherMock : NSObject
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly) NSString *summary;

@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "LSIErrors.h"
 #import "LSIFileHelper.h"
-#import "LSICurrentWeather.h"
+#import "LSICurrenWeatherMock.h"
 #import "LSILog.h"
 #import "LSIDailyForecast.h"
 #import "LSIDailyForecastResult.h"
@@ -28,7 +28,7 @@
     
     if (error) {    XCTFail(@"Error parsing JSON: %@", error);   }
      
-    LSICurrentWeather * currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherJSON];
+    LSICurrenWeatherMock * currentWeather = [[LSICurrenWeatherMock alloc] initWithDictionary:currentWeatherJSON];
     
     NSLog(@"JSON: %@",currentWeatherJSON);
     NSLog(@"current weather %@",currentWeather);

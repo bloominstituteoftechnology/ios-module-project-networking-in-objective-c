@@ -10,10 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
-#import "LSICurrentWeather.h"
+#import "LSICurrenWeatherMock.h"
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
-
+#import "CurrentLocationWeatherFetcher.h"
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
@@ -23,7 +23,7 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
-
+@property (nonatomic) CurrentLocationWeatherFetcher *currentWeatherFetcher;
 
 
 //MARK:- IBOutlets
@@ -48,9 +48,32 @@
 
 @implementation LSIWeatherViewController
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 10;
-//}
+- (CurrentLocationWeatherFetcher *)currentWeatherFetcher {
+    if (!_currentWeatherFetcher) {
+        _currentWeatherFetcher = [[CurrentLocationWeatherFetcher alloc] init];
+    }
+    return _currentWeatherFetcher;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HoulyWeatherCell" forIndexPath:indexPath];
+    return cell;
+}
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DailyWeatherCell" forIndexPath:indexPath];
+    return cell;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -74,6 +97,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.currentWeatherFetcher fetchCurrentWeatherUsingLatitude:_locationManager.location.coordinate.latitude longtitude:_locationManager.location.coordinate.longitude completionBlock:^(CurrentUserLocationWeather *  _Nullable weather, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error fetching weather: %@",error);
+            return;
+        }
+        NSLog(@"Weather: %@", weather);
+        
+    }];
+    
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _collectionView.dataSource = self;
@@ -122,7 +156,7 @@
     NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
     NSError *error = nil;
     NSDictionary *currentWeatherJSON = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error: &error ];
-    LSICurrentWeather * currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherJSON];
+    LSICurrenWeatherMock * currentWeather = [[LSICurrenWeatherMock alloc] initWithDictionary:currentWeatherJSON];
     
     self.temperatureLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.temperature,@"°F"];
 

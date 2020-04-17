@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LSILog.h"
-#import "LSICurrentWeather.h"
+#import "LSICurrenWeatherMock.h"
 #import "LSIErrors.h"
 #import "LSIFileHelper.h"
 

@@ -9,7 +9,7 @@
 #import "CurrentLocationWeatherFetcher.h"
 #import "LSILog.h"
 #import "LSIErrors.h"
-#import "LSICurrentWeather.h"
+#import "CurrentUserLocationWeather.h"
 #import "LSIDailyForecast.h"
 
 static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b52af4a81dd7775c5af";
@@ -35,13 +35,10 @@ static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b5
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSLog(@"url: %@",url);
         
-        
-        
         if (error) {
             completionBlock(nil,error);
             return;
         }
-        
         if (!data) {
             NSError *dataError = errorWithMessage(@"No data in URL response for current location weather", LSIDataNilError);
             completionBlock(nil,dataError);
@@ -56,9 +53,9 @@ static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b5
             completionBlock(nil,jsonError);
             return;
         }
-        
+        CurrentUserLocationWeather *result = [[CurrentUserLocationWeather alloc] initWithDictionary:json];
        
-        
+        completionBlock(result,nil);
     } ];
     [task resume];
 }
