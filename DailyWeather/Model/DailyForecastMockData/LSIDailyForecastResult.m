@@ -10,11 +10,11 @@
 
 @implementation LSIDailyForecastResult
 
-- (instancetype)initWithResult:(NSArray<LSIDailyForecast *> *)result {
+- (instancetype)initWithResult:(NSArray<LSIDailyForecast *> *)result
+{
     self = [super init];
     if (self) {
-        _result = [result copy];
-        
+        _result = [result copy];    
     }
     return self;
 }

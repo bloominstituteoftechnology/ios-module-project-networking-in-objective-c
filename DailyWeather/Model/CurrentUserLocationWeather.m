@@ -18,7 +18,8 @@
                     pressure:(double )pressure
                    windSpeed:(double )windSpeed
                      uvIndex:(int )uvIndex
-                  visibility:(int )visibility {
+                  visibility:(int )visibility
+{
     self = [super init];
     if (self) {
         _time = time ;
@@ -35,7 +36,8 @@
 }
 
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
     NSDictionary *currently = dictionary[@"currently"];
     
     NSNumber *timeNumber = currently[@"time"];

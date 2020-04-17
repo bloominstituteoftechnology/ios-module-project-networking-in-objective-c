@@ -16,7 +16,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 
 @implementation CurrentLocationWeatherFetcher
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init];
     if (self) {
         
@@ -24,7 +25,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     return self;
 }
 
-- (void)fetchCurrentWeatherUsingLatitude:(double)latitude longtitude:(double)longitude completionBlock:(LSICurrentLocationFetcherCompletionBlock)completionBlock {
+- (void)fetchCurrentWeatherUsingLatitude:(double)latitude longtitude:(double)longitude completionBlock:(LSICurrentLocationFetcherCompletionBlock)completionBlock
+{
     
     NSString *latitudeString = [NSString stringWithFormat:@"%f",latitude];
     NSString *longitudeString = [NSString stringWithFormat:@"%f",longitude];
@@ -46,18 +48,16 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
         }
         
         NSError *jsonError = nil;
-        
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        
         if (jsonError) {
             completionBlock(nil,jsonError);
             return;
         }
         CurrentUserLocationWeather *result = [[CurrentUserLocationWeather alloc] initWithDictionary:json];
-       
         completionBlock(result,nil);
     } ];
     [task resume];
 }
 
 @end
+

@@ -1,3 +1,4 @@
+
 //
 //  LSIWeatherViewController.m
 //
@@ -19,7 +20,8 @@
 
 
 
-@interface LSIWeatherViewController () {
+@interface LSIWeatherViewController ()
+{
     BOOL _requestedLocation;
 }
 //MARK:- Properties
@@ -40,13 +42,9 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet UILabel *todayLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *highTempLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *lowTempLabel;
-
 
 @end
 
@@ -57,37 +55,43 @@
 
 @end
 
-
 @implementation LSIWeatherViewController
 
-- (CurrentLocationWeatherFetcher *)currentWeatherFetcher {
-    if (!_currentWeatherFetcher) {
+- (CurrentLocationWeatherFetcher *)currentWeatherFetcher
+{
+    if (!_currentWeatherFetcher)
+    {
         _currentWeatherFetcher = [[CurrentLocationWeatherFetcher alloc] init];
     }
     return _currentWeatherFetcher;
 }
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return 10;
 }
 
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HoulyWeatherCell" forIndexPath:indexPath];
     return cell;
 }
 
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 10;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DailyWeatherCell" forIndexPath:indexPath];
     return cell;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
     self = [super initWithCoder:coder];
     if (self) {
         _locationManager = [[CLLocationManager alloc] init];
@@ -95,7 +99,8 @@
     return self;
 }
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _locationManager = [[CLLocationManager alloc] init];
@@ -103,23 +108,20 @@
     return self;
 }
 
-- (IBAction)toolBarPressed:(UIBarButtonItem *)sender {
+- (IBAction)toolBarPressed:(UIBarButtonItem *)sender
+{
     NSLog(@"Hello");
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
     [self.currentWeatherFetcher fetchCurrentWeatherUsingLatitude:_locationManager.location.coordinate.latitude longtitude:_locationManager.location.coordinate.longitude completionBlock:^(CurrentUserLocationWeather *_Nullable weather, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error fetching weather: %@",error);
-            return;
-        }
+        if (error) {   NSLog(@"Error fetching weather: %@",error); return; }
         NSLog(@"Weather: %@", weather);
-    
         if (weather) {
             dispatch_async(dispatch_get_main_queue(), ^{
-               self.temperatureLabel.text = [NSString stringWithFormat:@"%.f %@",weather.temperature,@"°F"];
+                self.temperatureLabel.text = [NSString stringWithFormat:@"%.f %@",weather.temperature,@"°F"];
                 self.summaryLabel.text = weather.summary;
                 self.weatherSymbolImageView.image = [UIImage imageNamed:weather.icon];
                 
@@ -127,21 +129,20 @@
                     if (error) {
                         NSLog(@"%@",error);
                     }
-                        self.locationLabel.text = [address subAdministrativeArea];
-  
+                    self.locationLabel.text = [address subAdministrativeArea];
+                    
                 }];
             });
-          
+            
         }
     }];
-    
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _collectionView.dataSource = self;
     _collectionView.dataSource = self;
     [self decodeDataAndUpdateViews];
-   
+    
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
@@ -155,7 +156,7 @@
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
     if (location) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                
+        
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if (error) {
                 completionHandler(nil, error);
@@ -187,10 +188,8 @@
     LSICurrenWeatherMock * currentWeather = [[LSICurrenWeatherMock alloc] initWithDictionary:currentWeatherJSON];
     
     self.temperatureLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.temperature,@"°F"];
-
+    
 }
-
-
 - (void)requestUserFriendlyLocation:(CLLocation *)location {
     if(!_requestedLocation) {
         _requestedLocation = YES;
