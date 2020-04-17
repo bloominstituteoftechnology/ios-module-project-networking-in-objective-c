@@ -186,7 +186,7 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-ml-ou4">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-ml-ou4">
                                         <rect key="frame" x="0.0" y="122.33333333333334" width="414" height="350.33333333333326"/>
                                         <color key="backgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.1355104446" green="0.47832888359999998" blue="0.7939618826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,10 +280,13 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="Wew-ak-mj7" id="zI8-tR-iXh"/>
                         <outlet property="collectionView" destination="iOF-4G-wTA" id="Inw-HE-UWA"/>
+                        <outlet property="highTempLabel" destination="Wtp-WT-UBV" id="cI1-ZJ-4nu"/>
                         <outlet property="locationLabel" destination="rId-Uu-Jer" id="3Sf-Vd-byd"/>
+                        <outlet property="lowTempLabel" destination="9oq-XF-qpi" id="zIC-RG-WOS"/>
                         <outlet property="summaryLabel" destination="bBV-Hd-4JN" id="1fa-oq-rfd"/>
                         <outlet property="tableView" destination="nAu-ml-ou4" id="fMk-dQ-hd1"/>
                         <outlet property="temperatureLabel" destination="rjs-1k-dRW" id="Iq6-iK-aYN"/>
+                        <outlet property="todayLabel" destination="fgt-1a-Hie" id="ESi-o4-BYq"/>
                         <outlet property="weatherSymbolImageView" destination="VS1-fh-UHn" id="W2E-tN-ULd"/>
                     </connections>
                 </viewController>

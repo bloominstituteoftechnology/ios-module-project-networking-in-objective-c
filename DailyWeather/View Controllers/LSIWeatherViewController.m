@@ -14,6 +14,11 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "CurrentLocationWeatherFetcher.h"
+#import "CurrentUserLocationWeather.h"
+
+
+
+
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
@@ -35,6 +40,13 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *todayLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *highTempLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *lowTempLabel;
+
 
 @end
 
@@ -105,7 +117,22 @@
         }
         NSLog(@"Weather: %@", weather);
     
-        
+        if (weather) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+               self.temperatureLabel.text = [NSString stringWithFormat:@"%.f %@",weather.temperature,@"°F"];
+                self.summaryLabel.text = weather.summary;
+                self.weatherSymbolImageView.image = [UIImage imageNamed:weather.icon];
+                
+                [self requestCurrentPlacemarkForLocation:self.locationManager.location withCompletion:^(CLPlacemark *address, NSError *error) {
+                    if (error) {
+                        NSLog(@"%@",error);
+                    }
+                        self.locationLabel.text = [address subAdministrativeArea];
+  
+                }];
+            });
+          
+        }
     }];
     
     
