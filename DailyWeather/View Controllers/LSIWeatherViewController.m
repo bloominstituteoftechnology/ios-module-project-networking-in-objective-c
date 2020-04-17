@@ -98,12 +98,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.currentWeatherFetcher fetchCurrentWeatherUsingLatitude:_locationManager.location.coordinate.latitude longtitude:_locationManager.location.coordinate.longitude completionBlock:^(CurrentUserLocationWeather *  _Nullable weather, NSError * _Nullable error) {
+    [self.currentWeatherFetcher fetchCurrentWeatherUsingLatitude:_locationManager.location.coordinate.latitude longtitude:_locationManager.location.coordinate.longitude completionBlock:^(CurrentUserLocationWeather *_Nullable weather, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error fetching weather: %@",error);
             return;
         }
         NSLog(@"Weather: %@", weather);
+    
         
     }];
     

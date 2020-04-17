@@ -12,7 +12,7 @@
 #import "CurrentUserLocationWeather.h"
 #import "LSIDailyForecast.h"
 
-static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b52af4a81dd7775c5af";
+static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b5b52af4a81dd7775c5af";
 
 @implementation CurrentLocationWeatherFetcher
 
@@ -28,7 +28,7 @@ static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b5
     
     NSString *latitudeString = [NSString stringWithFormat:@"%f",latitude];
     NSString *longitudeString = [NSString stringWithFormat:@"%f",longitude];
-    NSString *stringURL =  [NSString stringWithFormat:@"%@/%@/%@",baseURLString,latitudeString,longitudeString];
+    NSString *stringURL =  [NSString stringWithFormat:@"%@/%@,%@",baseURLString,latitudeString,longitudeString];
     
     NSURL *url = [[NSURL alloc]initWithString:stringURL];
     

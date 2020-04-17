@@ -50,7 +50,15 @@
     NSNumber *uvIndex = currently[@"uvIndex"];
     NSNumber *visibility = currently[@"visibility"];
     
-    self = [self initWithTime:time summary:summary icon:icon temperature:temperature.doubleValue humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue uvIndex:uvIndex.intValue visibility:visibility.intValue];
+    self = [self initWithTime:time
+                      summary:summary
+                         icon:icon
+                  temperature:temperature.doubleValue
+                     humidity:humidity.doubleValue
+                     pressure:pressure.doubleValue
+                    windSpeed:windSpeed.doubleValue
+                      uvIndex:uvIndex.intValue
+                   visibility:visibility.intValue];
     return self;
     
 }
