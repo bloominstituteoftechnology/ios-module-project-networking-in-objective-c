@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LSIFileHelper.h"
+#import "LSIWeatherForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -17,7 +19,16 @@
 - (void)testExample {
 
     // TODO: Use LSIFileHelper to load JSON from your test bundle
-    
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForecast class]);
+
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]; // & = addres of
+    // Ooooh so we still use referencing pointers in obj-c. Lit
+
+    if (error) {
+        XCTFail(@"Error parsing JSON: %@", json);
+    }
+    NSLog(@"JSON: %@", json);
     // TODO: Create Unit Tests for each separate JSON file
 
 }
