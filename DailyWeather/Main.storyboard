@@ -55,12 +55,21 @@
                                     <constraint firstItem="gq7-WF-4SQ" firstAttribute="centerX" secondItem="9VQ-Fo-mQh" secondAttribute="centerX" id="s6M-t3-CWe"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euy-dG-Yr7">
+                                <rect key="frame" x="0.0" y="402.5" width="414" height="537.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Euy-dG-Yr7" firstAttribute="top" secondItem="9VQ-Fo-mQh" secondAttribute="bottom" id="77S-2g-Eyz"/>
+                            <constraint firstItem="Euy-dG-Yr7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="Bns-Qv-5Cc"/>
                             <constraint firstItem="9VQ-Fo-mQh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="DlR-G1-Ntq"/>
+                            <constraint firstItem="Euy-dG-Yr7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SMB-rI-eeN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9VQ-Fo-mQh" secondAttribute="trailing" id="VqZ-Sc-erZ"/>
+                            <constraint firstItem="Euy-dG-Yr7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b5h-WW-KfJ"/>
                             <constraint firstItem="9VQ-Fo-mQh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ogu-Ix-E4p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Euy-dG-Yr7" secondAttribute="trailing" id="oki-3x-Lqc"/>
                             <constraint firstItem="9VQ-Fo-mQh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uQK-sS-h6g"/>
                             <constraint firstItem="9VQ-Fo-mQh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x4g-4b-ImB"/>
                         </constraints>
