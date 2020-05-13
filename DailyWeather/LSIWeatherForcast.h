@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           percipProbability:(NSNumber *)percipProbability
+           precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
                  temperature:(NSNumber *)temperature
          apparentTemperature:(NSNumber *)apparentTemperature
