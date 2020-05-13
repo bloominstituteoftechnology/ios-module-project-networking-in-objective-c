@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gq7-WF-4SQ">
                                         <rect key="frame" x="87" y="52" width="218.5" height="214"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-OK-cEu">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fog" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-OK-cEu">
                                                 <rect key="frame" x="77" y="0.0" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="Xf4-Q4-4uK"/>
@@ -265,6 +265,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clear-day" width="130" height="130"/>
+        <image name="fog" width="130" height="130"/>
     </resources>
 </document>
