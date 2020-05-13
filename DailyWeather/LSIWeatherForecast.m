@@ -8,6 +8,7 @@
 
 #import "LSIWeatherForecast.h"
 
+
 @implementation LSIWeatherForecast
 
 - (instancetype)initWithTime:(NSDate *)time
