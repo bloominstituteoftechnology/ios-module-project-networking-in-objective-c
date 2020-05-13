@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
                         icon:(NSString *)icon
            percipProbability:(NSNumber *)percipProbability
              precipIntensity:(NSNumber *)precipIntensity
-           percipProbability:(NSNumber *)percipProbability
                  temperature:(NSNumber *)temperature
          apparentTemperature:(NSNumber *)apparentTemperature
                     humidity:(NSNumber *)humidity

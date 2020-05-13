@@ -10,4 +10,25 @@
 
 @implementation LSIWeatherForcast
 
+- (instancetype)initWithTime:(NSDate *)time
+                     summary:(NSString *)summary
+                        icon:(NSString *)icon
+           percipProbability:(NSNumber *)percipProbability
+             precipIntensity:(NSNumber *)precipIntensity
+                 temperature:(NSNumber *)temperature
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex {
+    
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    
+    return nil;
+}
+
 @end
