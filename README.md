@@ -102,7 +102,7 @@ Review the provided files before you begin.
 
 2. Parse the "CurrentWeather.json" file and verify it works in your Unit Test.
 
-	Create a model object: `LSIWeatherForcast` with a child CurrentForecast object 
+	Create a model object: `LSIWeatherForecast` with a child CurrentForecast object 
 	
 	**Required Fields**
 	
