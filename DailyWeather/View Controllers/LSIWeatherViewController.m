@@ -145,19 +145,17 @@
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
         self.cityWeather.text = self.placemark.name;
     }
     self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.icon];
-    self.windLabel.text = self.forcast.windSpeed.stringValue;
-//    summaryLabel
-//    temperatureLabel
-//    windLabel
-//    humidityLabel
-//    chanceOfRainLabel
-//    feelsLikeLabel
-//    pressureLabel
-//    uvIndexLabel
+    self.windLabel.text = [LSICardinalDirection directionForHeading:self.forcast.windSpeed.doubleValue];
+    self.summaryLabel.text = self.forcast.summary;
+    self.temperatureLabel.text = self.forcast.temperature.stringValue;
+    self.humidityLabel.text = self.forcast.humidity.stringValue;
+    self.chanceOfRainLabel.text = self.forcast.precipProbability.stringValue;
+    self.feelsLikeLabel.text = self.forcast.apparentTemperature.stringValue;
+    self.pressureLabel.text = self.forcast.pressure.stringValue;
+    self.uvIndexLabel.text = self.forcast.uvIndex.stringValue;
     // TODO: Update the UI based on the current forecast
 }
 
