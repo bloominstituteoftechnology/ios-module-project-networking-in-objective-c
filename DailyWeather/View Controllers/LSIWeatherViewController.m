@@ -19,6 +19,11 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
+
+// MARK: - IBOutlets
+
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
@@ -58,6 +63,11 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+    [self.toolbar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage new]
+              forToolbarPosition:UIBarPositionAny];
     // TODO: Handle settings button pressed
 }
 
