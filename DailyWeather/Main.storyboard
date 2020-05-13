@@ -199,6 +199,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="apparentLabel" destination="nts-zh-5JI" id="qca-IL-wIr"/>
+                        <outlet property="cityLabel" destination="2f5-U0-goH" id="9WJ-I2-3D1"/>
+                        <outlet property="humidityLabel" destination="AXz-B2-6T6" id="OWt-cN-Wyp"/>
+                        <outlet property="iconImageView" destination="Sl5-OK-cEu" id="PRv-Ib-cyv"/>
+                        <outlet property="precipProbLabel" destination="gn9-w1-yRf" id="4nJ-JY-6Az"/>
+                        <outlet property="pressureLabel" destination="JpT-NX-0fM" id="zZb-xT-Me2"/>
+                        <outlet property="summaryLabel" destination="EpX-J0-xnp" id="HyJ-8l-k0b"/>
+                        <outlet property="temperatureLabel" destination="XIM-F9-KpH" id="3Oe-x3-BPC"/>
+                        <outlet property="uvIndexLabel" destination="sBR-n5-tqw" id="uTh-of-G34"/>
+                        <outlet property="windSpeedLabel" destination="WQH-G4-bJb" id="G0L-kp-TVM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

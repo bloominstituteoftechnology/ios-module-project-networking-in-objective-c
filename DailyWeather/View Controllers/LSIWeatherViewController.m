@@ -19,12 +19,29 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
+// MARK:- Outlets
+// MARK:- Top View
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *cityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+// MARK:- Detailed view
+@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipProbLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+
+
 
 @end
 
