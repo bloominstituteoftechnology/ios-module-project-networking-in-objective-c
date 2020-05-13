@@ -12,18 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
-@property NSDate *time;
-@property NSString *summary; // optional
-@property NSString *icon; // optional
-@property NSNumber *precipProbability; // optional
-@property NSNumber *precipIntensity; // optional
-@property NSNumber *temperature; // optional
-@property NSNumber *apparentTemperature; // optional
-@property NSNumber *humidity; // optional
-@property NSNumber *pressure; // optional
-@property NSNumber *windSpeed; // optional
-@property NSNumber *windBearing; // optional
-@property NSNumber *uvIndex; // optional
+@property (nonatomic, readonly) NSDate *time;
+@property (nonatomic, readonly, copy) NSString *summary; // optional
+@property (nonatomic, readonly, copy) NSString *icon; // optional
+@property (nonatomic, readonly) NSNumber *precipProbability; // optional
+@property (nonatomic, readonly) NSNumber *precipIntensity; // optional
+@property (nonatomic, readonly) NSNumber *temperature; // optional
+@property (nonatomic, readonly) NSNumber *apparentTemperature; // optional
+@property (nonatomic, readonly) NSNumber *humidity; // optional
+@property (nonatomic, readonly) NSNumber *pressure; // optional
+@property (nonatomic, readonly) NSNumber *windSpeed; // optional
+@property (nonatomic, readonly) NSNumber *windBearing; // optional
+@property (nonatomic, readonly) NSNumber *uvIndex; // optional
 
 @end
 
