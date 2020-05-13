@@ -10,4 +10,25 @@
 
 @implementation LSIHourlyForecast
 
+- (instancetype)initWithTime:(NSDate *)time
+                     summary:(NSString *)summary
+                        icon:(NSString *)icon
+           precipProbability:(NSNumber *)precipProbability
+             precipIntensity:(NSNumber *)precipIntensity
+                  precipType:(NSString *)precipType
+              temperatureLow:(NSNumber *)temperatureLow
+             temperatureHigh:(NSNumber *)temperatureHigh
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex {
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    return nil;
+}
+
 @end
