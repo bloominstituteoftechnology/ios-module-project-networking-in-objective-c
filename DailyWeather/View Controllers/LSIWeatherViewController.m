@@ -157,6 +157,17 @@
     if (self.placemark) {
         // TODO: Update the City, State label
         _iconImageView.image = [LSIWeatherIcons weatherImageForIconName:_forecast.icon];
+        _cityLabel.text = _placemark.name;
+        _summaryLabel.text = _forecast.summary;
+        _temperatureLabel.text = _forecast.temperature.stringValue;
+
+        // MARK:- Detail
+        _windSpeedLabel.text = _forecast.windSpeed.stringValue;
+        _humidityLabel.text = _forecast.humidity.stringValue;
+        _precipProbLabel.text = _forecast.precipProbability.stringValue;
+        _apparentLabel.text = _forecast.apparentTemperature.stringValue;
+        _pressureLabel.text = _forecast.pressure.stringValue;
+        _uvIndexLabel.text = _forecast.uvIndex.stringValue;
     }
     
     // TODO: Update the UI based on the current forecast
