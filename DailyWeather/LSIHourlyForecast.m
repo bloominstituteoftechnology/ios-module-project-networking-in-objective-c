@@ -1,20 +1,18 @@
 //
-//  LSIDailyForecast.m
+//  LSIHourlyForecast.m
 //  DailyWeather
 //
 //  Created by Lydia Zhang on 5/13/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
-@implementation LSIDailyForecast
+@implementation LSIHourlyForecast
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSNumber *)sunriseTime
-                  sunsetTime:(NSNumber *)sunsetTime
            precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
                   precipType:(NSString *)precipType
@@ -31,8 +29,6 @@
         _time = time;
         _summary = [summary copy];
         _icon = [icon copy];
-        _sunriseTime = sunriseTime;
-        _sunsetTime = sunsetTime;
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _precipType = [precipType copy];
@@ -47,7 +43,6 @@
     }
     return self;
 }
-
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
@@ -131,8 +126,6 @@
     return [self initWithTime:time
                       summary:summary
                          icon:icon
-                  sunriseTime:sunriseTime
-                   sunsetTime:sunsetTime
             precipProbability:precipProbability
               precipIntensity:precipIntensity
                    precipType:precipType
@@ -146,7 +139,6 @@
                       uvIndex:uvIndex];
     
 }
-
 
 
 @end
