@@ -39,6 +39,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *currentTopTemp;
 @property (strong, nonatomic) IBOutlet UILabel *currentLowTemp;
 
+// MARK:- Table and Collection
+@property (strong, nonatomic) IBOutlet UITableView *dailyTable;
+@property (strong, nonatomic) IBOutlet UICollectionView *hourlyCollection;
+
 - (IBAction)fetchAPITapped:(UIButton *)sender;
 
 // MARK:- Actions
