@@ -14,17 +14,18 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "LSIWeatherForecast.h"
+#import "HLOWeatherController.h"
 
 @interface HLOWeatherViewController () <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     BOOL _requestedLocation;
 }
+// MARK:- Properties
 
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 //@property (nonatomic) LSIWeatherForecast *forecast; // Won't be needing this as we'll be using a controller.
-
-// MARK:- Properties
+@property (nonatomic) HLOWeatherController *weatherController;
 
 // Outlets
 
@@ -73,8 +74,12 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+}
+
+- (void)initializeController {
+    if (!_weatherController) {
+        _weatherController = [[HLOWeatherController alloc] init];
+    }
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names

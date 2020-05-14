@@ -40,7 +40,7 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     NSURL *requestURL = [baseURL URLByAppendingPathComponent:locationCoordinates];
 
     // Test before we waste any API calls
-    NSLog(@"");
+    NSLog(@"%@", requestURL.path);
 
 }
 
