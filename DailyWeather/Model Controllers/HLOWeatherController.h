@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Method for parsing the data separately (So that I may call this method with mock data)
 
 - (void)parseJSONData:(NSData *)data
-       completionBloc:(void (^)(void))completionBlock;
+       completionBloc:(void (^)(NSError * _Nullable error))completionBlock;
 
 @end
 

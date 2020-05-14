@@ -59,8 +59,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
         }
 
         // Let's hope I did this part rightlol
-        [self parseJSONData:data completionBloc:^{
-            completionBlock(nil);
+        [self parseJSONData:data completionBloc:^(NSError * _Nullable error){
+            completionBlock(error);
             return;
         }];
     }];
@@ -70,8 +70,22 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 }
 
 - (void)parseJSONData:(NSData *)data
-       completionBloc:(void (^)(void))completionBlock {
+       completionBloc:(void (^)(NSError * _Nullable error))completionBlock {
 
+    NSError *jsonError = nil;
+
+    // Create dictionary from data
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+
+    NSLog(@"json parsed: %@", json);
+
+    if (jsonError) {
+        completionBlock(jsonError);
+        return;
+    }
+    // Containers first:
+
+    completionBlock(nil);
 }
 
 @end
