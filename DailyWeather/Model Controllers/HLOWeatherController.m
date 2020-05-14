@@ -7,8 +7,27 @@
 //
 
 #import "HLOWeatherController.h"
+#import "LSIErrors.h"
+#import "LSILog.h"
 
 @implementation HLOWeatherController
 
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        _currentForecast = nil;
+        _hourlyForecast = nil;
+        _dailyForecast = nil;
+    }
+    return self;
+}
+- (void)fetchForecastWithLatitude:(NSNumber *)latitude
+                        longitude:(NSNumber *)longitude {
+
+}
+
+- (void)parseJSONData:(NSData *)data {
+
+}
 
 @end
