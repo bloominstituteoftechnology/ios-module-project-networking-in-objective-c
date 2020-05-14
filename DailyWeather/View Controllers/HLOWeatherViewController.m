@@ -15,7 +15,7 @@
 #import "LSICardinalDirection.h"
 #import "LSIWeatherForecast.h"
 
-@interface HLOWeatherViewController () {
+@interface HLOWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     BOOL _requestedLocation;
 }
 
@@ -38,23 +38,143 @@
 // MARK:- Actions
 @end
 
-@interface HLOWeatherViewController <
+// MARK:- QUESTION FOR JON: So when I didn't have '()' it was giving me an error. What exactly does the '()' mean to the compiler.
+// Well I learned that putting something inside of the '()' is like making a form of extension on whatever you put in there? So like a global extension? Still confused lowkey.
+//@interface HLOWeatherViewController () <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
+//@end
 
 @implementation HLOWeatherViewController
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+
+    // TODO: Transparent toolbar with info button (Settings)
+    // TODO: Handle settings button pressed
 }
 
-/*
-#pragma mark - Navigation
+//https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
+- (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
+                            withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
+    if (location) {
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            if (error) {
+                completionHandler(nil, error);
+                return;
+            }
+
+            if (placemarks.count >= 1) {
+                CLPlacemark *place = placemarks.firstObject;
+
+                completionHandler(place, nil);
+                return;
+
+            } else {
+                NSError *placeError = errorWithMessage(@"No places match current location", LSIPlaceError);
+
+                completionHandler(nil, placeError);
+                return;
+            }
+        }];
+
+    } else {
+        NSLog(@"ERROR: Missing location, please provide location");
+    }
 }
-*/
+
+- (void)requestUserFriendlyLocation:(CLLocation *)location {
+    if(!_requestedLocation) {
+        _requestedLocation = YES;
+        __block BOOL requestedLocation = _requestedLocation;
+
+        [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
+
+            NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.location = location;
+                self.placemark = place;
+                [self updateViews];
+            });
+            requestedLocation = NO;
+        }];
+    }
+}
+
+- (void)requestWeatherForLocation:(CLLocation *)location {
+
+
+
+}
+
+- (void)updateViews {
+    if (self.placemark) {
+        // TODO: Update the City, State label
+    }
+
+    // TODO: Update the UI based on the current forecast
+}
+
+// MARK:- Methods
+
+
+// MARK:- Protocol conforming
+
+// MARK:- CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"locationManager Error: %@", error);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@"locationManager: found location %@", locations.firstObject);
+
+    CLLocation *location = locations.firstObject;
+
+    // 1. Request Weather for location
+
+    [self requestWeatherForLocation: location];
+
+    // 2. Request User-Friendly Place Names for Lat/Lon coordinate
+
+    [self requestUserFriendlyLocation: location];
+
+    // Stop updating location after getting one (NOTE: this is faster than doing a single location request)
+    [manager stopUpdatingLocation];
+}
+
+// MARK:- TableView Protocols
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    <#code#>
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    <#code#>
+}
 
 @end
+// ^ I really like that "implementation" for a class ends with @end.
+// Makes it easy to code within the scope.
