@@ -152,11 +152,11 @@
 // MARK:- Actions
 - (void)fetchAPITapped:(UIButton *)sender {
 //    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
-    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.longitude completionBloc:^(NSError * _Nullable error) {
+//    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.longitude completionBloc:^(NSError * _Nullable error) {
 
-    }];
+//    }];
     [self.weatherController parseJSONData:loadFile(@"Weather.json", [LSIWeatherForecast class]) completionBloc:^(NSError * _Nullable error) {
-    
+
     }];
 }
 

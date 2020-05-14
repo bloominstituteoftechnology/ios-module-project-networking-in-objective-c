@@ -85,6 +85,15 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     _currentForecast = [[LSIWeatherForecast alloc] initWithDictionary:currentForecastDic];
     NSLog(@"Current weather summary %@", self.currentForecast.summary);
 
+    // Take care of daily
+    NSDictionary *dailyContainer = json[@"daily"];
+    NSArray *dailyArray = dailyContainer[@"data"];
+    for (NSDictionary *day in dailyArray) {
+        LSIDailyForecast *newDay = [[LSIDailyForecast alloc] initWithDictionary:day];
+        [self.dailyForecast addObject:newDay];
+    }
+    NSLog(@"Days Count: %d first day: %@", self.dailyForecast.count, self.dailyForecast[0].summary);
+
     if (jsonError) {
         completionBlock(jsonError);
         return;
