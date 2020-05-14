@@ -45,6 +45,7 @@
 		E25B84AE246CEDCE00FA3C49 /* CBDDailyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */; };
 		E25B84B0246CEDEA00FA3C49 /* CBDHourlyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */; };
 		E25B84B3246CEE9C00FA3C49 /* CBDHourlyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */; };
+		E2C4C04F246DDAA400F4E2CC /* CBDWeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C4C04E246DDAA400F4E2CC /* CBDWeatherFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcastTests.m; sourceTree = "<group>"; };
 		E25B84B1246CEE9C00FA3C49 /* CBDHourlyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDHourlyForcast.h; sourceTree = "<group>"; };
 		E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcast.m; sourceTree = "<group>"; };
+		E2C4C04D246DDAA400F4E2CC /* CBDWeatherFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDWeatherFetcher.h; sourceTree = "<group>"; };
+		E2C4C04E246DDAA400F4E2CC /* CBDWeatherFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 				E25B8493246C961D00FA3C49 /* Models */,
 				E25B8494246C962400FA3C49 /* Views */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				E2C4C04C246DDA7500F4E2CC /* Controllers */,
 				BD69314723FD905300C0DF09 /* main.m */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
@@ -252,6 +256,15 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E2C4C04C246DDA7500F4E2CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2C4C04D246DDAA400F4E2CC /* CBDWeatherFetcher.h */,
+				E2C4C04E246DDAA400F4E2CC /* CBDWeatherFetcher.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +384,7 @@
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
 				E25B8498246C968900FA3C49 /* CBDWeatherForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
+				E2C4C04F246DDAA400F4E2CC /* CBDWeatherFetcher.m in Sources */,
 				E25B84A4246CA04700FA3C49 /* CBDWeatherBase.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
