@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, copy, readonly) NSString *summary;
 @property (nonatomic, copy, readonly) NSString *icon;
-@property (nonatomic,readonly) NSNumber *sunriseTime;
-@property (nonatomic,readonly) NSNumber *sunsetTime;
+@property (nonatomic,readonly) NSDate *sunriseTime;
+@property (nonatomic,readonly) NSDate *sunsetTime;
 @property (nonatomic, readonly) NSNumber *precipProbability;
 @property (nonatomic, readonly) NSNumber *precipIntensity;
 @property (nonatomic,readonly,copy) NSString *precipType;
@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSNumber *)sunriseTime
-                  sunsetTime:(NSNumber *)sunsetTime
+                 sunriseTime:(NSDate *)sunriseTime
+                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
                   precipType:(NSString *)precipType

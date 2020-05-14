@@ -13,8 +13,8 @@
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSNumber *)sunriseTime
-                  sunsetTime:(NSNumber *)sunsetTime
+                 sunriseTime:(NSDate *)sunriseTime
+                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
                   precipType:(NSString *)precipType
@@ -51,12 +51,15 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
-    NSDate *time = dictionary[@"time"];
+    NSNumber *timeBeforeFormat = dictionary[@"time"];
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeBeforeFormat.longValue / 1000.0];
     NSString *summary = dictionary[@"summary"];
     NSString *icon = dictionary[@"icon"];
     NSNumber *precipProbability = dictionary[@"precipProbability"];
-    NSNumber *sunriseTime = dictionary[@"sunriseTime"];
-    NSNumber *sunsetTime = dictionary[@"sunsetTime"];
+    NSNumber *sunriseTimeBeforeFormat = dictionary[@"sunriseTime"];
+    NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:sunriseTimeBeforeFormat.longValue / 1000.0];
+    NSNumber *sunsetTimeBeforeFormat = dictionary[@"sunsetTime"];
+    NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:sunsetTimeBeforeFormat.longValue / 1000.0];
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
     NSNumber *temperatureLow = dictionary[@"temperatureLow"];

@@ -46,7 +46,8 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
-    NSDate *time = dictionary[@"time"];
+    NSNumber *timeBeforeFormat = dictionary[@"time"];
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeBeforeFormat.longValue / 1000.0];
     NSString *summary = dictionary[@"summary"];
     NSString *icon = dictionary[@"icon"];
     NSNumber *precipProbability = dictionary[@"precipProbability"];
