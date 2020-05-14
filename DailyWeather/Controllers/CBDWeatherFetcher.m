@@ -13,6 +13,5 @@
 - (void)fetchWeatherAtLatitude:(NSNumber *)latitude
       longitude:(NSNumber *)longitude
                completionBlock:(CBDWeatherFetcherCompletion)completionBlock {
-    
 }
 @end
