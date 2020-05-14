@@ -18,7 +18,7 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 - (void)fetchWeatherAtLatitude:(double)latitude
                      longitude:(double)longitude
                completionBlock:(CBDWeatherFetcherCompletion)completionBlock {
-<<<<<<< HEAD
+
     NSLog(@"Fetching...");
 
     
@@ -56,7 +56,7 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
         
     }];
     [task resume];
-=======
->>>>>>> 2de66104eb0e3562832bde08118fbca34abec7ac
+
+    
 }
 @end
