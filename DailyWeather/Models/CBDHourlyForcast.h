@@ -13,19 +13,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CBDHourlyForcast : CBDWeatherBase
 
 @property (nonatomic) NSString *precipType;
-@property (nonatomic) double temperatureLow;
-@property (nonatomic) double temperatureHigh;
+@property (nonatomic) NSNumber *temperatureLow;
+@property (nonatomic) NSNumber *temperatureHigh;
 @property (nonatomic) double apparentTemperature;
+@property (nonatomic) NSNumber *temperature;
 
-- (instancetype)initWithTemperatureLow:(double)temperatureLow
-                       temperatureHigh:(double)temperatureHigh
+- (instancetype)initWithTemperatureLow:(NSNumber *)temperatureLow
+                       temperatureHigh:(NSNumber *)temperatureHigh
                    apparentTemperature:(double)apparentTemperature
+                           temperature:(NSNumber *)temperature
                             precipType:(NSString *)precipType
                                   time:(NSDate *)time
                                summary:(NSString *)summary
                                   icon:(NSString *)icon
                      precipProbability:(double)precipProbability
-                       precipIntensity:(double)precipIntensity
+                       precipIntensity:(NSNumber *)precipIntensity
                               humidity:(double)humidity
                               pressure:(double)pressure
                              windSpeed:(double)windSpeed

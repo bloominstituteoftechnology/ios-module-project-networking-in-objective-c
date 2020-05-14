@@ -14,7 +14,7 @@
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(double)precipProbability
-             precipIntensity:(double)precipIntensity
+             precipIntensity:(NSNumber *)precipIntensity
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
@@ -36,9 +36,5 @@
     
     return self;
 }
-
-//- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-//    
-//}
 
 @end

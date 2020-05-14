@@ -10,15 +10,16 @@
 
 @implementation CBDHourlyForcast
 
-- (instancetype)initWithTemperatureLow:(double)temperatureLow
-                       temperatureHigh:(double)temperatureHigh
+- (instancetype)initWithTemperatureLow:(NSNumber *)temperatureLow
+                       temperatureHigh:(NSNumber *)temperatureHigh
                    apparentTemperature:(double)apparentTemperature
+                           temperature:(NSNumber *)temperature
                             precipType:(NSString *)precipType
                                   time:(NSDate *)time
                                summary:(NSString *)summary
                                   icon:(NSString *)icon
                      precipProbability:(double)precipProbability
-                       precipIntensity:(double)precipIntensity
+                       precipIntensity:(NSNumber *)precipIntensity
                               humidity:(double)humidity
                               pressure:(double)pressure
                              windSpeed:(double)windSpeed
@@ -29,6 +30,7 @@
         _temperatureLow = temperatureLow;
         _temperatureHigh = temperatureHigh;
         _apparentTemperature = apparentTemperature;
+        _temperature = temperature;
         _precipType = precipType;
         self.time = time;
         self.summary = summary;
@@ -51,10 +53,11 @@
     NSString *summary = dictionary[@"summary"];
     NSString *icon = dictionary[@"icon"];
     NSNumber *precipProbabilityNumber = dictionary[@"precipProbability"];
-    NSNumber *precipIntensityNumber = dictionary[@"precipIntensity"];
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
-    NSNumber *temperatureLowNumber = dictionary[@"temperatureLow"];
-    NSNumber *temperatureHighNumber = dictionary[@"temperatureHigh"];
+    NSNumber *temperatureLow = dictionary[@"temperatureLow"];
+    NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
+    NSNumber *temperature = dictionary[@"temperature"];
     NSNumber *apparentTemperatureNumber = dictionary[@"apparentTemperature"];
     NSNumber *humidityNumber = dictionary[@"humidity"];
     NSNumber *pressureNumber = dictionary[@"pressure"];
@@ -65,9 +68,6 @@
     double timeInMilliseconds = timeNumber.doubleValue;
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds/1000.0];
     double precipProbability = precipProbabilityNumber.doubleValue;
-    double precipIntensity = precipIntensityNumber.doubleValue;
-    double temperatureLow = temperatureLowNumber.doubleValue;
-    double temperatureHigh = temperatureHighNumber.doubleValue;
     double apparentTemperature = apparentTemperatureNumber.doubleValue;
     double humidity = humidityNumber.doubleValue;
     double pressure = pressureNumber.doubleValue;
@@ -75,9 +75,26 @@
     double windBearing = windBearingNumber.doubleValue;
     double uvIndex = uvIndexNumber.doubleValue;
     
+    if (!precipIntensity || [precipIntensity isKindOfClass:[NSNull class]]) {
+        precipIntensity = nil;
+    }
+    if (!precipType || [precipType isKindOfClass:[NSNull class]]) {
+        precipType = nil;
+    }
+    if (!temperatureLow || [temperatureLow isKindOfClass:[NSNull class]]) {
+        temperatureLow = nil;
+    }
+    if (!temperatureHigh || [temperatureHigh isKindOfClass:[NSNull class]]) {
+        temperatureHigh = nil;
+    }
+    if (!temperature || [temperature isKindOfClass:[NSNull class]]) {
+        temperature = nil;
+    }
+    
     return [self initWithTemperatureLow:temperatureLow
                         temperatureHigh:temperatureHigh
                     apparentTemperature:apparentTemperature
+                            temperature:temperature
                              precipType:precipType
                                    time:time
                                 summary:summary

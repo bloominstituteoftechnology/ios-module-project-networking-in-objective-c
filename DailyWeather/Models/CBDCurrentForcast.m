@@ -16,7 +16,7 @@
                             summary:(NSString *)summary
                                icon:(NSString *)icon
                   precipProbability:(double)precipProbability
-                    precipIntensity:(double)precipIntensity
+                    precipIntensity:(NSNumber *)precipIntensity
                            humidity:(double)humidity
                            pressure:(double)pressure
                           windSpeed:(double)windSpeed
@@ -47,7 +47,7 @@
     NSString *summary = dictionary[@"summary"];
     NSString *icon = dictionary[@"icon"];
     NSNumber *precipProbabilityNumber = dictionary[@"precipProbability"];
-    NSNumber *precipIntensityNumber = dictionary[@"precipIntensity"];
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSNumber *temperatureNumber = dictionary[@"temperature"];
     NSNumber *apparentTemperatureNumber = dictionary[@"apparentTemperature"];
     NSNumber *humidityNumber = dictionary[@"humidity"];
@@ -59,7 +59,6 @@
     double timeInMilliseconds = timeNumber.doubleValue;
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds/1000.0];
     double precipProbability = precipProbabilityNumber.doubleValue;
-    double precipIntensity = precipIntensityNumber.doubleValue;
     double temperature = temperatureNumber.doubleValue;
     double apparentTemperature = apparentTemperatureNumber.doubleValue;
     double humidity = humidityNumber.doubleValue;

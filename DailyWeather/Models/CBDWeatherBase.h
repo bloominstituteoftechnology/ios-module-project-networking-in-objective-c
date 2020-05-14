@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *summary;
 @property (nonatomic) NSString *icon;
 @property (nonatomic) double precipProbability;
-@property (nonatomic) double precipIntensity;
+@property (nonatomic) NSNumber *precipIntensity;
 @property (nonatomic) double humidity;
 @property (nonatomic) double pressure;
 @property (nonatomic) double windSpeed;
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(double)precipProbability
-             precipIntensity:(double)precipIntensity
+             precipIntensity:(NSNumber *)precipIntensity
                     humidity:(double)humidity
                     pressure:(double)pressure
            windSpeed:(double)windSpeed

@@ -17,32 +17,36 @@
 
 @implementation CBDHourlyForcastTests
 
-//- (void)testCurrentForcastParsing {
-//    
-//    NSData *currentForcastData = loadFile(@"CurrentWeather.json", [CBDCurrentForcastTests class]);
-//    NSLog(@"Current Weather: %@", currentForcastData);
-//    NSError *jsonError = nil;
-//    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentForcastData options:0 error:&jsonError];
-//    if (jsonError) {
-//        NSLog(@"JSON Parsing error: %@", jsonError);
-//    }
-//    NSLog(@"JSON: %@", currentWeatherDictionary);
-//    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354 / 1000.0];
-//    CBDCurrentForcast *currentForcast = [[CBDCurrentForcast alloc] initWithDictionary:currentWeatherDictionary];
-//    NSLog(@"Current Weather: %@", currentForcast);
-//    XCTAssertEqualObjects(time, currentForcast.time);
-//    XCTAssertEqualObjects(@"Clear", currentForcast.summary);
-//    XCTAssertEqualObjects(@"clear-day", currentForcast.icon);
-//    XCTAssertEqualWithAccuracy(0, currentForcast.precipIntensity, 0.001);
-//    XCTAssertEqualWithAccuracy(0, currentForcast.precipProbability, 0.001);
-//    XCTAssertEqualWithAccuracy(48.35, currentForcast.temperature, 0.001);
-//    XCTAssertEqualWithAccuracy(47.4, currentForcast.apparentTemperature, 0.001);
-//    XCTAssertEqualWithAccuracy(0.77, currentForcast.humidity, 0.001);
-//    XCTAssertEqualWithAccuracy(1023.2, currentForcast.pressure, 0.001);
-//    XCTAssertEqualWithAccuracy(3.45, currentForcast.windSpeed, 0.001);
-//    XCTAssertEqualWithAccuracy(24, currentForcast.windBearing, 0.001);
-//    XCTAssertEqualWithAccuracy(0, currentForcast.uvIndex, 0.001);
-//    
-//}
+- (void)testhourlyForcastParsing {
+
+NSData *hourlyForcastData = loadFile(@"HourlyWeather.json", [CBDHourlyForcastTests class]);
+NSLog(@"Hourly Weather: %@", hourlyForcastData);
+NSError *jsonError = nil;
+NSDictionary *hourlyWeatherDictionary = [NSJSONSerialization JSONObjectWithData:hourlyForcastData options:0 error:&jsonError];
+if (jsonError) {
+    NSLog(@"JSON Parsing error: %@", jsonError);
+}
+NSLog(@"JSON: %@", hourlyWeatherDictionary);
+NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581001200 / 1000.0];
+CBDHourlyForcast *hourlyForcast = [[CBDHourlyForcast alloc] initWithDictionary:hourlyWeatherDictionary];
+NSNumber *temperature = [NSNumber numberWithDouble:47.68];
+NSLog(@"Hourly Weather: %@", hourlyForcast);
+XCTAssertEqualObjects(time, hourlyForcast.time);
+XCTAssertEqualObjects(@"Clear", hourlyForcast.summary);
+XCTAssertEqualObjects(@"clear-night", hourlyForcast.icon);
+XCTAssertNil(hourlyForcast.precipIntensity);
+XCTAssertEqualWithAccuracy(0.0, hourlyForcast.precipProbability, 0.001);
+XCTAssertNil(hourlyForcast.precipType);
+XCTAssertNil(hourlyForcast.temperatureLow);
+XCTAssertNil(hourlyForcast.temperatureHigh);
+XCTAssertEqualWithAccuracy(46.54, hourlyForcast.apparentTemperature, 0.001);
+XCTAssertEqualObjects(temperature, hourlyForcast.temperature);
+XCTAssertEqualWithAccuracy(0.78, hourlyForcast.humidity, 0.001);
+XCTAssertEqualWithAccuracy(1022.8, hourlyForcast.pressure, 0.001);
+XCTAssertEqualWithAccuracy(3.57, hourlyForcast.windSpeed, 0.001);
+XCTAssertEqualWithAccuracy(36, hourlyForcast.windBearing, 0.001);
+XCTAssertEqualWithAccuracy(0, hourlyForcast.uvIndex, 0.1);
+    
+}
 
 @end

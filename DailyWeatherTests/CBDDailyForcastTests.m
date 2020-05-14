@@ -31,13 +31,14 @@
     NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:1581001860 / 1000.0];
     NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:1581039540 / 1000.0];
     CBDDailyForcast *dailyForcast = [[CBDDailyForcast alloc] initWithDictionary:dailyWeatherDictionary];
+    NSNumber *precipIntensity = [NSNumber numberWithDouble:0.0006];
     NSLog(@"Daily Weather: %@", dailyForcast);
     XCTAssertEqualObjects(time, dailyForcast.time);
     XCTAssertEqualObjects(@"Clear throughout the day.", dailyForcast.summary);
     XCTAssertEqualObjects(@"clear-day", dailyForcast.icon);
     XCTAssertEqualObjects(sunriseTime, dailyForcast.sunriseTime);
     XCTAssertEqualObjects(sunsetTime, dailyForcast.sunsetTime);
-    XCTAssertEqualWithAccuracy(0.0006, dailyForcast.precipIntensity, 0.0001);
+    XCTAssertEqualObjects(precipIntensity, dailyForcast.precipIntensity);
     XCTAssertEqualWithAccuracy(0.13, dailyForcast.precipProbability, 0.001);
     XCTAssertEqualObjects(@"rain", dailyForcast.precipType);
     XCTAssertEqualWithAccuracy(47.02, dailyForcast.temperatureLow, 0.001);

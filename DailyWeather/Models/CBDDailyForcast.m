@@ -19,7 +19,7 @@
                                summary:(NSString *)summary
                                   icon:(NSString *)icon
                      precipProbability:(double)precipProbability
-                       precipIntensity:(double)precipIntensity
+                       precipIntensity:(NSNumber *)precipIntensity
                               humidity:(double)humidity
                               pressure:(double)pressure
                              windSpeed:(double)windSpeed
@@ -55,7 +55,7 @@
     NSString *sunriseTimeNumber = dictionary[@"sunriseTime"];
     NSString *sunsetTimeNumber = dictionary[@"sunsetTime"];
     NSNumber *precipProbabilityNumber = dictionary[@"precipProbability"];
-    NSNumber *precipIntensityNumber = dictionary[@"precipIntensity"];
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
     NSNumber *temperatureLowNumber = dictionary[@"temperatureLow"];
     NSNumber *temperatureHighNumber = dictionary[@"temperatureHigh"];
@@ -72,7 +72,6 @@
     double sunsetTimeInMilliseconds = sunsetTimeNumber.doubleValue;
     NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:sunsetTimeInMilliseconds/1000.0];
     double precipProbability = precipProbabilityNumber.doubleValue;
-    double precipIntensity = precipIntensityNumber.doubleValue;
     double temperatureLow = temperatureLowNumber.doubleValue;
     double temperatureHigh = temperatureHighNumber.doubleValue;
     double humidity = humidityNumber.doubleValue;

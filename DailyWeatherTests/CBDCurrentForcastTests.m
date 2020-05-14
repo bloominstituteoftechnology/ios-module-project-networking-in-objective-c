@@ -29,11 +29,12 @@
     NSLog(@"JSON: %@", currentWeatherDictionary);
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354 / 1000.0];
     CBDCurrentForcast *currentForcast = [[CBDCurrentForcast alloc] initWithDictionary:currentWeatherDictionary];
+    NSNumber *precipIntensity = [NSNumber numberWithDouble:0.0];
     NSLog(@"Current Weather: %@", currentForcast);
     XCTAssertEqualObjects(time, currentForcast.time);
     XCTAssertEqualObjects(@"Clear", currentForcast.summary);
     XCTAssertEqualObjects(@"clear-day", currentForcast.icon);
-    XCTAssertEqualWithAccuracy(0, currentForcast.precipIntensity, 0.001);
+    XCTAssertEqualObjects(precipIntensity, currentForcast.precipIntensity);
     XCTAssertEqualWithAccuracy(0, currentForcast.precipProbability, 0.001);
     XCTAssertEqualWithAccuracy(48.35, currentForcast.temperature, 0.001);
     XCTAssertEqualWithAccuracy(47.4, currentForcast.apparentTemperature, 0.001);
