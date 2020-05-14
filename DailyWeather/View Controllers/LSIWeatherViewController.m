@@ -12,6 +12,7 @@
 #import "LSILog.h"
 #import "CBDCurrentForcast.h"
 #import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -158,7 +159,20 @@
     }
     
     // TODO: Update the UI based on the current forecast
-    
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.currentForcast.icon];
+    self.locationLabel.text = self.placemark.locality;
+    self.summaryLabel.text = self.currentForcast.summary;
+    double temperature = round(self.currentForcast.temperature);
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f F", temperature];
+    double windSpeed = round(self.currentForcast.windSpeed);
+    NSString *direction = [LSICardinalDirection directionForHeading:self.currentForcast.windBearing];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", direction, windSpeed];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", self.currentForcast.humidity*100];
+    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", self.currentForcast.precipProbability];
+    double apparentTemperature = round(self.currentForcast.apparentTemperature);
+    self.apparentTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f F", apparentTemperature];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.2f inHg", self.currentForcast.pressure];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%0.0f", self.currentForcast.uvIndex];
 }
 
 @end
