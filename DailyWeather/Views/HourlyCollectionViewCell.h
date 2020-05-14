@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LSIHourlyForecast;
 @interface HourlyCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic) LSIHourlyForecast *forecast;
 
 @end
 
