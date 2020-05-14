@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSDate *time; // UNIX time
 @property (nonatomic, readonly, nullable, copy) NSString *summary; // A human-readable text summary
 @property (nonatomic, readonly, nullable, copy) NSString *iconString; // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
-@property (nonatomic, readonly, nullable) NSNumber *precipProbabilty; // double: The probability of precipitation occurring, between 0 and 1, inclusive.
+@property (nonatomic, readonly, nullable) NSNumber *precipProbability; // double: The probability of precipitation occurring, between 0 and 1, inclusive.
 @property (nonatomic, readonly, nullable) NSNumber *precipIntensity; // double: inches of liquid water per hour
 @property (nonatomic, readonly, nullable, copy) NSString *precipType; // "rain", "snow", or "sleet"
 @property (nonatomic, readonly, nullable) NSNumber *humidity; // double: The relative humidity, between 0 and 1, inclusive
@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSDate *sunsetTime; // UNIX time
 @property (nonatomic, readonly, nullable) NSNumber *temperature; // degreees F
 @property (nonatomic, readonly, nullable) NSNumber *apparentTemperature; // degreees F
+@property (nonatomic, readonly, nullable) NSNumber *apparentTemperatureHigh; // degreees F
 @property (nonatomic, readonly, nullable) NSNumber *temperatureLow; // degreees F
 @property (nonatomic, readonly, nullable) NSNumber *temperatureHigh; // degreees F
 @property (nonatomic, readonly, nullable) NSNumber *windSpeed; // double: mph
