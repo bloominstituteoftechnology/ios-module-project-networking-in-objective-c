@@ -151,6 +151,13 @@
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
+- (IBAction)infoButtonTapped:(UIBarButtonItem *)sender {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LSISettingsTableVC"];
+//    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
 - (void)updateViews {
     if (self.placemark) {
         self.cityWeather.text = self.placemark.name;
