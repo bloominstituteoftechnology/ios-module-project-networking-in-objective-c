@@ -10,6 +10,8 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForcast.h"
+#import "LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,15 +20,30 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForcast *weatherForcase;
+
+@property (strong, nonatomic) IBOutlet UIImageView *iconImage;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rainProbLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvLabel;
 
 @end
 
-// NOTE: You must declare the Category before the main implementation,
-// otherwise you'll see errors about the type not being correct if you
-// try to move delegate methods out of the main implementation body
+
+
+
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
 
 @end
+
+
 
 
 @implementation LSIWeatherViewController
@@ -114,16 +131,34 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSError *error = nil;
+    NSDictionary *weather = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"Error requesting weather json file: %@", weather);
+        return;
+    }
+    _weatherForcase = [[LSIWeatherForcast alloc]initWithDictionary:weather];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
+    
     if (self.placemark) {
         // TODO: Update the City, State label
+        _iconImage.image = [LSIWeatherIcons weatherImageForIconName:_weatherForcase.icon];
+        _locationLabel.text = _placemark.name;
+        _summaryLabel.text = _weatherForcase.summary;
+        _tempLabel.text = _weatherForcase.temperature.stringValue;
+        
+        _windLabel.text = _weatherForcase.windSpeed.stringValue;
+        _apparentLabel.text = _weatherForcase.apparentTemperature.stringValue;
+        _humidyLabel.text = _weatherForcase.humidity.stringValue;
+        _pressureLabel.text = _weatherForcase.pressure.stringValue;
+        _rainProbLabel.text = _weatherForcase.precipProbability.stringValue;
+        _uvLabel.text = _weatherForcase.uvIndex.stringValue;
+        
     }
     
     // TODO: Update the UI based on the current forecast
