@@ -11,8 +11,11 @@
 #import "LSIErrors.h"
 #import "LSILog.h"
 #import "CBDCurrentForcast.h"
+#import "CBDHourlyForcast.h"
+#import "CBDDailyForcast.h"
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
+#import "CBDWeatherFetcher.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -23,6 +26,7 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 @property (nonatomic) CBDCurrentForcast *currentForcast;
+@property (nonatomic) CBDWeatherFetcher *fetcher;
 
 // MARK: - IBOutlets
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -83,6 +87,16 @@
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
+    
+    [self.fetcher fetchWeatherAtLatitude:42.3601 longitude:-71.0589 completionBlock:^(CBDWeatherForecast * _Nullable forcast, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Weather Fetching Error: %@", error);
+            return;
+        }
+
+        NSLog(@"Fetched weather: %@", forcast);
+        
+    }];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -223,4 +237,13 @@
     [manager stopUpdatingLocation];
 }
 
+- (CBDWeatherFetcher *)fetcher {
+    if (!_fetcher) {
+        _fetcher = [[CBDWeatherFetcher alloc] init];
+    }
+    return _fetcher;
+}
+
 @end
+
+

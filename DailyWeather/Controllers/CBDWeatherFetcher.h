@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBDWeatherFetcher : NSObject
 
-- (void)fetchWeatherAtLatitude:(NSNumber *)latitude
-                     longitude:(NSNumber *)longitude
+- (void)fetchWeatherAtLatitude:(double)latitude
+                     longitude:(double)longitude
                completionBlock:(CBDWeatherFetcherCompletion)completionBlock;
 
 @end
