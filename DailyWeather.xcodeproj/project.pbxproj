@@ -14,6 +14,8 @@
 		9C0C28E4246B9D7400018B19 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C28E3246B9D7400018B19 /* LSIHourlyForecast.m */; };
 		9C0C28E5246B9D7400018B19 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C28E3246B9D7400018B19 /* LSIHourlyForecast.m */; };
 		9CF5389C246CC6D800816D24 /* HLOWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5389B246CC6D800816D24 /* HLOWeatherViewController.m */; };
+		9CF538A0246CD30D00816D24 /* DailyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5389F246CD30D00816D24 /* DailyTableViewCell.m */; };
+		9CF538A3246CD32000816D24 /* HourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF538A2246CD32000816D24 /* HourlyCollectionViewCell.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -63,6 +65,10 @@
 		9C0C28E3246B9D7400018B19 /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
 		9CF5389A246CC6D800816D24 /* HLOWeatherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLOWeatherViewController.h; sourceTree = "<group>"; };
 		9CF5389B246CC6D800816D24 /* HLOWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLOWeatherViewController.m; sourceTree = "<group>"; };
+		9CF5389E246CD30D00816D24 /* DailyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyTableViewCell.h; sourceTree = "<group>"; };
+		9CF5389F246CD30D00816D24 /* DailyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyTableViewCell.m; sourceTree = "<group>"; };
+		9CF538A1246CD32000816D24 /* HourlyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourlyCollectionViewCell.h; sourceTree = "<group>"; };
+		9CF538A2246CD32000816D24 /* HourlyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourlyCollectionViewCell.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,6 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CF5389D246CD2BF00816D24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CF5389E246CD30D00816D24 /* DailyTableViewCell.h */,
+				9CF5389F246CD30D00816D24 /* DailyTableViewCell.m */,
+				9CF538A1246CD32000816D24 /* HourlyCollectionViewCell.h */,
+				9CF538A2246CD32000816D24 /* HourlyCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +152,7 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				9CF5389D246CD2BF00816D24 /* Views */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -336,8 +354,10 @@
 				9CF5389C246CC6D800816D24 /* HLOWeatherViewController.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
+				9CF538A0246CD30D00816D24 /* DailyTableViewCell.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
+				9CF538A3246CD32000816D24 /* HourlyCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
