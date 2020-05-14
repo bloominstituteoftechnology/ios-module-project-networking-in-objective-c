@@ -80,6 +80,11 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     // Create dictionary from data
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
 
+    if (jsonError) {
+        completionBlock(jsonError);
+        return;
+    }
+
     // First take care of current weather:
     NSDictionary *currentForecastDic = json[@"currently"];
     _currentForecast = [[LSIWeatherForecast alloc] initWithDictionary:currentForecastDic];
@@ -94,11 +99,14 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     }
     NSLog(@"Days Count: %d first day: %@", self.dailyForecast.count, self.dailyForecast[0].summary);
 
-    if (jsonError) {
-        completionBlock(jsonError);
-        return;
+    // Take care of hourly
+    NSDictionary *hourlyContainer = json[@"hourly"];
+    NSArray *hourlyArray = hourlyContainer[@"data"];
+    for (NSDictionary *hour in hourlyArray) {
+        LSIHourlyForecast *newHour = [[LSIHourlyForecast alloc] initWithDictionary:hour];
+        [self.hourlyForecast addObject:newHour];
     }
-    // Containers first:
+    NSLog(@"Hours Count: %d first hour: %@", self.hourlyForecast.count, self.hourlyForecast[0].summary);
 
     completionBlock(nil);
 }
