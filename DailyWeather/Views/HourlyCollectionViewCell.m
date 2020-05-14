@@ -8,6 +8,15 @@
 
 #import "HourlyCollectionViewCell.h"
 
+@interface HourlyCollectionViewCell ()
+
+// MARK:- Outlets
+@property (strong, nonatomic) IBOutlet UILabel *hourLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *iconLabel;
+@property (strong, nonatomic) IBOutlet UILabel *highTempLabel;
+
+@end
+
 @implementation HourlyCollectionViewCell
 
 @end
