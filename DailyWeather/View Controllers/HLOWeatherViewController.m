@@ -150,18 +150,21 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
-        [self.dailyTable reloadData];
-        [self.hourlyCollection reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
 
-        self.locationLabel.text = self.placemark.country;
-        self.summaryLabel.text = self.weatherController.currentForecast.summary;
-        self.temperatureLabel.text = [NSString stringWithFormat:@"%d°", self.weatherController.currentForecast.temperature.intValue];
-        NSDate *date = [[NSDate alloc] init];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"EEEE"];
+            [self.dailyTable reloadData];
+            [self.hourlyCollection reloadData];
 
-        self.currentDayLabel.text = [dateFormatter stringFromDate:date];
-        // MARK:- QUESTION FOR JON: Idk what to do for the bottom right numbers? Could I get some help or what I was supposed to put in there?
+            self.locationLabel.text = self.placemark.country;
+            self.summaryLabel.text = self.weatherController.currentForecast.summary;
+            self.temperatureLabel.text = [NSString stringWithFormat:@"%d°", self.weatherController.currentForecast.temperature.intValue];
+            NSDate *date = [[NSDate alloc] init];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"EEEE"];
+
+            self.currentDayLabel.text = [dateFormatter stringFromDate:date];
+            // MARK:- QUESTION FOR JON: Idk what to do for the bottom right numbers? Could I get some help or what I was supposed to put in there?
+        });
     }
 
     // TODO: Update the UI based on the current forecast
@@ -174,7 +177,9 @@
     if (!_weatherController) {
         _weatherController = [[HLOWeatherController alloc] init];
         [self.weatherController parseJSONData:loadFile(@"Weather.json", [LSIWeatherForecast class]) completionBloc:^(NSError * _Nullable error) {
-            [self updateViews];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateViews];
+            });
         }];
     }
 }
