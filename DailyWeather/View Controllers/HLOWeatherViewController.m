@@ -222,6 +222,15 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HourlyCollectionViewCell *cell = (HourlyCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyCell" forIndexPath:indexPath];
+
+    if (indexPath.row == 0) {
+        cell.isNow = true;
+        cell.forecast = self.weatherController.hourlyForecast[indexPath.row];
+    } else {
+        cell.isNow = false;
+        cell.forecast = self.weatherController.hourlyForecast[indexPath.row];
+    }
+
     return cell;
 }
 
