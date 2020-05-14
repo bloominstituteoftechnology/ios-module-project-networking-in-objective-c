@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HourlyCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic) LSIHourlyForecast *forecast;
+@property (nonatomic) BOOL isNow;
 
 @end
 

@@ -18,7 +18,16 @@
 @end
 
 @implementation HourlyCollectionViewCell
+
+- (void)updateViews {
+
+}
+
 - (void)setForecast:(LSIHourlyForecast *)forecast {
+    // Setter
     _forecast = forecast;
+
+    // didSet
+    [self updateViews];
 }
 @end
