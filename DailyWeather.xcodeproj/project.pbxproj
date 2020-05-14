@@ -40,7 +40,10 @@
 		E25B84A1246C9B7000FA3C49 /* CBDCurrentForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A0246C9B7000FA3C49 /* CBDCurrentForcast.m */; };
 		E25B84A4246CA04700FA3C49 /* CBDWeatherBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */; };
 		E25B84A6246CB76A00FA3C49 /* CBDCurrentForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */; };
-		E25B84A9246CC9E600FA3C49 /* CBDWeatherForcastController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A8246CC9E600FA3C49 /* CBDWeatherForcastController.m */; };
+		E25B84AC246CEDA300FA3C49 /* CBDDailyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */; };
+		E25B84AE246CEDCE00FA3C49 /* CBDDailyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */; };
+		E25B84B0246CEDEA00FA3C49 /* CBDHourlyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */; };
+		E25B84B3246CEE9C00FA3C49 /* CBDHourlyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +95,12 @@
 		E25B84A2246CA04700FA3C49 /* CBDWeatherBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDWeatherBase.h; sourceTree = "<group>"; };
 		E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherBase.m; sourceTree = "<group>"; };
 		E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDCurrentForcastTests.m; sourceTree = "<group>"; };
-		E25B84A7246CC9E600FA3C49 /* CBDWeatherForcastController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDWeatherForcastController.h; sourceTree = "<group>"; };
-		E25B84A8246CC9E600FA3C49 /* CBDWeatherForcastController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherForcastController.m; sourceTree = "<group>"; };
+		E25B84AA246CEDA300FA3C49 /* CBDDailyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDDailyForcast.h; sourceTree = "<group>"; };
+		E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDDailyForcast.m; sourceTree = "<group>"; };
+		E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDDailyForcastTests.m; sourceTree = "<group>"; };
+		E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcastTests.m; sourceTree = "<group>"; };
+		E25B84B1246CEE9C00FA3C49 /* CBDHourlyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDHourlyForcast.h; sourceTree = "<group>"; };
+		E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +145,6 @@
 				E25B8493246C961D00FA3C49 /* Models */,
 				E25B8494246C962400FA3C49 /* Views */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
-				E25B8495246C962D00FA3C49 /* Controllers */,
 				BD69314723FD905300C0DF09 /* main.m */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
@@ -154,6 +160,8 @@
 				BD69315123FD905400C0DF09 /* DailyWeatherTests.m */,
 				BD69315323FD905400C0DF09 /* Info.plist */,
 				E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */,
+				E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */,
+				E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */,
 			);
 			path = DailyWeatherTests;
 			sourceTree = "<group>";
@@ -226,6 +234,10 @@
 				E25B84A0246C9B7000FA3C49 /* CBDCurrentForcast.m */,
 				E25B84A2246CA04700FA3C49 /* CBDWeatherBase.h */,
 				E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */,
+				E25B84AA246CEDA300FA3C49 /* CBDDailyForcast.h */,
+				E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */,
+				E25B84B1246CEE9C00FA3C49 /* CBDHourlyForcast.h */,
+				E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,15 +249,6 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E25B8495246C962D00FA3C49 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E25B84A7246CC9E600FA3C49 /* CBDWeatherForcastController.h */,
-				E25B84A8246CC9E600FA3C49 /* CBDWeatherForcastController.m */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,8 +360,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25B84B3246CEE9C00FA3C49 /* CBDHourlyForcast.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
+				E25B84AC246CEDA300FA3C49 /* CBDDailyForcast.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
 				E25B8498246C968900FA3C49 /* CBDWeatherForcast.m in Sources */,
@@ -366,7 +371,6 @@
 				E25B84A4246CA04700FA3C49 /* CBDWeatherBase.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
-				E25B84A9246CC9E600FA3C49 /* CBDWeatherForcastController.m in Sources */,
 				E25B84A1246C9B7000FA3C49 /* CBDCurrentForcast.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
@@ -380,12 +384,14 @@
 			files = (
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
+				E25B84AE246CEDCE00FA3C49 /* CBDDailyForcastTests.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
 				E25B84A6246CB76A00FA3C49 /* CBDCurrentForcastTests.m in Sources */,
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
 				E25B8492246C961500FA3C49 /* main.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
+				E25B84B0246CEDEA00FA3C49 /* CBDHourlyForcastTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

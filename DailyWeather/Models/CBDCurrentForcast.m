@@ -68,7 +68,6 @@
     double windBearing = windBearingNumber.doubleValue;
     double uvIndex = uvIndexNumber.doubleValue;
     
-    
     return [self initWithTemperature:temperature
                  apparentTemperature:apparentTemperature
                                 time:time
