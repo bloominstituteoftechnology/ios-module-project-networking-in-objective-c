@@ -39,6 +39,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *precipProbLabel;
 @property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
+// MARK:- A
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
@@ -134,23 +136,9 @@
 }
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
-    
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForecast class]);
 
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]; // & = addres of
-    // Ooooh so we still use referencing pointers in obj-c. Lit
 
-    if (error) {
-        NSLog(@"Error parsing JSON: %@", json);
-        return;
-    }
-    NSLog(@"JSON: %@", json);
-    
-    _forecast = [[LSIWeatherForecast alloc]initWithDictionary:json];
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+
 }
 
 - (void)updateViews {
