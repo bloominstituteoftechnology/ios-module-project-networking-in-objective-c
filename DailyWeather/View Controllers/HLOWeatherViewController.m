@@ -208,6 +208,8 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     DailyTableViewCell *cell = (DailyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DailyCell" forIndexPath:indexPath];
 
+    cell.forecast = self.weatherController.dailyForecast[indexPath.row];
+
     return cell;
 }
 
