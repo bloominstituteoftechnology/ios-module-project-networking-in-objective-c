@@ -58,11 +58,14 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
             return;
         }
 
-        
-
-
+        // Let's hope I did this part rightlol
+        [self parseJSONData:data completionBloc:^{
+            completionBlock(nil);
+            return;
+        }];
     }];
 
+    [task resume];
 
 }
 
