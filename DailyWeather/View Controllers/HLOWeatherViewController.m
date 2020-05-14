@@ -29,10 +29,14 @@
 // Outlets
 
 // MARK:- Top View
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
 
-// MARK:- Hourly
-
-// MARK:- Daily
+// MARK:- Little details at the bottom of top view. What do I call those lol
+@property (strong, nonatomic) IBOutlet UILabel *currentDayLabel;
+@property (strong, nonatomic) IBOutlet UILabel *currentTopTemp;
+@property (strong, nonatomic) IBOutlet UILabel *currentLowTemp;
 
 
 // MARK:- Actions

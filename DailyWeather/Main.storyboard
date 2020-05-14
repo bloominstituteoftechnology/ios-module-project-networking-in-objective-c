@@ -221,6 +221,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="An2-sY-16w"/>
                     </view>
+                    <connections>
+                        <outlet property="currentDayLabel" destination="d8K-o6-fmF" id="QL6-YU-9cu"/>
+                        <outlet property="currentLowTemp" destination="Mta-qu-URx" id="sOb-Gz-3NF"/>
+                        <outlet property="currentTopTemp" destination="vGR-0K-HbV" id="xnL-fl-daT"/>
+                        <outlet property="locationLabel" destination="7Ly-28-kb7" id="Kgf-AM-ah7"/>
+                        <outlet property="summaryLabel" destination="qDq-65-4dt" id="BOe-9A-riC"/>
+                        <outlet property="temperatureLabel" destination="4b0-bF-9ep" id="Jgn-jc-Uf5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C64-Ua-RUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
