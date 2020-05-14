@@ -7,7 +7,7 @@
 //
 
 #import "HLOWeatherViewController.h"
-#import <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CoreLocation.h> // MARK: QUESTION FOR JON: Despite Importing this in my .h file I still have to import this here... Why?
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
@@ -15,7 +15,7 @@
 #import "LSICardinalDirection.h"
 #import "LSIWeatherForecast.h"
 
-@interface HLOWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface HLOWeatherViewController () <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     BOOL _requestedLocation;
 }
 
@@ -168,11 +168,11 @@
 // MARK:- TableView Protocols
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    <#code#>
+    return [[UITableViewCell alloc] init];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    <#code#>
+    return 0;
 }
 
 @end
