@@ -10,6 +10,8 @@
 #import "LSIErrors.h"
 #import "LSILog.h"
 
+static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b5b52af4a81dd7775c5af/";
+
 @implementation HLOWeatherController
 
 - (instancetype) init {
