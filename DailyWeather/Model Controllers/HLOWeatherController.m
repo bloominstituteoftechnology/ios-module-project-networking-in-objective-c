@@ -48,14 +48,26 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
         NSLog(@"Inside of datatask commpletionHandler with url: %@", requestURL);
 
         if (error) {
-
+            completionBlock(error);
+            return;
         }
+
+        if (!data) {
+            NSError *dataError = errorWithMessage(@"No data in URL response for weather forecast", LSIDataNilError);
+            completionBlock(dataError);
+            return;
+        }
+
+        
+
+
     }];
 
 
 }
 
-- (void)parseJSONData:(NSData *)data {
+- (void)parseJSONData:(NSData *)data
+       completionBloc:(void (^)(void))completionBlock {
 
 }
 
