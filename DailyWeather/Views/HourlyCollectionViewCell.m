@@ -18,5 +18,7 @@
 @end
 
 @implementation HourlyCollectionViewCell
-
+- (void)setForecast:(LSIHourlyForecast *)forecast {
+    _forecast = forecast;
+}
 @end
