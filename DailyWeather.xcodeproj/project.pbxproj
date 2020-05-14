@@ -16,7 +16,7 @@
 		9CF5389C246CC6D800816D24 /* HLOWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5389B246CC6D800816D24 /* HLOWeatherViewController.m */; };
 		9CF538A0246CD30D00816D24 /* DailyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5389F246CD30D00816D24 /* DailyTableViewCell.m */; };
 		9CF538A3246CD32000816D24 /* HourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF538A2246CD32000816D24 /* HourlyCollectionViewCell.m */; };
-		9CF538A7246CD6DD00816D24 /* HLOWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF538A6246CD6DD00816D24 /* HLOWeatherController.m */; };
+		9CF538A8246CD82E00816D24 /* HLOWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF538A6246CD6DD00816D24 /* HLOWeatherController.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -361,7 +361,7 @@
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				9C0C28E0246B8C7A00018B19 /* LSIDailyForecast.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
-				9CF538A7246CD6DD00816D24 /* HLOWeatherController.m in Sources */,
+				9CF538A8246CD82E00816D24 /* HLOWeatherController.m in Sources */,
 				9C0C28DC246B6AD600018B19 /* LSIWeatherForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,

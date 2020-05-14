@@ -19,9 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 // What I'll need...
 // A current weather property
-@property (nonatomic, readonly) LSIWeatherForecast *currentWeather;
+@property (nonatomic, readonly) LSIWeatherForecast *currentForecast;
 // An array of hourly weather
+@property (nonatomic, readonly) NSArray<LSIHourlyForecast *> *hourlyForecast;
 // An array of daily weather
+@property (nonatomic, readonly) NSArray<LSIDailyForecast *> *dailyForecast;
 // Method for fetching from API
 
 // Method for parsing the data separately (So that I may call this method with mock data)
