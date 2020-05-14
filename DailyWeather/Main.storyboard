@@ -185,18 +185,24 @@
                                             <constraint firstItem="Kn0-ZZ-gh7" firstAttribute="width" secondItem="ZWh-Dl-mEM" secondAttribute="width" id="Rl4-SQ-oc5"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-mb-vDQ">
-                                        <rect key="frame" x="334" y="469" width="20" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="info.circle.fill" catalog="system"/>
-                                    </button>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-Vd-dx1">
+                                        <rect key="frame" x="0.0" y="454" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="4Ke-A1-oNQ"/>
+                                            <barButtonItem image="info.circle.fill" catalog="system" id="Gfc-Wg-S9T">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Adr-Vd-dx1" secondAttribute="trailing" id="0Js-VI-KIQ"/>
                                     <constraint firstItem="wCU-Ll-E7I" firstAttribute="leading" secondItem="4uG-aE-dp8" secondAttribute="leading" constant="20" id="43u-SC-4Gp"/>
+                                    <constraint firstItem="Adr-Vd-dx1" firstAttribute="leading" secondItem="4uG-aE-dp8" secondAttribute="leading" id="4fK-gi-l5w"/>
                                     <constraint firstItem="wCU-Ll-E7I" firstAttribute="top" secondItem="4uG-aE-dp8" secondAttribute="top" constant="20" id="d1D-6B-7uw"/>
                                     <constraint firstAttribute="trailing" secondItem="wCU-Ll-E7I" secondAttribute="trailing" constant="20" id="gsr-hx-fgI"/>
+                                    <constraint firstAttribute="bottom" secondItem="Adr-Vd-dx1" secondAttribute="bottom" constant="40" id="tia-jx-4RO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -222,6 +228,7 @@
                         <outlet property="pressureLabel" destination="LQN-ed-AC8" id="42Q-xo-vn4"/>
                         <outlet property="summaryLabel" destination="Qen-yU-jTP" id="a5T-Tr-H3d"/>
                         <outlet property="temperatureLabel" destination="U70-5a-apz" id="zla-Il-QCY"/>
+                        <outlet property="toolbar" destination="Adr-Vd-dx1" id="Xjl-XZ-4Bb"/>
                         <outlet property="uvIndexLabel" destination="REl-7H-J57" id="YPL-wh-Xqv"/>
                         <outlet property="windLabel" destination="oIt-WF-uJX" id="M55-ds-as3"/>
                     </connections>
@@ -294,6 +301,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gQL-oV-bK2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

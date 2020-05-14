@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
 @property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 
 
 @end
@@ -74,6 +75,13 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+
+     [self.toolbar setBackgroundImage:[UIImage new]
+                   forToolbarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+     [self.toolbar setShadowImage:[UIImage new]
+               forToolbarPosition:UIBarPositionAny];
+ 
     // TODO: Handle settings button pressed
 }
 
