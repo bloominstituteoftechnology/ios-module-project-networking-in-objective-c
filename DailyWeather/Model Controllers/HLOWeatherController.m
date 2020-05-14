@@ -26,6 +26,22 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 - (void)fetchForecastWithLatitude:(NSNumber *)latitude
                         longitude:(NSNumber *)longitude {
 
+    // Initialize URL Components
+//    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+
+    // Create compoinents
+//    urlComponents.queryItems = @[
+//        [NSURLQueryItem queryItemWithName:<#(nonnull NSString *)#> value:<#(nullable NSString *)#>]
+//    ];
+
+    // Time for some freestyle, as it seems this doesn't use queries but url extensions
+    NSURL *baseURL = [[NSURL alloc] initWithString:baseURLString]; // Nice. I get bracket syntax now.
+    NSString *locationCoordinates = [NSString stringWithFormat:@"%f,%f", latitude.doubleValue, longitude.doubleValue];
+    NSURL *requestURL = [baseURL URLByAppendingPathComponent:locationCoordinates];
+
+    // Test before we waste any API calls
+    NSLog(@"");
+
 }
 
 - (void)parseJSONData:(NSData *)data {
