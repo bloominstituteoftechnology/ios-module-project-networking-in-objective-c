@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<LSIDailyForecast *> *dailyForecast;
 // Method for fetching from API
 
-- (void)fetchForecastWithLatitude:(NSNumber *)latitude
-                           longitude:(NSNumber *)longitude;
+- (void)fetchForecastWithLatitude:(double)latitude
+                           longitude:(double)longitude;
 
 // Method for parsing the data separately (So that I may call this method with mock data)
 

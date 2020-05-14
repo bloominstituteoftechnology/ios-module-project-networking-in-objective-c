@@ -73,7 +73,9 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    [self initializeController];
 
+    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
 }
 
 - (void)initializeController {
