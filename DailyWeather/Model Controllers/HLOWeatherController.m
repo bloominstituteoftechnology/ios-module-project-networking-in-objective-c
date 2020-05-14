@@ -24,7 +24,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     return self;
 }
 - (void)fetchForecastWithLatitude:(double)latitude
-                        longitude:(double)longitude {
+                        longitude:(double)longitude
+                   completionBloc:(void (^)(NSError * _Nullable error))completionBlock {
 
     // Initialize URL Components
 //    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
@@ -41,6 +42,16 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 
     // Test before we waste any API calls
     NSLog(@"%@", requestURL.absoluteString);
+
+    // Create datatask
+    NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:requestURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"Inside of datatask commpletionHandler with url: %@", requestURL);
+
+        if (error) {
+
+        }
+    }];
+
 
 }
 

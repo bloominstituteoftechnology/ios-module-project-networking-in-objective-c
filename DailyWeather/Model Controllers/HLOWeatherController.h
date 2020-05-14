@@ -27,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Method for fetching from API
 
 - (void)fetchForecastWithLatitude:(double)latitude
-                           longitude:(double)longitude;
+                           longitude:(double)longitude
+                   completionBloc:(void (^)(NSError * _Nullable error))completionBlock;
 
 // Method for parsing the data separately (So that I may call this method with mock data)
 
