@@ -13,9 +13,28 @@
 
 @implementation CBDWeatherForecast
 
-- (instancetype)initWithCurrentForecast:(CBDCurrentForecast *)currentForecast
+- (instancetype)initWithCurrentForecast:(CBDCurrentForcast *)currentForecast
                         hourlyForecasts:(NSArray *)hourlyForecasts
-                         dailyForecasts:(NSArray *)dailyForecasts;
+                         dailyForecasts:(NSArray *)dailyForecasts {
+    self = [super init];
+    if (self) {
+        _currentForecast = currentForecast;
+        _hourlyForecasts = hourlyForecasts;
+        _dailyForecasts = dailyForecasts;
+    }
+    return self;
+}
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    
+    NSDictionary *hourly = dictionary[@"hourly"];
+    NSDictionary *daily = dictionary[@"daily"];
+    
+    CBDCurrentForcast *currentForecast = dictionary[@"currently"];
+    NSArray *hourlyForecasts = hourly[@"data"];
+    NSArray *dailyForecasts = daily[@"data"];
+    
+    return [self initWithCurrentForecast:currentForecast hourlyForecasts:hourlyForecasts dailyForecasts:dailyForecasts];
+}
+
 @end

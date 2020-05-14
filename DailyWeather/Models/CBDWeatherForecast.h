@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSArray<CBDHourlyForcast *> *hourlyForecasts;
 @property (nonatomic) NSArray<CBDDailyForcast *> *dailyForecasts;
 
-- (instancetype)initWithCurrentForecast:(CBDCurrentForecast *)currentForecast
+- (instancetype)initWithCurrentForecast:(CBDCurrentForcast *)currentForecast
                         hourlyForecasts:(NSArray *)hourlyForecasts
                          dailyForecasts:(NSArray *)dailyForecasts;
 
