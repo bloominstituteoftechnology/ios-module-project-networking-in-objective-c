@@ -9,6 +9,9 @@
 #import "HLOWeatherController.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
 static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b5b52af4a81dd7775c5af/";
 
@@ -17,9 +20,9 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _currentForecast = nil;
-        _hourlyForecast = nil;
-        _dailyForecast = nil;
+        _currentForecast = [[LSIWeatherForecast alloc] init];
+        _hourlyForecast = [[LSIHourlyForecast alloc] init];
+        _dailyForecast = [[LSIDailyForecast alloc] init];
     }
     return self;
 }
@@ -77,7 +80,9 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     // Create dictionary from data
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
 
-    NSLog(@"json parsed: %@", json);
+    // First take care of current weather:
+    NSDictionary *currentForecastDic = json[@"currently"];
+    _currentForecast = [[LSIWeatherForecast alloc] ];
 
     if (jsonError) {
         completionBlock(jsonError);
