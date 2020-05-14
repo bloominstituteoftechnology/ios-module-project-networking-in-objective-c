@@ -34,12 +34,10 @@
                 value = nil;
             }
             
-            if (value) {
-                if ([propertyType isEqualToString:@"NSDate"]) {
-                    // Date Decoding Strategy
-                    NSNumber *timeNumber = [dictionary objectForKey:codingKey];
-                    value = [NSDate dateWithTimeIntervalSince1970:timeNumber.doubleValue];
-                }
+            if (value && [propertyType isEqualToString:@"NSDate"]) {
+                // Date Decoding Strategy
+                NSNumber *timeNumber = [dictionary objectForKey:codingKey];
+                value = [NSDate dateWithTimeIntervalSince1970:timeNumber.doubleValue];
             }
 
             [self setValue:value forKey:propertyName];
