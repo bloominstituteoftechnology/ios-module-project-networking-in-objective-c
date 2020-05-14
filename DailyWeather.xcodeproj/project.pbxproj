@@ -267,6 +267,7 @@
 		BD69312A23FD905200C0DF09 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LSI;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lambda, Inc";
 				TargetAttributes = {
