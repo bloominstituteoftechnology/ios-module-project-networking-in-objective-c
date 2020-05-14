@@ -231,7 +231,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="pRT-5y-TZg" customClass="LSISettingsTableViewController">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -557,7 +557,7 @@
         <!--Daily-->
         <scene sceneID="5M7-Y4-ttt">
             <objects>
-                <viewController id="b3P-BH-WpR" sceneMemberID="viewController">
+                <viewController id="b3P-BH-WpR" customClass="CBDDailyForcastViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0JY-s6-cxU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,7 +613,7 @@
                                 <color key="separatorColor" red="0.0" green="0.32963502407073975" blue="0.72479647397994995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.32963502407073975" blue="0.72479647397994995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyCell" rowHeight="63" id="T3p-k7-ZnA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyCell" rowHeight="63" id="T3p-k7-ZnA" customClass="CBDDailyForecastTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T3p-k7-ZnA" id="VWc-BA-fFX">
@@ -661,6 +661,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.32963502407073975" blue="0.72479647397994995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dailyIconImageView" destination="DYr-Vn-MYF" id="MFj-vm-pkc"/>
+                                            <outlet property="dayOfWeekLabel" destination="x5X-xA-aqw" id="A9q-DD-ELD"/>
+                                            <outlet property="highTemperatureLabel" destination="02v-xK-gpz" id="1fd-gP-obX"/>
+                                            <outlet property="lowTemperatureLabel" destination="4yO-rt-YdJ" id="vJb-Hb-N3W"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -679,6 +685,13 @@
                         <viewLayoutGuide key="safeArea" id="TdA-58-cnI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily" image="calendar" catalog="system" id="dek-at-CX6"/>
+                    <connections>
+                        <outlet property="cityStateLabel" destination="eqc-Hd-AvW" id="a5b-08-d23"/>
+                        <outlet property="currentIconImageView" destination="UeS-AU-Er5" id="GZq-aK-Bc7"/>
+                        <outlet property="currentTemperatureLabel" destination="bS5-BR-Key" id="tnM-IJ-nVv"/>
+                        <outlet property="dailyTableView" destination="p5L-DI-cjX" id="uue-Jd-rSZ"/>
+                        <outlet property="summaryLabel" destination="IJm-7q-BVB" id="cab-f4-fIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvb-cS-Q3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
