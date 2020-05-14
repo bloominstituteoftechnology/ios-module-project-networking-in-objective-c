@@ -20,7 +20,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tempLowLabel;
 
 // MARK:-  Properties
-@property (nonatomic) LSIDailyForecast *forecast;
 @end
 
 @implementation DailyTableViewCell
