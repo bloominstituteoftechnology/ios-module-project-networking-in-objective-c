@@ -158,7 +158,7 @@
     self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.icon];
     self.windLabel.text = [LSICardinalDirection directionForHeading:self.forcast.windSpeed.doubleValue];
     self.summaryLabel.text = self.forcast.summary;
-    self.temperatureLabel.text = self.forcast.temperature.stringValue;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@\u00B0", self.forcast.temperature.stringValue];
     self.humidityLabel.text = self.forcast.humidity.stringValue;
     self.chanceOfRainLabel.text = self.forcast.precipProbability.stringValue;
     self.feelsLikeLabel.text = self.forcast.apparentTemperature.stringValue;
