@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 // A current weather property
 @property (nonatomic, readonly) LSIWeatherForecast *currentForecast;
 // An array of hourly weather
-@property (nonatomic, readonly) NSArray<LSIHourlyForecast *> *hourlyForecast;
+@property (nonatomic, readonly) NSMutableArray<LSIHourlyForecast *> *hourlyForecast;
 // An array of daily weather
-@property (nonatomic, readonly) NSArray<LSIDailyForecast *> *dailyForecast;
+@property (nonatomic, readonly) NSMutableArray<LSIDailyForecast *> *dailyForecast;
 // Method for fetching from API
 
 - (void)fetchForecastWithLatitude:(double)latitude

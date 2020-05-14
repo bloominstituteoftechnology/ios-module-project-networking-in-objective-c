@@ -21,8 +21,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     self = [super init];
     if (self) {
         _currentForecast = [[LSIWeatherForecast alloc] init];
-        _hourlyForecast = [[LSIHourlyForecast alloc] init];
-        _dailyForecast = [[LSIDailyForecast alloc] init];
+        _hourlyForecast = [[NSMutableArray<LSIHourlyForecast *> alloc] init];
+        _dailyForecast = [[NSMutableArray<LSIDailyForecast *> alloc] init];
     }
     return self;
 }
