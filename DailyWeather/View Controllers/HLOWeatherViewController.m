@@ -22,7 +22,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
-@property (nonatomic) LSIWeatherForecast *forecast;
+//@property (nonatomic) LSIWeatherForecast *forecast; // Won't be needing this as we'll be using a controller.
 
 // MARK:- Properties
 
