@@ -93,6 +93,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     // Take care of daily
     NSDictionary *dailyContainer = json[@"daily"];
     NSArray *dailyArray = dailyContainer[@"data"];
+    // MARK:- CLEAR OUT THE ARRAY FIRST
+    [self.dailyForecast removeAllObjects];
     for (NSDictionary *day in dailyArray) {
         LSIDailyForecast *newDay = [[LSIDailyForecast alloc] initWithDictionary:day];
         [self.dailyForecast addObject:newDay];
@@ -102,6 +104,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     // Take care of hourly
     NSDictionary *hourlyContainer = json[@"hourly"];
     NSArray *hourlyArray = hourlyContainer[@"data"];
+    // MARK:- CLEAR OUT THE ARRAY FIRST
+    [self.hourlyForecast removeAllObjects];
     for (NSDictionary *hour in hourlyArray) {
         LSIHourlyForecast *newHour = [[LSIHourlyForecast alloc] initWithDictionary:hour];
         [self.hourlyForecast addObject:newHour];
