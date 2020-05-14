@@ -7,10 +7,38 @@
 //
 
 #import "HLOWeatherViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "LSIWeatherIcons.h"
+#import "LSIErrors.h"
+#import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherForecast.h"
 
-@interface HLOWeatherViewController ()
+@interface HLOWeatherViewController () {
+    BOOL _requestedLocation;
+}
 
+@property CLLocationManager *locationManager;
+@property CLLocation *location;
+@property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForecast *forecast;
+
+// MARK:- Properties
+
+// Outlets
+
+// MARK:- Top View
+
+// MARK:- Hourly
+
+// MARK:- Daily
+
+
+// MARK:- Actions
 @end
+
+@interface HLOWeatherViewController <
 
 @implementation HLOWeatherViewController
 
