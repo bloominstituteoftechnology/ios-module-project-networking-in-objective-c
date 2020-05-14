@@ -38,8 +38,8 @@
 
     NSLog(@"currentWeather: %@", currentWeather);
 
-    // TODO: Validate time
-    // NSDate *time = [NSDate dateWithTimeIntervalSince1970:1388620296020 / 1000.0];
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+    XCTAssertEqualObjects(time, currentWeather.time);
 
     XCTAssertEqualObjects(@"Clear", currentWeather.summary);
     XCTAssertEqualObjects(@"clear-day", currentWeather.icon);
