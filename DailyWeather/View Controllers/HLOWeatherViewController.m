@@ -15,8 +15,10 @@
 #import "LSICardinalDirection.h"
 #import "LSIWeatherForecast.h"
 #import "HLOWeatherController.h"
+#import "DailyTableViewCell.h"
+#import "HourlyCollectionViewCell.h"
 
-@interface HLOWeatherViewController () <CLLocationManagerDelegate, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface HLOWeatherViewController () <CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     BOOL _requestedLocation;
 }
 // MARK:- Properties
@@ -63,6 +65,7 @@
     return self;
 }
 
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -79,6 +82,10 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     [self initializeController];
+    self.hourlyCollection.delegate = self;
+    self.hourlyCollection.dataSource = self;
+    self.dailyTable.delegate = self;
+    self.dailyTable.dataSource = self;
 
 
 }
@@ -140,6 +147,8 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        [self.dailyTable reloadData];
+        [self.hourlyCollection reloadData];
     }
 
     // TODO: Update the UI based on the current forecast
@@ -147,21 +156,26 @@
 
 // MARK:- Methods
 
+// MARK:- QUESTION FOR JON: You mentioned that I shouldn't call _variable outside of initializers.... would this count as an initializer? lol
 - (void)initializeController {
     if (!_weatherController) {
         _weatherController = [[HLOWeatherController alloc] init];
+        [self.weatherController parseJSONData:loadFile(@"Weather.json", [LSIWeatherForecast class]) completionBloc:^(NSError * _Nullable error) {
+            [self updateViews];
+        }];
     }
 }
 
+
 // MARK:- Actions
 - (void)fetchAPITapped:(UIButton *)sender {
-//    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
-//    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.longitude completionBloc:^(NSError * _Nullable error) {
+    //    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
+    //    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.longitude completionBloc:^(NSError * _Nullable error) {
 
-//    }];
-    [self.weatherController parseJSONData:loadFile(@"Weather.json", [LSIWeatherForecast class]) completionBloc:^(NSError * _Nullable error) {
-
-    }];
+    //    }];
+    //    [self.weatherController parseJSONData:loadFile(@"Weather.json", [LSIWeatherForecast class]) completionBloc:^(NSError * _Nullable error) {
+    //
+    //    }];
 }
 
 // MARK:- Protocol conforming
@@ -196,6 +210,21 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.weatherController.dailyForecast) {
+        return self.weatherController.dailyForecast.count;
+    }
+    return 0;
+}
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    HourlyCollectionViewCell *cell = (HourlyCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyCell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (self.weatherController.hourlyForecast) {
+        return self.weatherController.hourlyForecast.count;
+    }
     return 0;
 }
 
