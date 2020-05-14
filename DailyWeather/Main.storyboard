@@ -166,16 +166,59 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5aQ-hZ-yme">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5aQ-hZ-yme">
                                 <rect key="frame" x="0.0" y="492" width="414" height="370"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lhg-G0-bsV">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lhg-G0-bsV" id="NIm-B0-fAg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="bXZ-HQ-vzx">
+                                                    <rect key="frame" x="20" y="11" width="374" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" horizontalCompressionResistancePriority="747" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-61-F2D">
+                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="40"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="FMF-Ir-0YD">
+                                                            <rect key="frame" x="169" y="0.0" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="VuE-07-iKP"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Xf1-hG-Sac"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-Yl-hea">
+                                                            <rect key="frame" x="310" y="0.0" width="64" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmz-Ea-u2S">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="40"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcA-AP-nBq">
+                                                                    <rect key="frame" x="40" y="0.0" width="24" height="40"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bXZ-HQ-vzx" secondAttribute="trailing" constant="20" id="0fJ-FP-kT6"/>
+                                                <constraint firstItem="bXZ-HQ-vzx" firstAttribute="centerX" secondItem="NIm-B0-fAg" secondAttribute="centerX" id="TvU-Tt-ew8"/>
+                                                <constraint firstItem="bXZ-HQ-vzx" firstAttribute="leading" secondItem="NIm-B0-fAg" secondAttribute="leading" constant="20" id="bTH-SL-4GS"/>
+                                                <constraint firstItem="bXZ-HQ-vzx" firstAttribute="centerY" secondItem="NIm-B0-fAg" secondAttribute="centerY" id="odv-lg-7zY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -473,6 +516,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear-day" width="130" height="130"/>
         <image name="fog" width="130" height="130"/>
         <image name="partly-cloudy-day" width="142" height="130"/>
     </resources>
