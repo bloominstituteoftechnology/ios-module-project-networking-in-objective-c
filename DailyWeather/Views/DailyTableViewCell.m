@@ -8,6 +8,16 @@
 
 #import "DailyTableViewCell.h"
 
+// Aha... so the () is what seems to tell the compiler, hey this is extra/private... interesting.
+@interface DailyTableViewCell ()
+// MARK:- Outlets
+@property (strong, nonatomic) IBOutlet UILabel *dayLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *iconLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempHighLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempLowLabel;
+
+@end
+
 @implementation DailyTableViewCell
 
 - (void)awakeFromNib {

@@ -138,7 +138,7 @@
                                 <rect key="frame" x="0.0" y="492" width="414" height="370"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyCell" id="lhg-G0-bsV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyCell" id="lhg-G0-bsV" customClass="DailyTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lhg-G0-bsV" id="NIm-B0-fAg">
@@ -188,6 +188,12 @@
                                                 <constraint firstItem="bXZ-HQ-vzx" firstAttribute="centerY" secondItem="NIm-B0-fAg" secondAttribute="centerY" id="odv-lg-7zY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="cg3-61-F2D" id="cN4-tj-K9F"/>
+                                            <outlet property="iconLabel" destination="FMF-Ir-0YD" id="IJL-99-5Ak"/>
+                                            <outlet property="tempHighLabel" destination="zmz-Ea-u2S" id="JjU-gb-Sla"/>
+                                            <outlet property="tempLowLabel" destination="RcA-AP-nBq" id="VGj-6X-2yT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
