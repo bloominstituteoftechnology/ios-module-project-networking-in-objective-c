@@ -82,7 +82,8 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 
     // First take care of current weather:
     NSDictionary *currentForecastDic = json[@"currently"];
-    _currentForecast = [[LSIWeatherForecast alloc] ];
+    _currentForecast = [[LSIWeatherForecast alloc] initWithDictionary:currentForecastDic];
+    NSLog(@"Current weather summary %@", self.currentForecast.summary);
 
     if (jsonError) {
         completionBlock(jsonError);
