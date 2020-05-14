@@ -10,14 +10,30 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "CBDCurrentForcast.h"
+#import "LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+//MARK: - Private Properties
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) CBDCurrentForcast *currentForcast;
+
+// MARK: - IBOutlets
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *precipProbabilityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -31,6 +47,9 @@
 
 @implementation LSIWeatherViewController
 
+// MARK: - IBActions
+- (IBAction)getInformation:(id)sender {
+}
 
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -56,6 +75,9 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    
+    [self requestWeatherForLocation:self.location];
+    [self updateViews];
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
@@ -114,7 +136,16 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
+    NSData *currentForcastData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+    NSLog(@"Current Weather: %@", currentForcastData);
+    NSError *jsonError = nil;
+    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentForcastData options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+    NSLog(@"JSON: %@", currentWeatherDictionary);
+    _currentForcast = [[CBDCurrentForcast alloc] initWithDictionary:currentWeatherDictionary];
+    NSLog(@"Current Weather: %@", self.currentForcast);
     
     
     
@@ -127,6 +158,7 @@
     }
     
     // TODO: Update the UI based on the current forecast
+    
 }
 
 @end
