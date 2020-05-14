@@ -45,11 +45,11 @@
 }
 
 - (void)updateViews {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
 
-    self.dayLabel.text = [dateFormatter stringFromDate:date];
+    self.dayLabel.text = [dateFormatter stringFromDate:self.forecast.time];
     self.iconLabel.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
     self.tempHighLabel.text = self.forecast.temperatureHigh.stringValue;
     self.tempLowLabel.text = self.forecast.temperatureLow.stringValue;

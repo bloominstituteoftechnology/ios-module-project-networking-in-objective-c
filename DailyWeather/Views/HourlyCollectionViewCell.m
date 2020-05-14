@@ -26,11 +26,11 @@
     if (self.isNow) {
         self.hourLabel.text = @"Now";
     } else {
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
+//        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"hh a"];
 
-        self.hourLabel.text = [dateFormatter stringFromDate:date];
+        self.hourLabel.text = [dateFormatter stringFromDate:self.forecast.time];
     }
     self.iconLabel.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
     self.highTempLabel.text = self.forecast.temperatureHigh.stringValue;

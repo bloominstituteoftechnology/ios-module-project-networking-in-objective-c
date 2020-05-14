@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSNumber *windBearing; // optional
 @property (nonatomic, readonly) NSNumber *uvIndex; // optional
 
-- (instancetype)initWithTime:(NSDate *)time
+- (instancetype)initWithTime:(NSNumber *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(NSNumber *)precipProbability

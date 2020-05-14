@@ -10,7 +10,7 @@
 
 @implementation LSIDailyForecast
 
-- (instancetype)initWithTime:(NSDate *)time
+- (instancetype)initWithTime:(NSNumber *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
                  sunriseTime:(NSNumber *)sunriseTime
@@ -28,7 +28,8 @@
                      uvIndex:(NSNumber *)uvIndex {
     self = [super init];
     if (self) {
-        _time = time;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:time.longValue];
+        _time = date;
         _summary = [summary copy];
         _icon = [icon copy];
         _sunriseTime = sunriseTime;
