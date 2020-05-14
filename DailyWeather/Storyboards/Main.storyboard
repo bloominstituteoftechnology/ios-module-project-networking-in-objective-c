@@ -176,17 +176,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZ2-kQ-hie">
+                                <rect key="frame" x="374" y="840" width="20" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="info.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="1WV-3B-qSb" kind="show" id="xXy-3q-QKV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="k2O-DV-kfb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="1lf-nX-ngh"/>
                             <constraint firstItem="fYx-DU-NMv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="2qk-r4-GtM"/>
                             <constraint firstItem="0d3-w1-PKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9Kn-zO-LLg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TZ2-kQ-hie" secondAttribute="trailing" constant="20" id="9MI-DN-gIF"/>
                             <constraint firstItem="k2O-DV-kfb" firstAttribute="top" secondItem="fYx-DU-NMv" secondAttribute="bottom" constant="20" id="GuQ-tj-sW7"/>
                             <constraint firstItem="0d3-w1-PKH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="d7w-vR-rrN"/>
                             <constraint firstItem="fYx-DU-NMv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dmy-lj-nK7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k2O-DV-kfb" secondAttribute="trailing" constant="20" id="edd-0C-igb"/>
                             <constraint firstItem="0d3-w1-PKH" firstAttribute="top" secondItem="fYx-DU-NMv" secondAttribute="bottom" constant="20" id="jFd-bu-X4G"/>
+                            <constraint firstItem="TZ2-kQ-hie" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="q5z-59-vrn"/>
                             <constraint firstItem="fYx-DU-NMv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uDv-Wz-JN5"/>
                             <constraint firstItem="fYx-DU-NMv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v4s-Lf-E15"/>
                         </constraints>
@@ -202,7 +212,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -231,8 +241,9 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Kzy-Gv-rQG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -245,4 +256,7 @@
             <point key="canvasLocation" x="1198.5507246376812" y="130.58035714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
