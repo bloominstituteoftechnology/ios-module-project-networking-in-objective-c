@@ -10,21 +10,21 @@
 
 @implementation CBDDailyForcast
 
-- (instancetype)initWithTemperatureLow:(double)temperatureLow
-                       temperatureHigh:(double)temperatureHigh
+- (instancetype)initWithTemperatureLow:(NSNumber *)temperatureLow
+                       temperatureHigh:(NSNumber *)temperatureHigh
                            sunriseTime:(NSDate *)sunriseTime
                             sunsetTime:(NSDate *)sunsetTime
                             precipType:(NSString *)precipType
                                   time:(NSDate *)time
                                summary:(NSString *)summary
                                   icon:(NSString *)icon
-                     precipProbability:(double)precipProbability
+                     precipProbability:(NSNumber *)precipProbability
                        precipIntensity:(NSNumber *)precipIntensity
-                              humidity:(double)humidity
-                              pressure:(double)pressure
-                             windSpeed:(double)windSpeed
-                           windBearing:(double)windBearing
-                               uvIndex:(double)uvIndex {
+                              humidity:(NSNumber *)humidity
+                              pressure:(NSNumber *)pressure
+                             windSpeed:(NSNumber *)windSpeed
+                           windBearing:(NSNumber *)windBearing
+                               uvIndex:(NSNumber *)uvIndex {
     self = [super init];
     if (self) {
         _temperatureLow = temperatureLow;
@@ -54,16 +54,16 @@
     NSString *icon = dictionary[@"icon"];
     NSString *sunriseTimeNumber = dictionary[@"sunriseTime"];
     NSString *sunsetTimeNumber = dictionary[@"sunsetTime"];
-    NSNumber *precipProbabilityNumber = dictionary[@"precipProbability"];
+    NSNumber *precipProbability = dictionary[@"precipProbability"];
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
     NSString *precipType = dictionary[@"precipType"];
-    NSNumber *temperatureLowNumber = dictionary[@"temperatureLow"];
-    NSNumber *temperatureHighNumber = dictionary[@"temperatureHigh"];
-    NSNumber *humidityNumber = dictionary[@"humidity"];
-    NSNumber *pressureNumber = dictionary[@"pressure"];
-    NSNumber *windSpeedNumber = dictionary[@"windSpeed"];
-    NSNumber *windBearingNumber = dictionary[@"windBearing"];
-    NSNumber *uvIndexNumber = dictionary[@"uvIndex"];
+    NSNumber *temperatureLow = dictionary[@"temperatureLow"];
+    NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
+    NSNumber *humidity = dictionary[@"humidity"];
+    NSNumber *pressure = dictionary[@"pressure"];
+    NSNumber *windSpeed = dictionary[@"windSpeed"];
+    NSNumber *windBearing = dictionary[@"windBearing"];
+    NSNumber *uvIndex = dictionary[@"uvIndex"];
     
     double timeInMilliseconds = timeNumber.doubleValue;
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds/1000.0];
@@ -71,14 +71,6 @@
     NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:sunriseTimeInMilliseconds/1000.0];
     double sunsetTimeInMilliseconds = sunsetTimeNumber.doubleValue;
     NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:sunsetTimeInMilliseconds/1000.0];
-    double precipProbability = precipProbabilityNumber.doubleValue;
-    double temperatureLow = temperatureLowNumber.doubleValue;
-    double temperatureHigh = temperatureHighNumber.doubleValue;
-    double humidity = humidityNumber.doubleValue;
-    double pressure = pressureNumber.doubleValue;
-    double windSpeed = windSpeedNumber.doubleValue;
-    double windBearing = windBearingNumber.doubleValue;
-    double uvIndex = uvIndexNumber.doubleValue;
     
     return [self initWithTemperatureLow:temperatureLow
                         temperatureHigh:temperatureHigh

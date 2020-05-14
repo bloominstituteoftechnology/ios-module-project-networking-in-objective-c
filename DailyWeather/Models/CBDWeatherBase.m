@@ -13,13 +13,13 @@
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(double)precipProbability
+           precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
-                    humidity:(double)humidity
-                    pressure:(double)pressure
-                   windSpeed:(double)windSpeed
-                 windBearing:(double)windBearing
-                     uvIndex:(double)uvIndex {
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex {
     self = [super init];
     if (self) {
         _time = time;

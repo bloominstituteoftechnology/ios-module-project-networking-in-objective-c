@@ -12,21 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBDCurrentForcast : CBDWeatherBase
 
-@property (nonatomic) double temperature;
-@property (nonatomic) double apparentTemperature;
+@property (nonatomic) NSNumber *temperature;
+@property (nonatomic) NSNumber *apparentTemperature;
 
-- (instancetype)initWithTemperature:(double)temperature
-                apparentTemperature:(double)apparentTemperature
+- (instancetype)initWithTemperature:(NSNumber *)temperature
+                apparentTemperature:(NSNumber *)apparentTemperature
                                time:(NSDate *)time
                             summary:(NSString *)summary
                                icon:(NSString *)icon
-                  precipProbability:(double)precipProbability
+                  precipProbability:(NSNumber *)precipProbability
                     precipIntensity:(NSNumber *)precipIntensity
-                           humidity:(double)humidity
-                           pressure:(double)pressure
-                          windSpeed:(double)windSpeed
-                        windBearing:(double)windBearing
-                            uvIndex:(double)uvIndex;
+                           humidity:(NSNumber *)humidity
+                           pressure:(NSNumber *)pressure
+                          windSpeed:(NSNumber *)windSpeed
+                        windBearing:(NSNumber *)windBearing
+                            uvIndex:(NSNumber *)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

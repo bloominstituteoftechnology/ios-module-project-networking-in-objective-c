@@ -12,27 +12,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBDWeatherBase : NSObject
 
-@property (nonatomic) NSDate *time;
-@property (nonatomic) NSString *summary;
-@property (nonatomic) NSString *icon;
-@property (nonatomic) double precipProbability;
-@property (nonatomic) NSNumber *precipIntensity;
-@property (nonatomic) double humidity;
-@property (nonatomic) double pressure;
-@property (nonatomic) double windSpeed;
-@property (nonatomic) double windBearing;
-@property (nonatomic) double uvIndex;
+@property (nonatomic, readwrite) NSDate *time;
+@property (nonatomic, readwrite) NSString *summary;
+@property (nonatomic, readwrite) NSString *icon;
+@property (nonatomic, readwrite) NSNumber *precipProbability;
+@property (nonatomic, readwrite) NSNumber *precipIntensity;
+@property (nonatomic, readwrite) NSNumber *humidity;
+@property (nonatomic, readwrite) NSNumber *pressure;
+@property (nonatomic, readwrite) NSNumber *windSpeed;
+@property (nonatomic, readwrite) NSNumber *windBearing;
+@property (nonatomic, readwrite) NSNumber *uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(double)precipProbability
+           precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
-                    humidity:(double)humidity
-                    pressure:(double)pressure
-           windSpeed:(double)windSpeed
-           windBearing:(double)windBearing
-           uvIndex:(double)uvIndex;
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+           windSpeed:(NSNumber *)windSpeed
+           windBearing:(NSNumber *)windBearing
+           uvIndex:(NSNumber *)uvIndex;
 
 //- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

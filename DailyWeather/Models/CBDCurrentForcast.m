@@ -10,18 +10,18 @@
 
 @implementation CBDCurrentForcast
 
-- (instancetype)initWithTemperature:(double)temperature
-                apparentTemperature:(double)apparentTemperature
+- (instancetype)initWithTemperature:(NSNumber *)temperature
+                apparentTemperature:(NSNumber *)apparentTemperature
                                time:(NSDate *)time
                             summary:(NSString *)summary
                                icon:(NSString *)icon
-                  precipProbability:(double)precipProbability
+                  precipProbability:(NSNumber *)precipProbability
                     precipIntensity:(NSNumber *)precipIntensity
-                           humidity:(double)humidity
-                           pressure:(double)pressure
-                          windSpeed:(double)windSpeed
-                        windBearing:(double)windBearing
-                            uvIndex:(double)uvIndex {
+                           humidity:(NSNumber *)humidity
+                           pressure:(NSNumber *)pressure
+                          windSpeed:(NSNumber *)windSpeed
+                        windBearing:(NSNumber *)windBearing
+                            uvIndex:(NSNumber *)uvIndex {
     self = [super init];
     if (self) {
         _temperature = temperature;
@@ -46,26 +46,19 @@
     NSNumber *timeNumber = dictionary[@"time"];
     NSString *summary = dictionary[@"summary"];
     NSString *icon = dictionary[@"icon"];
-    NSNumber *precipProbabilityNumber = dictionary[@"precipProbability"];
+    NSNumber *precipProbability = dictionary[@"precipProbability"];
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
-    NSNumber *temperatureNumber = dictionary[@"temperature"];
-    NSNumber *apparentTemperatureNumber = dictionary[@"apparentTemperature"];
-    NSNumber *humidityNumber = dictionary[@"humidity"];
-    NSNumber *pressureNumber = dictionary[@"pressure"];
-    NSNumber *windSpeedNumber = dictionary[@"windSpeed"];
-    NSNumber *windBearingNumber = dictionary[@"windBearing"];
-    NSNumber *uvIndexNumber = dictionary[@"uvIndex"];
+    NSNumber *temperature = dictionary[@"temperature"];
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+    NSNumber *humidity = dictionary[@"humidity"];
+    NSNumber *pressure = dictionary[@"pressure"];
+    NSNumber *windSpeed = dictionary[@"windSpeed"];
+    NSNumber *windBearing = dictionary[@"windBearing"];
+    NSNumber *uvIndex = dictionary[@"uvIndex"];
     
     double timeInMilliseconds = timeNumber.doubleValue;
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds/1000.0];
-    double precipProbability = precipProbabilityNumber.doubleValue;
-    double temperature = temperatureNumber.doubleValue;
-    double apparentTemperature = apparentTemperatureNumber.doubleValue;
-    double humidity = humidityNumber.doubleValue;
-    double pressure = pressureNumber.doubleValue;
-    double windSpeed = windSpeedNumber.doubleValue;
-    double windBearing = windBearingNumber.doubleValue;
-    double uvIndex = uvIndexNumber.doubleValue;
+
     
     return [self initWithTemperature:temperature
                  apparentTemperature:apparentTemperature

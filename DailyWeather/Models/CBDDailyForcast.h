@@ -15,24 +15,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDate *sunriseTime;
 @property (nonatomic) NSDate *sunsetTime;
 @property (nonatomic) NSString *precipType;
-@property (nonatomic) double temperatureLow;
-@property (nonatomic) double temperatureHigh;
+@property (nonatomic) NSNumber *temperatureLow;
+@property (nonatomic) NSNumber *temperatureHigh;
 
-- (instancetype)initWithTemperatureLow:(double)temperatureLow
-                       temperatureHigh:(double)temperatureHigh
+- (instancetype)initWithTemperatureLow:(NSNumber *)temperatureLow
+                       temperatureHigh:(NSNumber *)temperatureHigh
                            sunriseTime:(NSDate *)sunriseTime
                             sunsetTime:(NSDate *)sunsetTime
                             precipType:(NSString *)precipType
                                   time:(NSDate *)time
                                summary:(NSString *)summary
                                   icon:(NSString *)icon
-                     precipProbability:(double)precipProbability
+                     precipProbability:(NSNumber *)precipProbability
                        precipIntensity:(NSNumber *)precipIntensity
-                              humidity:(double)humidity
-                              pressure:(double)pressure
-                             windSpeed:(double)windSpeed
-                           windBearing:(double)windBearing
-                               uvIndex:(double)uvIndex;
+                              humidity:(NSNumber *)humidity
+                              pressure:(NSNumber *)pressure
+                             windSpeed:(NSNumber *)windSpeed
+                           windBearing:(NSNumber *)windBearing
+                               uvIndex:(NSNumber *)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

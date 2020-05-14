@@ -227,6 +227,7 @@
                         <outlet property="temperatureLabel" destination="W0I-BT-TSD" id="H0b-qg-gB2"/>
                         <outlet property="uvIndexLabel" destination="nnl-nC-Dwj" id="AhY-OE-Fkw"/>
                         <outlet property="windLabel" destination="WUf-qr-RLw" id="GCp-KA-Go6"/>
+                        <segue destination="1WV-3B-qSb" kind="show" id="8vc-hk-arV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -236,9 +237,9 @@
         <!--Settings-->
         <scene sceneID="Iuo-Nt-Ubb">
             <objects>
-                <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LSISettingsTableVC" modalPresentationStyle="fullScreen" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -265,8 +266,9 @@
         <!--Navigation Controller-->
         <scene sceneID="5Tc-3m-Qey">
             <objects>
-                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="nBO-OY-Ed1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

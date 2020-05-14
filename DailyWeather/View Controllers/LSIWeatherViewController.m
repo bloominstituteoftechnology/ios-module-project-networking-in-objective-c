@@ -76,6 +76,7 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    self.locationLabel.text = @"-";
     
     [self requestWeatherForLocation:self.location];
     [self updateViews];
@@ -155,24 +156,44 @@
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        NSString *administrativeArea;
+        if (self.placemark.administrativeArea) {
+            administrativeArea = self.placemark.administrativeArea;
+        } else if (self.placemark.country) {
+            administrativeArea = self.placemark.country;
+        } else {
+            administrativeArea = @" ";
+        }
+        
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, administrativeArea] ;
     }
     
     // TODO: Update the UI based on the current forecast
     self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.currentForcast.icon];
-    self.locationLabel.text = self.placemark.locality;
     self.summaryLabel.text = self.currentForcast.summary;
-    double temperature = round(self.currentForcast.temperature);
+    
+    double temperature = round([self.currentForcast.temperature doubleValue]);
     self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", temperature];
-    double windSpeed = round(self.currentForcast.windSpeed);
-    NSString *direction = [LSICardinalDirection directionForHeading:self.currentForcast.windBearing];
+    
+    double windSpeed = round([self.currentForcast.windSpeed doubleValue]);
+    double windbearing = round([self.currentForcast.windBearing doubleValue]);
+    NSString *direction = [LSICardinalDirection directionForHeading:windbearing];
     self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", direction, windSpeed];
-    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", self.currentForcast.humidity*100];
-    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", self.currentForcast.precipProbability];
-    double apparentTemperature = round(self.currentForcast.apparentTemperature);
+    
+    double humidity = [self.currentForcast.humidity doubleValue] * 100.0;
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", humidity];
+    
+    double precipProbability = round([self.currentForcast.precipProbability doubleValue]);
+    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", precipProbability];
+    
+    double apparentTemperature = round([self.currentForcast.apparentTemperature doubleValue]);
     self.apparentTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", apparentTemperature];
-    self.pressureLabel.text = [NSString stringWithFormat:@"%0.2f inHg", self.currentForcast.pressure];
-    self.uvIndexLabel.text = [NSString stringWithFormat:@"%0.0f", self.currentForcast.uvIndex];
+    
+    double pressure = round([self.currentForcast.pressure doubleValue]);
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.1f inHg", pressure];
+    
+    double uvIndex = round([self.currentForcast.uvIndex doubleValue]);
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%0.0f", uvIndex];
 }
 
 @end
