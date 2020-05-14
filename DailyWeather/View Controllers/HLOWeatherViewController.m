@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *currentTopTemp;
 @property (strong, nonatomic) IBOutlet UILabel *currentLowTemp;
 
+- (IBAction)fetchAPITapped:(UIButton *)sender;
 
 // MARK:- Actions
 @end
@@ -75,13 +76,7 @@
     [self.locationManager startUpdatingLocation];
     [self initializeController];
 
-    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
-}
 
-- (void)initializeController {
-    if (!_weatherController) {
-        _weatherController = [[HLOWeatherController alloc] init];
-    }
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -136,8 +131,6 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
 
-
-
 }
 
 - (void)updateViews {
@@ -150,6 +143,16 @@
 
 // MARK:- Methods
 
+- (void)initializeController {
+    if (!_weatherController) {
+        _weatherController = [[HLOWeatherController alloc] init];
+    }
+}
+
+// MARK:- Actions
+- (void)fetchAPITapped:(UIButton *)sender {
+    [self.weatherController fetchForecastWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.latitude];
+}
 
 // MARK:- Protocol conforming
 
