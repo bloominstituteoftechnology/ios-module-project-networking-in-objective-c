@@ -39,15 +39,15 @@
     XCTAssertEqualObjects(sunriseTime, dailyForcast.sunriseTime);
     XCTAssertEqualObjects(sunsetTime, dailyForcast.sunsetTime);
     XCTAssertEqualObjects(precipIntensity, dailyForcast.precipIntensity);
-    XCTAssertEqualWithAccuracy(0.13, dailyForcast.precipProbability, 0.001);
+    XCTAssertEqualWithAccuracy(0.13, [dailyForcast.precipProbability doubleValue], 0.001);
     XCTAssertEqualObjects(@"rain", dailyForcast.precipType);
-    XCTAssertEqualWithAccuracy(47.02, dailyForcast.temperatureLow, 0.001);
-    XCTAssertEqualWithAccuracy(61.22, dailyForcast.temperatureHigh, 0.001);
-    XCTAssertEqualWithAccuracy(0.78, dailyForcast.humidity, 0.001);
-    XCTAssertEqualWithAccuracy(1021.8, dailyForcast.pressure, 0.001);
-    XCTAssertEqualWithAccuracy(3.82, dailyForcast.windSpeed, 0.001);
-    XCTAssertEqualWithAccuracy(320, dailyForcast.windBearing, 0.001);
-    XCTAssertEqualWithAccuracy(4, dailyForcast.uvIndex, 0.1);
+    XCTAssertEqualWithAccuracy(47.02, [dailyForcast.temperatureLow doubleValue ], 0.001);
+    XCTAssertEqualWithAccuracy(61.22, [dailyForcast.temperatureHigh doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(0.78, [dailyForcast.humidity doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(1021.8, [dailyForcast.pressure doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(3.82, [dailyForcast.windSpeed doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(320, [dailyForcast.windBearing doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(4, [dailyForcast.uvIndex doubleValue], 0.1);
     
 }
 
