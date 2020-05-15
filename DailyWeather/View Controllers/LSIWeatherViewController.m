@@ -12,6 +12,8 @@
 #import "LSILog.h"
 #import "LSIWeatherForcast.h"
 #import "LSIFileHelper.h"
+#import "LSIWeatherFetch.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -20,7 +22,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
-@property (nonatomic) LSIWeatherForcast *weatherForcase;
+@property (nonatomic) LSIWeatherFetch *fetcher;
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImage;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
@@ -48,7 +50,12 @@
 
 @implementation LSIWeatherViewController
 
-
+//- (LSIWeatherFetch *)fetcher{
+//    if (!_fetcher) {
+//        _fetcher = [[LSIWeatherFetch alloc]init];
+//    }
+//    return _fetcher;
+//}
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -138,7 +145,6 @@
         NSLog(@"Error requesting weather json file: %@", weather);
         return;
     }
-    _weatherForcase = [[LSIWeatherForcast alloc]initWithDictionary:weather];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
