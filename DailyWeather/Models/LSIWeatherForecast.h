@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSIWeatherForcast : NSObject
+@interface LSIWeatherForecast : NSObject
 
 @property (nonatomic, readonly) LSICurrentWeather *currently;
 @property (nonatomic, readonly) LSIDailyForecast  *daily;
