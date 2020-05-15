@@ -32,8 +32,8 @@
         _time = time;
         _summary = [summary copy];
         _icon = [icon copy];
-        _sunriseTime = [sunriseTime copy];
-        _sunsetTime = [sunsetTime copy];
+        _sunriseTime = sunriseTime;
+        _sunsetTime = sunsetTime;
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _precipType = [precipType copy];
