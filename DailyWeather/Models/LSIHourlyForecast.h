@@ -17,11 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable, copy) NSString *summary;
 @property (nonatomic, readonly, nullable, copy) NSString *icon;
 @property (nonatomic, readonly, nullable) NSNumber *precipProbability;
-@property (nonatomic, readonly, nullable) NSNumber *precipIntensity;
 @property (nonatomic, readonly, nullable, copy) NSString *precipType; // "rain", "snow", "sleet", or nil
-@property (nonatomic, readonly, nullable) NSNumber *temperatureLow;
-@property (nonatomic, readonly, nullable) NSNumber *temperatureHigh;
-@property (nonatomic, readonly, nullable) NSNumber *apparentTemperatureHigh; // Feels like
+@property (nonatomic, readonly, nullable) NSNumber *temperature;
+@property (nonatomic, readonly, nullable) NSNumber *apparentTemperature; // Feels like
 @property (nonatomic, readonly, nullable) NSNumber *humidity;
 @property (nonatomic, readonly, nullable) NSNumber *pressure;
 @property (nonatomic, readonly, nullable) NSNumber *windSpeed;
@@ -32,11 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(NSNumber *)precipProbability
-             precipIntensity:(NSNumber *)precipIntensity
                   precipType:(NSString *)precipType
-              temperatureLow:(NSNumber *)temperatureLow
-             temperatureHigh:(NSNumber *)temperatureHigh
-     apparentTemperatureHigh:(NSNumber *)apparentTemperatureHigh
+                 temperature:(NSNumber *)temperature
+         apparentTemperature:(NSNumber *)apparentTemperature
                     humidity:(NSNumber *)humidity
                     pressure:(NSNumber *)pressure
                    windSpeed:(NSNumber *)windSpeed
