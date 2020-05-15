@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable, copy) NSString *precipType; // "rain", "snow", "sleet", or nil
 @property (nonatomic, readonly, nullable) NSNumber *temperatureLow;
 @property (nonatomic, readonly, nullable) NSNumber *temperatureHigh;
-@property (nonatomic, readonly, nullable) NSNumber *apparentTemperature; // Feels like
+@property (nonatomic, readonly, nullable) NSNumber *apparentTemperatureHigh; // Feels like
 @property (nonatomic, readonly, nullable) NSNumber *humidity;
 @property (nonatomic, readonly, nullable) NSNumber *pressure;
 @property (nonatomic, readonly, nullable) NSNumber *windSpeed;
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
                   precipType:(NSString *)precipType
               temperatureLow:(NSNumber *)temperatureLow
              temperatureHigh:(NSNumber *)temperatureHigh
-         apparentTemperature:(NSNumber *)apparentTemperature
+     apparentTemperatureHigh:(NSNumber *)apparentTemperatureHigh
                     humidity:(NSNumber *)humidity
                     pressure:(NSNumber *)pressure
                    windSpeed:(NSNumber *)windSpeed
