@@ -10,4 +10,30 @@
 
 @implementation LSIWeatherForcast
 
+- (instancetype)initWithCurrently:(LSICurrentWeather *)currently
+                            daily:(LSIDailyForecast *)daily
+                           hourly:(LSIHourlyForecast *)hourly {
+    self = [super init];
+    if (self != nil) {
+        _currently = currently;
+        _daily = daily;
+        _hourly = hourly;
+    }
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+
+    LSICurrentWeather *currently = dictionary[@"currently"];
+    LSIDailyForecast *daily      = dictionary[@"daily"];
+    LSIHourlyForecast *hourly    = dictionary[@"hourly"];
+
+    // No required elements
+
+    return [self initWithCurrently:currently
+                             daily:daily
+                            hourly:hourly
+            ];
+}
+
 @end

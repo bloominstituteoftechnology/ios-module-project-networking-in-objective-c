@@ -8,9 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+@class LSICurrentWeather;
+@class LSIDailyForecast;
+@class LSIHourlyForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForcast : NSObject
+
+@property (nonatomic, readonly) LSICurrentWeather *currently;
+@property (nonatomic, readonly) LSIDailyForecast  *daily;
+@property (nonatomic, readonly) LSIHourlyForecast *hourly;
+
+- (instancetype)initWithCurrently:(LSICurrentWeather *)currently
+                            daily:(LSIDailyForecast *)daily
+                           hourly:(LSIHourlyForecast *)hourly;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
