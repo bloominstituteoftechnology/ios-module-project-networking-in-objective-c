@@ -30,7 +30,12 @@ if (jsonError) {
 NSLog(@"JSON: %@", weatherDictionary);
 CBDWeatherForecast *weatherForecast = [[CBDWeatherForecast alloc] initWithDictionary:weatherDictionary];
 NSLog(@"Weather: %@", weatherForecast);
-XCTAssertEqualObjects(@"Clear", weatherForecast.currentForecast.summary);
+XCTAssertNotNil(weatherForecast);
+    XCTAssertEqualObjects(@"Clear", weatherForecast.currentForecast.summary);
+
+    //XCTAssertEqualObjects(@"Clear", weatherForecast.currentForecast.summary);
+
+    //XCTAssertEqualObjects(@"Clear", weatherForecast.currentForecast.summary);
 //XCTAssertEqualObjects(@"Clear", weatherForecast.summary);
 //XCTAssertEqualObjects(@"clear-night", weatherForecast.icon);
 

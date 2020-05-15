@@ -35,14 +35,14 @@
     XCTAssertEqualObjects(@"Clear", currentForcast.summary);
     XCTAssertEqualObjects(@"clear-day", currentForcast.icon);
     XCTAssertEqualObjects(precipIntensity, currentForcast.precipIntensity);
-    XCTAssertEqualWithAccuracy(0, currentForcast.precipProbability, 0.001);
-    XCTAssertEqualWithAccuracy(48.35, currentForcast.temperature, 0.001);
-    XCTAssertEqualWithAccuracy(47.4, currentForcast.apparentTemperature, 0.001);
-    XCTAssertEqualWithAccuracy(0.77, currentForcast.humidity, 0.001);
-    XCTAssertEqualWithAccuracy(1023.2, currentForcast.pressure, 0.001);
-    XCTAssertEqualWithAccuracy(3.45, currentForcast.windSpeed, 0.001);
-    XCTAssertEqualWithAccuracy(24, currentForcast.windBearing, 0.001);
-    XCTAssertEqualWithAccuracy(0, currentForcast.uvIndex, 0.001);
+    XCTAssertEqualWithAccuracy(0, [currentForcast.precipProbability doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(48.35, [currentForcast.temperature doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(47.4, [currentForcast.apparentTemperature doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(0.77, [currentForcast.humidity doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(1023.2, [currentForcast.pressure doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(3.45, [currentForcast.windSpeed doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(24, [currentForcast.windBearing doubleValue], 0.001);
+    XCTAssertEqualWithAccuracy(0, [currentForcast.uvIndex doubleValue], 0.001);
     
 }
 

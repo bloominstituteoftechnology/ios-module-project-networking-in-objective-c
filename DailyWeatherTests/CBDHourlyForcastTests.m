@@ -35,17 +35,17 @@ XCTAssertEqualObjects(time, hourlyForcast.time);
 XCTAssertEqualObjects(@"Clear", hourlyForcast.summary);
 XCTAssertEqualObjects(@"clear-night", hourlyForcast.icon);
 XCTAssertNil(hourlyForcast.precipIntensity);
-XCTAssertEqualWithAccuracy(0.0, hourlyForcast.precipProbability, 0.001);
+XCTAssertEqualWithAccuracy(0.0, [hourlyForcast.precipProbability doubleValue], 0.001);
 XCTAssertNil(hourlyForcast.precipType);
 XCTAssertNil(hourlyForcast.temperatureLow);
 XCTAssertNil(hourlyForcast.temperatureHigh);
-XCTAssertEqualWithAccuracy(46.54, hourlyForcast.apparentTemperature, 0.001);
+XCTAssertEqualWithAccuracy(46.54, [hourlyForcast.apparentTemperature doubleValue], 0.001);
 XCTAssertEqualObjects(temperature, hourlyForcast.temperature);
-XCTAssertEqualWithAccuracy(0.78, hourlyForcast.humidity, 0.001);
-XCTAssertEqualWithAccuracy(1022.8, hourlyForcast.pressure, 0.001);
-XCTAssertEqualWithAccuracy(3.57, hourlyForcast.windSpeed, 0.001);
-XCTAssertEqualWithAccuracy(36, hourlyForcast.windBearing, 0.001);
-XCTAssertEqualWithAccuracy(0, hourlyForcast.uvIndex, 0.1);
+XCTAssertEqualWithAccuracy(0.78, [hourlyForcast.humidity doubleValue], 0.001);
+XCTAssertEqualWithAccuracy(1022.8, [hourlyForcast.pressure doubleValue], 0.001);
+XCTAssertEqualWithAccuracy(3.57, [hourlyForcast.windSpeed doubleValue], 0.001);
+XCTAssertEqualWithAccuracy(36, [hourlyForcast.windBearing doubleValue], 0.001);
+XCTAssertEqualWithAccuracy(0, [hourlyForcast.uvIndex doubleValue], 0.1);
     
 }
 
