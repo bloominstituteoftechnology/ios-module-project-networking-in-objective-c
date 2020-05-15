@@ -80,8 +80,8 @@
                                         <rect key="frame" x="0.0" y="128" width="66.5" height="49.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUMIDTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMB-JK-pkW">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUMIDITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMB-JK-pkW">
+                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="16"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.79536825619999996" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -202,6 +202,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chanceOfRainLabel" destination="2iP-rm-tzU" id="Py8-G4-QHJ"/>
+                        <outlet property="feelsLikeLabel" destination="7EV-0r-Qh6" id="qfd-j6-SXa"/>
+                        <outlet property="humidityLabel" destination="2dk-ZB-Nub" id="btZ-1C-AWR"/>
+                        <outlet property="iconImageView" destination="LDF-s2-WjY" id="Mg6-ul-Q45"/>
+                        <outlet property="locationLabel" destination="7RO-dg-caE" id="TW3-7C-Hgu"/>
+                        <outlet property="pressureLabel" destination="a9H-cx-eSm" id="RCk-Hk-Lbb"/>
+                        <outlet property="summaryLabel" destination="ryM-u3-P0i" id="Pp5-cw-sv0"/>
+                        <outlet property="temperatureLabel" destination="4yE-3K-u6g" id="t71-8G-q6X"/>
+                        <outlet property="uvIndexLabel" destination="cbK-RW-rhx" id="Zw3-Gy-AyD"/>
+                        <outlet property="windLabel" destination="n1W-Lj-NwX" id="8gl-s2-DnX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

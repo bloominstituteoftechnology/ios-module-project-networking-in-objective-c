@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSICurrentWeather.h"
+#import "LSIFileHelper.h"
+#import "LSIWeatherIcons.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +22,19 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+// MARK: - Outlets
+
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -113,11 +130,66 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+    // 1. Parse CurrentWeather.json from App Bundle and update UI
+
+    // Load test object from file.
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSICurrentWeather class]);
+
+    // Pass through JSON Serializer
+    // Parse the dictionary and turn it into a CurrentWeather object
+    NSError *jsonError = nil;
+    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+
+    // Pass it through LSIWeatherForcast initializer
+    LSICurrentWeather *currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherDictionary];
+
+    // TODO: icon
+    // TODO: location
+    _summaryLabel.text = currentWeather.summary;
     
-    
-    
-    
+    if ((currentWeather.windSpeed == nil) || (currentWeather.windBearing == nil)) {
+        _windLabel.text = @"--";
+    } else {
+        double windSpeed = [currentWeather.windSpeed doubleValue];
+        double windBearing = [currentWeather.windBearing doubleValue];
+        NSString *windBearingStr = [LSICardinalDirection directionForHeading:windBearing];
+        _windLabel.text = [NSString stringWithFormat:@"%@ %.0f mph", windBearingStr, windSpeed];
+    }
+
+    if (currentWeather.humidity == nil) {
+        _humidityLabel.text = @"--";
+    } else {
+        double humidity = [currentWeather.humidity doubleValue] * 100;
+        _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", humidity];
+    }
+
+    if (currentWeather.precipProbability == nil) {
+        _chanceOfRainLabel.text =  @"--";
+    } else {
+        double precipProbability = [currentWeather.precipProbability doubleValue] * 100;
+        _chanceOfRainLabel.text = [NSString stringWithFormat:@"%.0f%%", precipProbability];
+    }
+
+    _feelsLikeLabel.text = [NSString stringWithFormat:@"%.0fº", currentWeather.apparentTemperature];
+
+    if (currentWeather.pressure == nil) {
+        _pressureLabel.text =  @"--";
+    } else {
+        // Convert millibars to inches of mercury (inHg)
+        double pressure = [currentWeather.pressure doubleValue] / 33.863886666667;
+        _pressureLabel.text = [NSString stringWithFormat:@"%0.2F inHg", pressure];
+    }
+
+    if (currentWeather.pressure == nil) {
+        _uvIndexLabel.text =  @"--";
+    } else {
+        int uvIndex = [currentWeather.uvIndex intValue];
+        _uvIndexLabel.text = [NSString stringWithFormat:@"%d", uvIndex];
+    }
+
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
