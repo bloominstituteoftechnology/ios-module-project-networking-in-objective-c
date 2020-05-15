@@ -16,6 +16,7 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "CBDWeatherFetcher.h"
+@class CBDWeatherForecast;
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -25,8 +26,9 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
-@property (nonatomic) CBDCurrentForcast *currentForcast;
+//@property (nonatomic) CBDCurrentForcast *currentForcast;
 @property (nonatomic) CBDWeatherFetcher *fetcher;
+@property (nonatomic) CBDWeatherForecast *forcast;
 
 // MARK: - IBOutlets
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
