@@ -133,6 +133,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		926F1FEB246E173F0075EB2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				926F1FE8246E16340075EB2A /* LSICurrentWeather.h */,
+				926F1FE9246E16340075EB2A /* LSICurrentWeather.m */,
+				9293C341246D1C29006D60D5 /* LSIDailyForecast.h */,
+				9293C342246D1C29006D60D5 /* LSIDailyForecast.m */,
+				9293C344246D1C47006D60D5 /* LSIHourlyForecast.h */,
+				9293C345246D1C47006D60D5 /* LSIHourlyForecast.m */,
+				9293C33E246D1BAF006D60D5 /* LSIWeatherForcast.h */,
+				9293C33F246D1BAF006D60D5 /* LSIWeatherForcast.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -158,17 +173,10 @@
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
 				BD69314723FD905300C0DF09 /* main.m */,
+				926F1FEB246E173F0075EB2A /* Models */,
 				920A885B246C9C9C007000EC /* Resources */,
 				920A885A246C9C4A007000EC /* Storyboards */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
-				9293C33E246D1BAF006D60D5 /* LSIWeatherForcast.h */,
-				926F1FE8246E16340075EB2A /* LSICurrentWeather.h */,
-				926F1FE9246E16340075EB2A /* LSICurrentWeather.m */,
-				9293C33F246D1BAF006D60D5 /* LSIWeatherForcast.m */,
-				9293C341246D1C29006D60D5 /* LSIDailyForecast.h */,
-				9293C342246D1C29006D60D5 /* LSIDailyForecast.m */,
-				9293C344246D1C47006D60D5 /* LSIHourlyForecast.h */,
-				9293C345246D1C47006D60D5 /* LSIHourlyForecast.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
