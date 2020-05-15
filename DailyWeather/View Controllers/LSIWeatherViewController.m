@@ -135,7 +135,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
                 self.placemark = place;
-                //[self updateViews];
+                [self updateViews];
             });
             requestedLocation = NO;
         }];
