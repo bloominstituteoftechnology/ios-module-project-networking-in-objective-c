@@ -32,8 +32,7 @@
     // Parse the dictionary and turn it into a CurrentWeather object
     NSLog(@"JSON: %@", currentWeatherDictionary);
 
-
-    // Pass it through LSIWeatherForcast initializer
+    // Pass it through LSICurrentWeather initializer
     LSICurrentWeather *currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherDictionary];
 
     NSLog(@"currentWeather: %@", currentWeather);
