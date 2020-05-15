@@ -11,6 +11,7 @@
 #import "LSICurrentWeather.h"
 #import "LSIDailyForecast.h"
 #import "LSIHourlyForecast.h"
+#import "LSIWeatherForcast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -136,6 +137,28 @@
     XCTAssertEqual(   3.57, hourlyForecast.windSpeed.doubleValue);
     XCTAssertEqual(  36,    hourlyForecast.windBearing.doubleValue);
     XCTAssertEqual(   0,    hourlyForecast.uvIndex.doubleValue);
+}
+
+- (void)testWeatherForcast {
+
+    // Load test object from file.
+    NSData *weatherData = loadFile(@"Weather.json", [LSIWeatherForcast class]);
+    NSLog(@"weather: %@", weatherData);
+
+    // Pass through JSON Serializer
+    NSError *jsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+
+    // Parse the dictionary and turn it into a CurrentWeather object
+    NSLog(@"JSON: %@", weatherDictionary);
+
+    // Pass it through LSIWeatherForcast initializer
+    LSIWeatherForcast *weather = [[LSIWeatherForcast alloc] initWithDictionary:weatherDictionary];
+
+    NSLog(@"weather: %@", weather);
 }
 
 @end
