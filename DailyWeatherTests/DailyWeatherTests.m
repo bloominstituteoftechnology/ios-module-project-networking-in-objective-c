@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "LSIFileHelper.h"
 #import "LSICurrentWeather.h"
+#import "LSIDailyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -53,4 +54,49 @@
     XCTAssertEqual(0, currentWeather.uvIndex.doubleValue);
 }
 
+- (void)testDailyForecast {
+
+    // Load test object from file.
+    NSData *dailyForecastData = loadFile(@"DailyWeather.json", [LSIDailyForecast class]);
+    NSLog(@"DailyWeather: %@", dailyForecastData);
+
+    // Pass through JSON Serializer
+    NSError *jsonError = nil;
+    NSDictionary *dailyForecastDictionary = [NSJSONSerialization JSONObjectWithData:dailyForecastData options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+
+    // Parse the dictionary and turn it into a CurrentWeather object
+    NSLog(@"JSON: %@", dailyForecastDictionary);
+
+
+    // Pass it through LSIDailyForecast initializer
+    LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyForecastDictionary];
+
+    NSLog(@"currentWeather: %@", dailyForecast);
+
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1580976000];
+    XCTAssertEqualObjects(time, dailyForecast.time);
+
+    XCTAssertEqualObjects(@"Clear throughout the day.", dailyForecast.summary);
+    XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
+
+    time = [NSDate dateWithTimeIntervalSince1970:1581001860];
+    XCTAssertEqualObjects(time, dailyForecast.sunriseTime);
+
+    time = [NSDate dateWithTimeIntervalSince1970:1581039540];
+    XCTAssertEqualObjects(time, dailyForecast.sunsetTime);
+
+    XCTAssertEqualWithAccuracy(0.0, dailyForecast.precipProbability.doubleValue, 0.13);
+    XCTAssertEqualWithAccuracy(0.0, dailyForecast.precipIntensity.doubleValue, 0.0006);
+    XCTAssertEqual(  47.02, dailyForecast.temperatureLow.doubleValue);
+    XCTAssertEqual(  61.22, dailyForecast.temperatureHigh.doubleValue);
+    XCTAssertEqual(  60.72, dailyForecast.apparentTemperatureHigh.doubleValue);
+    XCTAssertEqual(   0.78, dailyForecast.humidity.doubleValue);
+    XCTAssertEqual(1021.8,  dailyForecast.pressure.doubleValue);
+    XCTAssertEqual(   3.82, dailyForecast.windSpeed.doubleValue);
+    XCTAssertEqual( 320,    dailyForecast.windBearing.doubleValue);
+    XCTAssertEqual(   4,    dailyForecast.uvIndex.doubleValue);
+}
 @end
