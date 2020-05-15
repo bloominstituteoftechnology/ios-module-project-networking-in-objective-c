@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LSIFileHelper.h"
-#import "LSIWeatherForcast.h"
+#import "LSICurrentWeather.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -19,7 +19,7 @@
 - (void)testCurrentWeather {
 
     // Load test object from file.
-    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSICurrentWeather class]);
     NSLog(@"CurrentWeather: %@", currentWeatherData);
 
     // Pass through JSON Serializer
@@ -34,7 +34,7 @@
 
 
     // Pass it through LSIWeatherForcast initializer
-    LSIWeatherForcast *currentWeather = [[LSIWeatherForcast alloc] initWithDictionary:currentWeatherDictionary];
+    LSICurrentWeather *currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherDictionary];
 
     NSLog(@"currentWeather: %@", currentWeather);
 
