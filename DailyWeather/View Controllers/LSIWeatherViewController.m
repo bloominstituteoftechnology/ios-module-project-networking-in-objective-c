@@ -147,9 +147,24 @@
     LSICurrentWeather *currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherDictionary];
 
     // TODO: icon
+    UIImage *unknownImage = [LSIWeatherIcons weatherImageForIconName:@"unknown"];
+    if (currentWeather.icon == nil) {
+        _iconImageView.image = unknownImage;
+    } else {
+        UIImage *currentIcon = [LSIWeatherIcons weatherImageForIconName:currentWeather.icon];
+        if (currentIcon == nil) {
+            currentIcon = unknownImage;
+        }
+        _iconImageView.image = currentIcon;
+    }
+
     // TODO: location
+    _locationLabel.text = @"--";
+
     _summaryLabel.text = currentWeather.summary;
-    
+
+    _temperatureLabel.text = [NSString stringWithFormat:@"%.0fº", currentWeather.temperature];
+
     if ((currentWeather.windSpeed == nil) || (currentWeather.windBearing == nil)) {
         _windLabel.text = @"--";
     } else {
