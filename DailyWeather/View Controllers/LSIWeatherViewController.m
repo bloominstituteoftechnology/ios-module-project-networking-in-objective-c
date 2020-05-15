@@ -16,7 +16,7 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "CBDWeatherFetcher.h"
-@class CBDWeatherForecast;
+#import "CBDWeatherForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -31,16 +31,16 @@
 @property (nonatomic) CBDWeatherForecast *forcast;
 
 // MARK: - IBOutlets
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
-@property (weak, nonatomic) IBOutlet UILabel *windLabel;
-@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *precipProbabilityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
-@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipProbabilityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -85,20 +85,11 @@
     self.locationLabel.text = @"-";
     
     [self requestWeatherForLocation:self.location];
-    [self updateViews];
+//    [self updateViews];
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
     
-    [self.fetcher fetchWeatherAtLatitude:42.3601 longitude:-71.0589 completionBlock:^(CBDWeatherForecast * _Nullable forcast, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Weather Fetching Error: %@", error);
-            return;
-        }
-
-        NSLog(@"Fetched weather: %@", forcast);
-        
-    }];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -144,7 +135,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
                 self.placemark = place;
-                [self updateViews];
+                //[self updateViews];
             });
             requestedLocation = NO;
         }];
@@ -152,8 +143,8 @@
 }
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
-    
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+    /*
     NSData *currentForcastData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
     NSLog(@"Current Weather: %@", currentForcastData);
     NSError *jsonError = nil;
@@ -164,10 +155,23 @@
     NSLog(@"JSON: %@", currentWeatherDictionary);
     _currentForcast = [[CBDCurrentForcast alloc] initWithDictionary:currentWeatherDictionary];
     NSLog(@"Current Weather: %@", self.currentForcast);
-    
-    
+     */
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    [self.fetcher fetchWeatherAtLatitude:_location.coordinate.latitude longitude:_location.coordinate.longitude completionBlock:^(CBDWeatherForecast * _Nullable forcast, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Weather Fetching Error: %@", error);
+            return;
+        }
+
+        NSLog(@"Fetched weather: %@", forcast);
+        self.forcast = forcast;
+        
+         __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateViews];
+        });
+    }];
 }
 
 - (void)updateViews {
@@ -185,30 +189,30 @@
     }
     
     // TODO: Update the UI based on the current forecast
-    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.currentForcast.icon];
-    self.summaryLabel.text = self.currentForcast.summary;
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.currentForecast.icon];
+    self.summaryLabel.text = self.forcast.currentForecast.summary;
     
-    double temperature = round([self.currentForcast.temperature doubleValue]);
+    double temperature = round([self.forcast.currentForecast.temperature doubleValue]);
     self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", temperature];
     
-    double windSpeed = round([self.currentForcast.windSpeed doubleValue]);
-    double windbearing = round([self.currentForcast.windBearing doubleValue]);
+    double windSpeed = round([self.forcast.currentForecast.windSpeed doubleValue]);
+    double windbearing = round([self.forcast.currentForecast.windBearing doubleValue]);
     NSString *direction = [LSICardinalDirection directionForHeading:windbearing];
     self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", direction, windSpeed];
     
-    double humidity = [self.currentForcast.humidity doubleValue] * 100.0;
+    double humidity = [self.forcast.currentForecast.humidity doubleValue] * 100.0;
     self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", humidity];
     
-    double precipProbability = round([self.currentForcast.precipProbability doubleValue]);
+    double precipProbability = round([self.forcast.currentForecast.precipProbability doubleValue]);
     self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", precipProbability];
     
-    double apparentTemperature = round([self.currentForcast.apparentTemperature doubleValue]);
+    double apparentTemperature = round([self.forcast.currentForecast.apparentTemperature doubleValue]);
     self.apparentTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", apparentTemperature];
     
-    double pressure = round([self.currentForcast.pressure doubleValue]);
+    double pressure = round([self.forcast.currentForecast.pressure doubleValue]);
     self.pressureLabel.text = [NSString stringWithFormat:@"%0.1f inHg", pressure];
     
-    double uvIndex = round([self.currentForcast.uvIndex doubleValue]);
+    double uvIndex = round([self.forcast.currentForecast.uvIndex doubleValue]);
     self.uvIndexLabel.text = [NSString stringWithFormat:@"%0.0f", uvIndex];
 }
 

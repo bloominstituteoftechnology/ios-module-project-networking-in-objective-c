@@ -6,37 +6,45 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "CBDWeatherBase.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CBDHourlyForcast : CBDWeatherBase
+@interface CBDHourlyForcast : NSObject
 
-@property (nonatomic) NSString *precipType;
-@property (nonatomic) NSNumber *temperatureLow;
-@property (nonatomic) NSNumber *temperatureHigh;
-@property (nonatomic) NSNumber * apparentTemperature;
-@property (nonatomic) NSNumber *temperature;
+@property (nonatomic, readonly) NSDate *time;
+@property (nonatomic, readonly, nullable, copy) NSString *summary;
+@property (nonatomic, readonly, nullable, copy) NSString *icon;
+@property (nonatomic, readonly, nullable) NSNumber *precipProbability;
+@property (nonatomic, readonly, nullable) NSNumber *precipIntensity;
+@property (nonatomic, readonly, nullable, copy) NSString *precipType;
+@property (nonatomic, readonly, nullable) NSNumber *temperatureLow;
+@property (nonatomic, readonly, nullable) NSNumber *temperatureHigh;
+@property (nonatomic, readonly, nullable) NSNumber *apparentTemperature;
+@property (nonatomic, readonly, nullable) NSNumber *humidity;
+@property (nonatomic, readonly, nullable) NSNumber *pressure;
+@property (nonatomic, readonly, nullable) NSNumber *windSpeed;
+@property (nonatomic, readonly, nullable) NSNumber *windBearing;
+@property (nonatomic, readonly, nullable) NSNumber *uvIndex;
 
-- (instancetype)initWithTemperatureLow:(NSNumber *)temperatureLow
-                       temperatureHigh:(NSNumber *)temperatureHigh
-                   apparentTemperature:(NSNumber *)apparentTemperature
-                           temperature:(NSNumber *)temperature
-                            precipType:(NSString *)precipType
-                                  time:(NSDate *)time
-                               summary:(NSString *)summary
-                                  icon:(NSString *)icon
-                     precipProbability:(NSNumber *)precipProbability
-                       precipIntensity:(NSNumber *)precipIntensity
-                              humidity:(NSNumber *)humidity
-                              pressure:(NSNumber *)pressure
-                             windSpeed:(NSNumber *)windSpeed
-                           windBearing:(NSNumber *)windBearing
-                               uvIndex:(NSNumber *)uvIndex;
+- (instancetype)initWithTime:(NSDate *)time
+                     summary:(NSString *)summary
+                        icon:(NSString *)icon
+           precipProbability:(NSNumber *)precipProbability
+             precipIntensity:(NSNumber *)precipIntensity
+                  precipType:(NSString *)precipType
+              temperatureLow:(NSNumber *)temperatureLow
+             temperatureHigh:(NSNumber *)temperatureHigh
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
 
 @end
 
 NS_ASSUME_NONNULL_END
+

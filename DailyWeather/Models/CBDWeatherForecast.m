@@ -26,15 +26,23 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    
     NSDictionary *hourly = dictionary[@"hourly"];
     NSDictionary *daily = dictionary[@"daily"];
-    
-    CBDCurrentForcast *currentForecast = dictionary[@"currently"];
+    NSDictionary *currentForecast = dictionary[@"currently"];
     NSArray *hourlyForecasts = hourly[@"data"];
     NSArray *dailyForecasts = daily[@"data"];
-    
-    return [self initWithCurrentForecast:currentForecast hourlyForecasts:hourlyForecasts dailyForecasts:dailyForecasts];
+    CBDCurrentForcast *current = [[CBDCurrentForcast alloc] initWithDictionary:currentForecast];
+    NSMutableArray *finalDailyForecasts = [NSMutableArray new];
+    for (int i = 0; i < dailyForecasts.count; i++) {
+        CBDDailyForcast *dailyforcastObject = [[CBDDailyForcast alloc] initWithDictionary:dailyForecasts[i]];
+        [finalDailyForecasts addObject:dailyforcastObject];
+    }
+    NSMutableArray *finalHourlyForecasts = [NSMutableArray new];
+    for (int i = 0; i < hourlyForecasts.count; i++) {
+        CBDHourlyForcast *hourlyForcastObject = [[CBDHourlyForcast alloc] initWithDictionary:hourlyForecasts[i]];
+        [finalHourlyForecasts addObject:hourlyForcastObject];
+    }
+    return [self initWithCurrentForecast:current hourlyForecasts:finalHourlyForecasts dailyForecasts:dailyForecasts];
 }
 
 @end

@@ -13,15 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CBDWeatherBase : NSObject
 
 @property (nonatomic, readwrite) NSDate *time;
-@property (nonatomic, readwrite) NSString *summary;
-@property (nonatomic, readwrite) NSString *icon;
-@property (nonatomic, readwrite) NSNumber *precipProbability;
-@property (nonatomic, readwrite) NSNumber *precipIntensity;
-@property (nonatomic, readwrite) NSNumber *humidity;
-@property (nonatomic, readwrite) NSNumber *pressure;
-@property (nonatomic, readwrite) NSNumber *windSpeed;
-@property (nonatomic, readwrite) NSNumber *windBearing;
-@property (nonatomic, readwrite) NSNumber *uvIndex;
+@property (nonatomic, readwrite, nullable) NSString *summary;
+@property (nonatomic, readwrite, nullable) NSString *icon;
+@property (nonatomic, readwrite, nullable) NSNumber *precipProbability;
+@property (nonatomic, readwrite, nullable) NSNumber *precipIntensity;
+@property (nonatomic, readwrite, nullable) NSNumber *humidity;
+@property (nonatomic, readwrite, nullable) NSNumber *pressure;
+@property (nonatomic, readwrite, nullable) NSNumber *windSpeed;
+@property (nonatomic, readwrite, nullable) NSNumber *windBearing;
+@property (nonatomic, readwrite, nullable) NSNumber *uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
