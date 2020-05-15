@@ -105,7 +105,7 @@
 
     // Load test object from file.
     NSData *hourlyForecastData = loadFile(@"HourlyWeather.json", [LSIHourlyForecast class]);
-    NSLog(@"DailyWeather: %@", hourlyForecastData);
+    NSLog(@"hourlyForecast: %@", hourlyForecastData);
 
     // Pass through JSON Serializer
     NSError *jsonError = nil;
@@ -117,7 +117,7 @@
     // Parse the dictionary and turn it into a CurrentWeather object
     NSLog(@"JSON: %@", hourlyForecastDictionary);
 
-    // Pass it through LSIDailyForecast initializer
+    // Pass it through LSIHourlyForecast initializer
     LSIHourlyForecast *hourlyForecast = [[LSIHourlyForecast alloc] initWithDictionary:hourlyForecastDictionary];
 
     NSLog(@"hourlyForecast: %@", hourlyForecast);
