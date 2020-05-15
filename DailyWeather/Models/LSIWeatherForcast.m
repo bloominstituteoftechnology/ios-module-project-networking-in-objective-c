@@ -1,14 +1,14 @@
 //
-//  LSIWeatherForcast.m
+//  LSIWeatherForecast.m
 //  DailyWeather
 //
 //  Created by Mark Gerrior on 5/13/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIWeatherForcast.h"
+#import "LSIWeatherForecast.h"
 
-@implementation LSIWeatherForcast
+@implementation LSIWeatherForecast
 
 - (instancetype)initWithCurrently:(LSICurrentWeather *)currently
                             daily:(LSIDailyForecast *)daily

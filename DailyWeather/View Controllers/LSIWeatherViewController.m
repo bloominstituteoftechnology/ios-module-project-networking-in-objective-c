@@ -143,7 +143,7 @@
         NSLog(@"JSON Parsing error: %@", jsonError);
     }
 
-    // Pass it through LSIWeatherForcast initializer
+    // Pass it through LSIWeatherForecast initializer
     LSICurrentWeather *currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherDictionary];
 
     // TODO: icon

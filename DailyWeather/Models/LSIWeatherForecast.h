@@ -1,5 +1,5 @@
 //
-//  LSIWeatherForcast.h
+//  LSIWeatherForecast.h
 //  DailyWeather
 //
 //  Created by Mark Gerrior on 5/13/20.

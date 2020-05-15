@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		926F1FE8246E16340075EB2A /* LSICurrentWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentWeather.h; sourceTree = "<group>"; };
 		926F1FE9246E16340075EB2A /* LSICurrentWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentWeather.m; sourceTree = "<group>"; };
-		9293C33E246D1BAF006D60D5 /* LSIWeatherForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForcast.h; sourceTree = "<group>"; };
+		9293C33E246D1BAF006D60D5 /* LSIWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForecast.h; sourceTree = "<group>"; };
 		9293C33F246D1BAF006D60D5 /* LSIWeatherForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherForcast.m; sourceTree = "<group>"; };
 		9293C341246D1C29006D60D5 /* LSIDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIDailyForecast.h; sourceTree = "<group>"; };
 		9293C342246D1C29006D60D5 /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				9293C342246D1C29006D60D5 /* LSIDailyForecast.m */,
 				9293C344246D1C47006D60D5 /* LSIHourlyForecast.h */,
 				9293C345246D1C47006D60D5 /* LSIHourlyForecast.m */,
-				9293C33E246D1BAF006D60D5 /* LSIWeatherForcast.h */,
+				9293C33E246D1BAF006D60D5 /* LSIWeatherForecast.h */,
 				9293C33F246D1BAF006D60D5 /* LSIWeatherForcast.m */,
 			);
 			path = Models;
