@@ -128,8 +128,7 @@
     }
 }
 
-- (void)requestWeatherForLocation:(CLLocation *)location {
-    
+- (void)parseCurrentWeather {
     // 1. Parse CurrentWeather.json from App Bundle and update UI
 
     // Load test object from file.
@@ -204,6 +203,11 @@
         int uvIndex = [currentWeather.uvIndex intValue];
         _uvIndexLabel.text = [NSString stringWithFormat:@"%d", uvIndex];
     }
+}
+
+- (void)requestWeatherForLocation:(CLLocation *)location {
+    
+    [self parseCurrentWeather];
 
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
