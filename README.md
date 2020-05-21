@@ -48,8 +48,9 @@ Your designer would like the app to show the daily weather and the weekly weathe
 
 ## Technical Requirements 
 
-* [Register and create a Dark Sky API account](https://darksky.net/dev) for access to the current weather.
+* ~[Register and create a Dark Sky API account](https://darksky.net/dev)~ for access to the current weather. (Apple bought Dark Sky ... so you can't make a new account–talk to your instructor).
 * Read the [Dark Sky documentation](https://darksky.net/dev/docs) and request the current weather based on your devices current location.
+* Since requests are limited to 1,000/day you need to make your app work in both an offline/online mode. Use a Boolean value or a button to disable/enable actual API requests (so that during development you don't exhaust the daily API limit).
 * For your custom Table View Cell, use pin your view contents to the margins so that you get the correct spacing on the top, bottom, and sides.
 * Use Equal Spacing for the primary Stack View for the layout in the Table View (if there's 3 elements it'll center your icon)
 * Make sure you constrain the icon to 40x40, so it doesn't expand to it's intrinsic size of 130x130.
