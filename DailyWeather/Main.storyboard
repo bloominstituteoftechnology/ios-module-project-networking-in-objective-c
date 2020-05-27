@@ -180,12 +180,23 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC1-bn-I8h">
+                                        <rect key="frame" x="0.0" y="401.33333333333331" width="375" height="44"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="VF0-Ys-PUa"/>
+                                            <barButtonItem image="info.circle.fill" catalog="system" id="mVK-rA-MBY"/>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </toolbar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Lj3-o0-AmX" firstAttribute="leading" secondItem="w1I-4E-7tw" secondAttribute="leading" constant="20" id="Ddv-CD-YnV"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="wC1-bn-I8h" secondAttribute="bottom" id="NP2-CZ-gHG"/>
+                                    <constraint firstAttribute="trailing" secondItem="wC1-bn-I8h" secondAttribute="trailing" id="Q0r-ti-TEV"/>
                                     <constraint firstAttribute="trailing" secondItem="Lj3-o0-AmX" secondAttribute="trailing" constant="20" id="jWA-z7-DIH"/>
                                     <constraint firstItem="Lj3-o0-AmX" firstAttribute="top" secondItem="w1I-4E-7tw" secondAttribute="top" constant="20" id="n8Z-Lq-cJy"/>
+                                    <constraint firstItem="wC1-bn-I8h" firstAttribute="leading" secondItem="w1I-4E-7tw" secondAttribute="leading" id="ylI-oJ-bda"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -257,5 +268,6 @@
     </scenes>
     <resources>
         <image name="clear-day" width="130" height="130"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
