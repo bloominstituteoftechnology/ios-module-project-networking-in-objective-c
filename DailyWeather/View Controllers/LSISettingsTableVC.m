@@ -43,7 +43,9 @@
     
     if (indexPath.row == 1) {
         NSURL *url =  [NSURL URLWithString:@"https://darksky.net/poweredby/"];
-        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:^(BOOL _) {
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        }];
     }
 }
 
