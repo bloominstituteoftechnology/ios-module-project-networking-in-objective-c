@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wB-rC-mCB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="373.5"/>
+                                <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw3-4r-mO8">
+                                <rect key="frame" x="0.0" y="373.5" width="414" height="522.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.34110260009999999" blue="0.71458667519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9wB-rC-mCB" secondAttribute="bottom" multiplier="2.4" id="7fz-EL-OIZ"/>
+                            <constraint firstItem="9wB-rC-mCB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ADq-2i-Ywf"/>
+                            <constraint firstAttribute="bottom" secondItem="Pw3-4r-mO8" secondAttribute="bottom" id="NmU-6h-r2K"/>
+                            <constraint firstItem="9wB-rC-mCB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QSU-eK-49o"/>
+                            <constraint firstItem="9wB-rC-mCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SwI-Vq-5DS"/>
+                            <constraint firstItem="Pw3-4r-mO8" firstAttribute="top" secondItem="9wB-rC-mCB" secondAttribute="bottom" id="eXQ-gg-R3p"/>
+                            <constraint firstItem="Pw3-4r-mO8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j9F-Of-9Ot"/>
+                            <constraint firstItem="Pw3-4r-mO8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s9B-Is-mMt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
