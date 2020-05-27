@@ -59,6 +59,7 @@
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
+    // Minimal change for commit and PR
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
