@@ -10,14 +10,42 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "AMSWeatherController.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherIcons.h"
+#import "DailyWeather-Swift.h"
+#import "AMSWeatherTableViewController.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
 @property CLLocationManager *locationManager;
-@property CLLocation *location;
+@property (nonatomic) CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+//Top Outlets
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
+//Bottom Outlets
+@property (weak, nonatomic) IBOutlet UILabel *windLabel;
+@property (weak, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+@property (weak, nonatomic) IBOutlet CustomSegmentedControl *detailSegment;
+@property (weak, nonatomic) IBOutlet UIView *forecastView;
+@property (weak, nonatomic) IBOutlet UIStackView *detailStack;
+@property (nonatomic) AMSWeatherTableViewController *forecastTableView;
+
+@property (nonatomic) AMSWeather *weather;
+
+- (void)setUpViews:(AMSWeather *)weather;
 
 @end
 
@@ -30,8 +58,6 @@
 
 
 @implementation LSIWeatherViewController
-
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -49,7 +75,6 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -57,8 +82,56 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segmentChanged:) name:@"SegmentChanged" object:nil];
+    
+    self.forecastTableView = [self childViewControllers].firstObject;
+}
+
+-(void)getWeather {
+    AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
+    [forecast getJson:^(AMSWeather * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self->_weather = data;
+        [self setUpViews:data];
+    } location: _location.coordinate];
+}
+
+- (void)setUpViews:(AMSWeather *)weather {
+    self->_weatherImageView.image = [LSIWeatherIcons weatherImageForIconName:weather.currently.icon];
+    self->_temperatureLabel.text = [NSString stringWithFormat:@"%d°", weather.currently.temperature.intValue];
+    self->_windLabel.text = [NSString stringWithFormat:@"%@ %d mph", [LSICardinalDirection directionForHeading:weather.currently.windBearing.doubleValue], weather.currently.windSpeed.intValue];
+    self->_feelsLikeLabel.text = [NSString stringWithFormat:@"%d°", weather.currently.apparentTemperature.intValue];
+    self->_humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", weather.currently.humidity.doubleValue*100];
+    self->_pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", weather.currently.pressure.doubleValue/33.8639];
+    self->_chanceOfRainLabel.text = [NSString stringWithFormat:@"%.0f%%", weather.currently.precipProbability.doubleValue*100];
+    self->_uvIndexLabel.text = [NSString stringWithFormat:@"%d", weather.currently.uvIndex.intValue];
+}
+
+-(void)segmentChanged: (NSNotification *)notification {
+    long segmentIndex = _detailSegment.selectedIndex;
+    if (segmentIndex == 0) {
+        [_forecastView setHidden:YES];
+        [_detailStack setHidden:NO];
+    } else if (segmentIndex == 1) {
+        [_forecastView setHidden:NO];
+        [_detailStack setHidden:YES];
+        [_forecastTableView setWeather:self.weather];
+        [_forecastTableView setIsDaily:NO];
+    } else if (segmentIndex == 2) {
+        [_forecastView setHidden:NO];
+        [_detailStack setHidden:YES];
+        [_forecastTableView setWeather:self.weather];
+        [_forecastTableView setIsDaily:YES];
+    }
+}
+
+- (void)setLocation:(CLLocation *)location {
+    _location = location;
+    [self getWeather];
+}
+
+- (void)setPlacemark:(CLPlacemark *)placemark {
+    _placemark = placemark;
+    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", placemark.locality, placemark.administrativeArea];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -66,7 +139,7 @@
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
     if (location) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                
+        
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if (error) {
                 completionHandler(nil, error);
@@ -104,29 +177,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
                 self.placemark = place;
-                [self updateViews];
             });
             requestedLocation = NO;
         }];
     }
-}
-
-- (void)requestWeatherForLocation:(CLLocation *)location {
-    
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
-}
-
-- (void)updateViews {
-    if (self.placemark) {
-        // TODO: Update the City, State label
-    }
-    
-    // TODO: Update the UI based on the current forecast
 }
 
 @end
@@ -144,9 +198,6 @@
     
     CLLocation *location = locations.firstObject;
     
-    // 1. Request Weather for location
-    
-    [self requestWeatherForLocation: location];
     
     // 2. Request User-Friendly Place Names for Lat/Lon coordinate
     

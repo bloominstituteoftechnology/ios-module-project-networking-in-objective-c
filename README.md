@@ -17,34 +17,34 @@ Using the data that you parsed in the first part of the project. Today's first g
 Your designer would like the app to show the daily weather and the weekly weather. It can be all on one screen, or you can use the Tab Bar to separate the screens (If you use a tab bar, use appropriate icons from SF Symbols). 
 
 * Daily Weather View
-	* Show the daily weather vertically (rows of data)
-	* Display the following for each day of the week (including today):
-		* Day of the week (i.e.: Monday)
-			* Font: Title 3
-			* Color: White
-			* Left aligned
-		* Weather icon
-			* 40x40 points
-		* Group Temperature
-			* Spacing: 16 points
-			* High temperature (i.e. 50)
-				* Font: Title 3
-				* Color: White
-				* Separation: 16 point
-			* Low temperature (i.e.: 30)
-				* Font: Title 3
-				* Color: 80% White (gray)
-		* Row Height: ~62.5 points tall
-		* Weather icon
+* Show the daily weather vertically (rows of data)
+* Display the following for each day of the week (including today):
+* Day of the week (i.e.: Monday)
+* Font: Title 3
+* Color: White
+* Left aligned
+* Weather icon
+* 40x40 points
+* Group Temperature
+* Spacing: 16 points
+* High temperature (i.e. 50)
+* Font: Title 3
+* Color: White
+* Separation: 16 point
+* Low temperature (i.e.: 30)
+* Font: Title 3
+* Color: 80% White (gray)
+* Row Height: ~62.5 points tall
+* Weather icon
 * Hourly Weather View
-	* Show the Hourly Forecast in a horizontal direction
-	* Each "weather hour" should be vertical with the horizontal centers aligned
-		* Time
-			* Display the current hour (5PM) in the top of the cell ("Now" for the current)
-			* Use the users current locale and timezone
-		* Icon
-			* 40x40 points
-		* High temperature (i.e.: 30º)
+* Show the Hourly Forecast in a horizontal direction
+* Each "weather hour" should be vertical with the horizontal centers aligned
+* Time
+* Display the current hour (5PM) in the top of the cell ("Now" for the current)
+* Use the users current locale and timezone
+* Icon
+* 40x40 points
+* High temperature (i.e.: 30º)
 
 ## Technical Requirements 
 
@@ -74,4 +74,3 @@ Your designer would like the app to show the daily weather and the weekly weathe
 * Add a toggle for military time and create a toggle in your settings app.
 * Add a toggle for Fº or Cº in your settings app.
 * Allow the user to add multiple locations (use reverse geocode lookup to search for a place), then make appropriate API calls.
-
