@@ -45,6 +45,16 @@
 
 }
 
+-(void)testHourlyWeatherForecastParsing
+{
+  NSData *hourlyWeatherForecastData = loadFile(@"HourlyWeather.json", [DailyWeatherTests class]);
+  
+  NSLog(@"Hourly Weather Data (as data): %@", hourlyWeatherForecastData);
+  NSString *hourlyWeatherJSONString = [[NSString alloc] initWithData:hourlyWeatherForecastData encoding:NSUTF8StringEncoding];
+  NSLog(@"Hourly Weather Data (as string): %@", hourlyWeatherJSONString);
+
+}
+
 
 
 
