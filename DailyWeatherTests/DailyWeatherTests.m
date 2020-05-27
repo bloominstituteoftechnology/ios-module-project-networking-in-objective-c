@@ -25,14 +25,27 @@
 
 }
 
--(void)testLSIWeatherForecastParsing
+-(void)testLSICurrentWeatherForecastParsing
 {
   NSData *weatherForecastData = loadFile(@"CurrentWeather.json", [DailyWeatherTests class]);
   
-  NSLog(@"Weather Data (as data): %@", weatherForecastData);
+  NSLog(@"Current Weather Data (as data): %@", weatherForecastData);
   NSString *weatherJSONString = [[NSString alloc] initWithData:weatherForecastData encoding:NSUTF8StringEncoding];
-  NSLog(@"Weather Data (as string): %@", weatherJSONString);
+  NSLog(@"Current Weather Data (as string): %@", weatherJSONString);
 
 }
+
+-(void)testDailyWeatherForecastParsing
+{
+  NSData *dailyWeatherForecastData = loadFile(@"DailyWeather.json", [DailyWeatherTests class]);
+  
+  NSLog(@"Daily Weather Data (as data): %@", dailyWeatherForecastData);
+  NSString *dailyWeatherJSONString = [[NSString alloc] initWithData:dailyWeatherForecastData encoding:NSUTF8StringEncoding];
+  NSLog(@"Daily Weather Data (as string): %@", dailyWeatherJSONString);
+
+}
+
+
+
 
 @end
