@@ -184,7 +184,11 @@
                                         <rect key="frame" x="0.0" y="401" width="375" height="44"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="VF0-Ys-PUa"/>
-                                            <barButtonItem image="info.circle.fill" catalog="system" id="mVK-rA-MBY" userLabel="Info Button"/>
+                                            <barButtonItem image="info.circle.fill" catalog="system" id="mVK-rA-MBY" userLabel="Info Button">
+                                                <connections>
+                                                    <segue destination="1WV-3B-qSb" kind="show" id="qLu-gE-7HD"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </toolbar>
@@ -226,7 +230,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -253,8 +257,9 @@
         <!--Navigation Controller-->
         <scene sceneID="5Tc-3m-Qey">
             <objects>
-                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="eIR-8m-Rg7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

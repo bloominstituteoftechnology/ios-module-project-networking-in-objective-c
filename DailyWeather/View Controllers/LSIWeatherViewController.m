@@ -62,8 +62,6 @@
     
     [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.toolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
-    
-    // TODO: Handle settings button pressed
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
