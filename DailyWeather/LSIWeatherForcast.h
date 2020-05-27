@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(NSNumber *)precipProbability
-              recipIntensity:(NSNumber *)precipIntensity
+             precipIntensity:(NSNumber *)precipIntensity
                  temperature:(NSNumber *)temperature
          apparentTemperature:(NSNumber *)apparentTemperature
                     humidity:(NSNumber *)humidity
