@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
                  windBearing:(NSString *)windBearing
-                     uvIndex:(NSInteger *)uvIndex;
+                     uvIndex:(int)uvIndex;
 
 
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double pressure;
 @property (nonatomic, readonly) double windSpeed;
 @property (nonatomic, readonly, copy) NSString *windBearing;
-@property (nonatomic, readonly) NSInteger *uvIndex;
+@property (nonatomic, readonly) int uvIndex;
 
 @end
 
