@@ -18,6 +18,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) UIToolbar *toolbar;
 
 @end
 
@@ -58,8 +59,11 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+    [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
+    [self.toolbar isTranslucent];
+
     // TODO: Handle settings button pressed
-    // Minimal change for commit and PR
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
