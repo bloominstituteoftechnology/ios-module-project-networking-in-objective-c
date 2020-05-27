@@ -19,6 +19,8 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
+@property (nonatomic) IBOutlet UIToolbar *toolbar;
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
@@ -50,6 +52,7 @@
 }
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -57,7 +60,9 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    // TODO: Transparent toolbar with info button (Settings)
+    [self.toolbar setBackgroundImage:[UIImage alloc] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage alloc] forToolbarPosition:UIBarPositionAny];
+    
     // TODO: Handle settings button pressed
 }
 

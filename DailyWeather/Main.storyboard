@@ -181,10 +181,10 @@
                                         </subviews>
                                     </stackView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC1-bn-I8h">
-                                        <rect key="frame" x="0.0" y="401.33333333333331" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="401" width="375" height="44"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="VF0-Ys-PUa"/>
-                                            <barButtonItem image="info.circle.fill" catalog="system" id="mVK-rA-MBY"/>
+                                            <barButtonItem image="info.circle.fill" catalog="system" id="mVK-rA-MBY" userLabel="Info Button"/>
                                         </items>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </toolbar>
@@ -213,6 +213,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="toolbar" destination="wC1-bn-I8h" id="xDZ-ZA-Hiy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
