@@ -14,7 +14,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okI-zA-A2Z">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1I-4E-7tw">
+                                <rect key="frame" x="0.0" y="358.5" width="414" height="537.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="okI-zA-A2Z" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="5qz-Gw-eJy"/>
+                            <constraint firstAttribute="bottom" secondItem="w1I-4E-7tw" secondAttribute="bottom" id="Hir-6U-LPM"/>
+                            <constraint firstItem="okI-zA-A2Z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="J1a-FT-hG1"/>
+                            <constraint firstItem="w1I-4E-7tw" firstAttribute="top" secondItem="okI-zA-A2Z" secondAttribute="bottom" id="L1K-ml-lq5"/>
+                            <constraint firstItem="okI-zA-A2Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c14-rl-ttk"/>
+                            <constraint firstItem="okI-zA-A2Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g0K-9a-dMu"/>
+                            <constraint firstItem="w1I-4E-7tw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ihS-EC-Hlj"/>
+                            <constraint firstItem="w1I-4E-7tw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v66-Hc-0jl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
