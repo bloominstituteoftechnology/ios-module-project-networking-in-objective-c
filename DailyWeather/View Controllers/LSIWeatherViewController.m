@@ -185,8 +185,9 @@
     NSString *apparentTemperature = [NSString stringWithFormat:@"%.0f°", self.currentForecast.apparentTemperature];
     self.apparentTemperatureLabel.text = apparentTemperature;
     
-    NSString *pressure = [NSString stringWithFormat:@"%.2f", self.currentForecast.pressure];
-    self.pressureLabel.text = [NSString stringWithFormat:@"%@ inHg", pressure];
+    double pressureInMillibars = self.currentForecast.pressure;
+    NSString *pressureInInchesOfMercury = [NSString stringWithFormat:@"%.2f", pressureInMillibars * 0.02953];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%@ inHg", pressureInInchesOfMercury];
     
     NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.currentForecast.uvIndex];
     self.uvIndexLabel.text = [NSString stringWithFormat:@"%@", uvIndex];
