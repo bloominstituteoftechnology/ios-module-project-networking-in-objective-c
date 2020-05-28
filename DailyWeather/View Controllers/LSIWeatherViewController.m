@@ -24,10 +24,11 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
-@property (nonatomic) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, copy) LSICurrentForecast *currentForecast;
+@property (nonatomic) LSICurrentForecast *currentForecast;
 
 // IBOutlets
+@property (nonatomic) IBOutlet UIToolbar *toolbar;
+
 @property (nonatomic) IBOutlet UIImageView *iconImageView;
 @property (nonatomic) IBOutlet UILabel *cityAndStateLabel;
 @property (nonatomic) IBOutlet UILabel *summaryLabel;
