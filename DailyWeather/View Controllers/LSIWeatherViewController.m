@@ -7,9 +7,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
-#import "LSIWeatherIcons.h"
-#import "LSIErrors.h"
-#import "LSILog.h"
+#import "../Helpers/LSIWeatherIcons.h"
+#import "../LambdaSDK/LSIErrors.h"
+#import "../LambdaSDK/LSILog.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
