@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class LSICurrentForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForcast : NSObject
+
+- (instancetype)initWithCurrentForecast:(LSICurrentForecast *)currentForecast NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic, readonly, copy) LSICurrentForecast *currentForecast;
 
 @end
 
