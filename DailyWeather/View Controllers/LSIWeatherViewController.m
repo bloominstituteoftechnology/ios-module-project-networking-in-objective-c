@@ -10,6 +10,9 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "AMSWeatherController.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherIcons.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +21,22 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+//Top Outlets
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
+//Bottom Outlets
+@property (weak, nonatomic) IBOutlet UILabel *windLabel;
+@property (weak, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+
+- (void)setUpViews;
 
 @end
 
@@ -30,8 +49,6 @@
 
 
 @implementation LSIWeatherViewController
-
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -49,16 +66,30 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
-    
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+    [self setUpViews];
+}
+
+- (void)setUpViews {
+    AMSWeatherController *forecast = [[AMSWeatherController alloc] init];
+    _weatherImageView.image = [LSIWeatherIcons weatherImageForIconName:forecast.weather.currently.icon];
+    _temperatureLabel.text = [NSString stringWithFormat:@"%d°", forecast.weather.currently.temperature.intValue];
+    _windLabel.text = [NSString stringWithFormat:@"%@ %d mph", [LSICardinalDirection directionForHeading:forecast.weather.currently.windBearing.doubleValue], forecast.weather.currently.windSpeed.intValue];
+    _feelsLikeLabel.text = [NSString stringWithFormat:@"%d°", forecast.weather.currently.apparentTemperature.intValue];
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", forecast.weather.currently.humidity.doubleValue*100];
+    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", forecast.weather.currently.pressure.doubleValue/33.8639];
+    _chanceOfRainLabel.text = [NSString stringWithFormat:@"%.0f%%", forecast.weather.currently.precipProbability.doubleValue*100];
+    _uvIndexLabel.text = [NSString stringWithFormat:@"%d", forecast.weather.currently.uvIndex.intValue];
+}
+
+- (void)setPlacemark:(CLPlacemark *)placemark {
+    _placemark = placemark;
+    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", placemark.locality, placemark.administrativeArea];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -66,7 +97,7 @@
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
     if (location) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                
+        
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if (error) {
                 completionHandler(nil, error);
