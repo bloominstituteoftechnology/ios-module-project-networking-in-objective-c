@@ -53,7 +53,7 @@
 
 @implementation LSIWeatherViewController
 
-
+BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local JSON file, NO to make networking request
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -136,26 +136,30 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
-    
-    NSError *jsonError = nil;
-    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
-    if (!weatherDictionary) {
-        NSLog(@"We've got an error: %@", jsonError);
+    if (shouldBypassNetworkingRequest) {
+        // Parse CurrentWeather.json from App Bundle and update UI
+        NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+        
+        NSError *jsonError = nil;
+        NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
+        
+        if (!weatherDictionary) {
+            NSLog(@"We've got an error: %@", jsonError);
+        }
+        
+        if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"weatherDictionary is not a dictionary!");
+            return;
+        }
+        
+        self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
+        
+    } else {
+        // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+        
     }
-    
-    if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"weatherDictionary is not a dictionary!");
-        return;
-    }
-    
-    self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
     
     [self updateViews];
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
