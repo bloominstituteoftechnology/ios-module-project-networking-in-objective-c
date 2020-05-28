@@ -8,18 +8,37 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
 #import "../Helpers/LSIWeatherIcons.h"
+#import "../Helpers/LSICardinalDirection.h"
 #import "../LambdaSDK/LSIErrors.h"
 #import "../LambdaSDK/LSILog.h"
+#import "../LambdaSDK/LSIFileHelper.h"
+#import "../Model/LSIWeatherForcast.h"
+#import "../Model/LSICurrentForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+// Properties
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
 @property (nonatomic) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, copy) LSICurrentForecast *currentForecast;
+
+// IBOutlets
+@property (nonatomic) IBOutlet UIImageView *iconImageView;
+@property (nonatomic) IBOutlet UILabel *cityAndStateLabel;
+@property (nonatomic) IBOutlet UILabel *summaryLabel;
+@property (nonatomic) IBOutlet UILabel *temperatureLabel;
+
+@property (nonatomic) IBOutlet UILabel *windLabel;
+@property (nonatomic) IBOutlet UILabel *humidityPercentageLabel;
+@property (nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (nonatomic) IBOutlet UILabel *pressureLabel;
+@property (nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -118,8 +137,22 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
+    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
     
+    NSError *jsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
+    if (!weatherDictionary) {
+        NSLog(@"We've got an error: %@", jsonError);
+    }
     
+    if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"weatherDictionary is not a dictionary!");
+        return;
+    }
+    
+    self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
+    
+    [self updateViews];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
@@ -127,9 +160,35 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        self.cityAndStateLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, self.placemark.administrativeArea];
     }
     
     // TODO: Update the UI based on the current forecast
+    NSString *iconName = self.currentForecast.icon;
+    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:iconName];
+    self.iconImageView.image = icon;
+    
+    NSString *temperature = [NSString stringWithFormat:@"%.0f°F", self.currentForecast.temperature];
+    self.temperatureLabel.text = temperature;
+    
+    NSString *windDirection = [LSICardinalDirection directionForHeading:self.currentForecast.windBearing];
+    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.currentForecast.windSpeed];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
+    
+    NSString *humidity = [NSString stringWithFormat:@"%.0f", self.currentForecast.humidity*100];
+    self.humidityPercentageLabel.text = [NSString stringWithFormat:@"%@%%", humidity];
+    
+    NSString *precipProbability = [NSString stringWithFormat:@"%.0f", self.currentForecast.precipProbability*100];
+    self.chanceOfRainLabel.text = [NSString stringWithFormat:@"%@%%", precipProbability];
+    
+    NSString *apparentTemperature = [NSString stringWithFormat:@"%.0f°", self.currentForecast.apparentTemperature];
+    self.apparentTemperatureLabel.text = apparentTemperature;
+    
+    NSString *pressure = [NSString stringWithFormat:@"%.2f", self.currentForecast.pressure];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%@ inHg", pressure];
+    
+    NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.currentForecast.uvIndex];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%@", uvIndex];
 }
 
 @end

@@ -218,7 +218,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="apparentTemperatureLabel" destination="tWD-6M-NJN" id="AcV-B2-Xt7"/>
+                        <outlet property="chanceOfRainLabel" destination="1hk-a3-xAi" id="cjC-kL-nAA"/>
+                        <outlet property="cityAndStateLabel" destination="9yS-rg-tJV" id="p44-Ty-eyH"/>
+                        <outlet property="humidityPercentageLabel" destination="upZ-mG-Tlr" id="GLn-7k-kYf"/>
+                        <outlet property="iconImageView" destination="H6S-oC-Xp1" id="Uu0-Ru-vdQ"/>
+                        <outlet property="pressureLabel" destination="RiQ-fS-wM7" id="BwV-8E-U65"/>
+                        <outlet property="summaryLabel" destination="TAu-oe-7Hf" id="JrQ-Ag-hkx"/>
+                        <outlet property="temperatureLabel" destination="frl-3i-csj" id="tQk-Xr-6As"/>
                         <outlet property="toolbar" destination="wC1-bn-I8h" id="xDZ-ZA-Hiy"/>
+                        <outlet property="uvIndexLabel" destination="XQ7-es-TdW" id="zeL-7e-zi3"/>
+                        <outlet property="windLabel" destination="6dN-RN-liL" id="ne2-7P-u3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
