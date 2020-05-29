@@ -4,6 +4,11 @@ Using the data that you parsed in the first part of the project. Today's first g
 
 ![Apple Weather app](https://tk-assets.lambdaschool.com/b75cb0a8-0706-4a47-81ab-6450283fedba_Apple-Weather.jpg)
 
+# Today's Weather (2 day project)
+
+## Introduction
+
+You will be creating a weather app that can update based on the current conditions. You will be parsing JSON that provides current, daily, hourly forecast information for a location.
 
 ## Instructions
 
