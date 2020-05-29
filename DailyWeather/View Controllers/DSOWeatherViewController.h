@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
+typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DSOWeatherViewController : UIViewController
+
+- (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
+                            withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler;
+
+- (void)requestWeatherForLocation:(CLLocation *)location;
 
 @end
 
