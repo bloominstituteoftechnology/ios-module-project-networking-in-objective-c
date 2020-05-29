@@ -12,32 +12,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForcast : NSObject
 
-- (instancetype)initWithTime:(NSDate *)time
-                     summary:(NSString *)summary
-                        icon:(NSString *)icon
-           precipProbability:(int)precipProbability
-             precipIntensity:(int)precipIntensity
-                 temperature:(double)temperature
-                    humidity:(double)humity
-                    pressure:(double)pressure
-                   windSpeed:(double)windSpeed
-                 windBearing:(NSString *)windBearing
-                     uvIndex:(int)uvIndex;
+- (instancetype)initWithCurrently:(NSDictionary *)currently
+                            daily:(NSDictionary *)daily
+                           hourly:(NSDictionary *)hourly;
 
+//- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic, readonly) NSDictionary *currently;
+@property (nonatomic, readonly, copy) NSDictionary *daily;
+@property (nonatomic, readonly, copy) NSDictionary *hourly;
 
-@property (nonatomic, readonly) NSDate *time;
-@property (nonatomic, readonly, copy) NSString *summary;
-@property (nonatomic, readonly, copy) NSString *icon;
-@property (nonatomic, readonly) int precipProbability;
-@property (nonatomic, readonly) int precipIntensity;
-@property (nonatomic, readonly) double temperature;
-@property (nonatomic, readonly) double humidity;
-@property (nonatomic, readonly) double pressure;
-@property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly, copy) NSString *windBearing;
-@property (nonatomic, readonly) int uvIndex;
+//@property (nonatomic, readonly) NSDate *time;
+//@property (nonatomic, readonly, copy) NSString *summary;
+//@property (nonatomic, readonly, copy) NSString *icon;
+//@property (nonatomic, readonly) int precipProbability;
+//@property (nonatomic, readonly) int precipIntensity;
+//@property (nonatomic, readonly) double temperature;
+//@property (nonatomic, readonly) double humidity;
+//@property (nonatomic, readonly) double pressure;
+//@property (nonatomic, readonly) double windSpeed;
+//@property (nonatomic, readonly, copy) NSString *windBearing;
+//@property (nonatomic, readonly) int uvIndex;
 
 @end
 
