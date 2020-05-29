@@ -7,6 +7,19 @@
 //
 
 #import "DailyWeatherTableViewCell.h"
+#import "LSIDailyForecast.h"
+#import "LSIWeatherIcons.h"
+
+@interface DailyWeatherTableViewCell ()
+
+//OUTLETS
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
+@property (weak, nonatomic) IBOutlet UILabel *dayTempHighLbl;
+@property (weak, nonatomic) IBOutlet UILabel *dayTempLowLbl;
+
+
+@end
 
 @implementation DailyWeatherTableViewCell
 
