@@ -43,48 +43,20 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    NSDictionary *currently = [dictionary objectForKey:@"currently"];
-    if (![currently isKindOfClass:[NSDictionary class]]) return nil;
+    NSNumber *timeNumber = dictionary[@"time"];
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeNumber.longValue / 1000.0];
     
-    NSNumber *timeInMilliseconds = [currently objectForKey:@"time"];
-    if (![timeInMilliseconds isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds.longValue/1000.];
-    
-    NSString *summary = [currently objectForKey:@"summary"];
-    if (![summary isKindOfClass:[NSString class]]) return nil;
-    
-    NSString *icon = [currently objectForKey:@"icon"];
-    if (![icon isKindOfClass:[NSString class]]) return nil;
-    
-    NSNumber *precipProbability = [currently objectForKey:@"precipProbability"];
-    if (![precipProbability isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *precipIntensity = [currently objectForKey:@"precipIntensity"];
-    if (![precipIntensity isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *temperature = [currently objectForKey:@"temperature"];
-    if ([temperature isKindOfClass:[NSNull class]]) {
-        temperature = nil;
-    } else if (![temperature isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *apparentTemperature = [currently objectForKey:@"apparentTemperature"];
-    if (![apparentTemperature isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *humidity = [currently objectForKey:@"humidity"];
-    if (![humidity isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *pressure = [currently objectForKey:@"pressure"];
-    if (![pressure isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *windSpeed = [currently objectForKey:@"windSpeed"];
-    if (![windSpeed isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *windBearing = [currently objectForKey:@"windBearing"];
-    if (![windBearing isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *uvIndex = [currently objectForKey:@"uvIndex"];
-    if (![uvIndex isKindOfClass:[NSNumber class]]) return nil;
+    NSString *summary = dictionary[@"summary"];
+    NSString *icon = dictionary[@"icon"];
+    NSNumber *precipProbability = dictionary[@"precipProbability"];
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
+    NSNumber *temperature = dictionary[@"temperature"];
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+    NSNumber *humidity = dictionary[@"humidity"];
+    NSNumber *pressure = dictionary[@"pressure"];
+    NSNumber *windSpeed = dictionary[@"windSpeed"];
+    NSNumber *windBearing = dictionary[@"windBearing"];
+    NSNumber *uvIndex = dictionary[@"uvIndex"];
     
     return [self initWithTime:time
                       summary:summary
@@ -100,9 +72,5 @@
                       uvIndex:uvIndex];
 }
 
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"<%@: %p; M%@ - %@>", NSStringFromClass(self.class), self, self.temperature, self.summary];
-}
 
 @end

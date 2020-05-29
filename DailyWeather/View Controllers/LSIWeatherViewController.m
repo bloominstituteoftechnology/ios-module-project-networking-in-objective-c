@@ -11,6 +11,8 @@
 #import "LSIErrors.h"
 #import "LSILog.h"
 #import "LSIWeatherForcast.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -71,6 +73,7 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
@@ -138,10 +141,32 @@
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        //Update the City, State label
+        self.cityStateLabel.text = [NSString stringWithFormat:@"%@, %@", _placemark.locality, _placemark.administrativeArea];
     }
     
-    // TODO: Update the UI based on the current forecast
+    //Update the UI based on the current forecast
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"error parsing json: %@", error);
+    }
+    NSLog(@"json: %@", json);
+    
+    LSIWeatherForcast *weatherForcast = [[LSIWeatherForcast alloc] initWithDictionary:json];
+    //topView
+    self.iconImage.image = [LSIWeatherIcons weatherImageForIconName:weatherForcast.icon];
+    self.summaryLabel.text = weatherForcast.summary;
+    self.tempertureLabel.text = [ NSString stringWithFormat:@"%0.0f°F", weatherForcast.temperature.doubleValue];
+    //bottomView
+    NSString *bearing = [LSICardinalDirection directionForHeading:weatherForcast.windBearing.doubleValue];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", bearing, weatherForcast.windSpeed.doubleValue];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.humidity.doubleValue * 100];
+    self.chanceOfRainLabel.text = [NSString stringWithFormat:@"%0.0f%%", weatherForcast.precipProbability.doubleValue * 100];
+    self.feelsLikeLabel.text = [NSString stringWithFormat:@"%0.0f°F", weatherForcast.apparentTemperature.doubleValue];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.0f inHG", weatherForcast.pressure.doubleValue / 33.8641757];
+    self.uvindexLabel.text = [NSString stringWithFormat:@"%i", weatherForcast.uvIndex.intValue];
 }
 
 @end
