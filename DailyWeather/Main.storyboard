@@ -106,7 +106,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="qNi-Cq-WEw">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="qNi-Cq-WEw" customClass="HourlyWeatherCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="89"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fZL-h7-Bmr">
@@ -120,14 +120,14 @@
                                                         <constraint firstAttribute="height" constant="40" id="SR1-Iw-TxN"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-ZW-u3a" userLabel="TimeLbl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-ZW-u3a" userLabel="temp">
                                                     <rect key="frame" x="36" y="60.5" width="28" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZs-5d-eYa" userLabel="TimeLbl">
-                                                    <rect key="frame" x="25" y="0.0" width="50" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZs-5d-eYa" userLabel="TimeLbl">
+                                                    <rect key="frame" x="25" y="0.0" width="50" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="P8q-PB-jZT"/>
                                                     </constraints>
@@ -146,6 +146,11 @@
                                                 <constraint firstItem="XZs-5d-eYa" firstAttribute="top" secondItem="fZL-h7-Bmr" secondAttribute="top" id="oV2-1j-elf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="highTempLbl" destination="T9q-ZW-u3a" id="sEi-YB-1Re"/>
+                                            <outlet property="hourLbl" destination="XZs-5d-eYa" id="KiB-D5-LM3"/>
+                                            <outlet property="weatherIconImg" destination="7K9-OJ-CSa" id="7WV-Bk-qiM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
