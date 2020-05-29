@@ -94,7 +94,7 @@
         if (hourlyForecast) {
             [hourlyForecasts addObject:hourlyForecast];
         } else {
-            //  might be optional and may need to debug this with real data
+            //  causing error might be optional and may need to debug this with real data and networking
             NSLog(@"Unable to parse hourly data dictionary: %@", hourlyDataDictionary);
         }
     }
