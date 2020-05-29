@@ -124,4 +124,72 @@
     XCTAssertEqualWithAccuracy(0, hourlyForecast.uvIndex, 0.0001);
 }
 
+- (void)testWeatherParsing {
+
+    NSData *weatherData = loadFile(@"Weather.json", [DailyWeatherTests class]);
+    
+    NSError *jsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
+    if (!weatherDictionary) {
+        NSLog(@"We've got an error: %@", jsonError);
+    }
+    
+    if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"weatherDictionary is not a dictionary!");
+        return;
+    }
+    
+    LSIWeatherForecast *weatherForecast = [[LSIWeatherForecast alloc] initWithDictionary:weatherDictionary];
+    
+    NSLog(@"weather: %@", weatherForecast);
+
+    XCTAssertEqualWithAccuracy(37.8267, weatherForecast.latitude, 0.0001);
+    XCTAssertEqualWithAccuracy(-122.4233, weatherForecast.latitude, 0.0001);
+    XCTAssertEqualObjects(@"America/Los_Angeles", weatherForecast.timeZone);
+
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581003354], weatherForecast.currently.time);
+    XCTAssertEqualObjects(@"Clear", weatherForecast.currently.summary);
+    XCTAssertEqualObjects(@"clear-day", weatherForecast.currently.icon);
+    XCTAssertEqualWithAccuracy(0, weatherForecast.currently.precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(0, weatherForecast.currently.precipProbability, 0.0001);
+    XCTAssertEqualWithAccuracy(48.35, weatherForecast.currently.temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(47.4, weatherForecast.currently.apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.77, weatherForecast.currently.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1023.2, weatherForecast.currently.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.45, weatherForecast.currently.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(24, weatherForecast.currently.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(0, weatherForecast.currently.uvIndex, 0.0001);
+    
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1580976000], weatherForecast.daily[0].time);
+    XCTAssertEqualObjects(@"Clear throughout the day.", weatherForecast.daily[0].summary);
+    XCTAssertEqualObjects(@"clear-day", weatherForecast.daily[0].icon);
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581001860], weatherForecast.daily[0].sunriseTime);
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581039540], weatherForecast.daily[0].sunsetTime);
+    XCTAssertEqualWithAccuracy(0.0006, weatherForecast.daily[0].precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(0.13, weatherForecast.daily[0].precipProbability, 0.0001);
+    XCTAssertEqualObjects(@"rain", weatherForecast.daily[0].precipType);
+    XCTAssertEqualWithAccuracy(47.02, weatherForecast.daily[0].temperatureLow, 0.0001);
+    XCTAssertEqualWithAccuracy(61.22, weatherForecast.daily[0].temperatureHigh, 0.0001);
+    XCTAssertEqualWithAccuracy(60.72, weatherForecast.daily[0].apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.78, weatherForecast.daily[0].humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1021.8, weatherForecast.daily[0].pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.82, weatherForecast.daily[0].windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(320, weatherForecast.daily[0].windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(4, weatherForecast.daily[0].uvIndex, 0.0001);
+    
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581001200], weatherForecast.hourly[0].time);
+    XCTAssertEqualObjects(@"Clear", weatherForecast.hourly[0].summary);
+    XCTAssertEqualObjects(@"clear-night", weatherForecast.hourly[0].icon);
+    XCTAssertEqualWithAccuracy(0.001, weatherForecast.hourly[0].precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(0.01, weatherForecast.hourly[0].precipProbability, 0.0001);
+    XCTAssertEqualObjects(@"rain", weatherForecast.hourly[0].precipType);
+    XCTAssertEqualWithAccuracy(47.68, weatherForecast.hourly[0].temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(46.54, weatherForecast.hourly[0].apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.78, weatherForecast.hourly[0].humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1022.8, weatherForecast.hourly[0].pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.57, weatherForecast.hourly[0].windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(36, weatherForecast.hourly[0].windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(0, weatherForecast.hourly[0].uvIndex, 0.0001);
+}
+
 @end
