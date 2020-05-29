@@ -14,6 +14,8 @@
 #import "../LambdaSDK/LSIFileHelper.h"
 #import "../Model/LSIWeatherForecast.h"
 #import "../Model/LSICurrentForecast.h"
+#import "../Model/LSIDailyForecast.h"
+#import "../Model/LSIHourlyForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -24,7 +26,7 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
-@property (nonatomic) LSICurrentForecast *currentForecast;
+@property (nonatomic) LSIWeatherForecast *weatherForecast;
 
 // IBOutlets
 @property (nonatomic) IBOutlet UIToolbar *toolbar;
@@ -138,7 +140,7 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     
     if (shouldBypassNetworkingRequest) {
         // Parse CurrentWeather.json from App Bundle and update UI
-        NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+        NSData *weatherData = loadFile(@"Weather.json", [LSIWeatherViewController class]);
         
         NSError *jsonError = nil;
         NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
@@ -152,7 +154,7 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
             return;
         }
         
-        self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
+        self.weatherForecast = [[LSIWeatherForecast alloc] initWithDictionary:weatherDictionary];
         
     } else {
         // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
@@ -169,31 +171,31 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     }
     
     // TODO: Update the UI based on the current forecast
-    NSString *iconName = self.currentForecast.icon;
+    NSString *iconName = self.weatherForecast.currently.icon;
     UIImage *icon = [LSIWeatherIcons weatherImageForIconName:iconName];
     self.iconImageView.image = icon;
     
-    NSString *temperature = [NSString stringWithFormat:@"%.0f°F", self.currentForecast.temperature];
+    NSString *temperature = [NSString stringWithFormat:@"%.0f°F", self.weatherForecast.currently.temperature];
     self.temperatureLabel.text = temperature;
     
-    NSString *windDirection = [LSICardinalDirection directionForHeading:self.currentForecast.windBearing];
-    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.currentForecast.windSpeed];
+    NSString *windDirection = [LSICardinalDirection directionForHeading:self.weatherForecast.currently.windBearing];
+    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.windSpeed];
     self.windLabel.text = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
     
-    NSString *humidity = [NSString stringWithFormat:@"%.0f", self.currentForecast.humidity*100];
+    NSString *humidity = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.humidity*100];
     self.humidityPercentageLabel.text = [NSString stringWithFormat:@"%@%%", humidity];
     
-    NSString *precipProbability = [NSString stringWithFormat:@"%.0f", self.currentForecast.precipProbability*100];
+    NSString *precipProbability = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.precipProbability*100];
     self.chanceOfRainLabel.text = [NSString stringWithFormat:@"%@%%", precipProbability];
     
-    NSString *apparentTemperature = [NSString stringWithFormat:@"%.0f°", self.currentForecast.apparentTemperature];
+    NSString *apparentTemperature = [NSString stringWithFormat:@"%.0f°", self.weatherForecast.currently.apparentTemperature];
     self.apparentTemperatureLabel.text = apparentTemperature;
     
-    double pressureInMillibars = self.currentForecast.pressure;
+    double pressureInMillibars = self.weatherForecast.currently.pressure;
     NSString *pressureInInchesOfMercury = [NSString stringWithFormat:@"%.2f", pressureInMillibars * 0.02953];
     self.pressureLabel.text = [NSString stringWithFormat:@"%@ inHg", pressureInInchesOfMercury];
     
-    NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.currentForecast.uvIndex];
+    NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.uvIndex];
     self.uvIndexLabel.text = [NSString stringWithFormat:@"%@", uvIndex];
 }
 
