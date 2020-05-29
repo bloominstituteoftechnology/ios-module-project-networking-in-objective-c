@@ -16,8 +16,7 @@
              precipIntensity:(double)precipIntensity
            precipProbability:(double)precipProbability
                   precipType:(NSString *)precipType
-              temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
+                 temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -32,8 +31,7 @@
         _precipIntensity = precipIntensity;
         _precipProbability = precipProbability;
         _precipType = precipType.copy;
-        _temperatureLow = temperatureLow;
-        _temperatureHigh = temperatureHigh;
+        _temperature = temperature;
         _apparentTemperature = apparentTemperature;
         _humidity = humidity;
         _pressure = pressure;
@@ -78,15 +76,10 @@
         precipType = nil;
     } else if (![precipType isKindOfClass:[NSString class]]) return nil;
     
-    NSNumber *temperatureLow = [dictionary objectForKey:@"temperatureLow"];
-    if ([temperatureLow isKindOfClass:[NSNull class]]) {
-        temperatureLow = nil;
-    } else if (![temperatureLow isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *temperatureHigh = [dictionary objectForKey:@"temperatureHigh"];
-    if ([temperatureHigh isKindOfClass:[NSNull class]]) {
-        temperatureHigh = nil;
-    } else if (![temperatureHigh isKindOfClass:[NSNumber class]]) return nil;
+    NSNumber *temperature = [dictionary objectForKey:@"temperature"];
+    if ([temperature isKindOfClass:[NSNull class]]) {
+        temperature = nil;
+    } else if (![temperature isKindOfClass:[NSNumber class]]) return nil;
     
     NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperature"];
     if ([apparentTemperature isKindOfClass:[NSNull class]]) {
@@ -124,8 +117,7 @@
               precipIntensity:precipIntensity.doubleValue
             precipProbability:precipProbability.doubleValue
                    precipType:precipType
-               temperatureLow:temperatureLow.doubleValue
-              temperatureHigh:temperatureHigh.doubleValue
+                  temperature:temperature.doubleValue
           apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue

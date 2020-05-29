@@ -104,7 +104,7 @@
         temperatureHigh = nil;
     } else if (![temperatureHigh isKindOfClass:[NSNumber class]]) return nil;
     
-    NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperature"];
+    NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperatureHigh"];
     if ([apparentTemperature isKindOfClass:[NSNull class]]) {
         apparentTemperature = nil;
     } else if (![apparentTemperature isKindOfClass:[NSNumber class]]) return nil;

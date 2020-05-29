@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
              precipIntensity:(double)precipIntensity
            precipProbability:(double)precipProbability
                   precipType:(NSString *)precipType
-              temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
+                 temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -35,8 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double precipIntensity;
 @property (nonatomic, readonly) double precipProbability;
 @property (nonatomic, readonly, copy) NSString *precipType; // "rain", "snow", "sleet", or nil
-@property (nonatomic, readonly) double temperatureLow;
-@property (nonatomic, readonly) double temperatureHigh;
+@property (nonatomic, readonly) double temperature;
 @property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;

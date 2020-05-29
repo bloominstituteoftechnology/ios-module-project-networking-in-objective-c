@@ -2,6 +2,7 @@
     "time": 1581001200,
     "summary": "Clear",
     "icon": "clear-night",
+    "precipIntensity": 0.0,
     "precipProbability": 0.0,
     "precipType": null,
     "temperature": 47.68,
