@@ -144,8 +144,8 @@
     NSLog(@"weather: %@", weatherForecast);
 
     XCTAssertEqualWithAccuracy(37.8267, weatherForecast.latitude, 0.0001);
-    XCTAssertEqualWithAccuracy(-122.4233, weatherForecast.latitude, 0.0001);
-    XCTAssertEqualObjects(@"America/Los_Angeles", weatherForecast.timeZone);
+    XCTAssertEqualWithAccuracy(-122.4233, weatherForecast.longitude, 0.0001);
+    XCTAssertEqualObjects(@"America/Los_Angeles", weatherForecast.timezone);
 
     XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581003354], weatherForecast.currently.time);
     XCTAssertEqualObjects(@"Clear", weatherForecast.currently.summary);

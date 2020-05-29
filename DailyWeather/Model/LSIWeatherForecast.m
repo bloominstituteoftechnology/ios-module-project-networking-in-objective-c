@@ -15,16 +15,16 @@
 
 - (instancetype)initWithLatitude:(double)latitude
                        longitude:(double)longitude
-                        timeZone:(NSString *)timeZone
-                 currentForecast:(LSIDailyForecast *)currently
+                        timezone:(NSString *)timezone
+                 currentForecast:(LSICurrentForecast *)currently
                    dailyForecast:(NSArray<LSIDailyForecast *> *)daily
-                  hourlyForecast:(NSArray<LSIDailyForecast *> *)hourly
+                  hourlyForecast:(NSArray<LSIHourlyForecast *> *)hourly
 {
     if (self = [super init]) {
         _latitude = latitude;
         _longitude = longitude;
-        _timeZone = timeZone.copy;
-        _currently = currently.copy;
+        _timezone = timezone.copy;
+        _currently = currently;
         _daily = daily.copy;
         _hourly = hourly.copy;
     }
@@ -39,10 +39,10 @@
     NSNumber *longitude = [dictionary objectForKey:@"longitude"];
     if (![longitude isKindOfClass:[NSNumber class]]) return nil;
     
-    NSString *timeZone = [dictionary objectForKey:@"timeZone"];
-    if ([timeZone isKindOfClass:[NSNull class]]) {
-        timeZone = nil;
-    } else if (![timeZone isKindOfClass:[NSString class]]) return nil;
+    NSString *timezone = [dictionary objectForKey:@"timezone"];
+    if ([timezone isKindOfClass:[NSNull class]]) {
+        timezone = nil;
+    } else if (![timezone isKindOfClass:[NSString class]]) return nil;
     
     // Current Forecast Data
     
@@ -52,7 +52,6 @@
     } else if (![currentForecastDictionary isKindOfClass:[NSDictionary class]]) return nil;
     
     LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentForecastDictionary];
-    if (![currentForecast isKindOfClass:[NSDictionary class]]) return nil;
     
     // Daily Forecast Data
     
@@ -103,7 +102,7 @@
     
     return [self initWithLatitude:latitude.doubleValue
                         longitude:longitude.doubleValue
-                         timeZone:timeZone
+                         timezone:timezone
                   currentForecast:currentForecast
                     dailyForecast:dailyForecasts
                    hourlyForecast:hourlyForecasts];
