@@ -1,21 +1,20 @@
 //
-//  LSIHourlyForecast.m
+//  LSICurrentWeather.m
 //  DailyWeather
 //
-//  Created by Sal B Amer on 5/27/20.
+//  Created by Sal B Amer on 5/29/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIHourlyForecast.h"
+#import "LSICurrentWeather.h"
 
-@implementation LSIHourlyForecast
+@implementation LSICurrentWeather
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
              precipIntensity:(double)precipIntensity
            precipProbability:(double)precipProbability
-                  precipType:(NSString *)precipType
                  temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
@@ -30,7 +29,6 @@
         _icon = icon;
         _precipIntensity = precipIntensity;
         _precipProbability = precipProbability;
-        _precipType = precipType.copy;
         _temperature = temperature;
         _apparentTemperature = apparentTemperature;
         _humidity = humidity;
@@ -49,6 +47,7 @@
     if ([timeInSeconds isKindOfClass:[NSNull class]]) {
         timeInSeconds = nil;
     } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+    
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
     
     NSString *summary = [dictionary objectForKey:@"summary"];
@@ -70,11 +69,6 @@
     if ([precipProbability isKindOfClass:[NSNull class]]) {
         precipProbability = nil;
     } else if (![precipProbability isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSString *precipType = [dictionary objectForKey:@"precipType"];
-    if ([precipType isKindOfClass:[NSNull class]]) {
-        precipType = nil;
-    } else if (![precipType isKindOfClass:[NSString class]]) return nil;
     
     NSNumber *temperature = [dictionary objectForKey:@"temperature"];
     if ([temperature isKindOfClass:[NSNull class]]) {
@@ -116,7 +110,6 @@
                          icon:icon
               precipIntensity:precipIntensity.doubleValue
             precipProbability:precipProbability.doubleValue
-                   precipType:precipType
                   temperature:temperature.doubleValue
           apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue

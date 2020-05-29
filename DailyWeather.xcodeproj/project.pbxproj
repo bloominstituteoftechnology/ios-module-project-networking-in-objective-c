@@ -38,6 +38,7 @@
 		E04B1E53247E4E970075794D /* LSIWeatherForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E52247E4E970075794D /* LSIWeatherForcast.m */; };
 		E04B1E56247E60A20075794D /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E55247E60A20075794D /* LSIDailyForecast.m */; };
 		E04B1E59247E60B70075794D /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E58247E60B70075794D /* LSIHourlyForecast.m */; };
+		E04B1E622480FC9E0075794D /* LSICurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E612480FC9E0075794D /* LSICurrentWeather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		E04B1E55247E60A20075794D /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
 		E04B1E57247E60B70075794D /* LSIHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIHourlyForecast.h; sourceTree = "<group>"; };
 		E04B1E58247E60B70075794D /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
+		E04B1E602480FC9E0075794D /* LSICurrentWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentWeather.h; sourceTree = "<group>"; };
+		E04B1E612480FC9E0075794D /* LSICurrentWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentWeather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				E04B1E55247E60A20075794D /* LSIDailyForecast.m */,
 				E04B1E57247E60B70075794D /* LSIHourlyForecast.h */,
 				E04B1E58247E60B70075794D /* LSIHourlyForecast.m */,
+				E04B1E602480FC9E0075794D /* LSICurrentWeather.h */,
+				E04B1E612480FC9E0075794D /* LSICurrentWeather.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
 				E04B1E53247E4E970075794D /* LSIWeatherForcast.m in Sources */,
+				E04B1E622480FC9E0075794D /* LSICurrentWeather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

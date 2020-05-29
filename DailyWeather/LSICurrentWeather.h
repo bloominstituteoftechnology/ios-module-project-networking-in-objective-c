@@ -1,8 +1,8 @@
 //
-//  LSIHourlyForecast.h
+//  LSICurrentWeather.h
 //  DailyWeather
 //
-//  Created by Sal B Amer on 5/27/20.
+//  Created by Sal B Amer on 5/29/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
@@ -10,14 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSIHourlyForecast : NSObject
+@interface LSICurrentWeather : NSObject
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
              precipIntensity:(double)precipIntensity
            precipProbability:(double)precipProbability
-                  precipType:(NSString *)precipType
                  temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
@@ -33,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *icon;
 @property (nonatomic, readonly) double precipIntensity;
 @property (nonatomic, readonly) double precipProbability;
-@property (nonatomic, readonly, copy) NSString *precipType; 
 @property (nonatomic, readonly) double temperature;
 @property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;
@@ -41,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double windSpeed;
 @property (nonatomic, readonly) double windBearing;
 @property (nonatomic, readonly) double uvIndex;
+
+
 
 @end
 
