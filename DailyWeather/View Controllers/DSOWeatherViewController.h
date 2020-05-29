@@ -1,5 +1,5 @@
 //
-//  LSIDetailedViewController.h
+//  DSOWeatherViewController.h
 //  DailyWeather
 //
 //  Created by Sal B Amer on 5/29/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSIDetailedViewController : UIViewController
+@interface DSOWeatherViewController : UIViewController
 
 @end
 

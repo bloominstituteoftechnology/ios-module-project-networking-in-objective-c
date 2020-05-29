@@ -1,18 +1,18 @@
 //
-//  LSIDetailedViewController.m
+//  DSOWeatherViewController.m
 //  DailyWeather
 //
 //  Created by Sal B Amer on 5/29/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIDetailedViewController.h"
+#import "DSOWeatherViewController.h"
 
-@interface LSIDetailedViewController ()
+@interface DSOWeatherViewController ()
 
 @end
 
-@implementation LSIDetailedViewController
+@implementation DSOWeatherViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
