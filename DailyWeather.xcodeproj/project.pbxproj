@@ -40,6 +40,7 @@
 		E04B1E59247E60B70075794D /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E58247E60B70075794D /* LSIHourlyForecast.m */; };
 		E04B1E622480FC9E0075794D /* LSICurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E612480FC9E0075794D /* LSICurrentWeather.m */; };
 		E04B1E6524811FC90075794D /* LSIWeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E6424811FC90075794D /* LSIWeatherFetcher.m */; };
+		E04B1E6824812E010075794D /* LSIDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04B1E6724812E010075794D /* LSIDetailedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		E04B1E612480FC9E0075794D /* LSICurrentWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentWeather.m; sourceTree = "<group>"; };
 		E04B1E6324811FC90075794D /* LSIWeatherFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherFetcher.h; sourceTree = "<group>"; };
 		E04B1E6424811FC90075794D /* LSIWeatherFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherFetcher.m; sourceTree = "<group>"; };
+		E04B1E6624812E010075794D /* LSIDetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIDetailedViewController.h; sourceTree = "<group>"; };
+		E04B1E6724812E010075794D /* LSIDetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDetailedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				BD69315D23FD907800C0DF09 /* LSIWeatherViewController.m */,
 				BD69316D23FD912000C0DF09 /* LSISettingsTableVC.h */,
 				BD69316C23FD912000C0DF09 /* LSISettingsTableVC.m */,
+				E04B1E6624812E010075794D /* LSIDetailedViewController.h */,
+				E04B1E6724812E010075794D /* LSIDetailedViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				E04B1E6524811FC90075794D /* LSIWeatherFetcher.m in Sources */,
+				E04B1E6824812E010075794D /* LSIDetailedViewController.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,

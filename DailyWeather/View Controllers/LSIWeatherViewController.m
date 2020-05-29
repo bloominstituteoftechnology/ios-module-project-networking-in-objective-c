@@ -17,6 +17,7 @@
 #import "LSIFileHelper.h"
 #import "LSIWeatherIcons.h"
 #import "LSICardinalDirection.h"
+#import "LSIWeatherFetcher.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -39,7 +40,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *uvIndexLbl;
 
 
-
+@property LSIWeatherFetcher *fetcher;
 @property LSIWeatherForcast *currentWeather;
 
 
@@ -145,7 +146,8 @@ BOOL shouldBypassNetworkingRequest = YES; // yes means load from local JSON File
   
   if (shouldBypassNetworkingRequest) {
 //    Parse CurrentWeather.json from App Bundle and update UI
-    NSData *weatherData = loadFile(@"Weather.json", [LSIWeatherViewController class]);
+//    NSData *weatherData = loadFile(@"Weather.json", [LSIWeatherViewController class]);
+    NSData *weatherData = loadFile(@"Weather.json", [LSIWeatherForcast class]);
     
     NSError *jsonError = nil;
     NSDictionary *currentDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
@@ -181,6 +183,8 @@ BOOL shouldBypassNetworkingRequest = YES; // yes means load from local JSON File
   
   //TEMP LABEL
   NSString *temperature = [NSString stringWithFormat:@"%.0f°F", self.currentWeather.currently.temperature];
+ 
+  
   self.tempLbl.text = temperature;
   
   //WIND DIRECTION SPEED

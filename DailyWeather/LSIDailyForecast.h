@@ -37,11 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
                icon:(NSString *)icon
         sunriseTime:(NSDate *)sunriseTime
          sunsetTime:(NSDate *)sunsetTime
-  precipProbability:(double)precipProbability
     precipIntensity:(double)precipIntensity
+  precipProbability:(double)precipProbability
+
          precipType:(NSString *)precipType
-     temperatureLow:(double)temperatureLow
     temperatureHigh:(double)temperatureHigh
+     temperatureLow:(double)temperatureLow
+ 
 apparentTemperature:(double)apparentTemperature
            humidity:(double)humidity
            pressure:(double)pressure
@@ -57,11 +59,13 @@ apparentTemperature:(double)apparentTemperature
 @property (nonatomic, readonly, copy) NSString *icon;
 @property (nonatomic, readonly) NSDate *sunriseTime;
 @property (nonatomic, readonly) NSDate *sunsetTime;
-@property (nonatomic, readonly) double precipProbability;
 @property (nonatomic, readonly) double precipIntensity;
+@property (nonatomic, readonly) double precipProbability;
+
 @property (nonatomic, readonly, copy) NSString *precipType; //rain, snow,seet
-@property (nonatomic, readonly) double temperatureLow;
 @property (nonatomic, readonly) double temperatureHigh;
+@property (nonatomic, readonly) double temperatureLow;
+
 @property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;

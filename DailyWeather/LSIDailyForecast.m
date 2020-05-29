@@ -15,11 +15,11 @@
                         icon:(NSString *)icon
                  sunriseTime:(NSDate *)sunriseTime
                   sunsetTime:(NSDate *)sunsetTime
-           precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
+           precipProbability:(double)precipProbability
                   precipType:(NSString *)precipType
+            temperatureHigh:(double)temperatureHigh
               temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -33,11 +33,11 @@
     _icon = icon;
     _sunriseTime = sunriseTime;
     _sunsetTime = sunsetTime;
-    _precipProbability = precipProbability;
     _precipIntensity = precipIntensity;
+    _precipProbability = precipProbability;
     _precipType = precipType.copy;
-    _temperatureLow = temperatureLow;
     _temperatureHigh = temperatureHigh;
+    _temperatureLow = temperatureLow;
     _apparentTemperature = apparentTemperature;
     _humidity = humidity;
     _pressure = pressure;
@@ -139,11 +139,11 @@
                        icon:icon
                 sunriseTime:sunriseTime
                  sunsetTime:sunsetTime
-          precipProbability:precipProbability.doubleValue
             precipIntensity:precipIntensity.doubleValue
+          precipProbability:precipProbability.doubleValue
                  precipType:precipType
-             temperatureLow:temperatureLow.doubleValue
             temperatureHigh:temperatureHigh.doubleValue
+             temperatureLow:temperatureLow.doubleValue
         apparentTemperature:apparentTemperature.doubleValue
                    humidity:humidity.doubleValue
                    pressure:pressure.doubleValue
