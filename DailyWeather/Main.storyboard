@@ -220,6 +220,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vge-6D-jmd"/>
                     <connections>
+                        <outlet property="cityStateLabel" destination="RDT-Mq-jDq" id="cWf-iI-lU8"/>
+                        <outlet property="summaryLabel" destination="yKN-AA-ojz" id="NTY-9z-cam"/>
+                        <outlet property="temperatureLabel" destination="qSp-Qb-7IJ" id="YI9-iZ-j4H"/>
                         <outlet property="toolbar" destination="9U6-bk-HrU" id="fyh-Bg-idK"/>
                     </connections>
                 </viewController>
