@@ -26,9 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSMutableArray<LSIDailyForecast *> *dailyForecast;
 
 //Fetch from API
-- (void)fetchWeatherByLocation:(double)latitide
-longtitude:(double)longtitude
+- (void)fetchWeatherByLocation:(double)latitude
+longitude:(double)longitude
 completion:(WeatherFetcherCompletionHandler)completion;
+
+- (void)parseJSONData:(NSData *)data
+completionBloc:(void (^)(NSError * _Nullable error))completionBlock;
 
 @end
 
