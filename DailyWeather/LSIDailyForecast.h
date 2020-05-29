@@ -6,25 +6,7 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 /*
- LSIDailyForecast
-
- time (unix time)
- summary
- icon
- sunriseTime
- sunsetTime
- precipProbability
- precipIntensity
- precipType ("rain", "snow", or "sleet", or nil)
- temperatureLow
- temperatureHigh
- apparentTemperature (Feels like)
- humidity
- pressure
- windSpeed
- windBearing
- uvIndex
-
+ LSIDailyForecas
  */
 #import <Foundation/Foundation.h>
 
@@ -37,19 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
                icon:(NSString *)icon
         sunriseTime:(NSDate *)sunriseTime
          sunsetTime:(NSDate *)sunsetTime
-    precipIntensity:(double)precipIntensity
-  precipProbability:(double)precipProbability
-
+    precipIntensity:(NSNumber *)precipIntensity
+  precipProbability:(NSNumber *)precipProbability
          precipType:(NSString *)precipType
-    temperatureHigh:(double)temperatureHigh
-     temperatureLow:(double)temperatureLow
- 
-apparentTemperature:(double)apparentTemperature
-           humidity:(double)humidity
-           pressure:(double)pressure
-          windSpeed:(double)windSpeed
-        windBearing:(double)windBearing
-            uvIndex:(double)uvIndex NS_DESIGNATED_INITIALIZER;
+    temperatureHigh:(NSNumber *)temperatureHigh
+     temperatureLow:(NSNumber *)temperatureLow
+apparentTemperature:(NSNumber *)apparentTemperature
+           humidity:(NSNumber *)humidity
+           pressure:(NSNumber *)pressure
+          windSpeed:(NSNumber *)windSpeed
+        windBearing:(NSNumber *)windBearing
+            uvIndex:(NSNumber *)uvIndex;
 
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
@@ -59,19 +39,17 @@ apparentTemperature:(double)apparentTemperature
 @property (nonatomic, readonly, copy) NSString *icon;
 @property (nonatomic, readonly) NSDate *sunriseTime;
 @property (nonatomic, readonly) NSDate *sunsetTime;
-@property (nonatomic, readonly) double precipIntensity;
-@property (nonatomic, readonly) double precipProbability;
-
+@property (nonatomic, readonly) NSNumber *precipIntensity;
+@property (nonatomic, readonly) NSNumber *precipProbability;
 @property (nonatomic, readonly, copy) NSString *precipType; //rain, snow,seet
-@property (nonatomic, readonly) double temperatureHigh;
-@property (nonatomic, readonly) double temperatureLow;
-
-@property (nonatomic, readonly) double apparentTemperature;
-@property (nonatomic, readonly) double humidity;
-@property (nonatomic, readonly) double pressure;
-@property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly) double windBearing;
-@property (nonatomic, readonly) double uvIndex;
+@property (nonatomic, readonly) NSNumber *temperatureHigh;
+@property (nonatomic, readonly) NSNumber *temperatureLow;
+@property (nonatomic, readonly) NSNumber *apparentTemperature;
+@property (nonatomic, readonly) NSNumber *humidity;
+@property (nonatomic, readonly) NSNumber *pressure;
+@property (nonatomic, readonly) NSNumber *windSpeed;
+@property (nonatomic, readonly) NSNumber *windBearing;
+@property (nonatomic, readonly) NSNumber *uvIndex;
 
 
 @end

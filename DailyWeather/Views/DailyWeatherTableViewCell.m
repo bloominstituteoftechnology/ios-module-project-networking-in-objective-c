@@ -34,4 +34,22 @@
     // Configure the view for the selected state
 }
 
+- (void)setForecast:(LSIDailyForecast *)forecast  {
+  _forecast = forecast;
+  
+  [self updateViews];
+}
+
+
+- (void)updateViews {
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+
+    self.dayLabel.text = [dateFormatter stringFromDate:self.forecast.time];
+    self.weatherIcon.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
+    self.dayTempHighLbl.text = self.forecast.temperatureHigh.stringValue;
+    self.dayTempLowLbl.text = self.forecast.temperatureLow.stringValue;
+}
+
 @end

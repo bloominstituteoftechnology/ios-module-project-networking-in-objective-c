@@ -11,31 +11,31 @@
 @implementation LSIDailyForecast
 
 - (instancetype)initWithTime:(NSDate *)time
-                     summary:(NSString *)summary
-                        icon:(NSString *)icon
-                 sunriseTime:(NSDate *)sunriseTime
-                  sunsetTime:(NSDate *)sunsetTime
-             precipIntensity:(double)precipIntensity
-           precipProbability:(double)precipProbability
-                  precipType:(NSString *)precipType
-            temperatureHigh:(double)temperatureHigh
-              temperatureLow:(double)temperatureLow
-         apparentTemperature:(double)apparentTemperature
-                    humidity:(double)humidity
-                    pressure:(double)pressure
-                   windSpeed:(double)windSpeed
-                 windBearing:(double)windBearing
-                     uvIndex:(double)uvIndex
+            summary:(NSString *)summary
+               icon:(NSString *)icon
+        sunriseTime:(NSDate *)sunriseTime
+         sunsetTime:(NSDate *)sunsetTime
+    precipIntensity:(NSNumber *)precipIntensity
+  precipProbability:(NSNumber *)precipProbability
+         precipType:(NSString *)precipType
+    temperatureHigh:(NSNumber *)temperatureHigh
+     temperatureLow:(NSNumber *)temperatureLow
+apparentTemperature:(NSNumber *)apparentTemperature
+           humidity:(NSNumber *)humidity
+           pressure:(NSNumber *)pressure
+          windSpeed:(NSNumber *)windSpeed
+        windBearing:(NSNumber *)windBearing
+            uvIndex:(NSNumber *)uvIndex
 {
   if (self = [super init]) {
     _time = time;
-    _summary = summary;
-    _icon = icon;
+    _summary = [summary copy];
+    _icon = [icon copy];
     _sunriseTime = sunriseTime;
     _sunsetTime = sunsetTime;
     _precipIntensity = precipIntensity;
     _precipProbability = precipProbability;
-    _precipType = precipType.copy;
+    _precipType = [precipType copy];
     _temperatureHigh = temperatureHigh;
     _temperatureLow = temperatureLow;
     _apparentTemperature = apparentTemperature;
@@ -139,20 +139,17 @@
                        icon:icon
                 sunriseTime:sunriseTime
                  sunsetTime:sunsetTime
-            precipIntensity:precipIntensity.doubleValue
-          precipProbability:precipProbability.doubleValue
+            precipIntensity:precipIntensity
+          precipProbability:precipProbability
                  precipType:precipType
-            temperatureHigh:temperatureHigh.doubleValue
-             temperatureLow:temperatureLow.doubleValue
-        apparentTemperature:apparentTemperature.doubleValue
-                   humidity:humidity.doubleValue
-                   pressure:pressure.doubleValue
-                  windSpeed:windSpeed.doubleValue
-                windBearing:windBearing.doubleValue
-                    uvIndex:uvIndex.doubleValue];
+            temperatureHigh:temperatureHigh
+             temperatureLow:temperatureLow
+        apparentTemperature:apparentTemperature
+                   humidity:humidity
+                   pressure:pressure
+                  windSpeed:windSpeed
+                windBearing:windBearing
+                    uvIndex:uvIndex];
 }
-
-
-
 
 @end
