@@ -18,15 +18,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wB-rC-mCB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="373.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="yr6-i8-p7A">
-                                        <rect key="frame" x="175" y="40" width="64" height="64"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="yr6-i8-p7A">
+                                        <rect key="frame" x="175" y="41" width="64" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="1Lc-be-xSQ"/>
                                             <constraint firstAttribute="height" constant="64" id="bhR-ke-5Ho"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bangkok, TH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcc-RY-ujG">
-                                        <rect key="frame" x="130" y="109" width="154" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcc-RY-ujG">
+                                        <rect key="frame" x="108.5" y="109" width="197" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -209,6 +209,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chancesOfRainLbl" destination="SOf-xe-98Y" id="Sn0-E4-p4N"/>
+                        <outlet property="cityStateLbl" destination="Rcc-RY-ujG" id="EiH-fg-paE"/>
+                        <outlet property="feelsLikeLbl" destination="BOZ-HV-6oi" id="vLf-hv-PVN"/>
+                        <outlet property="humidityLbl" destination="Jna-0Y-bZ9" id="QoW-cq-Uc7"/>
+                        <outlet property="pressureLbl" destination="kyW-sm-CKZ" id="TZE-E1-GMa"/>
+                        <outlet property="summaryLbl" destination="ktt-Km-jwd" id="RB9-uS-eTP"/>
+                        <outlet property="tempLbl" destination="nwq-Iz-vBx" id="DX7-Js-HCI"/>
+                        <outlet property="uvIndexLbl" destination="17x-7b-BnI" id="rE5-05-q7s"/>
+                        <outlet property="weatherIconImage" destination="yr6-i8-p7A" id="Eow-vg-OWu"/>
+                        <outlet property="windSpeedLbl" destination="miW-fC-lev" id="BVE-vX-yl7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
