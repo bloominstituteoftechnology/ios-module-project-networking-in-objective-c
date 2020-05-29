@@ -63,6 +63,7 @@
     [self.toolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
     [self.toolbar isTranslucent];
     // TODO: Handle settings button pressed
+    
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names

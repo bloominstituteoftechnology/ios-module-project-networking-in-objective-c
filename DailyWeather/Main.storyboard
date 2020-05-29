@@ -181,13 +181,13 @@
                                         </subviews>
                                     </stackView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9U6-bk-HrU">
-                                        <rect key="frame" x="0.0" y="452" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="451.5" width="414" height="44"/>
                                         <items>
                                             <barButtonItem width="349" style="plain" systemItem="fixedSpace" id="7Jf-WK-UMN"/>
                                             <barButtonItem image="info.circle.fill" catalog="system" id="Cfm-Vw-fO0">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <segue destination="1WV-3B-qSb" kind="show" id="gaY-ID-MD2"/>
+                                                    <segue destination="csx-3I-UFX" kind="presentation" id="ytd-9X-20l"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -225,64 +225,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2542.0289855072465" y="137.94642857142856"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Iuo-Nt-Ubb">
             <objects>
                 <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <sections>
-                            <tableViewSection id="9LV-lf-Uce">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="pRT-5y-TZg" customClass="LSISettingsTableViewController">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pRT-5y-TZg" id="3J9-Sj-ZGG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Weather v.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-ZR-bvW">
-                                                    <rect key="frame" x="28" y="11.5" width="358" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="OSv-ZR-bvW" firstAttribute="centerY" secondItem="3J9-Sj-ZGG" secondAttribute="centerY" id="4u8-04-dSm"/>
-                                                <constraint firstItem="OSv-ZR-bvW" firstAttribute="leading" secondItem="3J9-Sj-ZGG" secondAttribute="leadingMargin" constant="8" id="70S-NT-pfr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="OSv-ZR-bvW" secondAttribute="trailing" constant="8" id="TbI-wy-eCg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="G4I-2c-Xyh" customClass="LSISettingsTableViewController">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G4I-2c-Xyh" id="n35-UA-cj6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Dark Sky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4J-N6-a5V">
-                                                    <rect key="frame" x="28" y="11.5" width="358" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="j4J-N6-a5V" secondAttribute="trailing" constant="8" id="0Bp-cH-qVS"/>
-                                                <constraint firstItem="j4J-N6-a5V" firstAttribute="centerY" secondItem="n35-UA-cj6" secondAttribute="centerY" id="7Dh-7V-ufW"/>
-                                                <constraint firstItem="j4J-N6-a5V" firstAttribute="leading" secondItem="n35-UA-cj6" secondAttribute="leadingMargin" constant="8" id="whj-F3-SNb"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="pRT-5y-TZg" customClass="LSISettingsTableViewController">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pRT-5y-TZg" id="3J9-Sj-ZGG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-ZR-bvW">
+                                            <rect key="frame" x="28" y="22" width="358" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OSv-ZR-bvW" firstAttribute="centerY" secondItem="3J9-Sj-ZGG" secondAttribute="centerY" id="4u8-04-dSm"/>
+                                        <constraint firstItem="OSv-ZR-bvW" firstAttribute="leading" secondItem="3J9-Sj-ZGG" secondAttribute="leadingMargin" constant="8" id="70S-NT-pfr"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="OSv-ZR-bvW" secondAttribute="trailing" constant="8" id="TbI-wy-eCg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="u9d-HL-15G" id="gLB-Tq-Pyd"/>
                             <outlet property="delegate" destination="u9d-HL-15G" id="ZkU-cx-2vS"/>
@@ -292,26 +268,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMq-om-ZDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2873.913043478261" y="130.58035714285714"/>
+            <point key="canvasLocation" x="4468.115942028986" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="5Tc-3m-Qey">
+        <scene sceneID="LMy-YA-zkB">
             <objects>
-                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csx-3I-UFX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="umX-tK-1EF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Lp-nU-BVW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="u9d-HL-15G" kind="relationship" relationship="rootViewController" id="qGq-ws-0i7"/>
+                        <segue destination="u9d-HL-15G" kind="relationship" relationship="rootViewController" id="S10-er-onI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5ul-pW-Gzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUR-rC-7Gv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108.695652173913" y="130.58035714285714"/>
+            <point key="canvasLocation" x="3557.971014492754" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
