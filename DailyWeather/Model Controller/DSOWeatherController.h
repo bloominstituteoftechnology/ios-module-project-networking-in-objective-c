@@ -8,9 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
+//Foward the classes here
+@class LSIDailyForecast;
+@class LSIHourlyForecast;
+@class LSICurrentWeather;
+@class LSIWeatherForcast;
+
+typedef void(^WeatherFetcherCompletionHandler) (NSArray * _Nullable weather, NSError * _Nullable error);
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DSOWeatherController : NSObject
+
+@property (nonatomic, readonly) LSIWeatherForcast *currentForecast;
+@property (nonatomic, readonly) NSMutableArray<LSIHourlyForecast *> *hourlyForecast;
+@property (nonatomic, readonly) NSMutableArray<LSIDailyForecast *> *dailyForecast;
+
+//Fetch from API
+- (void)fetchWeatherByLocation:(double)latitide
+longtitude:(double)longtitude
+completion:(WeatherFetcherCompletionHandler)completion;
 
 @end
 
