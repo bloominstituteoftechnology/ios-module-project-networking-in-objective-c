@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
 #import "../DailyWeather/LambdaSDK/LSILog.h"
-#import "../DailyWeather/Model/LSIWeatherForcast.h"
+#import "../DailyWeather/Model/LSIWeatherForecast.h"
 #import "../DailyWeather/Model/LSICurrentForecast.h"
 
 @interface DailyWeatherTests : XCTestCase

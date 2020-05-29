@@ -12,7 +12,7 @@
 #import "../LambdaSDK/LSIErrors.h"
 #import "../LambdaSDK/LSILog.h"
 #import "../LambdaSDK/LSIFileHelper.h"
-#import "../Model/LSIWeatherForcast.h"
+#import "../Model/LSIWeatherForecast.h"
 #import "../Model/LSICurrentForecast.h"
 
 @interface LSIWeatherViewController () {

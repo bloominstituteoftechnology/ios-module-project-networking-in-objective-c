@@ -1,5 +1,5 @@
 //
-//  LSIWeatherForcast.h
+//  LSIWeatherForecast.h
 //  DailyWeather
 //
 //  Created by David Wright on 5/28/20.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSIWeatherForcast : NSObject
+@interface LSIWeatherForecast : NSObject
 
 - (instancetype)initWithCurrentForecast:(LSICurrentForecast *)currentForecast NS_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
