@@ -20,7 +20,7 @@
 
 @implementation DailyWeatherTests
 
-- (void)testWeatherParsing {
+- (void)testCurrentWeatherParsing {
 
     NSData *weatherData = loadFile(@"CurrentWeather.json", [DailyWeatherTests class]);
     
