@@ -1,5 +1,5 @@
 //
-//  WeatherFetcher.h
+//  LSIWeatherFetcher.h
 //  DailyWeather
 //
 //  Created by David Wright on 5/30/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WeatherFetcher : NSObject
+@interface LSIWeatherFetcher : NSObject
 
 @end
 
