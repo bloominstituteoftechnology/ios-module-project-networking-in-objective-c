@@ -199,7 +199,8 @@
                                                 <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="1" maxY="0.0"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <segue destination="u9d-HL-15G" kind="show" id="0eZ-Bq-MNc"/>
+                                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="5L5-Sx-EJ1"/>
+                                                    <segue destination="1WV-3B-qSb" kind="showDetail" identifier="settingsSegue" id="Ya3-0B-UWg"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -236,7 +237,6 @@
                         <outlet property="humidityLabel" destination="00o-rl-Jfj" id="XMU-bC-eH4"/>
                         <outlet property="iconImage" destination="Dro-ar-d31" id="fy3-GP-9Wr"/>
                         <outlet property="pressureLabel" destination="pma-Zk-lCH" id="gyu-3J-00q"/>
-                        <outlet property="settingsButton" destination="9LE-YI-NmV" id="6a3-iH-TFL"/>
                         <outlet property="summaryLabel" destination="irr-In-9C2" id="Qcl-pC-hgJ"/>
                         <outlet property="tempertureLabel" destination="ejK-p5-Pqc" id="8F1-cc-IVF"/>
                         <outlet property="uvindexLabel" destination="gH8-24-Vz1" id="PZ5-Vw-PJg"/>
@@ -281,8 +281,9 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationItem key="navigationItem" id="5ta-Tc-5wp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="egM-zG-Wvk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -295,9 +296,6 @@
             <point key="canvasLocation" x="990" y="-439"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="0eZ-Bq-MNc"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="clear-day" width="130" height="130"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
