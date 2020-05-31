@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
-NS_ASSUME_NONNULL_BEGIN
+//NS_ASSUME_NONNULL_BEGIN
 
 @interface DSOWeatherViewController : UIViewController
 
@@ -22,4 +23,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+//NS_ASSUME_NONNULL_END

@@ -13,8 +13,8 @@
 - (instancetype)initWithTime:(NSDate *)time
             summary:(NSString *)summary
                icon:(NSString *)icon
-        sunriseTime:(NSDate *)sunriseTime
-         sunsetTime:(NSDate *)sunsetTime
+        sunriseTime:(NSNumber *)sunriseTime
+         sunsetTime:(NSNumber *)sunsetTime
     precipIntensity:(NSNumber *)precipIntensity
   precipProbability:(NSNumber *)precipProbability
          precipType:(NSString *)precipType
@@ -50,49 +50,63 @@ apparentTemperature:(NSNumber *)apparentTemperature
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-  NSNumber *timeInSeconds = [dictionary objectForKey:@"time"];
-  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-      timeInSeconds = nil;
-  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-  NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+  
+  NSDate *time = dictionary[@"time"];
+  
+//  NSNumber *timeInSeconds = [dictionary objectForKey:@"time"];
+//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
+//      timeInSeconds = nil;
+//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+//  NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
   
   NSString *summary = [dictionary objectForKey:@"summary"];
   if ([summary isKindOfClass:[NSNull class]]) {
-      summary = nil;
-  } else if (![summary isKindOfClass:[NSString class]]) return nil;
+      summary = nil;}
+  
+//  else if (![summary isKindOfClass:[NSString class]]) return nil;
   
   NSString *icon = [dictionary objectForKey:@"icon"];
   if ([icon isKindOfClass:[NSNull class]]) {
-      icon = nil;
-  } else if (![icon isKindOfClass:[NSString class]]) return nil;
+      icon = nil; }
   
-  timeInSeconds = [dictionary objectForKey:@"sunriseTime"];
-  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-      timeInSeconds = nil;
-  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-  NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+//  else if (![icon isKindOfClass:[NSString class]]) return nil;
   
-  timeInSeconds = [dictionary objectForKey:@"sunsetTime"];
-  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-      timeInSeconds = nil;
-  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-  NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+//  timeInSeconds = [dictionary objectForKey:@"sunriseTime"];
+//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
+//      timeInSeconds = nil;
+//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+//
+//  NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+//
+//  timeInSeconds = [dictionary objectForKey:@"sunsetTime"];
+//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
+//      timeInSeconds = nil;
+//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+//  NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+  
+  NSNumber *sunriseTime = dictionary[@"sunriseTime"];
+     if([sunriseTime isKindOfClass:[NSNull class]]) { sunriseTime = nil; }
+
+     NSNumber *sunsetTime = dictionary[@"sunsetTime"];
+     if([sunsetTime isKindOfClass:[NSNull class]]) { sunsetTime = nil; }
   
   NSNumber *precipProbability = [dictionary objectForKey:@"precipProbability"];
   if ([precipProbability isKindOfClass:[NSNull class]]) {
-      precipProbability = nil;
-  } else if (![precipProbability isKindOfClass:[NSNumber class]]) return nil;
+      precipProbability = nil; }
+  
+//  else if (![precipProbability isKindOfClass:[NSNumber class]]) return nil;
   
   NSNumber *precipIntensity = [dictionary objectForKey:@"precipIntensity"];
   if ([precipIntensity isKindOfClass:[NSNull class]]) {
-      precipIntensity = nil;
-  } else if (![precipIntensity isKindOfClass:[NSNumber class]]) return nil;
+      precipIntensity = nil; }
+//  else if (![precipIntensity isKindOfClass:[NSNumber class]]) return nil;
 
   
   NSString *precipType = [dictionary objectForKey:@"precipType"];
   if ([precipType isKindOfClass:[NSNull class]]) {
-      precipType = nil;
-  } else if (![precipType isKindOfClass:[NSString class]]) return nil;
+      precipType = nil; }
+  
+//  else if (![precipType isKindOfClass:[NSString class]]) return nil;
   
   NSNumber *temperatureLow = [dictionary objectForKey:@"temperatureLow"];
   if ([temperatureLow isKindOfClass:[NSNull class]]) {

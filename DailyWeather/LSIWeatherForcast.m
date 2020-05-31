@@ -7,106 +7,93 @@
 //
 
 #import "LSIWeatherForcast.h"
-#import "LSICurrentWeather.h"
-#import "LSIDailyForecast.h"
-#import "LSIHourlyForecast.h"
+//#import "LSICurrentWeather.h"
+//#import "LSIDailyForecast.h"
+//#import "LSIHourlyForecast.h"
 
 @implementation LSIWeatherForcast
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timezone:(NSString *)timezone
-                 currentForecast:(LSICurrentWeather *)currently
-                   dailyForecast:(NSArray<LSIDailyForecast *> *)daily
-                  hourlyForecast:(NSArray<LSIHourlyForecast *> *)hourly
-
-{
-  if (self = [super init]) {
-         _latitude = latitude;
-         _longitude = longitude;
-         _timezone = timezone.copy;
-         _currently = currently;
-         _daily = daily.copy;
-         _hourly = hourly.copy;
-}
-  return self;
-}
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-{
-    NSNumber *latitude = [dictionary objectForKey:@"latitude"];
-    if (![latitude isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSNumber *longitude = [dictionary objectForKey:@"longitude"];
-    if (![longitude isKindOfClass:[NSNumber class]]) return nil;
-    
-    NSString *timezone = [dictionary objectForKey:@"timezone"];
-    if ([timezone isKindOfClass:[NSNull class]]) {
-        timezone = nil;
-    } else if (![timezone isKindOfClass:[NSString class]]) return nil;
-    
-    // Current Data
-    
-    NSDictionary *currentForecastDictionary = [dictionary objectForKey:@"currently"];
-    if ([currentForecastDictionary isKindOfClass:[NSNull class]]) {
-        currentForecastDictionary = nil;
-    } else if (![currentForecastDictionary isKindOfClass:[NSDictionary class]]) return nil;
-    
-    LSICurrentWeather *currentForecast = [[LSICurrentWeather alloc] initWithDictionary:currentForecastDictionary];
-    
-    // Daily Data
-    
-    NSDictionary *dailyDictionary = [dictionary objectForKey:@"daily"];
-    if (![dailyDictionary isKindOfClass:[NSDictionary class]]) return nil;
-    
-    NSArray *dailyDataDictionaries = [dailyDictionary objectForKey:@"data"];
-    if (![dailyDataDictionaries isKindOfClass:[NSArray class]]) return nil;
-    
-    NSMutableArray *dailyForecasts = [[NSMutableArray alloc] initWithCapacity:dailyDataDictionaries.count];
-    
-    for (NSDictionary *dailyDataDictionary in dailyDataDictionaries) {
-        if (![dailyDataDictionary isKindOfClass:[NSDictionary class]]) continue;
-        
-        LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyDataDictionary];
-        
-        if (dailyForecast) {
-            [dailyForecasts addObject:dailyForecast];
-        } else {
-            NSLog(@"Unable to parse daily data dictionary: %@", dailyDataDictionary);
-        }
+- (instancetype)initWithTime:(NSDate *)time
+                     summary:(NSString *)summary
+                        icon:(NSString *)icon
+           precipProbability:(NSNumber *)precipProbability
+             precipIntensity:(NSNumber *)precipIntensity
+                 temperature:(NSNumber *)temperature
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex {
+    self = [super init];
+    if (self) {
+        _time = time;
+        _summary = [summary copy];
+        _icon = [icon copy];
+        _precipProbability = precipProbability;
+        _precipIntensity = precipIntensity;
+        _temperature = temperature;
+        _apparentTemperature = apparentTemperature;
+        _humidity = humidity;
+        _pressure = pressure;
+        _windSpeed = windSpeed;
+        _windBearing = windBearing;
+        _uvIndex = uvIndex;
     }
-    
-    // Hourly Data
-
-    NSDictionary *hourlyDictionary = [dictionary objectForKey:@"hourly"];
-    if (![hourlyDictionary isKindOfClass:[NSDictionary class]]) return nil;
-    
-    NSArray *hourlyDataDictionaries = [hourlyDictionary objectForKey:@"data"];
-    if (![hourlyDataDictionaries isKindOfClass:[NSArray class]]) return nil;
-    
-    NSMutableArray *hourlyForecasts = [[NSMutableArray alloc] initWithCapacity:hourlyDataDictionaries.count];
-    
-    for (NSDictionary *hourlyDataDictionary in hourlyDataDictionaries) {
-        if (![hourlyDataDictionary isKindOfClass:[NSDictionary class]]) continue;
-        
-        LSIHourlyForecast *hourlyForecast = [[LSIHourlyForecast alloc] initWithDictionary:hourlyDataDictionary];
-        
-        if (hourlyForecast) {
-            [hourlyForecasts addObject:hourlyForecast];
-        } else {
-            //  causing error might be optional and may need to debug this with real data and networking
-            NSLog(@"Unable to parse hourly data dictionary: %@", hourlyDataDictionary);
-        }
-    }
-    
-    
-    return [self initWithLatitude:latitude.doubleValue
-                        longitude:longitude.doubleValue
-                         timezone:timezone
-                  currentForecast:currentForecast
-                    dailyForecast:dailyForecasts
-                   hourlyForecast:hourlyForecasts];
+    return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+
+    NSDate *time = dictionary[@"time"];
+
+    NSString *summary = dictionary[@"summary"];
+    if([summary isKindOfClass:[NSNull class]]) { summary = nil; }
+
+    NSString *icon = dictionary[@"icon"];
+    if([icon isKindOfClass:[NSNull class]]) { icon = nil; }
+
+    NSNumber *precipProbability = dictionary[@"precipProbability"];
+    if([precipProbability isKindOfClass:[NSNull class]]) { precipProbability = nil; }
+
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
+    if([precipIntensity isKindOfClass:[NSNull class]]) { precipIntensity = nil; }
+
+    NSNumber *temperature = dictionary[@"temperature"];
+    if([temperature isKindOfClass:[NSNull class]]) { temperature = nil; }
+
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+    if([apparentTemperature isKindOfClass:[NSNull class]]) { apparentTemperature = nil; }
+
+    NSNumber *humidity = dictionary[@"humidity"];
+    if([humidity isKindOfClass:[NSNull class]]) { humidity = nil; }
+
+    NSNumber *pressure = dictionary[@"pressure"];
+    if([pressure isKindOfClass:[NSNull class]]) { pressure = nil; }
+
+    NSNumber *windSpeed = dictionary[@"windSpeed"];
+    if([windSpeed isKindOfClass:[NSNull class]]) { windSpeed = nil; }
+
+    NSNumber *windBearing = dictionary[@"windBearing"];
+    if([windBearing isKindOfClass:[NSNull class]]) { windBearing = nil; }
+
+    NSNumber *uvIndex = dictionary[@"uvIndex"];
+    if([uvIndex isKindOfClass:[NSNull class]]) { uvIndex = nil; }
+
+    self = [self initWithTime:time
+                      summary:summary
+                         icon:icon
+            precipProbability:precipProbability
+              precipIntensity:precipIntensity
+                  temperature:temperature
+          apparentTemperature:apparentTemperature
+                     humidity:humidity
+                     pressure:pressure
+                    windSpeed:windSpeed
+                  windBearing:windBearing
+                      uvIndex:uvIndex];
+
+    return self;
+}
 @end
  

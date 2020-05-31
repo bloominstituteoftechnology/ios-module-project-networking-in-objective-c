@@ -28,7 +28,9 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
   }
   return self;
 }
-- (void)fetchWeatherByLocation:(double)latitude longitude:(double)longitude completion:(WeatherFetcherCompletionHandler)completion
+- (void)fetchWeatherByLocation:(double)latitude
+                     longitude:(double)longitude
+                completionBloc:(void (^)(NSError * _Nullable error))completionBlock
 {
 //  NSURL *baseURL = [[NSURL alloc] initWithString:baseURLString];
 //  NSString *locationCoordinates = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
@@ -38,32 +40,46 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
 //  NSLog(@"%@", requestURL.absoluteString);
   
   //BUILD URL
-   NSString *latitudeString = [NSString stringWithFormat:@"%f", latitude];
-   NSString *longtitudeString = [NSString stringWithFormat:@"%f", longitude];
-   NSString *urlString = [NSString stringWithFormat:@"%@%@, %@", baseURLString,latitudeString,longtitudeString];
-   NSURL *url = [[NSURL alloc] initWithString:urlString];
+   NSURL *baseURL = [[NSURL alloc] initWithString:baseURLString];
+  NSString *locationCoordinates = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
+  NSURL *requestURL = [baseURL URLByAppendingPathComponent:locationCoordinates];
+//   NSString *latitudeString = [NSString stringWithFormat:@"%f", latitude];
+//   NSString *longtitudeString = [NSString stringWithFormat:@"%f", longitude];
+//   NSString *urlString = [NSString stringWithFormat:@"%@%@, %@", baseURLString,latitudeString,longtitudeString];
+//   NSURL *url = [[NSURL alloc] initWithString:urlString];
    
-   NSURLSessionTask *dataTask = [NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+   NSURLSessionTask *dataTask = [NSURLSession.sharedSession dataTaskWithURL:requestURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+      NSLog(@"Inside of datatask commpletionHandler with url: %@", requestURL);
      if (error) {
-       completion(nil, error);
+       completionBlock(error);
        return;
      }
      if (!data) {
        NSError *dataError = errorWithMessage(@"No Data was returned from this location", LSIDataNilError);
-       completion(nil, dataError);
+       completionBlock(dataError);
        return;
      }
-     NSError *jsonError = nil;
-     NSDictionary *weather = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-     if (jsonError) {
-       completion(nil, jsonError);
-       return;
-     }
+ /////
      
-     LSIWeatherForcast *result = [[LSIWeatherForcast alloc] initWithDictionary:weather];
-     completion(result,nil);
-   }];
-   [dataTask resume];
+//     NSError *jsonError = nil;
+//     NSDictionary *weather = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+//     if (jsonError) {
+//       completion(nil, jsonError);
+//       return;
+//     }
+//
+//     LSIWeatherForcast *result = [[LSIWeatherForcast alloc] initWithDictionary:weather];
+//     completion(result,nil);
+//   }];
+//   [dataTask resume];
+     
+         [self parseJSONData:data completionBloc:^(NSError * _Nullable error){
+             completionBlock(error);
+             return;
+         }];
+     }];
+
+     [dataTask resume];
 }
 
 - (void)parseJSONData:(NSData *)data
@@ -82,12 +98,12 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     // current weather:
     NSDictionary *currentForecastDic = json[@"currently"];
   _currentForecast = [[LSIWeatherForcast alloc] initWithDictionary:currentForecastDic];
-  NSLog(@"Current weather summary %@", self.currentForecast.currently);
+  NSLog(@"Current weather summary %@", self.currentForecast.apparentTemperature);
 
-    // Take care of daily
+    // daily weather
     NSDictionary *dailyContainer = json[@"daily"];
     NSArray *dailyArray = dailyContainer[@"data"];
-    // MARK:- CLEAR OUT THE ARRAY FIRST
+    //Clear the array
     [self.dailyForecast removeAllObjects];
     for (NSDictionary *day in dailyArray) {
         LSIDailyForecast *newDay = [[LSIDailyForecast alloc] initWithDictionary:day];
@@ -98,7 +114,7 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
     //  hourly
     NSDictionary *hourlyContainer = json[@"hourly"];
     NSArray *hourlyArray = hourlyContainer[@"data"];
-    // MARK:- CLEAR OUT THE ARRAY FIRST
+    // Clear the array
     [self.hourlyForecast removeAllObjects];
     for (NSDictionary *hour in hourlyArray) {
         LSIHourlyForecast *newHour = [[LSIHourlyForecast alloc] initWithDictionary:hour];

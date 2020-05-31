@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
             summary:(NSString *)summary
                icon:(NSString *)icon
-        sunriseTime:(NSDate *)sunriseTime
-         sunsetTime:(NSDate *)sunsetTime
+        sunriseTime:(NSNumber *)sunriseTime
+         sunsetTime:(NSNumber *)sunsetTime
     precipIntensity:(NSNumber *)precipIntensity
   precipProbability:(NSNumber *)precipProbability
          precipType:(NSString *)precipType
@@ -37,8 +37,8 @@ apparentTemperature:(NSNumber *)apparentTemperature
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;
 @property (nonatomic, readonly, copy) NSString *icon;
-@property (nonatomic, readonly) NSDate *sunriseTime;
-@property (nonatomic, readonly) NSDate *sunsetTime;
+@property (nonatomic, readonly) NSNumber *sunriseTime;
+@property (nonatomic, readonly) NSNumber *sunsetTime;
 @property (nonatomic, readonly) NSNumber *precipIntensity;
 @property (nonatomic, readonly) NSNumber *precipProbability;
 @property (nonatomic, readonly, copy) NSString *precipType; //rain, snow,seet

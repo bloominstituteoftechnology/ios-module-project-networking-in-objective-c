@@ -79,16 +79,30 @@
                                             <constraint firstItem="jAd-cs-GuO" firstAttribute="leading" secondItem="0Wh-7G-EGO" secondAttribute="leading" constant="307" id="1qM-Te-r7B"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-sX-j2p" userLabel="RefreshButton">
+                                        <rect key="frame" x="374" y="75" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ZIr-kg-szT"/>
+                                            <constraint firstAttribute="width" constant="30" id="dOs-gH-0Qh"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                        <connections>
+                                            <action selector="refreshButton:" destination="hlw-hv-Wlj" eventType="touchUpInside" id="GLU-SU-kgR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Xmt-Sd-KuJ" firstAttribute="top" secondItem="sXM-E6-zRw" secondAttribute="top" constant="75" id="02C-Vt-U6q"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jgg-sX-j2p" secondAttribute="trailing" constant="10" id="3Tq-rW-P1a"/>
                                     <constraint firstItem="0Wh-7G-EGO" firstAttribute="leading" secondItem="sXM-E6-zRw" secondAttribute="leading" constant="20" id="CYr-hR-srD"/>
                                     <constraint firstAttribute="trailing" secondItem="0Wh-7G-EGO" secondAttribute="trailing" constant="20" id="DYG-8g-XbN"/>
                                     <constraint firstItem="wL1-j9-yMY" firstAttribute="centerX" secondItem="sXM-E6-zRw" secondAttribute="centerX" id="JCe-rb-6MA"/>
                                     <constraint firstItem="Xmt-Sd-KuJ" firstAttribute="centerX" secondItem="sXM-E6-zRw" secondAttribute="centerX" id="Qkh-7s-k2W"/>
                                     <constraint firstItem="mUr-QF-70R" firstAttribute="top" secondItem="wL1-j9-yMY" secondAttribute="bottom" constant="20" id="SII-tb-NpF"/>
                                     <constraint firstItem="wL1-j9-yMY" firstAttribute="top" secondItem="Xmt-Sd-KuJ" secondAttribute="bottom" constant="10" id="aPI-oC-T8H"/>
+                                    <constraint firstItem="Jgg-sX-j2p" firstAttribute="top" secondItem="sXM-E6-zRw" secondAttribute="top" constant="75" id="prb-up-kBD"/>
                                     <constraint firstAttribute="bottom" secondItem="0Wh-7G-EGO" secondAttribute="bottom" constant="15" id="rei-A4-516"/>
                                     <constraint firstItem="mUr-QF-70R" firstAttribute="centerX" secondItem="sXM-E6-zRw" secondAttribute="centerX" id="wd4-la-N6p"/>
                                 </constraints>
@@ -158,7 +172,7 @@
                                 <rect key="frame" x="0.0" y="454" width="414" height="442"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="rl6-J2-ltE" customClass="DailyWeatherTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="64" id="rl6-J2-ltE" customClass="DailyWeatherTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rl6-J2-ltE" id="bZb-se-7zC">
@@ -238,6 +252,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gXj-Aq-wa5"/>
                     </view>
+                    <connections>
+                        <outlet property="currentDayLbl" destination="cKk-Ag-lls" id="pra-hg-m21"/>
+                        <outlet property="currentDayTempHighLbl" destination="2fR-tc-iH3" id="nQy-Og-vlP"/>
+                        <outlet property="currentDayTempLowLbl" destination="MWj-dT-65B" id="glj-hi-QQM"/>
+                        <outlet property="dailyWeatherTableView" destination="vN3-Dd-AAX" id="vZg-tL-be7"/>
+                        <outlet property="hourlyTempCollectionView" destination="cZC-kP-jky" id="aLO-TB-5KO"/>
+                        <outlet property="locationLbl" destination="Xmt-Sd-KuJ" id="Fjc-lc-y0U"/>
+                        <outlet property="summaryLbl" destination="wL1-j9-yMY" id="bcd-Ej-sYn"/>
+                        <outlet property="tempLbl" destination="mUr-QF-70R" id="hxs-vx-e8r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOS-um-MP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -537,6 +561,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="clear-day" width="130" height="130"/>
         <image name="cloudy" width="130" height="130"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>

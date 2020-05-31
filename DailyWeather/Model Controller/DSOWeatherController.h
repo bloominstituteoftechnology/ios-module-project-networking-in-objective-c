@@ -11,11 +11,10 @@
 //Foward the classes here
 @class LSIDailyForecast;
 @class LSIHourlyForecast;
-@class LSICurrentWeather;
+//@class LSICurrentWeather;
 @class LSIWeatherForcast;
 
-typedef void(^WeatherFetcherCompletionHandler) (NSArray * _Nullable weather, NSError * _Nullable error);
-
+//typedef void(^WeatherFetcherCompletionHandler) (NSArray * _Nullable weather, NSError * _Nullable error);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 //Fetch from API
 - (void)fetchWeatherByLocation:(double)latitude
 longitude:(double)longitude
-completion:(WeatherFetcherCompletionHandler)completion;
+completionBloc:(void (^)(NSError * _Nullable error))completionBlock;
 
 - (void)parseJSONData:(NSData *)data
 completionBloc:(void (^)(NSError * _Nullable error))completionBlock;
