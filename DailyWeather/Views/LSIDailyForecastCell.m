@@ -25,7 +25,7 @@
 // Custom getter/setter for dayForecast
 @synthesize dayForecast = _dayForecast;
 
-- (LSIDailyForecast *)dayForˆecast
+- (LSIDailyForecast *)dayForecast
 {
     return _dayForecast;
 }

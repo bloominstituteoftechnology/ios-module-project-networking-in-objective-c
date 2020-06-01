@@ -73,13 +73,13 @@
                                                     <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ud1-Ej-YYx" userLabel="Hourly Forecast">
                                                         <rect key="frame" x="0.0" y="-1" width="375" height="123"/>
                                                         <connections>
-                                                            <segue destination="XSa-ni-43w" kind="embed" id="l7g-4y-tdQ"/>
+                                                            <segue destination="XSa-ni-43w" kind="embed" identifier="HourlyForecastSegue" id="l7g-4y-tdQ"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-61-ws3" userLabel="Daily Forecast">
                                                         <rect key="frame" x="0.0" y="123" width="375" height="168"/>
                                                         <connections>
-                                                            <segue destination="Fs5-lD-qjO" kind="embed" id="hzc-uH-e7e"/>
+                                                            <segue destination="Fs5-lD-qjO" kind="embed" identifier="DailyForecastSegue" id="hzc-uH-e7e"/>
                                                         </connections>
                                                     </containerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="yVr-c4-bvt" userLabel="Detail Views">

@@ -30,7 +30,6 @@
 
 // IBOutlets
 @property (nonatomic) IBOutlet UIToolbar *toolbar;
-@property (nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) IBOutlet UIImageView *iconImageView;
 @property (nonatomic) IBOutlet UILabel *cityAndStateLabel;
@@ -49,7 +48,7 @@
 // NOTE: You must declare the Category before the main implementation,
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
-@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
 
 @end
 
@@ -85,9 +84,6 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     
     [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.toolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -228,37 +224,6 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     
     // Stop updating location after getting one (NOTE: this is faster than doing a single location request)
     [manager stopUpdatingLocation];
-}
-
-// TableView
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
-    
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"Today's Weather v.1.0";
-        cell.userInteractionEnabled = NO;
-    } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"Powered by Dark Sky";
-        cell.textLabel.textColor = UIColor.systemBlueColor;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row == 1) {
-        NSURL *url =  [NSURL URLWithString:@"https://darksky.net/poweredby/"];
-        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:^(BOOL _) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        }];
-    }
 }
 
 @end
