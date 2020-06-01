@@ -33,7 +33,7 @@
     }
     self.weatherIconImg.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
 //    self.highTempLbl.text = self.forecast.temperatureHigh.stringValue; // Displaying too many zeros
-  self.highTempLbl.text = [NSString stringWithFormat:@"%.f°", _forecast.apparentTemperature.doubleValue];
+  self.highTempLbl.text = [NSString stringWithFormat:@"%.f°F", _forecast.apparentTemperature.doubleValue];
   
 }
 

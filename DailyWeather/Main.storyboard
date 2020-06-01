@@ -188,13 +188,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LRP-C5-ggk" userLabel="High-32">
-                                                    <rect key="frame" x="292" y="20.5" width="21" height="23.5"/>
+                                                    <rect key="frame" x="267" y="20.5" width="21" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uMA-PB-AyE" userLabel="Low-22">
-                                                    <rect key="frame" x="323" y="20.5" width="21" height="23.5"/>
+                                                    <rect key="frame" x="298" y="20.5" width="21" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -216,7 +216,7 @@
                                                 <constraint firstItem="wup-vs-y6H" firstAttribute="centerY" secondItem="LRP-C5-ggk" secondAttribute="centerY" id="fPH-3d-KUE"/>
                                                 <constraint firstItem="LRP-C5-ggk" firstAttribute="centerY" secondItem="uMA-PB-AyE" secondAttribute="centerY" id="gze-BU-M5R"/>
                                                 <constraint firstItem="wup-vs-y6H" firstAttribute="leading" secondItem="bZb-se-7zC" secondAttribute="leadingMargin" id="lxW-mV-dfj"/>
-                                                <constraint firstItem="LRP-C5-ggk" firstAttribute="leading" secondItem="0Ar-na-lOK" secondAttribute="trailing" constant="65" id="wgM-Gf-vWM"/>
+                                                <constraint firstItem="LRP-C5-ggk" firstAttribute="leading" secondItem="0Ar-na-lOK" secondAttribute="trailing" constant="40" id="wgM-Gf-vWM"/>
                                                 <constraint firstItem="wup-vs-y6H" firstAttribute="top" secondItem="bZb-se-7zC" secondAttribute="topMargin" constant="10" id="yKI-3c-rgH"/>
                                             </constraints>
                                         </tableViewCellContentView>

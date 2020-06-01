@@ -32,22 +32,13 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
                      longitude:(double)longitude
                 completionBloc:(void (^)(NSError * _Nullable error))completionBlock
 {
-//  NSURL *baseURL = [[NSURL alloc] initWithString:baseURLString];
-//  NSString *locationCoordinates = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
-//  NSURL *requestURL = [baseURL URLByAppendingPathComponent:locationCoordinates];
-//
-//  //Test URL
-//  NSLog(@"%@", requestURL.absoluteString);
+ 
   
   //BUILD URL
    NSURL *baseURL = [[NSURL alloc] initWithString:baseURLString];
   NSString *locationCoordinates = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
   NSURL *requestURL = [baseURL URLByAppendingPathComponent:locationCoordinates];
-//   NSString *latitudeString = [NSString stringWithFormat:@"%f", latitude];
-//   NSString *longtitudeString = [NSString stringWithFormat:@"%f", longitude];
-//   NSString *urlString = [NSString stringWithFormat:@"%@%@, %@", baseURLString,latitudeString,longtitudeString];
-//   NSURL *url = [[NSURL alloc] initWithString:urlString];
-   
+
    NSURLSessionTask *dataTask = [NSURLSession.sharedSession dataTaskWithURL:requestURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
       NSLog(@"Inside of datatask commpletionHandler with url: %@", requestURL);
      if (error) {
@@ -59,20 +50,7 @@ static NSString *baseURLString = @"https://api.darksky.net/forecast/18990986362b
        completionBlock(dataError);
        return;
      }
- /////
-     
-//     NSError *jsonError = nil;
-//     NSDictionary *weather = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-//     if (jsonError) {
-//       completion(nil, jsonError);
-//       return;
-//     }
-//
-//     LSIWeatherForcast *result = [[LSIWeatherForcast alloc] initWithDictionary:weather];
-//     completion(result,nil);
-//   }];
-//   [dataTask resume];
-     
+ 
          [self parseJSONData:data completionBloc:^(NSError * _Nullable error){
              completionBlock(error);
              return;

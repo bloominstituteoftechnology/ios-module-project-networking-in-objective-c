@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "LSIHourlyForecast.h"
 
+@class LSIHourlyForecast;
 
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
 //NS_ASSUME_NONNULL_BEGIN
 
 @interface DSOWeatherViewController : UIViewController
+@property (nonatomic) LSIHourlyForecast *forecast;
 
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler;

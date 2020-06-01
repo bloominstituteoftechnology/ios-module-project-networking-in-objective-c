@@ -14,6 +14,8 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "LSIWeatherForcast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 #import "DSOWeatherController.h"
 #import "DailyWeatherTableViewCell.h"
 #import "HourlyWeatherCollectionViewCell.h"
@@ -47,7 +49,6 @@
 
 @implementation DSOWeatherViewController
 
-
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -55,7 +56,6 @@
     }
     return self;
 }
-
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,9 +65,8 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
   [self.locationManager requestWhenInUseAuthorization];
   [self.locationManager startUpdatingLocation];
   self.locationManager.delegate = self;
@@ -131,6 +130,10 @@
     [self updateViews];
 }
 
+- (void)setForecast:(LSIHourlyForecast *)forecast {
+    _forecast = forecast;
+    [self updateViews];
+}
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
 
@@ -145,7 +148,10 @@
 
             self.locationLbl.text = self.placemark.country;
             self.summaryLbl.text = self.weatherController.currentForecast.summary;
-            self.tempLbl.text = [NSString stringWithFormat:@"%d°", self.weatherController.currentForecast.temperature.intValue];
+////            self.currentDayTempHighLbl.text = [NSString stringWithFormat:@"%.f", self.forecast.temperatureHigh.doubleValue];
+//            self.currentDayTempHighLbl.text = self.forecast.temperatureHigh.stringValue;
+//            self.currentDayTempLowLbl.text = [NSString stringWithFormat:@"%.f", self.forecast.temperatureLow.doubleValue];
+            self.tempLbl.text = [NSString stringWithFormat:@"%d°F", self.weatherController.currentForecast.temperature.intValue];
             NSDate *date = [[NSDate alloc] init];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"EEEE"]; //E Day of the Week
@@ -153,6 +159,8 @@
             self.currentDayLbl.text = [dateFormatter stringFromDate:date];
         });
     }
+  
+  
   
   [self.weatherController fetchWeatherByLocation:self.location.coordinate.latitude longitude:self.location.coordinate.longitude completionBloc:^(NSError * _Nullable error) {
     if (error) {
