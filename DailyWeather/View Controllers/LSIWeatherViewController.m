@@ -16,6 +16,8 @@
 #import "../Model/LSICurrentForecast.h"
 #import "../Model/LSIDailyForecast.h"
 #import "../Model/LSIHourlyForecast.h"
+#import "../View Controllers/LSIDailyForecastTableVC.h"
+
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -27,6 +29,7 @@
 @property (nonatomic) CLPlacemark *placemark;
 
 @property (nonatomic) LSIWeatherForecast *weatherForecast;
+@property (nonatomic) LSIDailyForecastTableVC *dailyForecastTableVC;
 
 // IBOutlets
 @property (nonatomic) IBOutlet UIToolbar *toolbar;
@@ -73,6 +76,19 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     return self;
 }
 
+// Custom getter/setter for weatherForecast
+@synthesize weatherForecast = _weatherForecast;
+
+- (LSIWeatherForecast *)weatherForecast
+{
+    return _weatherForecast;
+}
+
+- (void)setWeatherForecast:(LSIWeatherForecast * _Nonnull)weatherForecast
+{
+    _weatherForecast = weatherForecast;
+    [self updateViews];
+}
 
 
 - (void)viewDidLoad {
@@ -197,6 +213,24 @@ BOOL shouldBypassNetworkingRequest = YES; // YES to load weather data from local
     
     NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.uvIndex];
     self.uvIndexLabel.text = [NSString stringWithFormat:@"%@", uvIndex];
+    
+    if (self.dailyForecastTableVC != nil) {
+        self.dailyForecastTableVC.dailyForecast = self.weatherForecast.daily;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"DailyForecastSegue"])
+    {
+        LSIDailyForecastTableVC *dailyForecastTableVC = [segue destinationViewController];
+        [dailyForecastTableVC setDailyForecast:self.weatherForecast.daily];
+        self.dailyForecastTableVC = dailyForecastTableVC;
+    } else if ([[segue identifier] isEqualToString:@"HourlyForecastSegue"])
+    {
+//        LSIHourlyForecastCollectionVC *hourlyForecastCollectionVC = [segue destinationViewController];
+//        [hourlyForecastCollectionVC setHourlyForecast:self.weatherForecast.hourly];
+    }
 }
 
 @end
