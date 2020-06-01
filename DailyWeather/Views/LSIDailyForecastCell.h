@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LSIDailyForecast;
+
 @interface LSIDailyForecastCell : UITableViewCell
+
+@property (nonatomic) LSIDailyForecast *dayForecast;
 
 @end
 

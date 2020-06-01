@@ -213,10 +213,10 @@
 			children = (
 				BD69315C23FD907800C0DF09 /* LSIWeatherViewController.h */,
 				BD69315D23FD907800C0DF09 /* LSIWeatherViewController.m */,
-				BD69316D23FD912000C0DF09 /* LSISettingsTableVC.h */,
-				BD69316C23FD912000C0DF09 /* LSISettingsTableVC.m */,
 				638F2F2F248461E9002D855A /* LSIDailyForecastTableVC.h */,
 				638F2F30248461E9002D855A /* LSIDailyForecastTableVC.m */,
+				BD69316D23FD912000C0DF09 /* LSISettingsTableVC.h */,
+				BD69316C23FD912000C0DF09 /* LSISettingsTableVC.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

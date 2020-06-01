@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LSIDailyForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIDailyForecastTableVC : UITableViewController
+
+@property (nonatomic) NSArray<LSIDailyForecast *> *dailyForecast;
 
 @end
 
