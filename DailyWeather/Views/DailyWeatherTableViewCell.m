@@ -36,7 +36,6 @@
 
 - (void)setForecast:(LSIDailyForecast *)forecast  {
   _forecast = forecast;
-  
   [self updateViews];
 }
 
@@ -44,12 +43,15 @@
 - (void)updateViews {
 //    NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
+    [dateFormatter setDateFormat:@"EEEE"]; // E = day of week Abbreviation - EEEE full
 
     self.dayLabel.text = [dateFormatter stringFromDate:self.forecast.time];
     self.weatherIcon.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
-    self.dayTempHighLbl.text = self.forecast.temperatureHigh.stringValue;
-    self.dayTempLowLbl.text = self.forecast.temperatureLow.stringValue;
+//    self.dayTempHighLbl.text = self.forecast.temperatureHigh.stringValue;
+    self.dayTempHighLbl.text = [NSString stringWithFormat:@"%.f", _forecast.temperatureHigh.doubleValue]; // BINGO! correctly displayes double
+//    self.dayTempLowLbl.text = self.forecast.temperatureLow.stringValue;
+    self.dayTempLowLbl.text = [NSString stringWithFormat:@"%.f", _forecast.temperatureLow.doubleValue];
 }
 
 @end
+

@@ -148,7 +148,7 @@
             self.tempLbl.text = [NSString stringWithFormat:@"%d°", self.weatherController.currentForecast.temperature.intValue];
             NSDate *date = [[NSDate alloc] init];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"EEEE"];
+            [dateFormatter setDateFormat:@"EEEE"]; //E Day of the Week
 
             self.currentDayLbl.text = [dateFormatter stringFromDate:date];
         });

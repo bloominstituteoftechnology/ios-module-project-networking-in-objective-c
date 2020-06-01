@@ -27,15 +27,14 @@
     if (self.isNow) {
         self.hourLbl.text = @"NOW";
     } else {
-//        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(int)self.forecast.time];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"hh a"];
-
         self.hourLbl.text = [dateFormatter stringFromDate:self.forecast.time];
     }
     self.weatherIconImg.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
-    self.highTempLbl.text = self.forecast.temperatureHigh.stringValue;
-
+//    self.highTempLbl.text = self.forecast.temperatureHigh.stringValue; // Displaying too many zeros
+  self.highTempLbl.text = [NSString stringWithFormat:@"%.f°", _forecast.apparentTemperature.doubleValue];
+  
 }
 
 - (void)setForecast:(LSIHourlyForecast *)forecast {

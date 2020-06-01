@@ -51,13 +51,11 @@ apparentTemperature:(NSNumber *)apparentTemperature
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
   
-  NSDate *time = dictionary[@"time"];
-  
-//  NSNumber *timeInSeconds = [dictionary objectForKey:@"time"];
-//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-//      timeInSeconds = nil;
-//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-//  NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
+  NSNumber *timeInSeconds = [dictionary objectForKey:@"time"];
+  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
+      timeInSeconds = nil;
+  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+  NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
   
   NSString *summary = [dictionary objectForKey:@"summary"];
   if ([summary isKindOfClass:[NSNull class]]) {
@@ -69,20 +67,6 @@ apparentTemperature:(NSNumber *)apparentTemperature
   if ([icon isKindOfClass:[NSNull class]]) {
       icon = nil; }
   
-//  else if (![icon isKindOfClass:[NSString class]]) return nil;
-  
-//  timeInSeconds = [dictionary objectForKey:@"sunriseTime"];
-//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-//      timeInSeconds = nil;
-//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-//
-//  NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
-//
-//  timeInSeconds = [dictionary objectForKey:@"sunsetTime"];
-//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
-//      timeInSeconds = nil;
-//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
-//  NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
   
   NSNumber *sunriseTime = dictionary[@"sunriseTime"];
      if([sunriseTime isKindOfClass:[NSNull class]]) { sunriseTime = nil; }

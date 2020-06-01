@@ -28,7 +28,7 @@
                      uvIndex:(NSNumber *)uvIndex {
     self = [super init];
     if (self) {
-      NSDate *date = [NSDate dateWithTimeIntervalSince1970:time.longValue];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:time.longValue];
         _time = date;
         _summary = [summary copy];
         _icon = [icon copy];
@@ -51,6 +51,12 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     NSDate *time = dictionary[@"time"];
+ 
+//  NSNumber *timeInSeconds = [dictionary objectForKey:@"time"];
+//  if ([timeInSeconds isKindOfClass:[NSNull class]]) {
+//      timeInSeconds = nil;
+//  } else if (![timeInSeconds isKindOfClass:[NSNumber class]]) return nil;
+//  NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInSeconds.longValue];
 
     NSString *summary = dictionary[@"summary"];
     if([summary isKindOfClass:[NSNull class]]) { summary = nil; }
@@ -67,6 +73,16 @@
     NSString *precipType = dictionary[@"precipType"];
     if([precipType isKindOfClass:[NSNull class]]) { precipType = nil; }
 
+//  NSNumber *temperatureLow = [dictionary objectForKey:@"temperatureLow"];
+//  if ([temperatureLow isKindOfClass:[NSNull class]]) {
+//    temperatureLow = nil;
+//  } else if (![temperatureLow isKindOfClass:[NSNumber class]]) return nil;
+//
+//  NSNumber *temperatureHigh = [dictionary objectForKey:@"temperatureHigh"];
+//  if ([temperatureHigh isKindOfClass:[NSNull class]]) {
+//    temperatureHigh = nil;
+//  } else if (![temperatureHigh isKindOfClass:[NSNumber class]]) return nil;
+  
     NSNumber *temperatureLow = dictionary[@"temperatureLow"];
     if([temperatureLow isKindOfClass:[NSNull class]]) { temperatureLow = nil; }
 
@@ -75,6 +91,7 @@
 
     NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
     if([apparentTemperature isKindOfClass:[NSNull class]]) { apparentTemperature = nil; }
+  
 
     NSNumber *humidity = dictionary[@"humidity"];
     if([humidity isKindOfClass:[NSNull class]]) { humidity = nil; }
@@ -87,6 +104,12 @@
 
     NSNumber *windBearing = dictionary[@"windBearing"];
     if([windBearing isKindOfClass:[NSNull class]]) { windBearing = nil; }
+  
+//    NSNumber *sunriseTime = dictionary[@"sunriseTime"];
+//     if([sunriseTime isKindOfClass:[NSNull class]]) { sunriseTime = nil; }
+//
+//     NSNumber *sunsetTime = dictionary[@"sunsetTime"];
+//     if([sunsetTime isKindOfClass:[NSNull class]]) { sunsetTime = nil; }
 
     NSNumber *uvIndex = dictionary[@"uvIndex"];
     if([uvIndex isKindOfClass:[NSNull class]]) { uvIndex = nil; }
@@ -104,6 +127,8 @@
                      pressure:pressure
                     windSpeed:windSpeed
                   windBearing:windBearing
+//                  sunriseTime:sunriseTime
+//                   sunsetTime:sunsetTime
                       uvIndex:uvIndex];
 
     return self;

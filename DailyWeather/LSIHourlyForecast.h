@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSNumber *pressure;
 @property (nonatomic, readonly) NSNumber *windSpeed;
 @property (nonatomic, readonly) NSNumber *windBearing;
+//@property (nonatomic, readonly) NSNumber *sunriseTime;
+//@property (nonatomic, readonly) NSNumber *sunsetTime;
 @property (nonatomic, readonly) NSNumber *uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
@@ -40,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure:(NSNumber *)pressure
                    windSpeed:(NSNumber *)windSpeed
                  windBearing:(NSNumber *)windBearing
+//                 sunriseTime:(NSNumber *)sunriseTime
+//                  sunsetTime:(NSNumber *)sunsetTime
                      uvIndex:(NSNumber *)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
