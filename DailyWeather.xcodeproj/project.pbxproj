@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27E8E2AF249167FE005042BB /* CMDWeatherForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8E2AE249167FE005042BB /* CMDWeatherForcast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27E8E2AD249167FE005042BB /* CMDWeatherForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMDWeatherForcast.h; sourceTree = "<group>"; };
+		27E8E2AE249167FE005042BB /* CMDWeatherForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMDWeatherForcast.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69314723FD905300C0DF09 /* main.m */,
+				27E8E2AD249167FE005042BB /* CMDWeatherForcast.h */,
+				27E8E2AE249167FE005042BB /* CMDWeatherForcast.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 		BD69312A23FD905200C0DF09 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CMD;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lambda, Inc";
 				TargetAttributes = {
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
+				27E8E2AF249167FE005042BB /* CMDWeatherForcast.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
