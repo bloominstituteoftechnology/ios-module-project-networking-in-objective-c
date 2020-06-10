@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMDWeatherForcast : NSObject
+@interface CMDCurrentForecast : NSObject
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, copy, readonly) NSString *summary;
