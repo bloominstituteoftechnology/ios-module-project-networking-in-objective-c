@@ -1,5 +1,5 @@
 //
-//  HSIDailyWeather.h
+//  HSIHourlyWeather.h
 //  DailyWeather
 //
 //  Created by Kenny on 6/10/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HSIDailyWeather : NSObject
+@interface HSIHourlyForecast : NSObject
 
 @end
 

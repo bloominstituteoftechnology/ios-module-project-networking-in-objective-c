@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "HSIHourlyWeather.h"
+#import "HSIHourlyForecast.h"
 #import "LSIFileHelper.h"
 #import "LSILog.h"
 

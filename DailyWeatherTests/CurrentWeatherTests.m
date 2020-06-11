@@ -20,11 +20,9 @@
 - (void)testCurrentWeatherParses {
     NSData *dailyWeatherData = loadFile(@"Weather.json", [CurrentWeatherTests class]);
     NSLog(@"NSData: %@", dailyWeatherData);
-    // Swift: do/catch (try)
-    // Objc: NSError -> pass in a variable to update if it fails
-    NSError *error = nil; // nil means no error
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:dailyWeatherData options:0 error:&error]; // & = address of operator (shift + 7)
-    if (error) { // (error != nil) {
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:dailyWeatherData options:0 error:&error];
+    if (error) {
         XCTFail(@"Error decoding JSON: %@", error);
     }
     NSLog(@"JSON: %@", json);
@@ -49,9 +47,12 @@
     NSDictionary *currentWeather = json[@"currently"];
     XCTAssertNotNil(currentWeather);
 
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+
     HSICurrentForecast *forecast = [[HSICurrentForecast alloc] initWithDictionary:currentWeather];
     XCTAssertNotNil(forecast);
 
+    XCTAssertEqual(time, forecast.time);
     XCTAssertTrue([forecast.summary isEqualToString: @"Clear"]);
     XCTAssertTrue([forecast.icon isEqualToString: @"clear-day"]);
     XCTAssertEqual(forecast.precipIntensity, 0.0);

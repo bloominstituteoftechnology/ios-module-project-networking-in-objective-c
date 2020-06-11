@@ -6,8 +6,8 @@
 //  Copyright © 2020 Hazy Studios Incorporated. All rights reserved.
 //
 
-#import "HSIHourlyWeather.h"
+#import "HSIHourlyForecast.h"
 
-@implementation HSIHourlyWeather
+@implementation HSIHourlyForecast
 
 @end

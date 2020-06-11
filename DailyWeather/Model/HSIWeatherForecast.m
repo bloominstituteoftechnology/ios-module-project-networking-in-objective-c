@@ -1,5 +1,5 @@
 //
-//  HSIDailyWeather.m
+//  HSIDailyForecast.m
 //  DailyWeather
 //
 //  Created by Kenny on 6/10/20.
