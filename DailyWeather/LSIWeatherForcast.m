@@ -14,7 +14,7 @@
             summary:(NSString *)summary
                icon:(NSString *)icon
   precipProbability:(NSNumber *)precipProbability
-   precipeIntensity:(NSNumber *)precipIntensity
+   precipIntensity:(NSNumber *)precipIntensity
         temperature:(NSNumber *)temperature
 apparentTemperature:(NSNumber *)apparentTemperature
            humidity:(NSNumber *)humidity
@@ -75,7 +75,7 @@ apparentTemperature:(NSNumber *)apparentTemperature
         return nil;
     }
     
-    return [self initWithTime:date summary:summary icon:icon precipProbability:precipProbability precipeIntensity:precipIntensity temperature:temperature apparentTemperature:apparentTemperature humidity:humidity pressure:pressure windSpeed:windSpeed windBearing:windBearing uvIndex:uvIndex];
+    return [self initWithTime:date summary:summary icon:icon precipProbability:precipProbability precipIntensity:precipIntensity temperature:temperature apparentTemperature:apparentTemperature humidity:humidity pressure:pressure windSpeed:windSpeed windBearing:windBearing uvIndex:uvIndex];
     
 }
 
