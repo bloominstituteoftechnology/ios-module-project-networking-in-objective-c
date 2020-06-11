@@ -12,25 +12,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSICurrentForecast : NSObject
 
-//r=required o=optional //d=dependent on above property
-@property (nonatomic) NSDate *time; //r
+@property (nonatomic) NSDate *time;
 
-@property (nonatomic, copy) NSString *summary; //o
+@property (nonatomic, copy) NSString *summary;
 
-@property (nonatomic, copy) NSString *icon; //o
+@property (nonatomic, copy) NSString *icon;
 
-@property (nonatomic) double precipProbability; //o
-@property (nonatomic) double precipIntensity; //o d
+@property (nonatomic) double precipProbability;
+@property (nonatomic) double precipIntensity;
 
-@property (nonatomic) double temperature; //o
-@property (nonatomic) double apparentTemperature; //o d
+@property (nonatomic) double temperature;
+@property (nonatomic) double apparentTemperature;
 
-@property (nonatomic) double humidity; //o
+@property (nonatomic) double humidity;
 
-@property (nonatomic) double pressure; //o
+@property (nonatomic) double pressure;
 
-@property (nonatomic) double windSpeed; //o
-@property (nonatomic) int windBearing; //o d
+@property (nonatomic) double windSpeed;
+@property (nonatomic) int windBearing;
 
 - (instancetype) initWithTime:(NSDate *)time summary:(NSString *)summary icon:(NSString *)icon precipProbability:(double)precipProbability precipIntensity:(double)precipIntensity temperature:(double)temperature apparentTemperature:(double)apparentTemperature humidity:(double)humidity pressure:(double)pressure windSpeed:(double)windSpeed windBearing:(int)windBearing;
 

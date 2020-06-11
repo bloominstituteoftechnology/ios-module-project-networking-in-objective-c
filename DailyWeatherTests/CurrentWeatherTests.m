@@ -16,20 +16,6 @@
 @end
 
 @implementation CurrentWeatherTests
-///test Lambda API
-- (void)testCurrentWeatherParses {
-    NSData *dailyWeatherData = loadFile(@"Weather.json", [CurrentWeatherTests class]);
-    NSLog(@"NSData: %@", dailyWeatherData);
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:dailyWeatherData options:0 error:&error];
-    if (error) {
-        XCTFail(@"Error decoding JSON: %@", error);
-    }
-    NSLog(@"JSON: %@", json);
-    XCTAssertNotNil(json);
-    NSDictionary *currentWeather = json[@"currently"];
-    XCTAssertNotNil(currentWeather);
-}
 
 - (void)testCurrentWeather {
 

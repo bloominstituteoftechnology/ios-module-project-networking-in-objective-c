@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) int uvIndex; //o
 
-- (instancetype)initWithTime:(NSDate *)time summmary:(NSString *)summary icon:(NSString *)icon sunriseTime:(NSDate *)sunriseTime sunsetTime:(NSDate *)sunsetTime precipProbability:(double)precipProbability precipIntensity:(double)precipIntensity precipType:(NSString *)precipType temperatureLow:(double)temperatureLow temperatureHigh:(double)temperatureHigh apparentTemperature:(double)apparentTemperature humidity:(double)humidity windSpeed:(double)windSpeed windBearing:(int)windBearing uvIndex:(int)uvIndex;
+- (instancetype)initWithTime:(NSDate *)time summmary:(NSString *)summary icon:(NSString *)icon sunriseTime:(NSDate *)sunriseTime sunsetTime:(NSDate *)sunsetTime precipProbability:(double)precipProbability precipIntensity:(double)precipIntensity precipType:(NSString *)precipType pressure:(double)pressure temperatureLow:(double)temperatureLow temperatureHigh:(double)temperatureHigh apparentTemperature:(double)apparentTemperature humidity:(double)humidity windSpeed:(double)windSpeed windBearing:(int)windBearing uvIndex:(int)uvIndex;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

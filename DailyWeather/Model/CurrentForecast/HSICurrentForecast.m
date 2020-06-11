@@ -40,27 +40,6 @@
     return self;
 }
 
-/*
- //r=required o=optional //d=dependent on above property
- @property (nonatomic) NSDate *time; //r
-
- @property (nonatomic, copy) NSString *summary; //o
-
- @property (nonatomic, copy) NSString *icon; //o
-
- @property (nonatomic) double precipProbability; //o
- @property (nonatomic) double precipIntensity; //o d
-
- @property (nonatomic) double temperature; //o
- @property (nonatomic) double apparentTemperature; //o d
-
- @property (nonatomic) double humidity; //o
-
- @property (nonatomic) double pressure; //o
-
- @property (nonatomic) double windSpeed; //o
- @property (nonatomic) int windBearing; //o d
- */
 - (instancetype) initWithDictionary:(NSDictionary *) dictionary {
 
     NSNumber *timeValue = dictionary[@"time"];
@@ -68,9 +47,7 @@
     NSString *icon = dictionary[@"icon"];
 
     NSNumber *precipProbability = dictionary[@"precipProbability"];
-    //while this is dependent on probability, it's guaranteed to be between 0-1
     NSNumber *precipIntensity = dictionary[@"precipIntensity"];
-
 
     NSNumber *temperature = dictionary[@"temperature"];
     NSNumber *apparentTemperature = [NSNumber alloc];
@@ -79,11 +56,9 @@
     }
 
     NSNumber *humidity = dictionary[@"humidity"];
-
     NSNumber *pressure = dictionary[@"pressure"];
 
     NSNumber *windSpeed = dictionary[@"windSpeed"];
-
     NSNumber *windBearing = [NSNumber alloc];
     if (windSpeed) {
         windBearing = dictionary[@"windBearing"];
@@ -93,8 +68,8 @@
 
     if (time && summary && icon && precipProbability && precipIntensity && temperature && humidity && pressure && windSpeed) {
         return [self initWithTime:time
-                          summary:summary
-                             icon:icon
+                          summary:[summary copy]
+                             icon:[icon copy]
                 precipProbability:precipProbability.doubleValue
                   precipIntensity:precipIntensity.doubleValue
                       temperature:temperature.doubleValue

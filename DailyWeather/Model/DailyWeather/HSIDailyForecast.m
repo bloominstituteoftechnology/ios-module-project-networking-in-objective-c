@@ -18,6 +18,7 @@
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
+                    pressure:(double)pressure
               temperatureLow:(double)temperatureLow
              temperatureHigh:(double)temperatureHigh
          apparentTemperature:(double)apparentTemperature
@@ -35,6 +36,7 @@
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _precipType = precipType;
+        _pressure = pressure;
         _temperatureLow = temperatureLow;
         _temperatureHigh = temperatureHigh;
         _apparentTemperature = apparentTemperature;
@@ -47,8 +49,48 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    
+    NSNumber *timeValue = dictionary[@"time"];
+    NSString *summary = dictionary[@"summary"];
+    NSString *icon = dictionary[@"icon"];
 
+    NSNumber *sunriseTimeValue = dictionary[@"sunriseTime"];
+    NSNumber *sunsetTimeValue = dictionary[@"sunsetTime"];
+
+    NSNumber *precipProbability = dictionary[@"precipProbability"];
+    NSNumber *precipIntensity = dictionary[@"precipIntensity"];
+    NSString *precipType = dictionary[@"precipType"];
+
+    NSNumber *temperatureLow = dictionary[@"temperatureLow"];
+    NSNumber *temperatureHigh = dictionary[@"temperatureHigh"];
+    NSNumber *apparentTemperature = dictionary[@"apparentTemperature"];
+
+    NSNumber *humidity = dictionary[@"humidity"];
+    NSNumber *pressure = dictionary[@"pressure"];
+
+    NSNumber *windSpeed = dictionary[@"windSpeed"];
+    NSNumber *windBearing = dictionary[@"windBearing"];
+    NSNumber *uvIndex = dictionary[@"uvIndex"];
+
+    NSDate *time = [[NSDate alloc] initWithTimeIntervalSince1970:timeValue.longValue];
+    NSDate *sunriseTime = [[NSDate alloc] initWithTimeIntervalSince1970:sunriseTimeValue.longValue];
+    NSDate *sunsetTime = [[NSDate alloc] initWithTimeIntervalSince1970:sunsetTimeValue.longValue];
+
+    return [self initWithTime:time
+                     summmary: [summary copy]
+                         icon: [icon copy]
+                  sunriseTime:sunriseTime
+                   sunsetTime:sunsetTime
+            precipProbability:precipProbability.doubleValue
+              precipIntensity:precipIntensity.doubleValue
+                   precipType: [precipType copy]
+                     pressure:pressure.doubleValue
+               temperatureLow:temperatureLow.doubleValue
+              temperatureHigh:temperatureHigh.doubleValue
+          apparentTemperature:apparentTemperature.doubleValue
+                     humidity:humidity.doubleValue
+                    windSpeed:windSpeed.doubleValue
+                  windBearing:windBearing.intValue
+                      uvIndex:uvIndex.intValue];
     return nil;
 }
 
