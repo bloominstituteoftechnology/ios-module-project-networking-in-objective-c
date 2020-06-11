@@ -13,27 +13,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CMDDailyForecast : NSObject
 
 @property (nonatomic, readonly) NSDate *time;
-@property (nonatomic, copy, readonly) NSString *summary;
-@property (nonatomic, copy, readonly) NSString *icon;
-@property (nonatomic,readonly) NSNumber *sunriseTime;
-@property (nonatomic,readonly) NSNumber *sunsetTime;
-@property (nonatomic, readonly) NSNumber *precipProbability;
-@property (nonatomic, readonly) NSNumber *precipIntensity;
-@property (nonatomic,readonly,copy) NSString *precipType;
-@property (nonatomic, readonly) NSNumber *temperatureLow;
-@property (nonatomic, readonly) NSNumber *temperatureHigh;
-@property (nonatomic, readonly) NSNumber *apparentTemperature;
-@property (nonatomic, readonly) NSNumber *humidity;
-@property (nonatomic, readonly) NSNumber *pressure;
-@property (nonatomic, readonly) NSNumber *windSpeed;
-@property (nonatomic, readonly) NSNumber *windBearing;
-@property (nonatomic, readonly) NSNumber *uvIndex;
+@property (nonatomic, readonly, nullable, copy) NSString *summary;
+@property (nonatomic, readonly, nullable, copy) NSString *icon;
+@property (nonatomic, readonly, nullable) NSDate *sunriseTime;
+@property (nonatomic, readonly, nullable) NSDate *sunsetTime;
+@property (nonatomic, readonly, nullable) NSNumber *precipProbability;
+@property (nonatomic, readonly, nullable) NSNumber *precipIntensity;
+@property (nonatomic, readonly, nullable, copy) NSString *precipType;
+@property (nonatomic, readonly, nullable) NSNumber *temperatureLow;
+@property (nonatomic, readonly, nullable) NSNumber *temperatureHigh;
+@property (nonatomic, readonly, nullable) NSNumber *apparentTemperature;
+@property (nonatomic, readonly, nullable) NSNumber *humidity;
+@property (nonatomic, readonly, nullable) NSNumber *pressure;
+@property (nonatomic, readonly, nullable) NSNumber *windSpeed;
+@property (nonatomic, readonly, nullable) NSNumber *windBearing;
+@property (nonatomic, readonly, nullable) NSNumber *uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSNumber *)sunriseTime
-                  sunsetTime:(NSNumber *)sunsetTime
+                 sunriseTime:(NSDate *)sunriseTime
+                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(NSNumber *)precipProbability
              precipIntensity:(NSNumber *)precipIntensity
                   precipType:(NSString *)precipType
