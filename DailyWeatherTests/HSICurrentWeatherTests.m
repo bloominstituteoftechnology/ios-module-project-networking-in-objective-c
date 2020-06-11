@@ -28,6 +28,9 @@
     XCTAssertNotNil(json);
     HSIWeatherForecast *forecast = [[HSIWeatherForecast alloc] initWithDictionary:json];
     XCTAssertNotNil(forecast);
+    XCTAssertNotNil(forecast.currentForecast);
+    XCTAssertEqual(forecast.dailyForecasts.count, 8);
+    XCTAssertEqual(forecast.hourlyForecasts.count, 49);
 }
 
 @end

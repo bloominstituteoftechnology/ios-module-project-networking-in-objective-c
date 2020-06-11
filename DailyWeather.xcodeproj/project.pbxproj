@@ -123,31 +123,28 @@
 		B932BD932491764800FB6A32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B97B38AA2492E3070053E579 /* WeatherForecast */,
 				B932BDB12491E55500FB6A32 /* CurrentForecast */,
-				B932BD9A249176BC00FB6A32 /* HSIWeatherForecast.h */,
-				B932BD9B249176BC00FB6A32 /* HSIWeatherForecast.m */,
-				B932BDA72491974900FB6A32 /* DailyWeather */,
-				B932BDA82491975100FB6A32 /* HourlyWeather */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B932BDA72491974900FB6A32 /* DailyWeather */ = {
+		B932BDA72491974900FB6A32 /* DailyForecast */ = {
 			isa = PBXGroup;
 			children = (
 				B932BDAE2491CC3900FB6A32 /* HSIDailyForecast.h */,
 				B932BDAF2491CC3900FB6A32 /* HSIDailyForecast.m */,
 			);
-			path = DailyWeather;
+			path = DailyForecast;
 			sourceTree = "<group>";
 		};
-		B932BDA82491975100FB6A32 /* HourlyWeather */ = {
+		B932BDA82491975100FB6A32 /* HourlyForecast */ = {
 			isa = PBXGroup;
 			children = (
 				B932BD9D249177CF00FB6A32 /* HSIHourlyForecast.h */,
 				B932BD9E249177CF00FB6A32 /* HSIHourlyForecast.m */,
 			);
-			path = HourlyWeather;
+			path = HourlyForecast;
 			sourceTree = "<group>";
 		};
 		B932BDB12491E55500FB6A32 /* CurrentForecast */ = {
@@ -155,8 +152,19 @@
 			children = (
 				B932BDB22491E56900FB6A32 /* HSICurrentForecast.h */,
 				B932BDB32491E56900FB6A32 /* HSICurrentForecast.m */,
+				B932BDA72491974900FB6A32 /* DailyForecast */,
+				B932BDA82491975100FB6A32 /* HourlyForecast */,
 			);
 			path = CurrentForecast;
+			sourceTree = "<group>";
+		};
+		B97B38AA2492E3070053E579 /* WeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				B932BD9A249176BC00FB6A32 /* HSIWeatherForecast.h */,
+				B932BD9B249176BC00FB6A32 /* HSIWeatherForecast.m */,
+			);
+			path = WeatherForecast;
 			sourceTree = "<group>";
 		};
 		BD69312923FD905200C0DF09 = {
