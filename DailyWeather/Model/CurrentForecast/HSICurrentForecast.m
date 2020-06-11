@@ -64,15 +64,14 @@
     self = [super init];
 
     if (self) {
-        NSDate *timeValue = dictionary[@"time"];
+        NSNumber *timeValue = dictionary[@"time"];
         NSString *summary = dictionary[@"summary"];
         NSString *icon = dictionary[@"icon"];
 
         NSNumber *precipProbability = dictionary[@"precipProbability"];
-        NSNumber *precipIntensity = [NSNumber alloc];
-        if (precipProbability) {
-            precipIntensity = dictionary[@"precipIntensity"];
-        }
+        //while this is dependent on probability, it's guaranteed to be between 0-1
+        NSNumber *precipIntensity = dictionary[@"precipIntensity"];
+
 
         NSNumber *temperature = dictionary[@"temperature"];
         NSNumber *apparentTemperature = [NSNumber alloc];
@@ -89,6 +88,24 @@
         if (windSpeed) {
             windBearing = dictionary[@"windBearing"];
         }
+        NSDate *time = [[NSDate alloc] initWithTimeIntervalSince1970:timeValue.longValue];
+
+        if (time && summary && icon && precipProbability && precipIntensity && temperature && humidity && pressure && windBearing) {
+            return [self initWithTime:time
+                       summary:summary
+                          icon:icon
+             precipProbability:precipProbability.doubleValue
+               precipIntensity:precipIntensity.doubleValue
+                   temperature:temperature.doubleValue
+           apparentTemperature:apparentTemperature.doubleValue
+                      humidity:humidity.doubleValue
+                      pressure:pressure.doubleValue
+                     windSpeed:windSpeed.doubleValue
+                   windBearing:windBearing.intValue];
+        } else {
+            return nil;
+        }
+
     }
     return self;
 }

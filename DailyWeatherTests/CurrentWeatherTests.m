@@ -33,7 +33,7 @@
     XCTAssertNotNil(currentWeather);
 }
 
-- (void)testDailyWeatherNotNil {
+- (void)testCurrentWeather {
 
     NSData *dailyWeatherData = loadFile(@"Weather.json", [CurrentWeatherTests class]);
     NSLog(@"NSData: %@", dailyWeatherData);
