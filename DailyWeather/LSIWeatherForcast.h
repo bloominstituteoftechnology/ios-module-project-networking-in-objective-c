@@ -25,9 +25,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, readonly) NSNumber *windBearing;
 @property (nonatomic, nullable, readonly) NSNumber *uvIndex;
 
-- (instancetype)initWithTime:(NSDate *)time summary:(NSString *)summary icon:(NSString *)icon precipProbability:(NSNumber *)precipProbability precipeIntensity:(NSNumber *)precipeIntensity temperature:(NSNumber *)temperature apparentTemperature:(NSNumber *)apparentTemperature humidity:(NSNumber *)humidity pressure:(NSNumber *)pressure windSpeed:(NSNumber *)windSpeed windBearing:(NSNumber *)windBearing uvIndex:(NSNumber *)uvIndex;
+- (instancetype)initWithTime:(NSDate *)time
+                     summary:(NSString *)summary
+                        icon:(NSString *)icon
+           precipProbability:(NSNumber *)precipProbability
+            precipeIntensity:(NSNumber *)precipeIntensity
+                 temperature:(NSNumber *)temperature
+         apparentTemperature:(NSNumber *)apparentTemperature
+                    humidity:(NSNumber *)humidity
+                    pressure:(NSNumber *)pressure
+                   windSpeed:(NSNumber *)windSpeed
+                 windBearing:(NSNumber *)windBearing
+                     uvIndex:(NSNumber *)uvIndex;
 
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
