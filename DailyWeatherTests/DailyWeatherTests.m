@@ -17,7 +17,7 @@
 
 @implementation DailyWeatherTests
 ///test Lambda API
-- (void)testDailyWeatherParses {
+- (void)testCurrentWeatherParses {
     NSData *dailyWeatherData = loadFile(@"Weather.json", [DailyWeatherTests class]);
     NSLog(@"NSData: %@", dailyWeatherData);
     // Swift: do/catch (try)
@@ -29,6 +29,8 @@
     }
     NSLog(@"JSON: %@", json);
     XCTAssertNotNil(json);
+    NSDictionary *currentWeather = json[@"currently"];
+    XCTAssertNotNil(currentWeather);
 }
 
 - (void)testDailyWeatherNotNil {
@@ -43,8 +45,20 @@
     }
     NSLog(@"JSON: %@", json);
     XCTAssertNotNil(json);
-    NSDictionary *dailyWeather = json[@"dailyWeather"];
-    XCTAssertNotNil(dailyWeather);
+    NSDictionary *currentWeather = json[@"currently"];
+    XCTAssertNotNil(currentWeather);
+    HSICurrentForecast *forecast = [[HSICurrentForecast alloc] initWithDictionary:currentWeather];
+    XCTAssertNotNil(forecast);
+    XCTAssertTrue([forecast.summary isEqualToString: @"Clear"]);
+    XCTAssertTrue([forecast.icon isEqualToString: @"clear-day"]);
+    XCTAssertEqual(forecast.precipIntensity, 0.0);
+    XCTAssertEqual(forecast.precipProbability, 0.0);
+    XCTAssertEqual(forecast.temperature, 48.35);
+    XCTAssertEqual(forecast.apparentTemperature, 47.4);
+    XCTAssertEqual(forecast.humidity, 0.77);
+    XCTAssertEqual(forecast.pressure, 1023.2);
+    XCTAssertEqual(forecast.windSpeed, 3.45);
+    XCTAssertEqual(forecast.windBearing, 24);
 }
 
 
