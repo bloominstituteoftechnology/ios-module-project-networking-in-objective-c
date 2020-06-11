@@ -12,12 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSIDailyWeather : NSObject
 
-@property (nonatomic, copy) NSString *icon;
-@property (nonatomic) double highTemperature;
-@property (nonatomic) double lowTemperature;
-
-- (instancetype)initWithIcon:(NSString *)icon highTemperature:(double)highTemperature lowTemperature:(double)lowTemperature;
-
 @end
 
 NS_ASSUME_NONNULL_END

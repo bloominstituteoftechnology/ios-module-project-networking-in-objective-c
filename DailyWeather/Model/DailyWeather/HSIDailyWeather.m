@@ -10,18 +10,4 @@
 
 @implementation HSIDailyWeather
 
-- (instancetype)initWithIcon:(NSString *)icon
-                highTemperature:(double)highTemperature
-                 lowTemperature:(double)lowTemperature {
-    self = [self init];
-
-    if (self) {
-        _icon = icon;
-        _highTemperature = highTemperature;
-        _lowTemperature = lowTemperature;
-    }
-
-    return self;
-}
-
 @end
