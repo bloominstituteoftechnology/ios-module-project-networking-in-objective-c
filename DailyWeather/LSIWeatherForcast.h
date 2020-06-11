@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSIWeatherForcast : NSObject
 
 @property (nonatomic) NSDate *time;
-@property (nonatomic, nullable, readonly) NSString *summary;
-@property(nonatomic, nullable, readonly)  NSString *icon;
+@property (nonatomic, nullable, readonly, copy) NSString *summary;
+@property(nonatomic, nullable, readonly, copy)  NSString *icon;
 @property (nonatomic, nullable, readonly) NSNumber *precipProbability;
 @property (nonatomic, nullable, readonly) NSNumber *precipIntensity;
 @property (nonatomic, nullable, readonly) NSNumber *temperature;
