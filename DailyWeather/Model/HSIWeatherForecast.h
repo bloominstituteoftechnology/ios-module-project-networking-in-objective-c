@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HSIWeatherForecast : NSObject
 
 @property HSICurrentForecast *currentForecast;
-@property HSIDailyForecast *dailyForecast;
-@property HSIHourlyForecast *hourlyForecast;
+@property NSArray<HSIDailyForecast *> *dailyForecasts;
+@property NSArray<HSIHourlyForecast *> *hourlyForecasts;
+
+- (instancetype)initWithCurrentForecast:(HSICurrentForecast *)currentForecast dailyForecasts:(NSArray<HSIDailyForecast *> *)dailyForecasts hourlyForecasts:(NSArray<HSIHourlyForecast *> *)hourlyForecasts;
 
 - (instancetype)initWithDictionary:(NSDictionary *) dictionary;
 

@@ -16,6 +16,7 @@
 		B97B389B249260560053E579 /* HSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = B932BDAF2491CC3900FB6A32 /* HSIDailyForecast.m */; };
 		B97B389C249260590053E579 /* HSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = B932BD9E249177CF00FB6A32 /* HSIHourlyForecast.m */; };
 		B97B38A124926BE30053E579 /* HSIDailyWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B97B38A024926BE30053E579 /* HSIDailyWeatherTests.m */; };
+		B97B38A92492D5690053E579 /* HSICurrentWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B97B38A82492D5690053E579 /* HSICurrentWeatherTests.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		B932BDB22491E56900FB6A32 /* HSICurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSICurrentForecast.h; sourceTree = "<group>"; };
 		B932BDB32491E56900FB6A32 /* HSICurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSICurrentForecast.m; sourceTree = "<group>"; };
 		B97B38A024926BE30053E579 /* HSIDailyWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDailyWeatherTests.m; sourceTree = "<group>"; };
+		B97B38A82492D5690053E579 /* HSICurrentWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSICurrentWeatherTests.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				BD69315323FD905400C0DF09 /* Info.plist */,
 				B932BDA5249196D500FB6A32 /* HSIHourlyWeatherTests.m */,
 				B97B38A024926BE30053E579 /* HSIDailyWeatherTests.m */,
+				B97B38A82492D5690053E579 /* HSICurrentWeatherTests.m */,
 			);
 			path = DailyWeatherTests;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
+				B97B38A92492D5690053E579 /* HSICurrentWeatherTests.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				B932BDA4249191B000FB6A32 /* HSIWeatherForecast.m in Sources */,
