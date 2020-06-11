@@ -18,7 +18,17 @@
 @implementation HSIHourlyWeatherTests
 
 - (void)testHourlyWeatherParses {
+    NSData *hourlyWeatherData = loadFile(@"HourlyWeather.json", [HSIHourlyWeatherTests class]);
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:hourlyWeatherData options:0 error:&error];
+    if (error) {
+        XCTFail(@"Error decoding JSON: %@", error);
+    }
 
+    XCTAssertNotNil(json);
+
+    HSIHourlyForecast *forecast = [[HSIHourlyForecast alloc] initWithDictionary:json];
+    XCTAssertNotNil(forecast);
 }
 
 @end
