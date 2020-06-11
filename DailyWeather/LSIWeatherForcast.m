@@ -75,6 +75,8 @@ apparentTemperature:(NSNumber *)apparentTemperature
         return nil;
     }
     
+    return [self initWithTime:date summary:summary icon:icon precipProbability:precipProbability precipeIntensity:precipIntensity temperature:temperature apparentTemperature:apparentTemperature humidity:humidity pressure:pressure windSpeed:windSpeed windBearing:windBearing uvIndex:uvIndex];
+    
 }
 
 @end
