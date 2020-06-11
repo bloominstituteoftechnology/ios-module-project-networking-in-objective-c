@@ -10,6 +10,13 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "CMDCurrentForecast.h"
+#import "CMDHourlyForecast.h"
+#import "CMDDailyForecast.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "CMDWeatherFetcher.h"
+#import "CMDWeatherForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,12 +25,13 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) CMDWeatherFetcher *fetcher;
+@property (nonatomic) CMDWeatherForecast *forecast;
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImage;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tempLabel;
-
 @property (strong, nonatomic) IBOutlet UILabel *windLabel;
 @property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *humidyLabel;
@@ -42,8 +50,6 @@
 
 
 @implementation LSIWeatherViewController
-
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -131,19 +137,67 @@
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
-}
+    [self.fetcher fetchWeatherAtLatitude:_location.coordinate.latitude longitude:_location.coordinate.longitude completionBlock:^(CMDWeatherForecast * _Nullable forecast, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Weather Fetching Error: %@", error);
+                return;
+            }
+
+        NSLog(@"Fetched weather: %@", forecast);
+        self.forecast = forecast;
+            
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateViews];
+            });
+        }];
+    }
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        NSString *administrativeArea;
+        if (self.placemark.administrativeArea) {
+            administrativeArea = self.placemark.administrativeArea;
+        } else if (self.placemark.country) {
+            administrativeArea = self.placemark.country;
+        } else {
+            administrativeArea = @" ";
+        }
+        
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, administrativeArea] ;
     }
     
-    // TODO: Update the UI based on the current forecast
+    self.iconImage.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.currentForecast.icon];
+    self.summaryLabel.text = self.forecast.currentForecast.summary;
+    
+    double temperature = round([self.forecast.currentForecast.temperature doubleValue]);
+    self.tempLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", temperature];
+    
+    double windSpeed = round([self.forecast.currentForecast.windSpeed doubleValue]);
+    double windbearing = round([self.forecast.currentForecast.windBearing doubleValue]);
+    NSString *direction = [LSICardinalDirection directionForHeading:windbearing];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", direction, windSpeed];
+    
+    double humidity = [self.forecast.currentForecast.humidity doubleValue] * 100.0;
+    self.humidyLabel.text = [NSString stringWithFormat:@"%0.0f%%", humidity];
+    
+    double precipProbability = round([self.forecast.currentForecast.precipProbability doubleValue]);
+    self.rainProbLabel.text = [NSString stringWithFormat:@"%0.0f%%", precipProbability];
+    
+    double apparentTemperature = round([self.forecast.currentForecast.apparentTemperature doubleValue]);
+    self.apparentLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", apparentTemperature];
+    
+    double pressure = round([self.forecast.currentForecast.pressure doubleValue]);
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.1f inHg", pressure];
+    
+    double uvIndex = round([self.forecast.currentForecast.uvIndex doubleValue]);
+    self.uvLabel.text = [NSString stringWithFormat:@"%0.0f", uvIndex];
 }
 
 @end
 
 /// MARK: CLLocationManagerDelegate Methods
+
 
 @implementation LSIWeatherViewController(CLLocationManagerDelegate)
 
