@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27E8E2AF249167FE005042BB /* CMDCurrentForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8E2AE249167FE005042BB /* CMDCurrentForcast.m */; };
+		27E8E2AF249167FE005042BB /* CMDCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8E2AE249167FE005042BB /* CMDCurrentForecast.m */; };
 		27E8E2B224916A84005042BB /* CMDDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8E2B124916A84005042BB /* CMDDailyForecast.m */; };
 		27E8E2B524916AD8005042BB /* CMDHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8E2B424916AD8005042BB /* CMDHourlyForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		27E8E2AD249167FE005042BB /* CMDCurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMDCurrentForecast.h; sourceTree = "<group>"; };
-		27E8E2AE249167FE005042BB /* CMDCurrentForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMDCurrentForcast.m; sourceTree = "<group>"; };
+		27E8E2AE249167FE005042BB /* CMDCurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMDCurrentForecast.m; sourceTree = "<group>"; };
 		27E8E2B024916A84005042BB /* CMDDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMDDailyForecast.h; sourceTree = "<group>"; };
 		27E8E2B124916A84005042BB /* CMDDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMDDailyForecast.m; sourceTree = "<group>"; };
 		27E8E2B324916AD8005042BB /* CMDHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMDHourlyForecast.h; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69314723FD905300C0DF09 /* main.m */,
 				27E8E2AD249167FE005042BB /* CMDCurrentForecast.h */,
-				27E8E2AE249167FE005042BB /* CMDCurrentForcast.m */,
+				27E8E2AE249167FE005042BB /* CMDCurrentForecast.m */,
 				27E8E2B024916A84005042BB /* CMDDailyForecast.h */,
 				27E8E2B124916A84005042BB /* CMDDailyForecast.m */,
 				27E8E2B324916AD8005042BB /* CMDHourlyForecast.h */,
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
-				27E8E2AF249167FE005042BB /* CMDCurrentForcast.m in Sources */,
+				27E8E2AF249167FE005042BB /* CMDCurrentForecast.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				27E8E2B224916A84005042BB /* CMDDailyForecast.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
