@@ -74,23 +74,24 @@
     NSDate *time = [[NSDate alloc] initWithTimeIntervalSince1970:timeValue.longValue];
     NSDate *sunriseTime = [[NSDate alloc] initWithTimeIntervalSince1970:sunriseTimeValue.longValue];
     NSDate *sunsetTime = [[NSDate alloc] initWithTimeIntervalSince1970:sunsetTimeValue.longValue];
-
-    return [self initWithTime:time
-                     summmary: [summary copy]
-                         icon: [icon copy]
-                  sunriseTime:sunriseTime
-                   sunsetTime:sunsetTime
-            precipProbability:precipProbability.doubleValue
-              precipIntensity:precipIntensity.doubleValue
-                   precipType: [precipType copy]
-                     pressure:pressure.doubleValue
-               temperatureLow:temperatureLow.doubleValue
-              temperatureHigh:temperatureHigh.doubleValue
-          apparentTemperature:apparentTemperature.doubleValue
-                     humidity:humidity.doubleValue
-                    windSpeed:windSpeed.doubleValue
-                  windBearing:windBearing.intValue
-                      uvIndex:uvIndex.intValue];
+    if (time && summary && icon && sunriseTime && sunsetTime && precipProbability && humidity && pressure && windSpeed && uvIndex) {
+        return [self initWithTime:time
+                         summmary:[summary copy]
+                             icon:[icon copy]
+                      sunriseTime:sunriseTime
+                       sunsetTime:sunsetTime
+                precipProbability:precipProbability.doubleValue
+                  precipIntensity:precipIntensity.doubleValue
+                       precipType:[precipType copy]
+                         pressure:pressure.doubleValue
+                   temperatureLow:temperatureLow.doubleValue
+                  temperatureHigh:temperatureHigh.doubleValue
+              apparentTemperature:apparentTemperature.doubleValue
+                         humidity:humidity.doubleValue
+                        windSpeed:windSpeed.doubleValue
+                      windBearing:windBearing.intValue
+                          uvIndex:uvIndex.intValue];
+    }
     return nil;
 }
 

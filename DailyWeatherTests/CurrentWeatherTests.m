@@ -19,36 +19,33 @@
 
 - (void)testCurrentWeather {
 
-    NSData *dailyWeatherData = loadFile(@"Weather.json", [CurrentWeatherTests class]);
-    NSLog(@"NSData: %@", dailyWeatherData);
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [CurrentWeatherTests class]);
+    NSLog(@"NSData: %@", currentWeatherData);
 
     NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:dailyWeatherData options:0 error:&error];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error:&error];
     if (error) {
         XCTFail(@"Error decoding JSON: %@", error);
     }
     NSLog(@"JSON: %@", json);
     XCTAssertNotNil(json);
 
-    NSDictionary *currentWeather = json[@"currently"];
-    XCTAssertNotNil(currentWeather);
-
     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
 
-    HSICurrentForecast *forecast = [[HSICurrentForecast alloc] initWithDictionary:currentWeather];
+    HSICurrentForecast *forecast = [[HSICurrentForecast alloc] initWithDictionary:json];
     XCTAssertNotNil(forecast);
 
     XCTAssertEqual(time, forecast.time);
     XCTAssertTrue([forecast.summary isEqualToString: @"Clear"]);
     XCTAssertTrue([forecast.icon isEqualToString: @"clear-day"]);
-    XCTAssertEqual(forecast.precipIntensity, 0.0);
-    XCTAssertEqual(forecast.precipProbability, 0.0);
-    XCTAssertEqual(forecast.temperature, 48.35);
-    XCTAssertEqual(forecast.apparentTemperature, 47.4);
-    XCTAssertEqual(forecast.humidity, 0.77);
-    XCTAssertEqual(forecast.pressure, 1023.2);
-    XCTAssertEqual(forecast.windSpeed, 3.45);
-    XCTAssertEqual(forecast.windBearing, 24);
+    XCTAssertEqualWithAccuracy(forecast.precipIntensity, 0.0, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.precipProbability, 0.0, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.temperature, 48.35, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.apparentTemperature, 47.4, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.humidity, 0.77, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.pressure, 1023.2, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.windSpeed, 3.45, 0.0001);
+    XCTAssertEqualWithAccuracy(forecast.windBearing, 24, 0.0001);
 }
 
 
