@@ -19,6 +19,18 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
+@property (strong, nonatomic) IBOutlet UIImageView *iconImage;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rainProbLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvLabel;
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
