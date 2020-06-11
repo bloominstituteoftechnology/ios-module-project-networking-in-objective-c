@@ -35,6 +35,7 @@
             _humidity = humidity;
             _pressure = pressure;
             _windSpeed = windSpeed;
+            _windBearing = windBearing;
         }
         return self;
 }
