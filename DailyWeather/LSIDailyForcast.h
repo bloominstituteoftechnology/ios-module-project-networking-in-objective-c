@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSDate *time;
 @property (nonatomic, nullable, readonly, copy) NSString *summary;
-@property(nonatomic, nullable, readonly, copy)  NSString *icon;
+@property (nonatomic, nullable, readonly, copy)  NSString *icon;
 @property (nonatomic, nullable, readonly) NSDate *sunriseTime;
 @property (nonatomic, nullable, readonly) NSDate *sunsetTime;
 @property (nonatomic, nullable, readonly) NSNumber *precipProbability;

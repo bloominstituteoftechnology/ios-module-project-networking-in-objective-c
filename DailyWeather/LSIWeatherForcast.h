@@ -8,35 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@class LSIHourlyWeather;
+@class LSIDailyForcast;
+@class LSICurrentWeather;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForcast : NSObject
 
-@property (nonatomic) NSDate *time;
-@property (nonatomic, nullable, readonly, copy) NSString *summary;
-@property(nonatomic, nullable, readonly, copy)  NSString *icon;
-@property (nonatomic, nullable, readonly) NSNumber *precipProbability;
-@property (nonatomic, nullable, readonly) NSNumber *precipIntensity;
-@property (nonatomic, nullable, readonly) NSNumber *temperature;
-@property (nonatomic, nullable, readonly) NSNumber *apparentTemperature;
-@property (nonatomic, nullable, readonly) NSNumber *humidity;
-@property (nonatomic, nullable, readonly) NSNumber *pressure;
-@property (nonatomic, nullable, readonly) NSNumber *windSpeed;
-@property (nonatomic, nullable, readonly) NSNumber *windBearing;
-@property (nonatomic, nullable, readonly) NSNumber *uvIndex;
+@property (nonatomic, readonly) LSICurrentWeather *currently;
+@property (nonatomic, readonly) LSIDailyForcast *daily;
+@property (nonatomic, readonly) LSIHourlyWeather *hourly;
 
-- (instancetype)initWithTime:(NSDate *)time
-                     summary:(NSString *)summary
-                        icon:(NSString *)icon
-           precipProbability:(NSNumber *)precipProbability
-            precipIntensity:(NSNumber *)precipIntensity
-                 temperature:(NSNumber *)temperature
-         apparentTemperature:(NSNumber *)apparentTemperature
-                    humidity:(NSNumber *)humidity
-                    pressure:(NSNumber *)pressure
-                   windSpeed:(NSNumber *)windSpeed
-                 windBearing:(NSNumber *)windBearing
-                     uvIndex:(NSNumber *)uvIndex;
+- (instancetype)initWithCurrently:(LSICurrentWeather *)currently daily:(LSIDailyForcast *)daily hourly:(LSIHourlyWeather *)hourly;
+
 
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
