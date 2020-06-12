@@ -15,13 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDate *time;
 @property (nonatomic, nullable, readonly, copy) NSString *summary;
 @property(nonatomic, nullable, readonly, copy)  NSString *icon;
-@property (nonatomic, nullable, readonly) NSDate *sunriseTime;
-@property (nonatomic, nullable, readonly) NSDate *sunsetTime;
 @property (nonatomic, nullable, readonly) NSNumber *precipProbability;
-@property (nonatomic, nullable, readonly) NSNumber *precipIntensity;
 @property (nonatomic, nullable, readonly, copy) NSString *precipType;
-@property (nonatomic, nullable, readonly) NSNumber *temperatureLow;
-@property (nonatomic, nullable, readonly) NSNumber *temperatureHigh;
+@property (nonatomic, nullable, readonly) NSNumber *temperature;
 @property (nonatomic, nullable, readonly) NSNumber *apparentTemperature;
 @property (nonatomic, nullable, readonly) NSNumber *humidity;
 @property (nonatomic, nullable, readonly) NSNumber *pressure;
@@ -32,13 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSDate *)sunriseTime
-                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(NSNumber *)precipProbability
-            precipeIntensity:(NSNumber *)precipeIntensity
                   precipType:(NSString *)precipType
-              temperatureLow:(NSNumber *)temperatureLow
-             temperatureHigh:(NSNumber *)temperatureHigh
+              temperature:(NSNumber *)temperature
          apparentTemperature:(NSNumber *)apparentTemperature
                     humidity:(NSNumber *)humidity
                     pressure:(NSNumber *)pressure
