@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) LSIDailyForcast *daily;
 @property (nonatomic, readonly) LSIHourlyWeather *hourly;
 
-- (instancetype)initWithCurrently:(LSICurrentWeather *)currently daily:(LSIDailyForcast *)daily hourly:(LSIHourlyWeather *)hourly;
+- (instancetype)initWithCurrently:(LSICurrentWeather *)currently
+                            daily:(LSIDailyForcast *)daily
+                           hourly:(LSIHourlyWeather *)hourly;
 
 
 

@@ -10,7 +10,9 @@
 
 @implementation LSIWeatherForcast
 
-- (instancetype)initWithCurrently:(LSICurrentWeather *)currently daily:(LSIDailyForcast *)daily hourly:(LSIHourlyWeather *)hourly
+- (instancetype)initWithCurrently:(LSICurrentWeather *)currently
+                            daily:(LSIDailyForcast *)daily
+                           hourly:(LSIHourlyWeather *)hourly
 {
     self = [super init];
     if (self) {
@@ -25,8 +27,10 @@
     LSICurrentWeather *currently = dictionary[@"currently"];
     LSIDailyForcast *daily = dictionary[@"daily"];
     LSIHourlyWeather *hourly = dictionary[@"hourly"];
-
-    return [self initWithCurrently:currently daily:daily hourly:hourly];
+    
+    return [self initWithCurrently:currently
+                             daily:daily
+                            hourly:hourly];
     
 }
 

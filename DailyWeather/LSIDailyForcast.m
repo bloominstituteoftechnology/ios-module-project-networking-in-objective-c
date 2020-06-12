@@ -87,7 +87,9 @@ apparentTemperature:(NSNumber *)apparentTemperature
     if ([windSpeed isKindOfClass:[NSNull class]]) { windSpeed = nil; }
     if ([windBearing isKindOfClass:[NSNull class]]) { windBearing = nil; }
     if ([uvIndex  isKindOfClass:[NSNull class]]) { uvIndex = nil; }
-    
+    if (!time) {
+           return nil;
+       }
     return [self initWithTime:date summary:summary icon:icon sunriseTime:sunriseDate sunsetTime:sunsetDate precipProbability:precipProbability precipeIntensity:precipIntensity precipType:precipType temperatureLow:temperatureLow temperatureHigh:temperatureHigh apparentTemperature:apparentTemperature humidity:humidity pressure:pressure windSpeed:windSpeed windBearing:windBearing uvIndex:uvIndex];
 }
 
