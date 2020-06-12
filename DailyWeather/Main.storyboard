@@ -206,16 +206,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="chanceOfRainLabel" destination="SPa-mm-9vr" id="VdO-oR-s1p"/>
-                        <outlet property="feelsLikeLabel" destination="fEi-iT-MTx" id="TiH-ib-akC"/>
-                        <outlet property="humidityLabel" destination="QZe-vz-ArV" id="Zcv-Zf-yWW"/>
-                        <outlet property="iconImageView" destination="M7q-IB-iHx" id="UHC-Km-7Ut"/>
-                        <outlet property="locationLabel" destination="I0f-Ag-9zW" id="8RL-b1-K3b"/>
-                        <outlet property="pressureLabel" destination="RId-FV-aGn" id="Q4B-7a-yw5"/>
-                        <outlet property="summaryLabel" destination="42T-OR-pJv" id="bG5-KN-3Ye"/>
-                        <outlet property="temperatureLabel" destination="nA3-Je-Akc" id="V9A-BN-sYz"/>
-                        <outlet property="uvIndexLabel" destination="rqk-Je-6jA" id="1K5-ca-tD3"/>
-                        <outlet property="windLabel" destination="pMR-mp-jrt" id="5tO-gU-vDC"/>
+                        <outlet property="chanceOfRainLabel" destination="SPa-mm-9vr" id="Qq6-7q-1zn"/>
+                        <outlet property="cityWeather" destination="I0f-Ag-9zW" id="GT3-wu-L0o"/>
+                        <outlet property="feelsLikeLabel" destination="fEi-iT-MTx" id="lwZ-3K-zwc"/>
+                        <outlet property="humidityLabel" destination="QZe-vz-ArV" id="ed4-zs-Qfq"/>
+                        <outlet property="iconImageView" destination="M7q-IB-iHx" id="IzR-2z-I2b"/>
+                        <outlet property="pressureLabel" destination="RId-FV-aGn" id="A6E-mu-FNH"/>
+                        <outlet property="summaryLabel" destination="42T-OR-pJv" id="tM5-FL-MNA"/>
+                        <outlet property="temperatureLabel" destination="nA3-Je-Akc" id="jfF-on-q0t"/>
+                        <outlet property="uvIndexLabel" destination="rqk-Je-6jA" id="dwf-mz-jFu"/>
+                        <outlet property="windLabel" destination="pMR-mp-jrt" id="kBv-Tc-1q2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
