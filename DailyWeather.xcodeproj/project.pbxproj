@@ -99,10 +99,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E2E4D9C24BF9D45002B00B9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BD69314723FD905300C0DF09 /* main.m */,
+				BD69313523FD905200C0DF09 /* AppDelegate.h */,
+				BD69313623FD905200C0DF09 /* AppDelegate.m */,
+				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
+				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5E2E4D9D24BF9D63002B00B9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BD69317423FD91D700C0DF09 /* Main.storyboard */,
+				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5E2E4D9E24BF9D6C002B00B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E2E4D9D24BF9D63002B00B9 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E2E4D9F24BF9D89002B00B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD69314123FD905300C0DF09 /* Assets.xcassets */,
+				BD69314623FD905300C0DF09 /* Info.plist */,
+			);
+			name = Resources;
+			path = DailyWeather;
+			sourceTree = "<group>";
+		};
+		5E2E4DA024BF9D9E002B00B9 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		5E2E4DA124BF9DA5002B00B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
 				BD69313423FD905200C0DF09 /* DailyWeather */,
+				5E2E4D9F24BF9D89002B00B9 /* Resources */,
+				5E2E4D9C24BF9D45002B00B9 /* Application */,
 				BD69315023FD905400C0DF09 /* DailyWeatherTests */,
 				BD69313323FD905200C0DF09 /* Products */,
 			);
@@ -120,19 +175,13 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				BD69313523FD905200C0DF09 /* AppDelegate.h */,
-				BD69313623FD905200C0DF09 /* AppDelegate.m */,
-				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
-				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
-				BD69317423FD91D700C0DF09 /* Main.storyboard */,
+				5E2E4DA124BF9DA5002B00B9 /* Models */,
+				5E2E4DA024BF9D9E002B00B9 /* Model Controllers */,
+				5E2E4D9E24BF9D6C002B00B9 /* Views */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
-				BD69314123FD905300C0DF09 /* Assets.xcassets */,
-				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
-				BD69314623FD905300C0DF09 /* Info.plist */,
-				BD69314723FD905300C0DF09 /* main.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
