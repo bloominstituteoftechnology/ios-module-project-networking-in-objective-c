@@ -13,7 +13,7 @@
     "pressure": 1023.2,
     "windSpeed": 3.45,
     "windGust": 4.44,
-    "windBearing": 24,
+    "windBearing": null,
     "cloudCover": 0.02,
     "uvIndex": 0,
     "visibility": 10,

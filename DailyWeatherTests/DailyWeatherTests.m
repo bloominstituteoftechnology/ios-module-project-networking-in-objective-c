@@ -7,6 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LSIFileHelper.h"
+#import "LSILog.h"
+#import "LSICurrentForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -14,12 +17,48 @@
 
 @implementation DailyWeatherTests
 
-- (void)testExample {
+//- (void)testExample {
+//
+//    // TODO: Use LSIFileHelper to load JSON from your test bundle
+//
+//
+//    // TODO: Create Unit Tests for each separate JSON file
+//
+//}
 
-    // TODO: Use LSIFileHelper to load JSON from your test bundle
+- (void)testCurrentWeatherParsing {
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [DailyWeatherTests class]);
+    NSLog(@"currentWeather: %@", currentWeatherData);
     
-    // TODO: Create Unit Tests for each separate JSON file
-
+    NSError *jsonError = nil;
+    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error:&jsonError];
+    
+    if (jsonError) {
+        NSLog(@"JSON parsing error %@", jsonError);
+    }
+    
+    // Parse the dictionary and turn it inot a CurrentWeather object
+    NSLog(@"JSON: %@", currentWeatherDictionary);
+    
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970: 1581003354 / 1000.0];
+    
+    
+    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
+    
+    NSLog(@"currentWeather: %@", currentForecast);
+    
+    XCTAssertEqualObjects(time, currentForecast.time);
+    NSLog(@"👍🏻 TIME: %@", currentForecast.time);
+    
+    XCTAssertEqualObjects(@"clear-day", currentForecast.icon);
+    
+    XCTAssertNil(currentForecast.windBearing);
 }
+
+
+
+
+
+
 
 @end
