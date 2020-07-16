@@ -28,15 +28,15 @@
         _time = time;
         _summary = summary;
         _icon = icon;
-        _precipProbability = &precipProbability;
-        _precipIntensity = &precipIntensity;
-        _temperature = &temperature;
-        _apparentTemperature = &apparentTemperature;
-        _humidity = &humidity;
-        _pressure = &pressure;
-        _windSpeed = &windSpeed;
-        _windBearing = &windBearing;
-        _uvIndex = &uvIndex;
+        _precipProbability = precipProbability;
+        _precipIntensity = precipIntensity;
+        _temperature = temperature;
+        _apparentTemperature = apparentTemperature;
+        _humidity = humidity;
+        _pressure = pressure;
+        _windSpeed = windSpeed;
+        _windBearing = windBearing;
+        _uvIndex = uvIndex;
     }
     return self;
 }

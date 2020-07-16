@@ -41,24 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-/*
- Required Fields
-
- time (unix time)
- summary
- icon
- precipProbability
- precipIntensity
- temperature
- apparentTemperature (Feels like)
- humidity
- pressure
- windSpeed
- windBearing
- uvIndex
- */
-
-
 @end
 
 NS_ASSUME_NONNULL_END

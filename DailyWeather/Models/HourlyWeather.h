@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
                       sunset:(NSDate *)sunset
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
+                  precipType:(NSString *)precipType
              temperatureHigh:(double)temperatureHigh
               temperatureLow:(double)temperatureLow
          apparentTemperature:(double)apparentTemperature
@@ -46,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
                    windSpeed:(double)windSpeed
                  windBearing:(int)windBearing
                      uvIndex:(int)uvIndex;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 @end
