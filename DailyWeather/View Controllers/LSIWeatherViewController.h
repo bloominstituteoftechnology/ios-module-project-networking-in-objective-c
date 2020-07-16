@@ -7,11 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
+
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
+
+@class LSIWeatherIcons;
 
 @interface LSIWeatherViewController : UIViewController
 
-
+@property LSIWeatherIcons *weatherIconsController;
 //- (void)requestCurrentLocationWithCompletion:(LSILocationHandler)completionHandler;
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler;

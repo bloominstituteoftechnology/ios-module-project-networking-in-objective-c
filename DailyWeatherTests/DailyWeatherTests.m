@@ -55,6 +55,14 @@
     XCTAssertNil(currentForecast.windBearing);
 }
 
+//- (void)testDailyWeatherParsing {
+//    
+//    
+//    
+//    
+//    
+//}
+
 
 
 
