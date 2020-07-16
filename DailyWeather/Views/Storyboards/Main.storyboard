@@ -179,6 +179,10 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="X4o-NW-JzF"/>
                                             <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="nmZ-Bd-Wqk">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="info:" destination="BYZ-38-t0r" id="7Kl-2l-SrE"/>
+                                                    <segue destination="1WV-3B-qSb" kind="show" identifier="InfoSegue" id="cnO-Gg-Kz3"/>
+                                                </connections>
                                             </barButtonItem>
                                         </items>
                                         <color key="barTintColor" red="0.0" green="0.3411764706" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,6 +217,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="apparentTempLabel" destination="fw8-yg-4Bj" id="vZq-Ia-vTH"/>
+                        <outlet property="humidityLabel" destination="KAa-3n-46n" id="X4h-dt-Z9l"/>
+                        <outlet property="icon" destination="eKv-HO-4eb" id="gHC-bQ-UfP"/>
+                        <outlet property="locationLabel" destination="geH-bw-vKw" id="cBJ-BW-ZG6"/>
+                        <outlet property="precipChanceLabel" destination="SkA-fv-wYx" id="Ft2-8T-o6r"/>
+                        <outlet property="pressureLabel" destination="WF1-Io-8zh" id="ntL-05-5Uv"/>
+                        <outlet property="summaryLabel" destination="Jn2-Ju-Oug" id="sxT-AG-8G7"/>
+                        <outlet property="tempLabel" destination="pZf-8f-uk8" id="RDl-Mw-ZRF"/>
+                        <outlet property="uvLabel" destination="8sQ-lU-R4V" id="oS4-mI-mcD"/>
+                        <outlet property="windSpeedLabel" destination="2ul-KD-SG0" id="5av-CE-V6V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,7 +239,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -245,14 +261,14 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreditsCell" textLabel="Mhq-Gc-Jye" style="IBUITableViewCellStyleDefault" id="19n-Be-5g2" customClass="LSISettingsTableViewController">
-                                <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="71.5" width="414" height="61.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="19n-Be-5g2" id="xWM-gO-YoK">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Powered by Dark Sky https://darksky.net/poweredby/" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mhq-Gc-Jye">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="374" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -278,8 +294,9 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" id="1WV-3B-qSb" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="z82-OM-6iE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="egM-zG-Wvk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
