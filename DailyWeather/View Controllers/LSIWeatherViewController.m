@@ -73,7 +73,7 @@
     
     self.bottomToolbar.translucent = YES;
     
-//self.bottomToolbar.backgroundColor = [UIColor colorWithRed:((float) 0x000000) green:((float) 0x005700) blue:((float) 0x0000B6) alpha: 1.0];
+    //self.bottomToolbar.backgroundColor = [UIColor colorWithRed:((float) 0x000000) green:((float) 0x005700) blue:((float) 0x0000B6) alpha: 1.0];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
