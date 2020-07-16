@@ -11,6 +11,7 @@
 #import "LSILog.h"
 #import "LSICurrentForecast.h"
 #import "LSIDailyWeather.h"
+#import "LSIHourlyWeather.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -74,7 +75,25 @@
     
 }
 
-
+- (void)testHourlyWeatherParsing {
+    NSData *hourlyWeatherData = loadFile(@"HourlyWeather.json", [DailyWeatherTests class]);
+    NSLog(@"hourlyWeather: %@", hourlyWeatherData);
+    
+    NSError *jsonError = nil;
+    NSDictionary *hourlyWeatherDictionary = [NSJSONSerialization JSONObjectWithData:hourlyWeatherData options:0 error:&jsonError];
+    
+    if (jsonError) {
+        NSLog(@"JSON parsing error %@", jsonError);
+    }
+    
+    NSDate *timeRegular = [NSDate dateWithTimeIntervalSince1970: 1581001200 / 1000.0];
+    
+    LSIDailyWeather *hourlyForecast = [[LSIDailyWeather alloc] initWithDictionary:hourlyWeatherDictionary];
+    
+    XCTAssertEqualObjects(timeRegular, hourlyForecast.time);
+    XCTAssertEqualObjects(@"clear-night", hourlyForecast.icon);
+    XCTAssertNil(hourlyForecast.precipitationType);
+}
 
 
 

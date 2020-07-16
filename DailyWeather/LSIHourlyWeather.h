@@ -30,8 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                  summary:(NSString *)summary
                     icon:(NSString *)icon
-             sunriseTime:(NSDate *)sunriseTime
-              sunsetTime:(NSDate *)sunsetTime
   precipitationIntensity:(NSNumber *)precipitationIntensity
 precipitationProbability:(NSNumber *)precipitationProbability
        precipitationType:(NSString *)precipitationType
@@ -44,6 +42,7 @@ precipitationProbability:(NSNumber *)precipitationProbability
              windBearing:(NSNumber *)windBearing
                  uvIndex:(NSNumber *)uvIndex;
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 
