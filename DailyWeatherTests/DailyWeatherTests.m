@@ -7,7 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-
+#import "CurrentWeather.h"
+#import "LSIFileHelper.h"
 @interface DailyWeatherTests : XCTestCase
 
 @end
@@ -20,6 +21,11 @@
     
     // TODO: Create Unit Tests for each separate JSON file
 
+}
+
+- (void)currentWeatherTest {
+    
+    
 }
 
 @end

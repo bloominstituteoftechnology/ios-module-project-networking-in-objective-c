@@ -15,15 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSTimeInterval *time;
 @property (nonatomic, readonly, nullable, copy) NSString *summary;
 @property (nonatomic, readonly, nullable, copy) NSString *icon;
-@property (nonatomic, readonly, nullable) NSInteger *precipProbability;
-@property (nonatomic, readonly, nullable) NSInteger *precipIntensity;
+@property (nonatomic, readonly, nullable) NSNumber *precipProbability;
+@property (nonatomic, readonly, nullable) NSNumber *precipIntensity;
 @property (nonatomic, readonly, nullable) NSNumber *temperature;
 @property (nonatomic, readonly, nullable) NSNumber *apparentTemperature;
 @property (nonatomic, readonly, nullable) NSNumber *humidity;
 @property (nonatomic, readonly, nullable) NSNumber *pressure;
 @property (nonatomic, readonly, nullable) NSNumber *windSpeed;
-@property (nonatomic, readonly, nullable) NSInteger *windBearing;
-@property (nonatomic, readonly, nullable) NSInteger *uvIndex;
+@property (nonatomic, readonly, nullable) NSNumber *windBearing;
+@property (nonatomic, readonly, nullable) NSNumber *uvIndex;
 
 @end
 
