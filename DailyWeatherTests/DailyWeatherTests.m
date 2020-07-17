@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "CurrentWeather.h"
 #import "LSIFileHelper.h"
+#import "LSILog.h"
+
 @interface DailyWeatherTests : XCTestCase
 
 @end
@@ -23,9 +25,23 @@
 
 }
 
-- (void)currentWeatherTest {
+- (void)testCurrentWeather {
     
+    NSData *data = loadFile(@"CurrentWeather.json", [CurrentWeather class]);
     
+    NSError *error;
+    
+    NSDictionary *dict = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          options:0
+                          error:&error];
+    
+    if (error) {
+        LSILog(@"Unable to parse data from json file");
+    } else {
+        LSILog(@"%@", dict);
+        XCTAssertTrue(true);
+    }
 }
 
 @end
