@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class LSICurrentForecast;
+@class LSIDailyForecast;
+@class LSIHourlyForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
+@property (nonatomic, readonly) LSICurrentForecast *currently;
+@property (nonatomic, readonly, copy) NSArray<LSIDailyForecast *> *daily;
+@property (nonatomic, readonly, copy) NSArray<LSIHourlyForecast *> *hourly;
 
-
-
-
+- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 @end

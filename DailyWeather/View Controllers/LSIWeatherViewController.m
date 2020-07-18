@@ -144,21 +144,33 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
-    NSLog(@"currentWeather: %@", currentWeatherData);
-    
-    NSError *jsonError = nil;
-    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error:&jsonError];
-    
-    if (jsonError) {
-        NSLog(@"JSON parsing error %@", jsonError);
-    }
-    
-    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
-    self.currentForecast = currentForecast;
+//    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+//    NSLog(@"currentWeather: %@", currentWeatherData);
+//
+//    NSError *jsonError = nil;
+//    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error:&jsonError];
+//
+//    if (jsonError) {
+//        NSLog(@"JSON parsing error %@", jsonError);
+//    }
+//
+//    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
+//    self.currentForecast = currentForecast;
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+    NSLog(@"currentWeather: %@", weatherData);
+    
+        NSError *jsonError = nil;
+        NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    
+        if (jsonError) {
+            NSLog(@"JSON parsing error %@", jsonError);
+        }
+    
+        LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
+        self.currentForecast = currentForecast;
 }
 
 - (void)updateViews {

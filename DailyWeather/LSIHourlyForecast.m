@@ -6,9 +6,9 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "LSIHourlyWeather.h"
+#import "LSIHourlyForecast.h"
 
-@implementation LSIHourlyWeather
+@implementation LSIHourlyForecast
 
 - (instancetype)initWithTime:(NSDate *)time
                  summary:(NSString *)summary

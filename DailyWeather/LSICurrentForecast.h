@@ -36,9 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure:(NSNumber *)pressure
                    windSpeed:(NSNumber *)windSpeed
                  windBearing:(NSNumber *)windBearing
-                     uvIndex:(NSNumber *)uvIndex;
+                     uvIndex:(NSNumber *)uvIndex NS_DESIGNATED_INITIALIZER;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 @end

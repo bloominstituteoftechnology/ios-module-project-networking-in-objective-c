@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSIHourlyWeather : NSObject
+@interface LSIHourlyForecast : NSObject
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSNumber *pressure;
 @property (nonatomic, readonly) NSNumber *windSpeed;
 @property (nonatomic, readonly) NSNumber *windBearing;
-@property (nonatomic, readonly) NSNumber *uvIndex;
+@property (nonatomic, readonly) NSNumber *uvIndex ;
 
 - (instancetype)initWithTime:(NSDate *)time
                  summary:(NSString *)summary
@@ -40,9 +40,9 @@ precipitationProbability:(NSNumber *)precipitationProbability
                 pressure:(NSNumber *)pressure
                windSpeed:(NSNumber *)windSpeed
              windBearing:(NSNumber *)windBearing
-                 uvIndex:(NSNumber *)uvIndex;
+                 uvIndex:(NSNumber *)uvIndex NS_DESIGNATED_INITIALIZER;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 
