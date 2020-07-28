@@ -10,6 +10,11 @@
 
 @implementation LSICurrentForecast
 
+- (instancetype)init
+{
+    return [self initWithTime:NSDate.now summary:@"" icon:@"" precipProbability:nil precipIntensity:nil temperature:nil apparentTemperature:nil humidity:nil pressure:nil windSpeed:nil windBearing:nil uvIndex:nil];
+}
+
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
