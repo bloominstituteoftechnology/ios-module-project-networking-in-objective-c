@@ -7,12 +7,31 @@
 //
 
 #import "LSIWeatherResults.h"
+#import "LSICurrentForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
 @implementation LSIWeatherResults
+
+- (instancetype)init
+{
+    return [self initWithCurrentForecast:[[LSICurrentForecast alloc] init] hourlyForecasts:@[] dailyForecasts:@[]];
+}
+
+- (instancetype)initWithCurrentForecast:(LSICurrentForecast *)currentForecast hourlyForecasts:(NSArray<LSIHourlyForecast *> *)hourlyForecasts dailyForecasts:(NSArray<LSIDailyForecast *> *)dailyForecasts
+{
+    if (self = [super init]) {
+        _currentForecast = currentForecast;
+        _hourlyForecasts = hourlyForecasts.copy;
+        _dailyForecasts = dailyForecasts.copy;
+    }
+    return self;
+}
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     NSDictionary *currentWeatherDictionary = [dictionary objectForKey:@"currently"];
+    
     
     
 }
