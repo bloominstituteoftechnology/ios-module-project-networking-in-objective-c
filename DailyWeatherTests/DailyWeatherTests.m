@@ -16,9 +16,8 @@
 
 @implementation DailyWeatherTests
 
-- (void)testWeatherParsing {
+- (void)testParsingCurrentWeather {
 
-    // TODO: Use LSIFileHelper to load JSON from your test bundle
     NSData *weatherData = loadFile(@"CurrentWeather.json", [DailyWeatherTests class]);
     
     NSError *JSONError = nil;
@@ -36,10 +35,26 @@
         NSLog(@"🐖 weatherDictionary is not a dictionary");
         return;
     }
-        
-        
-    // TODO: Create Unit Tests for each separate JSON file
+}
 
+- (void)testParsingDailyWeather {
+    NSData *weatherData = loadFile(@"DailyWeather.json", [DailyWeatherTests class]);
+    
+    NSError *JSONError = nil;
+    
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&JSONError];
+    
+    XCTAssertNotNil(weatherData);
+    
+    if (!weatherDictionary) {
+        NSLog(@"🐖 We've got an error: &@", JSONError);
+    }
+    
+    XCTAssertTrue([weatherDictionary isKindOfClass:NSDictionary.class]);
+    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"🐖 weatherDictionary is not a dictionary");
+        return;
+    }
 }
 
 @end
