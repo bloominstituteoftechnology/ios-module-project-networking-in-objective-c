@@ -15,9 +15,12 @@
     BOOL _requestedLocation;
 }
 
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+
 
 @end
 
@@ -57,6 +60,11 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
+    [self.toolbar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage new]
+              forToolbarPosition:UIBarPositionAny];
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
 }
