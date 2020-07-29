@@ -10,6 +10,7 @@
 #import "../DailyWeather/LambdaSDK/LSILog.h"
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
 #import "../DailyWeather/LSICurrentForecast.h"
+#import "../DailyWeather/LSIDailyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -56,6 +57,39 @@
     XCTAssertEqualWithAccuracy(24., currentForecast.windBearing, 0.0001);
     XCTAssertEqualWithAccuracy(0, currentForecast.uvIndex, 0.0001);
 
+}
+
+- (void)testDailyWeatherParsing
+{
+    NSData *dailyWeatherData = loadFile(@"DailyWeather.json", DailyWeatherTests.class);
+    
+    NSError *jsonError = nil;
+    NSDictionary *dailyWeatherDictionary = [NSJSONSerialization JSONObjectWithData:dailyWeatherData options:0 error:&jsonError];
+    
+    if (!dailyWeatherDictionary) {
+        NSLog(@"Error with json: %@", jsonError);
+    }
+    
+    if (![dailyWeatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"daily weather dictionary isn't a dictionary");
+    }
+    
+    XCTAssertTrue([dailyWeatherDictionary isKindOfClass:NSDictionary.class]);
+    
+    LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyWeatherDictionary];
+    
+    XCTAssertEqualObjects(@"Clear throughout the day.", dailyForecast.summary);
+    XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
+    XCTAssertEqualWithAccuracy(0.13, dailyForecast.precipProbability, 0.0001);
+    XCTAssertEqualWithAccuracy(0.0006, dailyForecast.precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow, 0.0001);
+    XCTAssertEqualWithAccuracy(61.22, dailyForecast.temperatureHigh, 0.0001);
+    XCTAssertEqualWithAccuracy(46.05, dailyForecast.apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.78, dailyForecast.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1021.8, dailyForecast.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(320., dailyForecast.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
 }
 
 @end
