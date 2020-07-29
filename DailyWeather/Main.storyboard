@@ -10,7 +10,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController interfaceStyle="light" id="BYZ-38-t0r" customClass="LSIWeatherViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LSIWeatherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,6 +267,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="changeOfRainLabel" destination="ASZ-3n-UKg" id="QPK-yK-b8e"/>
+                        <outlet property="cityAndStateLabel" destination="a9w-2C-Qpc" id="FGP-vy-fJo"/>
+                        <outlet property="feelsLikeLabel" destination="CU5-aM-zuh" id="sGW-hc-FMk"/>
+                        <outlet property="humidityLabel" destination="BDr-fC-x4P" id="HgK-b5-Xh2"/>
+                        <outlet property="iconImageView" destination="SyJ-NW-rzh" id="PBz-dW-cGU"/>
+                        <outlet property="pressureLabel" destination="Ig6-pS-8tH" id="RG6-O7-UT2"/>
+                        <outlet property="summaryLabel" destination="CM0-34-eBJ" id="QPD-0r-TUE"/>
+                        <outlet property="temperatureLabel" destination="hU9-Rv-jlk" id="z0m-96-a9X"/>
+                        <outlet property="uvIndexLabel" destination="6f4-Sz-g9Y" id="VPf-aT-ISd"/>
+                        <outlet property="windSpeedAndDirectionLabel" destination="GY2-il-Vg5" id="eBU-bu-KdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

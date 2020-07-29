@@ -5,7 +5,7 @@
     "nearestStormDistance": 17,
     "nearestStormBearing": 333,
     "precipIntensity": 0,
-    "precipProbability": 0,
+    "precipProbability": 45,
     "temperature": 48.35,
     "apparentTemperature": 47.4,
     "dewPoint": 41.38,
@@ -15,7 +15,7 @@
     "windGust": 4.44,
     "windBearing": 24,
     "cloudCover": 0.02,
-    "uvIndex": 0,
+    "uvIndex": 1,
     "visibility": 10,
     "ozone": 280.8
 }
