@@ -42,6 +42,14 @@
     XCTAssertEqual(48.35, current.temperature);
     XCTAssertEqualObjects(@"Clear", current.summary);
     XCTAssertEqualObjects(time, current.time);
+    XCTAssertEqualObjects(@"clear-day", current.icon);
+    XCTAssertEqualWithAccuracy(0, current.precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(0, current.precipProbability, 0.0001);
+    XCTAssertEqualWithAccuracy(0.77, current.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1023.2, current.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.45, current.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(24., current.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(0., current.uvIndex, 0.0001);
 
 }
 

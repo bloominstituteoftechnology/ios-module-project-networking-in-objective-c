@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;
 @property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly) double *windBearing;
-@property (nonatomic, readonly) double *uvIndex;
+@property (nonatomic, readonly) double windBearing;
+@property (nonatomic, readonly) double uvIndex;
 
 @end
 
