@@ -57,4 +57,24 @@
     }
 }
 
+
+- (void)testParsingHourlyWeather {
+    NSData *weatherData = loadFile(@"HourlyWeather.json", [DailyWeatherTests class]);
+    
+    NSError *JSONError = nil;
+    
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&JSONError];
+    
+    XCTAssertNotNil(weatherData);
+    
+    if (!weatherDictionary) {
+        NSLog(@"🐖 We've got an error: &@", JSONError);
+    }
+    
+    XCTAssertTrue([weatherDictionary isKindOfClass:NSDictionary.class]);
+    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"🐖 weatherDictionary is not a dictionary");
+        return;
+    }
+}
 @end
