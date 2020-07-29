@@ -10,18 +10,32 @@
 #import "LSIWeatherForecast.h"
 
 @implementation CurrentForecast
+-(instancetype)init
+{
+    return [self initWithTime:NSDate.now
+                      summary:@""
+                         icon:@""
+            precipProbability:0
+              precipIntensity:0
+                  temperature:0
+                     humidity:0
+                     pressure:0
+                    windSpeed:0
+                  windBearing:0
+                      uvIndex:0];
+}
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(int)precipProbability
-             precipIntensity:(int)precipIntensity
+           precipProbability:(double)precipProbability
+             precipIntensity:(double)precipIntensity
                  temperature:(double)temperature
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
-                 windBearing:(NSString *)windBearing
-                     uvIndex:(int)uvIndex
+                 windBearing:(double)windBearing
+                     uvIndex:(double)uvIndex
 {
     if (self = [super init]) {
         _time = time;
@@ -33,13 +47,14 @@
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
-        _windBearing = windBearing;
-        _uvIndex = uvIndex;
+        _windBearing = &windBearing;
+        _uvIndex = &uvIndex;
+
     }
     return self;
 }
 
-- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;
 
@@ -53,21 +68,20 @@
     NSNumber *humidity = dictionary[@"humidity"];
     NSNumber *pressure = dictionary[@"pressure"];
     NSNumber *windSpeed = dictionary[@"windSpeed"];
-    NSString *windBearing = dictionary[@"windBearing"];
+    NSNumber *windBearing = dictionary[@"windBearing"];
     NSNumber *uvIndex = dictionary[@"uvIndex"];
 
-    self = [self initWithTime:time
+    return [self initWithTime:time
                       summary:summary.copy
                          icon:icon
-            precipProbability:precipProbability.intValue
-              precipIntensity:precipIntensity.intValue
+            precipProbability:precipProbability.doubleValue
+              precipIntensity:precipIntensity.doubleValue
                   temperature:temperature.doubleValue
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue
                     windSpeed:windSpeed.doubleValue
-                  windBearing:windBearing
-                      uvIndex:uvIndex.intValue];
-    return self;
+                  windBearing:windBearing.doubleValue
+                      uvIndex:uvIndex.doubleValue];
 }
 
 @end

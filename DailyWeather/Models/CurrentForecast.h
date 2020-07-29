@@ -15,14 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(int)precipProbability
-             precipIntensity:(int)precipIntensity
+           precipProbability:(double)precipProbability
+             precipIntensity:(double)precipIntensity
                  temperature:(double)temperature
                     humidity:(double)humity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
-                 windBearing:(NSString *)windBearing
-                     uvIndex:(int *)uvIndex;
+                 windBearing:(double)windBearing
+                     uvIndex:(double)uvIndex NS_DESIGNATED_INITIALIZER;
 
 
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
@@ -30,14 +30,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy) NSString *summary;
 @property (nonatomic, readonly, copy) NSString *icon;
-@property (nonatomic, readonly) int precipProbability;
-@property (nonatomic, readonly) int precipIntensity;
+@property (nonatomic, readonly) double precipProbability;
+@property (nonatomic, readonly) double precipIntensity;
 @property (nonatomic, readonly) double temperature;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;
 @property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly, copy) NSString *windBearing;
-@property (nonatomic, readonly) int *uvIndex;
+@property (nonatomic, readonly) double *windBearing;
+@property (nonatomic, readonly) double *uvIndex;
 
 @end
 

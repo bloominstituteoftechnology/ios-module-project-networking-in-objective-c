@@ -18,7 +18,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
-@property (nonatomic) UIToolbar *toolbar;
+@property (nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
