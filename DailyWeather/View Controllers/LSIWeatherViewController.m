@@ -13,6 +13,7 @@
 #import "LSICurrentForecast.h"
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
+#import "LSIWeatherResults.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -130,22 +131,60 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
-    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", LSIWeatherViewController.class);
+//    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", LSIWeatherViewController.class);
+//
+//    NSError *jsonError = nil;
+//    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData
+//                                                                             options:0
+//                                                                               error:&jsonError];
+//
+//    if (!currentWeatherDictionary) {
+//        NSLog(@"Error with json: %@", jsonError);
+//    }
+//
+//    if (![currentWeatherDictionary isKindOfClass:NSDictionary.class]) {
+//        NSLog(@"current weather dictionary isn't a dictionary");
+//    }
+//
+//    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
+//
+//    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:currentForecast.icon];
+//    _weatherIconImageView.image = icon;
+//
+//    _summaryTextLabel.text = currentForecast.summary;
+//    _currentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.temperature)];
+//
+//    NSString *windDirection = [LSICardinalDirection directionForHeading:currentForecast.windBearing];
+//    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", currentForecast.windSpeed];
+//    NSString *windSpeedText = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
+//    _windSpeedLabel.text = windSpeedText;
+//
+//    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.humidity * 100];
+//    _precipitationProbabilityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.precipProbability * 100];
+//
+//    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.apparentTemperature)];
+//    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", currentForecast.pressure];
+//    _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(currentForecast.uvIndex)];
     
-    NSError *jsonError = nil;
-    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData
+    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    
+    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
+    
+    NSError *weatherJsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
                                                                              options:0
-                                                                               error:&jsonError];
+                                                                               error:&weatherJsonError];
     
-    if (!currentWeatherDictionary) {
-        NSLog(@"Error with json: %@", jsonError);
+    if (!weatherDictionary) {
+        NSLog(@"Error with weather json: %@", weatherJsonError);
     }
     
-    if (![currentWeatherDictionary isKindOfClass:NSDictionary.class]) {
+    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
         NSLog(@"current weather dictionary isn't a dictionary");
     }
     
-    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
+    LSIWeatherResults *weatherResults = [[LSIWeatherResults alloc] initWithDictionary:weatherDictionary];
+    LSICurrentForecast *currentForecast = weatherResults.currentForecast;
     
     UIImage *icon = [LSIWeatherIcons weatherImageForIconName:currentForecast.icon];
     _weatherIconImageView.image = icon;
@@ -165,7 +204,9 @@
     _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", currentForecast.pressure];
     _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(currentForecast.uvIndex)];
     
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+
+    
+    
 }
 
 - (void)updateViews {
