@@ -10,4 +10,22 @@
 
 @implementation LSIWeatherForecast
 
+- (instancetype)initWithCurrently:(NSDictionary *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly
+{
+    if (self = [super init])
+    {
+    _currently = currently;
+    _daily = daily;
+    _hourly = hourly;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    return nil;
+}
+
+
 @end

@@ -12,6 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
+- (instancetype)initWithCurrently:(NSDictionary *)currently
+                            daily:(NSDictionary *)daily
+                           hourly:(NSDictionary *)hourly;
+
+- (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic, readonly) NSDictionary *currently;
+@property (nonatomic, readonly, copy) NSDictionary *daily;
+@property (nonatomic, readonly, copy) NSDictionary *hourly;
+
 @end
 
 NS_ASSUME_NONNULL_END
