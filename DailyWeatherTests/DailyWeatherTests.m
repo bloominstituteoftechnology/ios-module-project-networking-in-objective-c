@@ -90,6 +90,43 @@
     XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
     XCTAssertEqualWithAccuracy(320., dailyForecast.windBearing, 0.0001);
     XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
+    XCTAssertEqualObjects(@"rain", dailyForecast.precipType);
 }
+
+- (void)testHourlyWeatherParsing
+{
+    NSData *hourlyWeatherData = loadFile(@"HourlyWeather.json", DailyWeatherTests.class);
+    
+    NSError *jsonError = nil;
+    NSDictionary *hourlyWeatherDictionary = [NSJSONSerialization JSONObjectWithData:hourlyWeatherData options:0 error:&jsonError];
+    
+    if (!hourlyWeatherDictionary) {
+        NSLog(@"Error with json: %@", jsonError);
+    }
+    
+    if (![hourlyWeatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"hourlyWeatherDictionary isn't a dictionary");
+    }
+    
+    XCTAssertTrue([hourlyWeatherDictionary isKindOfClass:NSDictionary.class]);
+    
+//    LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyWeatherDictionary];
+//
+//    XCTAssertEqualObjects(@"Clear throughout the day.", dailyForecast.summary);
+//    XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
+//    XCTAssertEqualWithAccuracy(0.13, dailyForecast.precipProbability, 0.0001);
+//    XCTAssertEqualWithAccuracy(0.0006, dailyForecast.precipIntensity, 0.0001);
+//    XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow, 0.0001);
+//    XCTAssertEqualWithAccuracy(61.22, dailyForecast.temperatureHigh, 0.0001);
+//    XCTAssertEqualWithAccuracy(46.05, dailyForecast.apparentTemperature, 0.0001);
+//    XCTAssertEqualWithAccuracy(0.78, dailyForecast.humidity, 0.0001);
+//    XCTAssertEqualWithAccuracy(1021.8, dailyForecast.pressure, 0.0001);
+//    XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
+//    XCTAssertEqualWithAccuracy(320., dailyForecast.windBearing, 0.0001);
+//    XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
+//    XCTAssertEqualObjects(@"rain", dailyForecast.precipType);
+}
+
+
 
 @end
