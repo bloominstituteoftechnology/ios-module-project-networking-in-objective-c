@@ -115,6 +115,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66F7322B24D213C1009FF9C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66F7321B24D0C898009FF9C3 /* LSICurrentForecast.h */,
+				66F7321C24D0C898009FF9C3 /* LSICurrentForecast.m */,
+				66F7321F24D20217009FF9C3 /* LSIDailyForecast.h */,
+				66F7322024D20217009FF9C3 /* LSIDailyForecast.m */,
+				66F7322324D20897009FF9C3 /* LSIHourlyForecast.h */,
+				66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */,
+				66F7322724D20CCE009FF9C3 /* LSIWeatherResults.h */,
+				66F7322824D20CCE009FF9C3 /* LSIWeatherResults.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -140,14 +155,7 @@
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
 				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
-				66F7321B24D0C898009FF9C3 /* LSICurrentForecast.h */,
-				66F7321C24D0C898009FF9C3 /* LSICurrentForecast.m */,
-				66F7321F24D20217009FF9C3 /* LSIDailyForecast.h */,
-				66F7322024D20217009FF9C3 /* LSIDailyForecast.m */,
-				66F7322324D20897009FF9C3 /* LSIHourlyForecast.h */,
-				66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */,
-				66F7322724D20CCE009FF9C3 /* LSIWeatherResults.h */,
-				66F7322824D20CCE009FF9C3 /* LSIWeatherResults.m */,
+				66F7322B24D213C1009FF9C3 /* Models */,
 				BD69317423FD91D700C0DF09 /* Main.storyboard */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
