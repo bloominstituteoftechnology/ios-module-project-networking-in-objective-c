@@ -17,6 +17,18 @@
     BOOL _requestedLocation;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *locationTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentTemperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *precipitationProbabilityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;

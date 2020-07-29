@@ -216,6 +216,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="apparentTemperatureLabel" destination="nyL-Dc-Tvy" id="c8J-Hl-GRH"/>
+                        <outlet property="currentTemperatureLabel" destination="0KH-wM-NUM" id="pHP-9K-ejK"/>
+                        <outlet property="humidityLabel" destination="lyS-Vp-IwW" id="RlD-uV-RAx"/>
+                        <outlet property="locationTextLabel" destination="Jko-32-Stm" id="nxx-Js-SPq"/>
+                        <outlet property="precipitationProbabilityLabel" destination="IMY-7G-acZ" id="2aG-h2-6sH"/>
+                        <outlet property="pressureLabel" destination="bpF-ld-Dk6" id="akf-eq-ukI"/>
+                        <outlet property="summaryTextLabel" destination="Zjm-xc-2hE" id="CAH-fD-ieu"/>
+                        <outlet property="uvIndexLabel" destination="skp-Nz-Zch" id="YLs-Dm-ynO"/>
+                        <outlet property="weatherIconImageView" destination="OoH-2z-N9v" id="f4c-qc-WZD"/>
+                        <outlet property="windSpeedLabel" destination="bDm-XN-icb" id="aMn-e6-nWK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,7 +238,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="LSISettingsTableVC" id="u9d-HL-15G" customClass="LSISettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJj-1I-HzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -279,7 +291,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qGq-ws-0i7"/>
+        <segue reference="qsT-cO-nhZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clear-day" width="130" height="130"/>
