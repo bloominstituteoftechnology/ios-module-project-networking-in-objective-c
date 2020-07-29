@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure: (double)pressure
                    windSpeed: (double)windSpeed
                  windBearing: (int)windBearing
-                     unIndex: (int)unIndex;
+                     uvIndex: (int)uvIndex;
 
 - (nullable instancetype)initWithDictionary: (NSDictionary *)dictionary;
 
