@@ -11,6 +11,8 @@
 		66F7321E24D0C898009FF9C3 /* LSICurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7321C24D0C898009FF9C3 /* LSICurrentForecast.m */; };
 		66F7322124D20217009FF9C3 /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7322024D20217009FF9C3 /* LSIDailyForecast.m */; };
 		66F7322224D20217009FF9C3 /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7322024D20217009FF9C3 /* LSIDailyForecast.m */; };
+		66F7322524D20897009FF9C3 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */; };
+		66F7322624D20897009FF9C3 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		66F7321C24D0C898009FF9C3 /* LSICurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentForecast.m; sourceTree = "<group>"; };
 		66F7321F24D20217009FF9C3 /* LSIDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIDailyForecast.h; sourceTree = "<group>"; };
 		66F7322024D20217009FF9C3 /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
+		66F7322324D20897009FF9C3 /* LSIHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIHourlyForecast.h; sourceTree = "<group>"; };
+		66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				66F7321C24D0C898009FF9C3 /* LSICurrentForecast.m */,
 				66F7321F24D20217009FF9C3 /* LSIDailyForecast.h */,
 				66F7322024D20217009FF9C3 /* LSIDailyForecast.m */,
+				66F7322324D20897009FF9C3 /* LSIHourlyForecast.h */,
+				66F7322424D20897009FF9C3 /* LSIHourlyForecast.m */,
 				BD69317423FD91D700C0DF09 /* Main.storyboard */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
@@ -313,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F7322524D20897009FF9C3 /* LSIHourlyForecast.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
@@ -338,6 +345,7 @@
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
+				66F7322624D20897009FF9C3 /* LSIHourlyForecast.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				66F7322224D20217009FF9C3 /* LSIDailyForecast.m in Sources */,
 			);
