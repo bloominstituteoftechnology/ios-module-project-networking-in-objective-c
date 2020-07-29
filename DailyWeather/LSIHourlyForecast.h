@@ -16,10 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
                      summary:(nullable NSString *)summary
                         icon:(nullable NSString *)icon
            precipProbability:(double)precipProbability
-             precipIntensity:(double)precipIntensity
                   precipType:(nullable NSString *)precipType
-              temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
+                 temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -33,9 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy, nullable) NSString *summary;
 @property (nonatomic, readonly, copy, nullable) NSString *icon;
 @property (nonatomic, readonly) double precipProbability;
-@property (nonatomic, readonly) double precipIntensity;
-@property (nonatomic, readonly) double temperatureLow;
-@property (nonatomic, readonly) double temperatureHigh;
+@property (nonatomic, readonly) double temperature;
 @property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;

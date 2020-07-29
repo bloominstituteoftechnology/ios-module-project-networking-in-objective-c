@@ -12,17 +12,15 @@
 
 - (instancetype)init
 {
-    return [self initWithTime:NSDate.now summary:@"" icon:@"" precipProbability:0 precipIntensity:0 precipType:@"" temperatureLow:0 temperatureHigh:0 apparentTemperature:0 humidity:0 pressure:0 windSpeed:0 windBearing:0 uvIndex:0];
+    return [self initWithTime:NSDate.now summary:@"" icon:@"" precipProbability:0 precipType:@"" temperature:0 apparentTemperature:0 humidity:0 pressure:0 windSpeed:0 windBearing:0 uvIndex:0];
 }
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
            precipProbability:(double)precipProbability
-             precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
-              temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
+                 temperature:(double)temperature
          apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
@@ -35,10 +33,8 @@
         _summary = summary.copy;
         _icon = icon.copy;
         _precipProbability = precipProbability;
-        _precipIntensity = precipIntensity;
         _precipType = precipType.copy;
-        _temperatureLow = temperatureLow;
-        _temperatureHigh = temperatureHigh;
+        _temperature = temperature;
         _apparentTemperature = apparentTemperature;
         _humidity = humidity;
         _pressure = pressure;
@@ -66,10 +62,6 @@
     NSNumber *precipProbability = [dictionary objectForKey:@"precipProbability"];
     if ([precipProbability isKindOfClass:NSNull.class]) precipProbability = nil;
     else if (![precipProbability isKindOfClass:NSNumber.class]) return nil;
-    
-    NSNumber *precipIntensity = [dictionary objectForKey:@"precipIntensity"];
-    if ([precipIntensity isKindOfClass:NSNull.class]) precipIntensity = nil;
-    else if (![precipIntensity isKindOfClass:NSNumber.class]) return nil;
     
     NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperature"];
     if ([apparentTemperature isKindOfClass:NSNull.class]) apparentTemperature = nil;
@@ -99,22 +91,16 @@
     if ([precipType isKindOfClass:NSNull.class]) precipType = nil;
     else if (![precipType isKindOfClass:NSString.class]) return nil;
     
-    NSNumber *temperatureLow = [dictionary objectForKey:@"temperatureLow"];
-    if ([temperatureLow isKindOfClass:NSNull.class]) temperatureLow = nil;
-    else if (![temperatureLow isKindOfClass:NSNumber.class]) return nil;
-    
-    NSNumber *temperatureHigh = [dictionary objectForKey:@"temperatureHigh"];
-    if ([temperatureHigh isKindOfClass:NSNull.class]) temperatureHigh = nil;
-    else if (![temperatureHigh isKindOfClass:NSNumber.class]) return nil;
+    NSNumber *temperature = [dictionary objectForKey:@"temperature"];
+    if ([temperature isKindOfClass:NSNull.class]) temperature = nil;
+    else if (![temperature isKindOfClass:NSNumber.class]) return nil;
     
     return [self initWithTime:time
                       summary:summary
                          icon:icon
             precipProbability:precipProbability.doubleValue
-              precipIntensity:precipIntensity.doubleValue
                    precipType:precipType
-               temperatureLow:temperatureLow.doubleValue
-              temperatureHigh:temperatureHigh.doubleValue
+                  temperature:temperature.doubleValue
           apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue

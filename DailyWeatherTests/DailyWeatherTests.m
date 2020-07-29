@@ -11,6 +11,7 @@
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
 #import "../DailyWeather/LSICurrentForecast.h"
 #import "../DailyWeather/LSIDailyForecast.h"
+#import "../DailyWeather/LSIHourlyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -110,21 +111,19 @@
     
     XCTAssertTrue([hourlyWeatherDictionary isKindOfClass:NSDictionary.class]);
     
-//    LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyWeatherDictionary];
-//
-//    XCTAssertEqualObjects(@"Clear throughout the day.", dailyForecast.summary);
-//    XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
-//    XCTAssertEqualWithAccuracy(0.13, dailyForecast.precipProbability, 0.0001);
-//    XCTAssertEqualWithAccuracy(0.0006, dailyForecast.precipIntensity, 0.0001);
-//    XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow, 0.0001);
-//    XCTAssertEqualWithAccuracy(61.22, dailyForecast.temperatureHigh, 0.0001);
-//    XCTAssertEqualWithAccuracy(46.05, dailyForecast.apparentTemperature, 0.0001);
-//    XCTAssertEqualWithAccuracy(0.78, dailyForecast.humidity, 0.0001);
-//    XCTAssertEqualWithAccuracy(1021.8, dailyForecast.pressure, 0.0001);
-//    XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
-//    XCTAssertEqualWithAccuracy(320., dailyForecast.windBearing, 0.0001);
-//    XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
-//    XCTAssertEqualObjects(@"rain", dailyForecast.precipType);
+    LSIHourlyForecast *hourlyForecast = [[LSIHourlyForecast alloc] initWithDictionary:hourlyWeatherDictionary];
+
+    XCTAssertEqualObjects(@"Clear", hourlyForecast.summary);
+    XCTAssertEqualObjects(@"clear-night", hourlyForecast.icon);
+    XCTAssertEqualWithAccuracy(0.0, hourlyForecast.precipProbability, 0.0001);
+    XCTAssertEqualWithAccuracy(47.68, hourlyForecast.temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(46.54, hourlyForecast.apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.78, hourlyForecast.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1022.8, hourlyForecast.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.57, hourlyForecast.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(36., hourlyForecast.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(0, hourlyForecast.uvIndex, 0.0001);
+    XCTAssertNil(hourlyForecast.precipType);
 }
 
 
