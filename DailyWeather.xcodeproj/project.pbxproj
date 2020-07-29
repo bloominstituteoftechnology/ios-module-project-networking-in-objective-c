@@ -99,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63ED551824D10D33004A5901 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD69317423FD91D700C0DF09 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -124,10 +132,10 @@
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
 				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
-				BD69317423FD91D700C0DF09 /* Main.storyboard */,
-				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
+				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				63ED551824D10D33004A5901 /* Views */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
 				BD69314123FD905300C0DF09 /* Assets.xcassets */,
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
