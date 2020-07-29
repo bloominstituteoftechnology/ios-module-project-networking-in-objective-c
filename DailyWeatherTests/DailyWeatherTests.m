@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "../DailyWeather/LambdaSDK/LSILog.h"
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
+#import "../DailyWeather/LSICurrentForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -40,6 +41,21 @@
     }
     
     XCTAssertTrue([currentWeatherDictionary isKindOfClass:NSDictionary.class]);
+    
+    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
+    
+    XCTAssertEqualObjects(@"Clear", currentForecast.summary);
+    XCTAssertEqualObjects(@"clear-day", currentForecast.icon);
+    XCTAssertEqualWithAccuracy(0, currentForecast.precipProbability, 0.0001);
+    XCTAssertEqualWithAccuracy(0, currentForecast.precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(48.35, currentForecast.temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(47.4, currentForecast.apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.77, currentForecast.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1023.2, currentForecast.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.45, currentForecast.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(24., currentForecast.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(0, currentForecast.uvIndex, 0.0001);
+
 }
 
 @end
