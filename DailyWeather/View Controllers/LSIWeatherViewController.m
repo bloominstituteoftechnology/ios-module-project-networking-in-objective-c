@@ -10,6 +10,8 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSICurrentForecast.h"
+#import "LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -115,6 +117,22 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", LSIWeatherViewController.class);
+    
+    NSError *jsonError = nil;
+    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentWeatherData
+                                                                             options:0
+                                                                               error:&jsonError];
+    
+    if (!currentWeatherDictionary) {
+        NSLog(@"Error with json: %@", jsonError);
+    }
+    
+    if (![currentWeatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"current weather dictionary isn't a dictionary");
+    }
+    
+    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
     
     
     
