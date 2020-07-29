@@ -21,7 +21,7 @@
                     pressure: (double)pressure
                    windSpeed: (double)windSpeed
                  windBearing: (int)windBearing
-                     unIndex: (int)uvIndex
+                     uvIndex: (int)uvIndex
 {
     if (self = [super init]) {
         _time = time;

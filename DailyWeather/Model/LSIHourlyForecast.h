@@ -25,7 +25,7 @@ apparentTemperature:(double)apparentTemperature
            pressure:(double)pressure
           windSpeed:(double)windSpeed
         windBearing:(int)windBearing
-            uvIndex:(int)uvIndex NS_DESIGNATED_INITIALIZER;
+            uvIndex:(int)uvIndex;
 
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

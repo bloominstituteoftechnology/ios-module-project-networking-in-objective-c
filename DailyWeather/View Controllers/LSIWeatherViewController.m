@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForcast.h"
+#import "LSICurrentForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +22,18 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForcast *weatherForcast;
+
+@property (nonatomic) IBOutlet UIImageView *iconImageView;
+@property (nonatomic) IBOutlet UILabel *cityAndStateLabel;
+@property (nonatomic) IBOutlet UILabel *summaryLabel;
+@property (nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (nonatomic) IBOutlet UILabel *windSpeedAndDirectionLabel;
+@property (nonatomic) IBOutlet UILabel *humidityLabel;
+@property (nonatomic) IBOutlet UILabel *changeOfRainLabel;
+@property (nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (nonatomic) IBOutlet UILabel *pressureLabel;
+@property (nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
