@@ -12,6 +12,7 @@
 #import "LSILog.h"
 #import "LSICurrentForecast.h"
 #import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -146,7 +147,23 @@
     
     LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentWeatherDictionary];
     
+    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:currentForecast.icon];
+    _weatherIconImageView.image = icon;
     
+    _summaryTextLabel.text = currentForecast.summary;
+    _currentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.temperature)];
+    
+    NSString *windDirection = [LSICardinalDirection directionForHeading:currentForecast.windBearing];
+    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", currentForecast.windSpeed];
+    NSString *windSpeedText = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
+    _windSpeedLabel.text = windSpeedText;
+    
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.humidity * 100];
+    _precipitationProbabilityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.precipProbability * 100];
+    
+    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.apparentTemperature)];
+    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", currentForecast.pressure];
+    _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(currentForecast.uvIndex)];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }

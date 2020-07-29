@@ -24,7 +24,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qoT-VD-Ypi">
                                                 <rect key="frame" x="43.5" y="0.0" width="122" height="118"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="OoH-2z-N9v">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="OoH-2z-N9v">
                                                         <rect key="frame" x="29" y="0.0" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="MJD-uO-S9o"/>
@@ -294,7 +294,7 @@
         <segue reference="qsT-cO-nhZ"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="clear-day" width="130" height="130"/>
+        <image name="cloudy" width="130" height="130"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
