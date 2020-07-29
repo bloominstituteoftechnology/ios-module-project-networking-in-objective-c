@@ -175,13 +175,26 @@
                                             <constraint firstAttribute="trailing" secondItem="r7L-yl-KTD" secondAttribute="trailing" id="yL3-Xj-I9D"/>
                                         </constraints>
                                     </stackView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="di4-6K-ewl">
+                                        <rect key="frame" x="0.0" y="451" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem width="359" style="plain" systemItem="fixedSpace" id="zDl-pX-say"/>
+                                            <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="DQO-z7-vnJ">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="barTintColor" red="0.0" green="0.38322228190000002" blue="0.74580019710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </toolbar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.34161436560000003" blue="0.71329444649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="bW0-B4-DmV" secondAttribute="trailing" constant="20" id="0kS-b8-TQG"/>
                                     <constraint firstItem="bW0-B4-DmV" firstAttribute="top" secondItem="0Ud-P7-i0d" secondAttribute="topMargin" constant="20" id="2iV-Ac-sHL"/>
+                                    <constraint firstAttribute="trailing" secondItem="di4-6K-ewl" secondAttribute="trailing" id="UJw-Xj-8rB"/>
+                                    <constraint firstAttribute="bottom" secondItem="di4-6K-ewl" secondAttribute="bottom" constant="42.5" id="ZLO-jr-5km"/>
                                     <constraint firstItem="hPp-Hl-zmd" firstAttribute="leading" secondItem="0Ud-P7-i0d" secondAttribute="leading" constant="20" id="dfI-Tq-Ukb"/>
                                     <constraint firstItem="hPp-Hl-zmd" firstAttribute="width" secondItem="0Ud-P7-i0d" secondAttribute="width" multiplier="0.5" constant="-40" id="ifl-OG-cNs"/>
+                                    <constraint firstItem="di4-6K-ewl" firstAttribute="leading" secondItem="0Ud-P7-i0d" secondAttribute="leading" id="sAT-I2-kiO"/>
                                     <constraint firstItem="hPp-Hl-zmd" firstAttribute="top" secondItem="0Ud-P7-i0d" secondAttribute="topMargin" constant="20" id="wky-Pz-AVD"/>
                                     <constraint firstItem="bW0-B4-DmV" firstAttribute="width" secondItem="0Ud-P7-i0d" secondAttribute="width" multiplier="0.5" constant="-40" id="zaA-9i-XS9"/>
                                 </constraints>
@@ -200,6 +213,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="toolbar" destination="di4-6K-ewl" id="lbv-rC-mXZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,5 +271,6 @@
     </scenes>
     <resources>
         <image name="clear-day" width="130" height="130"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
