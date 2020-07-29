@@ -15,30 +15,30 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(nullable NSString *)summary
                         icon:(nullable NSString *)icon
-           precipProbability:(nullable NSNumber *)precipProbability
-             precipIntensity:(nullable NSNumber *)precipIntensity
-                 temperature:(nullable NSNumber *)temperature
-         apparentTemperature:(nullable NSNumber *)apparentTemperature
-                    humidity:(nullable NSNumber *)humidity
-                    pressure:(nullable NSNumber *)pressure
-                   windSpeed:(nullable NSNumber *)windSpeed
-                 windBearing:(nullable NSNumber *)windBearing
-                     uvIndex:(nullable NSNumber *)uvIndex NS_DESIGNATED_INITIALIZER;
+           precipProbability:(double)precipProbability
+             precipIntensity:(double)precipIntensity
+                 temperature:(double)temperature
+         apparentTemperature:(double)apparentTemperature
+                    humidity:(double)humidity
+                    pressure:(double)pressure
+                   windSpeed:(double)windSpeed
+                 windBearing:(double)windBearing
+                     uvIndex:(double)uvIndex NS_DESIGNATED_INITIALIZER;
 
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly, copy, nullable) NSString *summary;
 @property (nonatomic, readonly, copy, nullable) NSString *icon;
-@property (nonatomic, readonly, nullable) NSNumber *precipProbability;
-@property (nonatomic, readonly, nullable) NSNumber *precipIntensity;
-@property (nonatomic, readonly, nullable) NSNumber *temperature;
-@property (nonatomic, readonly, nullable) NSNumber *apparentTemperature;
-@property (nonatomic, readonly, nullable) NSNumber *humidity;
-@property (nonatomic, readonly, nullable) NSNumber *pressure;
-@property (nonatomic, readonly, nullable) NSNumber *windSpeed;
-@property (nonatomic, readonly, nullable) NSNumber *windBearing;
-@property (nonatomic, readonly, nullable) NSNumber *uvIndex;
+@property (nonatomic, readonly) double precipProbability;
+@property (nonatomic, readonly) double precipIntensity;
+@property (nonatomic, readonly) double temperature;
+@property (nonatomic, readonly) double apparentTemperature;
+@property (nonatomic, readonly) double humidity;
+@property (nonatomic, readonly) double pressure;
+@property (nonatomic, readonly) double windSpeed;
+@property (nonatomic, readonly) double windBearing;
+@property (nonatomic, readonly) double uvIndex;
 
 
 

@@ -12,21 +12,21 @@
 
 - (instancetype)init
 {
-    return [self initWithTime:NSDate.now summary:@"" icon:@"" precipProbability:nil precipIntensity:nil temperature:nil apparentTemperature:nil humidity:nil pressure:nil windSpeed:nil windBearing:nil uvIndex:nil];
+    return [self initWithTime:NSDate.now summary:@"" icon:@"" precipProbability:0 precipIntensity:0 temperature:0 apparentTemperature:0 humidity:0 pressure:0 windSpeed:0 windBearing:0 uvIndex:0];
 }
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-           precipProbability:(NSNumber *)precipProbability
-             precipIntensity:(NSNumber *)precipIntensity
-                 temperature:(NSNumber *)temperature
-         apparentTemperature:(NSNumber *)apparentTemperature
-                    humidity:(NSNumber *)humidity
-                    pressure:(NSNumber *)pressure
-                   windSpeed:(NSNumber *)windSpeed
-                 windBearing:(NSNumber *)windBearing
-                     uvIndex:(NSNumber *)uvIndex
+           precipProbability:(double)precipProbability
+             precipIntensity:(double)precipIntensity
+                 temperature:(double)temperature
+         apparentTemperature:(double)apparentTemperature
+                    humidity:(double)humidity
+                    pressure:(double)pressure
+                   windSpeed:(double)windSpeed
+                 windBearing:(double)windBearing
+                     uvIndex:(double)uvIndex
 {
     if (self = [super init]) {
         _time = time;
@@ -99,15 +99,15 @@
     return [self initWithTime:time
                       summary:summary
                          icon:icon
-            precipProbability:precipProbability
-              precipIntensity:precipIntensity
-                  temperature:temperature
-          apparentTemperature:apparentTemperature
-                     humidity:humidity
-                     pressure:pressure
-                    windSpeed:windSpeed
-                  windBearing:windBearing
-                      uvIndex:uvIndex];
+            precipProbability:precipProbability.doubleValue
+              precipIntensity:precipIntensity.doubleValue
+                  temperature:temperature.doubleValue
+          apparentTemperature:apparentTemperature.doubleValue
+                     humidity:humidity.doubleValue
+                     pressure:pressure.doubleValue
+                    windSpeed:windSpeed.doubleValue
+                  windBearing:windBearing.doubleValue
+                      uvIndex:uvIndex.doubleValue];
     
     return nil;
 }
