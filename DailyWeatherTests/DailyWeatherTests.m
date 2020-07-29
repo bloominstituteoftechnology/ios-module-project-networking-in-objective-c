@@ -30,6 +30,12 @@
     if (!weatherDictionary) {
         NSLog(@"🐖 We've got an error: &@", JSONError);
     }
+    
+    XCTAssertTrue([weatherDictionary isKindOfClass:NSDictionary.class]);
+    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"🐖 weatherDictionary is not a dictionary");
+        return;
+    }
         
         
     // TODO: Create Unit Tests for each separate JSON file
