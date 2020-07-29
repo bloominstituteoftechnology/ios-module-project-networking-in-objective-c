@@ -75,7 +75,7 @@
     if ([precipIntensity isKindOfClass:NSNull.class]) precipIntensity = nil;
     else if (![precipIntensity isKindOfClass:NSNumber.class]) return nil;
     
-    NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperature"];
+    NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperatureLow"];
     if ([apparentTemperature isKindOfClass:NSNull.class]) apparentTemperature = nil;
     else if (![apparentTemperature isKindOfClass:NSNumber.class]) return nil;
     
