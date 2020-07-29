@@ -16,7 +16,7 @@
     return nil;
 }
 
-- (instancetype)initWithCurrently:(NSDictionary *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
+- (instancetype)initWithCurrently:(CurrentForecast *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
 {
     if (self = [super init])
     {
@@ -49,7 +49,7 @@
 
     CurrentForecast *currentForecast = [[CurrentForecast alloc] initWithDictionary:currentForecastDictionary];
     
-    return [self initWithCurrently:currentForecastDictionary
+    return [self initWithCurrently:currentForecast
                              daily:nil
                             hourly:nil
                           latitude:latitude.doubleValue

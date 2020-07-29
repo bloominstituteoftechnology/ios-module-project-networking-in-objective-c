@@ -8,6 +8,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
 #import "LSIWeatherIcons.h"
+#import "LSICardinalDirection.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
 #import "LSIFileHelper.h"
@@ -75,6 +76,9 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    
+    //MARK:- Delete later
+    [self updateViews];
     
     // TODO: Transparent toolbar with info button (Settings)
     [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -147,9 +151,36 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        self.cityAndStateLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, self.placemark.administrativeArea];
     }
     
     // TODO: Update the UI based on the current forecast
+    NSString *iconName = self.weatherForecast.currently.icon;
+    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:iconName];
+    self.iconImageView.image = icon;
+
+    NSString *temperature = [NSString stringWithFormat:@"%.0f°F", self.weatherForecast.currently.temperature];
+    self.temperatureLabel.text = temperature;
+
+    NSString *windDirection = [LSICardinalDirection directionForHeading:self.weatherForecast.currently.windBearing];
+    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.windSpeed];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
+
+    NSString *humidity = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.humidity*100];
+    self.humidityPercentageLabel.text = [NSString stringWithFormat:@"%@%%", humidity];
+
+    NSString *precipProbability = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.precipProbability*100];
+    self.chanceOfRainLabel.text = [NSString stringWithFormat:@"%@%%", precipProbability];
+
+    NSString *apparentTemperature = [NSString stringWithFormat:@"%.0f°", self.weatherForecast.currently.apparentTemperature];
+    self.apparentTemperatureLabel.text = apparentTemperature;
+
+    double pressureInMillibars = self.weatherForecast.currently.pressure;
+    NSString *pressureInInchesOfMercury = [NSString stringWithFormat:@"%.2f", pressureInMillibars * 0.02953];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%@ inHg", pressureInInchesOfMercury];
+
+    NSString *uvIndex = [NSString stringWithFormat:@"%.0f", self.weatherForecast.currently.uvIndex];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%@", uvIndex];
 }
 
 @end

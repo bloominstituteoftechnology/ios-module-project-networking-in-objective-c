@@ -18,6 +18,7 @@
             precipProbability:0
               precipIntensity:0
                   temperature:0
+          apparentTemperature:0
                      humidity:0
                      pressure:0
                     windSpeed:0
@@ -31,6 +32,7 @@
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                  temperature:(double)temperature
+         apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
@@ -44,6 +46,7 @@
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _temperature = temperature;
+        _apparentTemperature = apparentTemperature;
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
@@ -84,6 +87,10 @@
     if ([temperature isKindOfClass:[NSNull class]]) temperature = nil;
     else if (![temperature isKindOfClass:[NSNumber class]]) return nil;
     
+    NSNumber *apparentTemperature = [dictionary objectForKey:@"apparentTemperature"];
+    if ([apparentTemperature isKindOfClass:[NSNull class]]) apparentTemperature = nil;
+    else if (![apparentTemperature isKindOfClass:[NSNumber class]]) return nil;
+    
     NSNumber *humidity = dictionary[@"humidity"];
     if ([humidity isKindOfClass:[NSNull class]]) humidity = nil;
     else if (![humidity isKindOfClass:[NSNumber class]]) return nil;
@@ -110,6 +117,7 @@
             precipProbability:precipProbability.doubleValue
               precipIntensity:precipIntensity.doubleValue
                   temperature:temperature.doubleValue
+          apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue
                     windSpeed:windSpeed.doubleValue

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                  temperature:(double)temperature
+         apparentTemperature:(double)apparentTemperatue
                     humidity:(double)humity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
@@ -33,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double precipProbability;
 @property (nonatomic, readonly) double precipIntensity;
 @property (nonatomic, readonly) double temperature;
+@property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;
 @property (nonatomic, readonly) double windSpeed;
