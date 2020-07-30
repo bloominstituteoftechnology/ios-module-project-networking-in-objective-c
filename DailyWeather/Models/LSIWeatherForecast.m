@@ -8,6 +8,8 @@
 
 #import "LSIWeatherForecast.h"
 #import "LSICurrentForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
 @implementation LSIWeatherForecast
 
@@ -16,7 +18,7 @@
     return nil;
 }
 
-- (instancetype)initWithCurrently:(LSICurrentForecast *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
+- (instancetype)initWithCurrently:(LSICurrentForecast *)currently daily:(NSArray<LSIDailyForecast *> *)daily hourly:(NSArray<LSIHourlyForecast *> *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
 {
     if (self = [super init])
     {
@@ -49,9 +51,49 @@
 
     LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentForecastDictionary];
     
+    NSDictionary *dailyDictionary = [dictionary objectForKey:@"daily"];
+    if (![dailyDictionary isKindOfClass:[NSDictionary class]]) return nil;
+
+    NSArray *dailyDataDictionaries = [dailyDictionary objectForKey:@"data"];
+    if (![dailyDataDictionaries isKindOfClass:[NSArray class]]) return nil;
+
+    NSMutableArray *dailyForecasts = [[NSMutableArray alloc] initWithCapacity:dailyDataDictionaries.count];
+
+    for (NSDictionary *dailyDataDictionary in dailyDataDictionaries) {
+        if (![dailyDataDictionary isKindOfClass:[NSDictionary class]]) continue;
+
+        LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyDataDictionary];
+
+        if (dailyForecast) {
+            [dailyForecasts addObject:dailyForecast];
+        } else {
+            NSLog(@"Unable to parse daily data dictionary: %@", dailyDataDictionary);
+        }
+    }
+
+    NSDictionary *hourlyDictionary = [dictionary objectForKey:@"hourly"];
+    if (![hourlyDictionary isKindOfClass:[NSDictionary class]]) return nil;
+
+    NSArray *hourlyDataDictionaries = [hourlyDictionary objectForKey:@"data"];
+    if (![hourlyDataDictionaries isKindOfClass:[NSArray class]]) return nil;
+
+    NSMutableArray *hourlyForecasts = [[NSMutableArray alloc] initWithCapacity:hourlyDataDictionaries.count];
+
+    for (NSDictionary *hourlyDataDictionary in hourlyDataDictionaries) {
+        if (![hourlyDataDictionary isKindOfClass:[NSDictionary class]]) continue;
+
+        LSIHourlyForecast *hourlyForecast = [[LSIHourlyForecast alloc] initWithDictionary:hourlyDataDictionary];
+
+        if (hourlyForecast) {
+            [hourlyForecasts addObject:hourlyForecast];
+        } else {
+            NSLog(@"Unable to parse hourly data dictionary: %@", hourlyDataDictionary);
+        }
+    }
+    
     return [self initWithCurrently:currentForecast
-                             daily:nil
-                            hourly:nil
+                             daily:dailyForecasts
+                            hourly:hourlyForecasts
                           latitude:latitude.doubleValue
                          longitude:longitude.doubleValue
                           timezone:timezone];

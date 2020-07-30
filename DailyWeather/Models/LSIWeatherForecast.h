@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LSICurrentForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIHourlyForecast.h"
 
 @class LSICurrentForecast;
 
@@ -15,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSIWeatherForecast : NSObject
 
 - (instancetype)initWithCurrently:(LSICurrentForecast *)currently
-                            daily:(NSDictionary *)daily
-                           hourly:(NSDictionary *)hourly
+                            daily:(NSArray<LSIDailyForecast *> *)daily
+                           hourly:(NSArray<LSIHourlyForecast *> *)hourly
                          latitude:(double)latitude
                         longitude:(double)longitude
                          timezone:(NSString *)timezone;
@@ -24,8 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, readonly) LSICurrentForecast *currently;
-@property (nonatomic, readonly, copy) NSDictionary *daily;
-@property (nonatomic, readonly, copy) NSDictionary *hourly;
+@property (nonatomic, readonly, copy) NSArray<LSIDailyForecast *> *daily;
+@property (nonatomic, readonly, copy) NSArray<LSIHourlyForecast *> *hourly;
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 @property (nonatomic, readonly, copy) NSString *timezone;
