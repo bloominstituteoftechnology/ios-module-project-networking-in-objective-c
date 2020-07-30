@@ -14,6 +14,7 @@
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
 #import "LSIWeatherResults.h"
+#import "WeatherFetcher.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -34,6 +35,8 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property WeatherFetcher *weatherFetcher;
+@property LSICurrentForecast *currentForecast;
 
 @end
 
@@ -129,41 +132,54 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
+    WeatherFetcher *weatherFetcher = [[WeatherFetcher alloc] init];
+    _currentForecast = [[LSICurrentForecast alloc] init];
     
-    NSError *weatherJsonError = nil;
-    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
-                                                                             options:0
-                                                                               error:&weatherJsonError];
+    [weatherFetcher fetchWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude completionHandler:^(LSIWeatherResults * _Nullable results, NSError * _Nullable error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.currentForecast = results.currentForecast;
+            NSLog(@"Got this error %@", error);
+            NSLog(@"Got this current forecast %@", results.currentForecast);
+        });
+        
+    }];
     
-    if (!weatherDictionary) {
-        NSLog(@"Error with weather json: %@", weatherJsonError);
-    }
+//    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
+//
+//    NSError *weatherJsonError = nil;
+//    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
+//                                                                             options:0
+//                                                                               error:&weatherJsonError];
+//
+//    if (!weatherDictionary) {
+//        NSLog(@"Error with weather json: %@", weatherJsonError);
+//    }
+//
+//    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
+//        NSLog(@"current weather dictionary isn't a dictionary");
+//    }
+//
+//    LSIWeatherResults *weatherResults = [[LSIWeatherResults alloc] initWithDictionary:weatherDictionary];
+//    LSICurrentForecast *currentForecast = weatherResults.currentForecast;
     
-    if (![weatherDictionary isKindOfClass:NSDictionary.class]) {
-        NSLog(@"current weather dictionary isn't a dictionary");
-    }
-    
-    LSIWeatherResults *weatherResults = [[LSIWeatherResults alloc] initWithDictionary:weatherDictionary];
-    LSICurrentForecast *currentForecast = weatherResults.currentForecast;
-    
-    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:currentForecast.icon];
+    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:self.currentForecast.icon];
     _weatherIconImageView.image = icon;
     
-    _summaryTextLabel.text = currentForecast.summary;
-    _currentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.temperature)];
+    _summaryTextLabel.text = self.currentForecast.summary;
+    _currentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(self.currentForecast.temperature)];
     
-    NSString *windDirection = [LSICardinalDirection directionForHeading:currentForecast.windBearing];
-    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", currentForecast.windSpeed];
+    NSString *windDirection = [LSICardinalDirection directionForHeading:self.currentForecast.windBearing];
+    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.currentForecast.windSpeed];
     NSString *windSpeedText = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
     _windSpeedLabel.text = windSpeedText;
     
-    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.humidity * 100];
-    _precipitationProbabilityLabel.text = [NSString stringWithFormat:@"%.0f%%", currentForecast.precipProbability * 100];
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", self.currentForecast.humidity * 100];
+    _precipitationProbabilityLabel.text = [NSString stringWithFormat:@"%.0f%%", self.currentForecast.precipProbability * 100];
     
-    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(currentForecast.apparentTemperature)];
-    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", currentForecast.pressure];
-    _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(currentForecast.uvIndex)];
+    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(self.currentForecast.apparentTemperature)];
+    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", self.currentForecast.pressure];
+    _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(self.currentForecast.uvIndex)];
     
 }
 
