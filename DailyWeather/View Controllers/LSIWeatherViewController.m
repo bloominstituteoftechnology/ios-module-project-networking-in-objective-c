@@ -170,6 +170,7 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        _locationTextLabel.text = _placemark.name;
     }
     
     // TODO: Update the UI based on the current forecast
