@@ -10,7 +10,7 @@
 #import "LSIWeatherResults.h"
 #import "LSIErrors.h"
 
-static NSString *const WeatherFetcherBaseURLString = @"";
+static NSString *const WeatherFetcherBaseURLString = @"https://api.darksky.net/forecast/18990986362b5b52af4a81dd7775c5af";
 
 @implementation WeatherFetcher
 
@@ -27,16 +27,15 @@ static NSString *const WeatherFetcherBaseURLString = @"";
     if (!completionHandler) return;
     
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:WeatherFetcherBaseURLString];
+
     
-    NSString *timeString = [NSString stringWithFormat:@"%.0f", [time timeIntervalSince1970]];
     
-    urlComponents.queryItems = @[
-        [NSURLQueryItem queryItemWithName:@"key" value:@"18990986362b5b52af4a81dd7775c5af"],
-        [NSURLQueryItem queryItemWithName:@"latitude" value:[NSString stringWithFormat:@"%f", latitude]],
-        [NSURLQueryItem queryItemWithName:@"latitude" value:[NSString stringWithFormat:@"%f", longitude]],
-        [NSURLQueryItem queryItemWithName:@"time" value:timeString]
-    ];
-    
+    //doesn't take query items, need to append to URL
+//    urlComponents.queryItems = @[
+//        [NSURLQueryItem queryItemWithName:@"latitude" value:[NSString stringWithFormat:@"%f", latitude]],
+//        [NSURLQueryItem queryItemWithName:@"longitude" value:[NSString stringWithFormat:@"%f", longitude]]
+//    ];
+//
     NSURL *url = urlComponents.URL;
     NSLog(@"Fetching weather: %@", url);
     
