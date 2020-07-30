@@ -11,6 +11,7 @@
 #import "../DailyWeather/LambdaSDK/LSILog.h"
 #import "../DailyWeather/Models/LSICurrentForecast.h"
 #import "../DailyWeather/Models/LSIWeatherForecast.h"
+#import "../DailyWeather/Models/LSIDailyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -18,7 +19,7 @@
 
 @implementation DailyWeatherTests
 
-- (void)testCurrectWeatherParsing {
+- (void)testCurrentWeatherParsing {
     NSData *weatherData = loadFile(@"CurrentWeather.json", [DailyWeatherTests class]);
 
     NSError *jsonError = nil;
@@ -51,6 +52,47 @@
     XCTAssertEqualWithAccuracy(24., current.windBearing, 0.0001);
     XCTAssertEqualWithAccuracy(0., current.uvIndex, 0.0001);
 
+}
+
+- (void)testDailyWeatherParsing {
+
+    NSData *weatherData = loadFile(@"DailyWeather.json", [DailyWeatherTests class]);
+
+    NSError *jsonError = nil;
+    NSDictionary *dailyWeatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError];
+    
+    if (!dailyWeatherDictionary) {
+        NSLog(@"We've got an error: %@", jsonError);
+    }
+
+    if (![dailyWeatherDictionary isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"dailyWeatherDictionary is not a dictionary!");
+        return;
+    }
+
+    LSIDailyForecast *dailyForecast = [[LSIDailyForecast alloc] initWithDictionary:dailyWeatherDictionary];
+
+    NSLog(@"Daily weather: %@", dailyForecast);
+
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1580976000], dailyForecast.time);
+    XCTAssertEqualObjects(@"Clear throughout the day.", dailyForecast.summary);
+    XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
+    
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581001860], dailyForecast.sunriseTime);
+    XCTAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:1581039540], dailyForecast.sunsetTime);
+    
+    XCTAssertEqualWithAccuracy(0.0006, dailyForecast.precipIntensity, 0.0001);
+    XCTAssertEqualWithAccuracy(0.13, dailyForecast.precipProbability, 0.0001);
+    XCTAssertEqualObjects(@"rain", dailyForecast.precipType);
+    XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow, 0.0001);
+    XCTAssertEqualWithAccuracy(61.22, dailyForecast.temperatureHigh, 0.0001);
+    
+    XCTAssertEqualWithAccuracy(60.72, dailyForecast.apparentTemperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0.78, dailyForecast.humidity, 0.0001);
+    XCTAssertEqualWithAccuracy(1021.8, dailyForecast.pressure, 0.0001);
+    XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
+    XCTAssertEqualWithAccuracy(320, dailyForecast.windBearing, 0.0001);
+    XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
 }
 
 @end
