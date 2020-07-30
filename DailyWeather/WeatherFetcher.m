@@ -19,24 +19,18 @@ static NSString *const WeatherFetcherBaseURLString = @"https://api.darksky.net/f
 
 }
 
-- (void)fetchWeatherWithTime:(NSDate *)time
-                    latitude:(double)latitude
-                   longitude:(double)longitude
-           completionHandler:(WeatherFetcherCompletionHandler)completionHandler
+- (void)fetchWeatherWithLatitude:(double)latitude
+                       longitude:(double)longitude
+               completionHandler:(WeatherFetcherCompletionHandler)completionHandler
 {
     if (!completionHandler) return;
     
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:WeatherFetcherBaseURLString];
 
+    NSString *latitudeLongitudeString = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
     
-    
-    //doesn't take query items, need to append to URL
-//    urlComponents.queryItems = @[
-//        [NSURLQueryItem queryItemWithName:@"latitude" value:[NSString stringWithFormat:@"%f", latitude]],
-//        [NSURLQueryItem queryItemWithName:@"longitude" value:[NSString stringWithFormat:@"%f", longitude]]
-//    ];
-//
-    NSURL *url = urlComponents.URL;
+    NSURL *url = [urlComponents.URL URLByAppendingPathComponent:latitudeLongitudeString];
+
     NSLog(@"Fetching weather: %@", url);
     
     [[NSURLSession.sharedSession dataTaskWithURL:url

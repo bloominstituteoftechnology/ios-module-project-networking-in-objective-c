@@ -15,10 +15,9 @@ typedef void(^WeatherFetcherCompletionHandler)(LSIWeatherResults *_Nullable resu
 
 - (void)fetchWeatherWithCompletionHandler:(nonnull WeatherFetcherCompletionHandler)completionHandler;
 
-- (void)fetchWeatherWithTime:(nonnull NSDate *)time
-                    latitude:(double)latitude
-                   longitude:(double)longitude
-           completionHandler:(nonnull WeatherFetcherCompletionHandler)completionHandler;
+- (void)fetchWeatherWithLatitude:(double)latitude
+                       longitude:(double)longitude
+               completionHandler:(nonnull WeatherFetcherCompletionHandler)completionHandler;
 
 @end
 
