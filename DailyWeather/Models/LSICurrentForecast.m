@@ -6,10 +6,10 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "CurrentForecast.h"
+#import "LSICurrentForecast.h"
 #import "LSIWeatherForecast.h"
 
-@implementation CurrentForecast
+@implementation LSICurrentForecast
 -(instancetype)init
 {
     return [self initWithTime:NSDate.now

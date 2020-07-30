@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
 #import "../DailyWeather/LambdaSDK/LSILog.h"
-#import "../DailyWeather/Models/CurrentForecast.h"
+#import "../DailyWeather/Models/LSICurrentForecast.h"
 #import "../DailyWeather/Models/LSIWeatherForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
@@ -33,7 +33,7 @@
         return;
     }
 
-    CurrentForecast *current = [[CurrentForecast alloc] initWithDictionary:currentDictionary];
+    LSICurrentForecast *current = [[LSICurrentForecast alloc] initWithDictionary:currentDictionary];
 
     NSLog(@"current forecast: %@", current);
 

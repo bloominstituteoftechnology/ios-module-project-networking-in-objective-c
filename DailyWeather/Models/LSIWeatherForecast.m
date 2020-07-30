@@ -7,7 +7,7 @@
 //
 
 #import "LSIWeatherForecast.h"
-#import "CurrentForecast.h"
+#import "LSICurrentForecast.h"
 
 @implementation LSIWeatherForecast
 
@@ -16,7 +16,7 @@
     return nil;
 }
 
-- (instancetype)initWithCurrently:(CurrentForecast *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
+- (instancetype)initWithCurrently:(LSICurrentForecast *)currently daily:(NSDictionary *)daily hourly:(NSDictionary *)hourly latitude:(double)latitude longitude:(double)longitude timezone:(nonnull NSString *)timezone
 {
     if (self = [super init])
     {
@@ -47,7 +47,7 @@
     if ([currentForecastDictionary isKindOfClass:[NSNull class]]) currentForecastDictionary = nil;
     else if (![currentForecastDictionary isKindOfClass:[NSDictionary class]]) return nil;
 
-    CurrentForecast *currentForecast = [[CurrentForecast alloc] initWithDictionary:currentForecastDictionary];
+    LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:currentForecastDictionary];
     
     return [self initWithCurrently:currentForecast
                              daily:nil

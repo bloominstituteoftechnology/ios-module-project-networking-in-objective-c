@@ -13,7 +13,7 @@
 #import "LSILog.h"
 #import "LSIFileHelper.h"
 #import "LSIWeatherForecast.h"
-#import "CurrentForecast.h"
+#import "LSICurrentForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CurrentForecast : NSObject
+@interface LSICurrentForecast : NSObject
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
