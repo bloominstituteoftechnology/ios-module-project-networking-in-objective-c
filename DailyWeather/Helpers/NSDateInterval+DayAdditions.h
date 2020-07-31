@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDateInterval (DayAdditions)
 
++ (NSDateInterval *)lsi_dateIntervalByAddingDays:(NSInteger)days;
++ (NSDateInterval *)lsi_dateIntervalByAddingDays:(NSInteger)days toDate:(NSDate *)date;
+
 @end
 
 NS_ASSUME_NONNULL_END
