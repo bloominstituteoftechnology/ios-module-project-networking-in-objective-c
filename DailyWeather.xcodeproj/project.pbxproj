@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A05EBA724D3C12F0071B7C1 /* LSIWeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A05EBA624D3C12F0071B7C1 /* LSIWeatherFetcher.m */; };
 		3A9DAF9B24D113BF00169B42 /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9DAF9A24D113BF00169B42 /* LSIWeatherForecast.m */; };
 		3A9DAF9E24D113ED00169B42 /* LSICurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9DAF9D24D113ED00169B42 /* LSICurrentForecast.m */; };
 		3A9DAFA124D2569F00169B42 /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9DAFA024D2569F00169B42 /* LSIDailyForecast.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A05EBA524D3C12F0071B7C1 /* LSIWeatherFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherFetcher.h; sourceTree = "<group>"; };
+		3A05EBA624D3C12F0071B7C1 /* LSIWeatherFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherFetcher.m; sourceTree = "<group>"; };
 		3A9DAF9924D113BF00169B42 /* LSIWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForecast.h; sourceTree = "<group>"; };
 		3A9DAF9A24D113BF00169B42 /* LSIWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherForecast.m; sourceTree = "<group>"; };
 		3A9DAF9C24D113ED00169B42 /* LSICurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentForecast.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				3A9DAFA024D2569F00169B42 /* LSIDailyForecast.m */,
 				3A9DAFA824D3687600169B42 /* LSIHourlyForecast.h */,
 				3A9DAFA924D3687600169B42 /* LSIHourlyForecast.m */,
+				3A05EBA524D3C12F0071B7C1 /* LSIWeatherFetcher.h */,
+				3A05EBA624D3C12F0071B7C1 /* LSIWeatherFetcher.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
 				3A9DAF9B24D113BF00169B42 /* LSIWeatherForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
+				3A05EBA724D3C12F0071B7C1 /* LSIWeatherFetcher.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
 				3A9DAFA124D2569F00169B42 /* LSIDailyForecast.m in Sources */,
