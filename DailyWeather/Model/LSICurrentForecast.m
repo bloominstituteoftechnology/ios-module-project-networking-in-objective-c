@@ -92,4 +92,9 @@
                       uvIndex:uvIndex.intValue];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"⭐️ %@, %.1f°", self.summary, self.temperature];
+}
+
 @end
