@@ -142,7 +142,8 @@
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        // Update the City, State label
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, self.placemark.country];
     }
     
     // TODO: Update the UI based on the current forecast
