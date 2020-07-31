@@ -88,7 +88,7 @@
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue
                     windSpeed:windSpeed.doubleValue
-                  windBearing:windSpeed.intValue
+                  windBearing:windBearing.intValue
                       uvIndex:uvIndex.intValue];
 }
 
