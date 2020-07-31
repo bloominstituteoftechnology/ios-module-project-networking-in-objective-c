@@ -37,6 +37,7 @@
 		C9AE236F24D10E90003290A0 /* LSICurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE236E24D10E90003290A0 /* LSICurrentForecast.m */; };
 		C9AE237224D11908003290A0 /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE237124D11908003290A0 /* LSIDailyForecast.m */; };
 		C9AE237524D11D82003290A0 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE237424D11D82003290A0 /* LSIHourlyForecast.m */; };
+		C9AE237F24D3B213003290A0 /* WeatherNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE237E24D3B213003290A0 /* WeatherNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		C9AE237124D11908003290A0 /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
 		C9AE237324D11D82003290A0 /* LSIHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIHourlyForecast.h; sourceTree = "<group>"; };
 		C9AE237424D11D82003290A0 /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
+		C9AE237D24D3B213003290A0 /* WeatherNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherNetwork.h; sourceTree = "<group>"; };
+		C9AE237E24D3B213003290A0 /* WeatherNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,20 +132,21 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				C9AE236924D10DFF003290A0 /* Model */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
-				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
+				BD69313623FD905200C0DF09 /* AppDelegate.m */,
+				BD69314723FD905300C0DF09 /* main.m */,
 				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
+				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69317423FD91D700C0DF09 /* Main.storyboard */,
-				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				BD69314123FD905300C0DF09 /* Assets.xcassets */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
-				BD69314123FD905300C0DF09 /* Assets.xcassets */,
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
-				BD69314623FD905300C0DF09 /* Info.plist */,
-				BD69314723FD905300C0DF09 /* main.m */,
+				C9AE236924D10DFF003290A0 /* Model */,
+				C9AE237C24D3B1DF003290A0 /* Network Controller */,
+				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -214,6 +218,15 @@
 				C9AE237424D11D82003290A0 /* LSIHourlyForecast.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9AE237C24D3B1DF003290A0 /* Network Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9AE237D24D3B213003290A0 /* WeatherNetwork.h */,
+				C9AE237E24D3B213003290A0 /* WeatherNetwork.m */,
+			);
+			path = "Network Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +350,7 @@
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
 				C9AE236C24D10E19003290A0 /* LSIWeatherForcast.m in Sources */,
+				C9AE237F24D3B213003290A0 /* WeatherNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
