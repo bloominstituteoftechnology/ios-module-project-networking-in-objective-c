@@ -10,6 +10,8 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "LSICurrentForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +20,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSICurrentForecast *currentForecast;
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
@@ -124,10 +127,15 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+    // Parse CurrentWeather.json from App Bundle and update UI
     
-    
-    
+    NSData *forecastData = loadFile(@"CurrentWeather.json", self.class);
+
+    NSError *jsonError = nil;
+    NSDictionary *forecastDictionary = [NSJSONSerialization JSONObjectWithData:forecastData options:0 error:&jsonError];
+
+    self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:forecastDictionary];
+    [self updateViews];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
