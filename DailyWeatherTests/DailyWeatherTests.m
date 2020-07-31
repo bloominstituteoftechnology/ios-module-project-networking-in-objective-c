@@ -41,6 +41,19 @@
 
     LSICurrentForecast *forecast = [[LSICurrentForecast alloc] initWithDictionary:forecastDictionary];
     NSLog(@"Forecast: %@", forecast);
+
+    XCTAssert([forecast.time.description containsString:@"2020-02-06"]);
+    XCTAssert([forecast.summary isEqualToString:@"Clear"]);
+    XCTAssert([forecast.icon isEqualToString:@"clear-day"]);
+    XCTAssert(forecast.precipProbability == 0);
+    XCTAssert(forecast.precipIntensity == 0);
+    XCTAssert((int)forecast.temperature == 48);
+    XCTAssert((int)forecast.apparentTemperature == 47);
+    XCTAssert((int)forecast.humidity == 0);
+    XCTAssert((int)forecast.pressure == 1023);
+    XCTAssert((int)forecast.windSpeed == 3);
+    XCTAssert(forecast.windBearing == 24);
+    XCTAssert(forecast.uvIndex == 0);
 }
 
 
