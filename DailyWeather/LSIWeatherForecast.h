@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CoreLocation/CoreLocation.h"
 
 @class LSICurrentForecast;
 @class LSIDailyForecast;
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
+@property CLLocationCoordinate2D location;
 @property (nonatomic, readonly) LSICurrentForecast *currently;
 @property (nonatomic, readonly, copy) NSArray<LSIDailyForecast *> *daily;
 @property (nonatomic, readonly, copy) NSArray<LSIHourlyForecast *> *hourly;

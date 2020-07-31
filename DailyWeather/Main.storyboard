@@ -105,20 +105,26 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-Bh-0xf">
-                                        <rect key="frame" x="353" y="422" width="30" height="30"/>
-                                        <state key="normal" title="Info">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="82H-pz-7LJ">
+                                        <rect key="frame" x="0.0" y="416" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="gVg-X3-wX5"/>
+                                            <barButtonItem image="info.circle.fill" catalog="system" id="0QJ-BI-xgQ">
+                                                <color key="tintColor" red="1" green="0.71372549019999998" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1n-Uj-QOM">
+                                        <rect key="frame" x="184" y="293" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kBa-lZ-ko4" secondAttribute="bottom" constant="305" id="APY-Wj-CJN"/>
                                     <constraint firstAttribute="trailing" secondItem="kBa-lZ-ko4" secondAttribute="trailing" constant="66" id="ID5-ia-6aS"/>
-                                    <constraint firstAttribute="bottom" secondItem="aSO-Bh-0xf" secondAttribute="bottom" constant="36" id="TIf-LX-kfh"/>
                                     <constraint firstItem="kBa-lZ-ko4" firstAttribute="leading" secondItem="4SA-5w-kUS" secondAttribute="leading" constant="67" id="dgm-ha-Wtj"/>
-                                    <constraint firstAttribute="trailing" secondItem="aSO-Bh-0xf" secondAttribute="trailing" constant="31" id="xV2-yT-EzI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biR-iw-1LK">
@@ -184,6 +190,7 @@
                         <outlet property="iconLabel" destination="9m6-W6-86H" id="HXj-Sr-Ry4"/>
                         <outlet property="locationLabel" destination="k5v-4y-efy" id="3Yb-VM-QMt"/>
                         <outlet property="pressureLabel" destination="iFt-eS-2qf" id="YXY-Rc-jVd"/>
+                        <outlet property="searchUsingApiSwitch" destination="K1n-Uj-QOM" id="ZPj-Lb-TN0"/>
                         <outlet property="summaryLabel" destination="Czg-44-UoP" id="pQM-ML-KyB"/>
                         <outlet property="temperatureLabel" destination="hpL-xF-hAy" id="Cez-Xf-awe"/>
                         <outlet property="uvIndexLabel" destination="WYq-jS-fiq" id="mjU-Oo-X31"/>
@@ -244,5 +251,6 @@
     </scenes>
     <resources>
         <image name="clear-day" width="130" height="130"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

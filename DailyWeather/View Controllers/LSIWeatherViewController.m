@@ -13,11 +13,12 @@
 #import "LSIFileHelper.h"
 #import "LSICurrentForecast.h"
 #import "LSICardinalDirection.h"
+#import "LSIWeatherForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
-
+@property (nonatomic)LSIWeatherForecast *weatherForecastFetcher;
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
@@ -34,9 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *feelsLikeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
-
-
-- (void)determineImage:(NSString *)iconName;
+@property (weak, nonatomic) IBOutlet UISwitch *searchUsingApiSwitch;
 
 @end
 
@@ -82,11 +81,11 @@
     // TODO: Handle settings button pressed
 }
 
-- (void)determineImage:(NSString *)iconName {
-    
-    iconName = self.currentForecast.icon;
-    
-    [LSIWeatherIcons weatherImageForIconName:iconName];
+- (LSIWeatherForecast *)weatherForecastFetcher {
+    if (!_weatherForecastFetcher) {
+        _weatherForecastFetcher = [[LSIWeatherForecast alloc] init];
+    }
+    return _weatherForecastFetcher;
 }
 
 
@@ -159,18 +158,28 @@
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
-    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
-    NSLog(@"currentWeather: %@", weatherData);
     
-        NSError *jsonError = nil;
-        NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    if (self.searchUsingApiSwitch.on) {
     
-        if (jsonError) {
-            NSLog(@"JSON parsing error %@", jsonError);
-        }
+   
+        
+        
+    } else {
+        NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+        NSLog(@"currentWeather: %@", weatherData);
+        
+            NSError *jsonError = nil;
+            NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+        
+            if (jsonError) {
+                NSLog(@"JSON parsing error %@", jsonError);
+            }
+        
+            LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
+            self.currentForecast = currentForecast;
+    }
     
-        LSICurrentForecast *currentForecast = [[LSICurrentForecast alloc] initWithDictionary:weatherDictionary];
-        self.currentForecast = currentForecast;
+    
 }
 
 - (void)updateViews {

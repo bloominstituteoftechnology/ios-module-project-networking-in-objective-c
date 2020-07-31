@@ -7,8 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class LSIWeatherForecast;
+
 
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
+typedef void (^LSIWeatherFetcherCompletion)(NSArray<LSIWeatherForecast *> * forecast, NSError * error);
 
 @class LSIWeatherIcons;
 
@@ -21,6 +24,9 @@ typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
 
 - (void)requestWeatherForLocation:(CLLocation *)location;
+
+
+
 
 @end
 
