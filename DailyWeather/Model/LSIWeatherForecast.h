@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class LSICurrentForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIWeatherForecast : NSObject
 
-
+@property (nonatomic) LSICurrentForecast *currentForecast;
 
 @end
 
