@@ -57,6 +57,9 @@ static NSString *baseURLString = @"https://darksky.net/poweredby/18990986362b5b5
             return;
         }
 
+        LSICurrentForecast *result = [[LSICurrentForecast alloc] initWithDictionary:json];
+        
+        completionBlock(result, nil);
 
 
     } ];
