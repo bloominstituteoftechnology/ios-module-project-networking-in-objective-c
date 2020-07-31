@@ -35,8 +35,8 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
-@property WeatherFetcher *weatherFetcher;
-@property LSICurrentForecast *currentForecast;
+@property (nonatomic)WeatherFetcher *weatherFetcher;
+@property (nonatomic)LSICurrentForecast *currentForecast;
 
 @end
 
@@ -133,7 +133,6 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     WeatherFetcher *weatherFetcher = [[WeatherFetcher alloc] init];
-    _currentForecast = [[LSICurrentForecast alloc] init];
     
     [weatherFetcher fetchWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude completionHandler:^(LSIWeatherResults * _Nullable results, NSError * _Nullable error) {
         
@@ -141,9 +140,12 @@
             self.currentForecast = results.currentForecast;
             NSLog(@"Got this error %@", error);
             NSLog(@"Got this current forecast %@", results.currentForecast);
-        });
+            NSLog(@"Got this current forecast %f", results.currentForecast.apparentTemperature);
         
+            [self updateViews];
+        });
     }];
+    
     
 //    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
 //
@@ -163,6 +165,31 @@
 //    LSIWeatherResults *weatherResults = [[LSIWeatherResults alloc] initWithDictionary:weatherDictionary];
 //    LSICurrentForecast *currentForecast = weatherResults.currentForecast;
     
+//    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:self.currentForecast.icon];
+//    _weatherIconImageView.image = icon;
+//
+//    _summaryTextLabel.text = self.currentForecast.summary;
+//    _currentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(self.currentForecast.temperature)];
+//
+//    NSString *windDirection = [LSICardinalDirection directionForHeading:self.currentForecast.windBearing];
+//    NSString *windSpeed = [NSString stringWithFormat:@"%.0f", self.currentForecast.windSpeed];
+//    NSString *windSpeedText = [NSString stringWithFormat:@"%@ %@ mph", windDirection, windSpeed];
+//    _windSpeedLabel.text = windSpeedText;
+//
+//    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", self.currentForecast.humidity * 100];
+//    _precipitationProbabilityLabel.text = [NSString stringWithFormat:@"%.0f%%", self.currentForecast.precipProbability * 100];
+//
+//    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(self.currentForecast.apparentTemperature)];
+//    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", self.currentForecast.pressure];
+//    _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(self.currentForecast.uvIndex)];
+    
+}
+
+- (void)updateViews {
+    if (self.placemark) {
+        _locationTextLabel.text = _placemark.name;
+    }
+    
     UIImage *icon = [LSIWeatherIcons weatherImageForIconName:self.currentForecast.icon];
     _weatherIconImageView.image = icon;
     
@@ -180,16 +207,6 @@
     _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0fºF", round(self.currentForecast.apparentTemperature)];
     _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", self.currentForecast.pressure];
     _uvIndexLabel.text = [NSString stringWithFormat:@"%.0f", round(self.currentForecast.uvIndex)];
-    
-}
-
-- (void)updateViews {
-    if (self.placemark) {
-        // TODO: Update the City, State label
-        _locationTextLabel.text = _placemark.name;
-    }
-    
-    // TODO: Update the UI based on the current forecast
 }
 
 @end
