@@ -7,15 +7,15 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
-#import "LSIWeatherIcons.h"
-#import "LSIErrors.h"
-#import "LSILog.h"
-#import "LSIWeatherForcast.h"
-#import "LSICurrentForecast.h"
-#import "LSIDailyForecast.h"
-#import "LSIHourlyForecast.h"
-#import "LSICardinalDirection.h"
-#import "LSIFileHelper.h"
+#import "../Helpers/LSIWeatherIcons.h"
+#import "../LambdaSDK/LSIErrors.h"
+#import "../LambdaSDK/LSILog.h"
+#import "../Model/LSIWeatherForcast.h"
+#import "../Model/LSICurrentForecast.h"
+#import "../Model/LSIDailyForecast.h"
+#import "../Model/LSIHourlyForecast.h"
+#import "../Helpers/LSICardinalDirection.h"
+#import "../LambdaSDK/LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
