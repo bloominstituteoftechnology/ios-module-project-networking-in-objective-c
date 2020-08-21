@@ -132,6 +132,12 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
+     NSURL *currentWeatherURL = [[NSBundle mainBundle] URLForResource:@"CurrentWeather" withExtension:@"json"];
+     NSData *jsonData = [NSData dataWithContentsOfURL:currentWeatherURL];
+     NSError *error = nil;
+     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    self.currentWeather = [[CurrentWeather alloc]initWithDictionary: json];
+    [self updateViews];
     
     
     
@@ -144,13 +150,13 @@
         // TODO: Update the City, State label
         
         
-        NSNumber *tempNumber = [NSNumber numberWithDouble: *(self.currentWeather.temperature)];
-        NSNumber *wsNumber = [NSNumber numberWithDouble: *(self.currentWeather.windSpeed)];
-        NSNumber *humidityNumber = [NSNumber numberWithDouble: *(self.currentWeather.humidity)];
-        NSNumber *chanceRainNumber = [NSNumber numberWithDouble: *(self.currentWeather.precipProbability)];
-        NSNumber *feelsLikeNumber = [NSNumber numberWithDouble: *(self.currentWeather.apparentTemperature)];
-        NSNumber *pressureFromNumber = [NSNumber numberWithInt: *(self.currentWeather.pressure)];
-        NSNumber *uvNumber = [NSNumber numberWithInt: *(self.currentWeather.uvIndex)];
+        NSNumber *tempNumber = [NSNumber numberWithDouble: self.currentWeather.temperature];
+        NSNumber *wsNumber = [NSNumber numberWithDouble: self.currentWeather.windSpeed];
+        NSNumber *humidityNumber = [NSNumber numberWithDouble: self.currentWeather.humidity];
+        NSNumber *chanceRainNumber = [NSNumber numberWithDouble: self.currentWeather.precipProbability];
+        NSNumber *feelsLikeNumber = [NSNumber numberWithDouble: self.currentWeather.apparentTemperature];
+        NSNumber *pressureFromNumber = [NSNumber numberWithInt: self.currentWeather.pressure];
+        NSNumber *uvNumber = [NSNumber numberWithInt: self.currentWeather.uvIndex];
         
         
         self.icon.image = self.currentWeather.icon;

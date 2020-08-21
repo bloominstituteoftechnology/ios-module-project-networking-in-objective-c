@@ -43,43 +43,51 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    NSDictionary *currentForecast = dictionary;
-    
-    NSNumber *timeNumber = currentForecast[@"time"];
-    NSDate *time = [NSDate dateWithTimeIntervalSince1970: timeNumber.longValue];
-    
-    NSString *summary = currentForecast[@"summary"];
-    
-    NSString *iconString = currentForecast[@"icon"];
-    UIImage *image = [UIImage imageNamed: (@"%@", iconString)];
-    
-    NSNumber *precipProbability = currentForecast[@"precipProbability"];
-    NSNumber *precipIntensity = currentForecast[@"precipIntensity"];
-    NSNumber *temperature = currentForecast[@"temperature"];
-    NSNumber *apparentTemperature = currentForecast[@"apparentTemperature"];
-    NSNumber *humidty = currentForecast[@"humidity"];
-    NSNumber *pressure = currentForecast[@"pressure"];
-    NSNumber *windSpeed = currentForecast[@"windSpeed"];
-    NSNumber *windBearing = currentForecast[@"windBearing"];
-    NSNumber *uvIndex = currentForecast[@"uvIndex"];
-    
-    if (!( time && temperature && precipProbability && humidty)) {
-        return nil;
+    self = [super init];
+    if (self) {
+        _time = dictionary[@"time"];
+        _summary = dictionary[@"summary"];
+        _temperature = [dictionary[@"temperature"] doubleValue];
+        _icon = dictionary[@"icon"];
     }
     
-    self = [self initWithTime: time
-                      summary: summary
-                         icon: image
-            precipProbability: precipProbability.doubleValue
-              precipIntensity: precipIntensity.doubleValue
-                  temperature: temperature.doubleValue
-         appparentTemperature: apparentTemperature.doubleValue
-                     humidity: humidty.doubleValue
-                     pressure: pressure.doubleValue
-                    windSpeed: windSpeed.doubleValue
-                  windBearing: windBearing.intValue
-                      uvIndex: uvIndex.intValue];
-    return self;
+//    NSDictionary *currentForecast = dictionary;
+//
+//    NSNumber *timeNumber = currentForecast[@"time"];
+//    NSDate *time = [NSDate dateWithTimeIntervalSince1970: timeNumber.longValue];
+//
+//    NSString *summary = currentForecast[@"summary"];
+//
+//    NSString *iconString = currentForecast[@"icon"];
+//    UIImage *image = [UIImage imageNamed: (@"%@", iconString)];
+//
+//    NSNumber *precipProbability = currentForecast[@"precipProbability"];
+//    NSNumber *precipIntensity = currentForecast[@"precipIntensity"];
+//    NSNumber *temperature = currentForecast[@"temperature"];
+//    NSNumber *apparentTemperature = currentForecast[@"apparentTemperature"];
+//    NSNumber *humidty = currentForecast[@"humidity"];
+//    NSNumber *pressure = currentForecast[@"pressure"];
+//    NSNumber *windSpeed = currentForecast[@"windSpeed"];
+//    NSNumber *windBearing = currentForecast[@"windBearing"];
+//    NSNumber *uvIndex = currentForecast[@"uvIndex"];
+//
+//    if (!( time && temperature && precipProbability && humidty)) {
+//        return nil;
+//    }
+//
+//    self = [self initWithTime: time
+//                      summary: summary
+//                         icon: image
+//            precipProbability: precipProbability.doubleValue
+//              precipIntensity: precipIntensity.doubleValue
+//                  temperature: temperature.doubleValue
+//         appparentTemperature: apparentTemperature.doubleValue
+//                     humidity: humidty.doubleValue
+//                     pressure: pressure.doubleValue
+//                    windSpeed: windSpeed.doubleValue
+//                  windBearing: windBearing.intValue
+//                      uvIndex: uvIndex.intValue];
+//    return self;
 }
 
 @end
