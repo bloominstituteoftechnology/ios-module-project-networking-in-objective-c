@@ -105,10 +105,18 @@
 		0BB5E0CD251BD832009ED127 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0BB5E0D0251BD905009ED127 /* New Group */,
 				0BB5E0C6251BD829009ED127 /* LSIWeatherForcast.h */,
 				0BB5E0C7251BD829009ED127 /* LSIWeatherForcast.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0BB5E0D0251BD905009ED127 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		BD69312923FD905200C0DF09 = {
