@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *icon;
 @property (nonatomic, readonly) double precipIntensity;
 @property (nonatomic, readonly) double precipProbability;
-@property (nonatomic, readonly, copy) NSString *precipType; // "rain", "snow", "sleet", or nil
+@property (nonatomic, readonly, copy) NSString *precipType; 
 @property (nonatomic, readonly) double temperature;
 @property (nonatomic, readonly) double apparentTemperature;
 @property (nonatomic, readonly) double humidity;

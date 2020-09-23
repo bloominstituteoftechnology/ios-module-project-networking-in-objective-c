@@ -11,6 +11,7 @@
 #import "LSILog.h"
 #import "LSICurrentForecast.h"
 #import "LSIDailyWeather.h"
+#import "LSIHourlyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -58,7 +59,7 @@
     NSError *jsonError = nil;
     NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
     if (!weatherDictionary) {
-        NSLog(@"We've got an error: %@", jsonError);
+        NSLog(@"Error: %@", jsonError);
     }
     
     if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
@@ -86,6 +87,40 @@
     XCTAssertEqualWithAccuracy(3.82, dailyForecast.windSpeed, 0.0001);
     XCTAssertEqualWithAccuracy(320, dailyForecast.windBearing, 0.0001);
     XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
+}
+
+- (void)testHourlyWeatherParsing {
+
+    NSData *weatherData = loadFile(@"HourlyWeather.json", [DailyWeatherTests class]);
+    
+    NSError *jsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
+    if (!weatherDictionary) {
+        NSLog(@"Error: %@", jsonError);
+    }
+    
+    if (![weatherDictionary isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"weatherDictionary is not a dictionary!");
+        return;
+    }
+    
+    LSIHourlyForecast *hourlyForecast = [[LSIHourlyForecast alloc] initWithDictionary:weatherDictionary];
+    
+    NSLog(@"weather: %@", hourlyForecast);
+
+    XCTAssertEqual([NSDate dateWithTimeIntervalSince1970:1581001200], hourlyForecast.time);
+    XCTAssertEqual(@"Clear", hourlyForecast.summary);
+    XCTAssertEqual(@"clear-night", hourlyForecast.icon);
+    XCTAssertEqual(0.0, hourlyForecast.precipIntensity);
+    XCTAssertEqualWithAccuracy(0.0, hourlyForecast.precipProbability, 0.0001);
+    XCTAssertEqualObjects(nil, hourlyForecast.precipType);
+    XCTAssertEqual(47.68, hourlyForecast.temperature);
+    XCTAssertEqual(46.54, hourlyForecast.apparentTemperature);
+    XCTAssertEqual(0.78, hourlyForecast.humidity);
+    XCTAssertEqual(1022.8, hourlyForecast.pressure);
+    XCTAssertEqual(3.57, hourlyForecast.windSpeed);
+    XCTAssertEqual(36, hourlyForecast.windBearing);
+    XCTAssertEqualWithAccuracy(0, hourlyForecast.uvIndex, 0.0001);
 }
 
 
