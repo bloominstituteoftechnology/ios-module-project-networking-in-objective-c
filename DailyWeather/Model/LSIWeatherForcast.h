@@ -13,5 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LSIWeatherForcast : NSObject
 
 
+@end
 
 NS_ASSUME_NONNULL_END
