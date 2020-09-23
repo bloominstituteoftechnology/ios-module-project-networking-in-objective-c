@@ -26,20 +26,19 @@
 {
     if (self = [super init]) {
         _time = time;
-        _summary = summary.copy;
-        _icon = icon;
-        _precipIntensity = precipIntensity;
-        _precipProbability = precipProbability;
-        _precipType = precipType.copy;
-        _temperature = temperature;
-        _apparentTemperature = apparentTemperature;
-        _humidity = humidity;
-        _pressure = pressure;
-        _windSpeed = windSpeed;
-        _windBearing = windBearing;
-        _uvIndex = uvIndex;
+         _summary = summary.copy;
+         _icon = icon;
+         _precipIntensity = precipIntensity;
+         _precipProbability = precipProbability;
+         _precipType = precipType.copy;
+         _temperature = temperature;
+         _apparentTemperature = apparentTemperature;
+         _humidity = humidity;
+         _pressure = pressure;
+         _windSpeed = windSpeed;
+         _windBearing = windBearing;
+         _uvIndex = uvIndex;
     }
-    
     return self;
 }
 
