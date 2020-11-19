@@ -20,7 +20,7 @@
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
-                 windBearing:(int)windBearing
+                 windBearing:(double)windBearing
                      uvIndex:(int)uvIndex
                   visibility:(int)visibility
                     dewPoint:(double)dewPoint
@@ -99,7 +99,7 @@
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue
                     windSpeed:windSpeed.doubleValue
-                  windBearing:windBearing.intValue
+                  windBearing:windBearing.doubleValue
                       uvIndex:uvIndex.intValue
                    visibility:visibility.intValue
                      dewPoint:dewPoint.doubleValue];

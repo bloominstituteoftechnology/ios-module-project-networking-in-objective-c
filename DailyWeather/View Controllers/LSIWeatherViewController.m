@@ -11,6 +11,9 @@
 #import "LSIErrors.h"
 #import "LSILog.h"
 #import "LSISettingsTableVC.h"
+#import "CurrentForecast.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -19,6 +22,8 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+@property (nonatomic) CurrentForecast *currentWeather;
 
 // MARK: - UI Properties
 
@@ -143,8 +148,22 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
+    NSData *weatherData = loadFile(@"CurrentWeather.json", LSIWeatherViewController.class);
     
+    NSError *jsonError = nil;
+    NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
     
+    if (!aDictionary) {
+        NSLog(@"Error: %@", jsonError);
+        return;
+    }
+    
+    if (![aDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"aDictionary is not a dictionary!!");
+        return;
+    }
+    
+    _currentWeather = [[CurrentForecast alloc] initWithDictionary:aDictionary];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
@@ -153,8 +172,21 @@
     if (self.placemark) {
         // TODO: Update the City, State label
     }
-    
     // TODO: Update the UI based on the current forecast
+    _icon.image = [UIImage imageNamed:_currentWeather.icon];
+    _descriptionLabel.text = _currentWeather.summary;
+    _temperatureLabel.text = [NSString stringWithFormat:@"%.0f°F", _currentWeather.temperature];
+    
+    NSString *bearing = [LSICardinalDirection directionForHeading:_currentWeather.windBearing];
+    _windLabel.text = [NSString stringWithFormat:@"%@ %.0fmph", bearing, _currentWeather.windSpeed];
+    
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", (_currentWeather.humidity*100.)];
+    _rainChanceLabel.text = [NSString stringWithFormat:@"%.0f%%", (_currentWeather.precipProbability*100.)];
+    _dewpointLabel.text = [NSString stringWithFormat:@"%.0f°F", _currentWeather.dewPoint];
+    _feelsLikeLabel.text = [NSString stringWithFormat:@"%.0f°F", _currentWeather.apparentTemperature];
+    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", _currentWeather.pressure];
+    _UVLabel.text = [NSString stringWithFormat:@"%d", _currentWeather.uvIndex];
+    _visibilityLabel.text = [NSString stringWithFormat:@"%d miles", _currentWeather.visibility];
 }
 
 - (void)setUpSubviews {

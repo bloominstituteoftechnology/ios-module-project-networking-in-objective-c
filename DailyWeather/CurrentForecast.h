@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;
 @property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly) int windBearing;
+@property (nonatomic, readonly) double windBearing;
 @property (nonatomic, readonly) int uvIndex;
 @property (nonatomic, readonly) int visibility;
 @property (nonatomic, readonly) double dewPoint;
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
-                 windBearing:(int)windBearing
+                 windBearing:(double)windBearing
                      uvIndex:(int)uvIndex
                   visibility:(int)visibility
                     dewPoint:(double)dewPoint;
