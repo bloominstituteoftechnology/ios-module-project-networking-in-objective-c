@@ -10,6 +10,7 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSISettingsTableVC.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -286,6 +287,13 @@
     [_infoButton.trailingAnchor constraintEqualToAnchor:_bottomView.trailingAnchor constant:(-mediumSpacer * 2)].active = YES;
     [_infoButton setImage:[UIImage systemImageNamed:@"info.circle.fill"] forState:normal];
     [_infoButton setTintColor:UIColor.whiteColor];
+    [_infoButton addTarget:self action:@selector(presentTableVC) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)presentTableVC {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"SettingsNavController"];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 - (void)setUpTitleLabelWithLabel:(UILabel *)label title:(NSString *)title isLeftSide:(BOOL)isLeftSide {
