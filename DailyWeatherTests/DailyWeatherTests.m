@@ -12,6 +12,7 @@
 #import "../DailyWeather/CurrentForecast.h"
 #import "../DailyWeather/DailyForecast.h"
 #import "../DailyWeather/HourlyForecast.h"
+#import "../DailyWeather/LSIWeatherForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -116,6 +117,41 @@
     XCTAssertEqualObjects(@"clear-night", hourlyForecast.icon);
     XCTAssertEqualWithAccuracy(47.68, hourlyForecast.temperature, 0.0001);
     XCTAssertEqualWithAccuracy(0, hourlyForecast.uvIndex, 0.0001);
+}
+
+- (void)testWeatherParsing
+{
+    NSData *weatherData = loadFile(@"Weather.json", DailyWeatherTests.class);
+    
+    NSError *jsonError = nil;
+    NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    
+    XCTAssertNotNil(aDictionary);
+    if (!aDictionary) {
+        NSLog(@"Error: %@", jsonError);
+        return;
+    }
+    
+    XCTAssertTrue([aDictionary isKindOfClass:NSDictionary.class]);
+    if (![aDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"aDictionary is not a dictionary!!");
+        return;
+    }
+    
+    NSLog(@"Weather (as dictionary): %@", aDictionary);
+    
+    LSIWeatherForecast *weatherForecast = [[LSIWeatherForecast alloc] initWithDictionary:aDictionary];
+    NSLog(@"Weather forecast (as LSIWeatherForecast): %@", weatherForecast);
+    
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+    
+    XCTAssertEqualObjects(time, weatherForecast.currentWeather.time);
+    XCTAssertEqualObjects(@"clear-day", weatherForecast.currentWeather.icon);
+    XCTAssertEqualWithAccuracy(48.35, weatherForecast.currentWeather.temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(10, weatherForecast.currentWeather.visibility, 0.0001);
+    
+    XCTAssertEqual(8, weatherForecast.dailyWeather.count);
+    XCTAssertEqual(49, weatherForecast.hourlyWeather.count);
 }
 
 @end
