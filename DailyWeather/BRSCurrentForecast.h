@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
                   windBearing:(double)windBearing
                       uvIndex:(double)uvIndex NS_DESIGNATED_INITIALIZER;
 
+- (nullable instancetype)initWithDictionary:(NSDictionary *)aDictionary;
+
  @property (nonatomic, readonly) NSDate *time;
  @property (nonatomic, readonly, copy) NSString *summary;
  @property (nonatomic, readonly, copy) NSString *icon;
@@ -38,8 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
  @property (nonatomic, readonly) double windSpeed;
  @property (nonatomic, readonly) double windBearing;
  @property (nonatomic, readonly) double uvIndex;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
  @end

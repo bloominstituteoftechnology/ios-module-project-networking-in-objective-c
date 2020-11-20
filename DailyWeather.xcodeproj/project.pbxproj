@@ -126,6 +126,10 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				7CDD93AE2564C7CB00F2C25D /* BRSWeatherForecast.h */,
+				7CDD93AF2564C7CB00F2C25D /* BRSWeatherForecast.m */,
+				7CDD93BE2567440200F2C25D /* BRSCurrentForecast.m */,
+				7CDD93BD2567440200F2C25D /* BRSCurrentForecast.h */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -139,10 +143,6 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69314723FD905300C0DF09 /* main.m */,
-				7CDD93AE2564C7CB00F2C25D /* BRSWeatherForecast.h */,
-				7CDD93AF2564C7CB00F2C25D /* BRSWeatherForecast.m */,
-				7CDD93BD2567440200F2C25D /* BRSCurrentForecast.h */,
-				7CDD93BE2567440200F2C25D /* BRSCurrentForecast.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
