@@ -7,6 +7,7 @@
 //
 
 #import "BRSWeatherForecast.h"
+#import "BRSCurrentForecast.h"
 
 @implementation BRSWeatherForecast
 
