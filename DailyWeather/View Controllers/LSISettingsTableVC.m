@@ -6,6 +6,8 @@
 //
 
 #import "LSISettingsTableVC.h"
+#import "LSIWeatherForecast.h"
+#import "WeatherVC.h"
 
 @interface LSISettingsTableVC ()
 
@@ -44,6 +46,10 @@
     if (indexPath.row == 1) {
         NSURL *url =  [NSURL URLWithString:@"https://darksky.net/poweredby/"];
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+    } else if (indexPath.row == 0) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        WeatherVC *weatherVC = [storyboard instantiateViewControllerWithIdentifier:@"WeatherVC"];
+        [self presentViewController:weatherVC animated:YES completion:nil];
     }
 }
 
