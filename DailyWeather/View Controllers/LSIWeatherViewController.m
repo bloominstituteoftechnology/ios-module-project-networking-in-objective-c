@@ -17,6 +17,7 @@
 #import "LSIWeatherForecast.h"
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
+#import "WeatherFetcher.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -151,29 +152,37 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
-    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
-    
-    NSError *jsonError = nil;
-    NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
-    
-    if (!aDictionary) {
-        NSLog(@"Error: %@", jsonError);
-        return;
-    }
-    
-    if (![aDictionary isKindOfClass:NSDictionary.class]) {
-        NSLog(@"aDictionary is not a dictionary!!");
-        return;
-    }
-    
-    _weatherForecast = [[LSIWeatherForecast alloc] initWithDictionary:aDictionary];
+//    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
+//
+//    NSError *jsonError = nil;
+//    NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+//
+//    if (!aDictionary) {
+//        NSLog(@"Error: %@", jsonError);
+//        return;
+//    }
+//
+//    if (![aDictionary isKindOfClass:NSDictionary.class]) {
+//        NSLog(@"aDictionary is not a dictionary!!");
+//        return;
+//    }
+//
+//    _weatherForecast = [[LSIWeatherForecast alloc] initWithDictionary:aDictionary];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    
+    [WeatherFetcher fetchWeatherWithLatitude:location.coordinate.latitude
+                                   longitude:location.coordinate.longitude
+                           CompletionHandler:^(LSIWeatherForecast *weather, NSError *error) {
+        self.weatherForecast = weather;
+        [self updateViews];
+    }];
 }
 
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        _locationLabel.text = _placemark.locality;
     }
     // TODO: Update the UI based on the current forecast
     _icon.image = [UIImage imageNamed:_weatherForecast.currentWeather.icon];
