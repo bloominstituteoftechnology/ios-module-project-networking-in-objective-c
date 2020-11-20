@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
  @property (nonatomic, readonly) double windBearing;
  @property (nonatomic, readonly) double uvIndex;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 
  @end
 
