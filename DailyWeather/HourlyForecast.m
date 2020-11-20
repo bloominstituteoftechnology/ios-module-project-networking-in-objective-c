@@ -1,27 +1,23 @@
 //
-//  DailyForecast.m
+//  HourlyForecast.m
 //  DailyWeather
 //
 //  Created by Cora Jacobson on 11/19/20.
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "DailyForecast.h"
+#import "HourlyForecast.h"
 
-@implementation DailyForecast
+@implementation HourlyForecast
 
 - (instancetype)initWithTime:(NSDate *)time
                      summary:(NSString *)summary
                         icon:(NSString *)icon
-                 sunriseTime:(NSDate *)sunriseTime
-                  sunsetTime:(NSDate *)sunsetTime
            precipProbability:(double)precipProbability
              precipIntensity:(double)precipIntensity
                   precipType:(NSString *)precipType
-              temperatureLow:(double)temperatureLow
-             temperatureHigh:(double)temperatureHigh
-      apparentTemperatureLow:(double)apparentTemperatureLow
-     apparentTemperatureHigh:(double)apparentTemperatureHigh
+                 temperature:(double)temperature
+         apparentTemperature:(double)apparentTemperature
                     humidity:(double)humidity
                     pressure:(double)pressure
                    windSpeed:(double)windSpeed
@@ -34,15 +30,11 @@
         _time = time;
         _summary = summary.copy;
         _icon = icon.copy;
-        _sunriseTime = sunriseTime;
-        _sunsetTime = sunsetTime;
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _precipType = precipType.copy;
-        _temperatureLow = temperatureLow;
-        _temperatureHigh = temperatureHigh;
-        _apparentTemperatureLow = apparentTemperatureLow;
-        _apparentTemperatureHigh = apparentTemperatureHigh;
+        _temperature = temperature;
+        _apparentTemperature = apparentTemperature;
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
@@ -66,14 +58,6 @@
     NSString *icon = [aDictionary objectForKey:@"icon"];
     if (![icon isKindOfClass:NSString.class]) return nil;
     
-    NSNumber *sunriseInSeconds = [aDictionary objectForKey:@"sunriseTime"];
-    if (![sunriseInSeconds isKindOfClass:NSNumber.class]) return nil;
-    NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:sunriseInSeconds.longValue];
-    
-    NSNumber *sunsetInSeconds = [aDictionary objectForKey:@"sunsetTime"];
-    if (![sunsetInSeconds isKindOfClass:NSNumber.class]) return nil;
-    NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:sunsetInSeconds.longValue];
-    
     NSNumber *precipProbability = [aDictionary objectForKey:@"precipProbability"];
     if (![precipProbability isKindOfClass:NSNumber.class]) return nil;
     
@@ -91,17 +75,11 @@
         return nil;
     }
     
-    NSNumber *temperatureLow = [aDictionary objectForKey:@"temperatureLow"];
-    if (![temperatureLow isKindOfClass:NSNumber.class]) return nil;
+    NSNumber *temperature = [aDictionary objectForKey:@"temperature"];
+    if (![temperature isKindOfClass:NSNumber.class]) return nil;
     
-    NSNumber *temperatureHigh = [aDictionary objectForKey:@"temperatureHigh"];
-    if (![temperatureHigh isKindOfClass:NSNumber.class]) return nil;
-    
-    NSNumber *apparentTemperatureLow = [aDictionary objectForKey:@"apparentTemperatureLow"];
-    if (![apparentTemperatureLow isKindOfClass:NSNumber.class]) return nil;
-    
-    NSNumber *apparentTemperatureHigh = [aDictionary objectForKey:@"apparentTemperatureHigh"];
-    if (![apparentTemperatureHigh isKindOfClass:NSNumber.class]) return nil;
+    NSNumber *apparentTemperature = [aDictionary objectForKey:@"apparentTemperature"];
+    if (![apparentTemperature isKindOfClass:NSNumber.class]) return nil;
     
     NSNumber *humidity = [aDictionary objectForKey:@"humidity"];
     if (![humidity isKindOfClass:NSNumber.class]) return nil;
@@ -131,15 +109,11 @@
     return [self initWithTime:time
                       summary:summary
                          icon:icon
-                  sunriseTime:sunriseTime
-                   sunsetTime:sunsetTime
             precipProbability:precipProbability.doubleValue
               precipIntensity:precipIntensity.doubleValue
                    precipType:precipType
-               temperatureLow:temperatureLow.doubleValue
-              temperatureHigh:temperatureHigh.doubleValue
-       apparentTemperatureLow:apparentTemperatureLow.doubleValue
-      apparentTemperatureHigh:apparentTemperatureHigh.doubleValue
+                  temperature:temperature.doubleValue
+          apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue
                      pressure:pressure.doubleValue
                     windSpeed:windSpeed.doubleValue

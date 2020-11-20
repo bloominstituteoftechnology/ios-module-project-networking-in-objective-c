@@ -11,19 +11,13 @@
 #import "../DailyWeather/LambdaSDK/LSIFileHelper.h"
 #import "../DailyWeather/CurrentForecast.h"
 #import "../DailyWeather/DailyForecast.h"
+#import "../DailyWeather/HourlyForecast.h"
 
 @interface DailyWeatherTests : XCTestCase
 
 @end
 
 @implementation DailyWeatherTests
-
-- (void)testExample {
-
-    // TODO: Use LSIFileHelper to load JSON from your test bundle
-    
-    // TODO: Create Unit Tests for each separate JSON file
-}
 
 - (void)testCurrentWeatherParsing
 {
@@ -89,6 +83,39 @@
     XCTAssertEqualObjects(@"clear-day", dailyForecast.icon);
     XCTAssertEqualWithAccuracy(47.02, dailyForecast.temperatureLow, 0.0001);
     XCTAssertEqualWithAccuracy(4, dailyForecast.uvIndex, 0.0001);
+}
+
+- (void)testHourlyWeatherParsing
+{
+    NSData *weatherData = loadFile(@"HourlyWeather.json", DailyWeatherTests.class);
+    
+    NSError *jsonError = nil;
+    NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    
+    XCTAssertNotNil(aDictionary);
+    if (!aDictionary) {
+        NSLog(@"Error: %@", jsonError);
+        return;
+    }
+    
+    XCTAssertTrue([aDictionary isKindOfClass:NSDictionary.class]);
+    if (![aDictionary isKindOfClass:NSDictionary.class]) {
+        NSLog(@"aDictionary is not a dictionary!!");
+        return;
+    }
+    
+    NSLog(@"Hourly weather (as dictionary): %@", aDictionary);
+    
+    HourlyForecast *hourlyForecast = [[HourlyForecast alloc] initWithDictionary:aDictionary];
+    NSLog(@"Hourly forecast (as HourlyForecast): %@", hourlyForecast);
+    
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581001200];
+    
+    XCTAssertEqualObjects(time, hourlyForecast.time);
+    XCTAssertEqualObjects(@"Clear", hourlyForecast.summary);
+    XCTAssertEqualObjects(@"clear-night", hourlyForecast.icon);
+    XCTAssertEqualWithAccuracy(47.68, hourlyForecast.temperature, 0.0001);
+    XCTAssertEqualWithAccuracy(0, hourlyForecast.uvIndex, 0.0001);
 }
 
 @end

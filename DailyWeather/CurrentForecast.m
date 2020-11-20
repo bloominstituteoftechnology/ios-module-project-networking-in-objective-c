@@ -60,7 +60,11 @@
     if (![precipProbability isKindOfClass:NSNumber.class]) return nil;
     
     NSNumber *precipIntensity = [aDictionary objectForKey:@"precipIntensity"];
-    if (![precipIntensity isKindOfClass:NSNumber.class]) return nil;
+    if (precipIntensity == nil || [precipIntensity isKindOfClass:NSNull.class]) {
+        precipIntensity = 0;
+    } else if (![precipIntensity isKindOfClass:NSNumber.class]) {
+        return nil;
+    }
     
     NSNumber *temperature = [aDictionary objectForKey:@"temperature"];
     if (![temperature isKindOfClass:NSNumber.class]) return nil;
@@ -78,7 +82,11 @@
     if (![windSpeed isKindOfClass:NSNumber.class]) return nil;
     
     NSNumber *windBearing = [aDictionary objectForKey:@"windBearing"];
-    if (![windBearing isKindOfClass:NSNumber.class]) return nil;
+    if (windBearing == nil || [windBearing isKindOfClass:NSNull.class]) {
+        windBearing = 0;
+    } else if (![windBearing isKindOfClass:NSNumber.class]) {
+        return nil;
+    }
     
     NSNumber *uvIndex = [aDictionary objectForKey:@"uvIndex"];
     if (![uvIndex isKindOfClass:NSNumber.class]) return nil;

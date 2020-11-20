@@ -177,8 +177,12 @@
     _descriptionLabel.text = _currentWeather.summary;
     _temperatureLabel.text = [NSString stringWithFormat:@"%.0f°F", _currentWeather.temperature];
     
-    NSString *bearing = [LSICardinalDirection directionForHeading:_currentWeather.windBearing];
-    _windLabel.text = [NSString stringWithFormat:@"%@ %.0fmph", bearing, _currentWeather.windSpeed];
+    if (_currentWeather.windSpeed == 0) {
+        _windLabel.text = @"No Wind";
+    } else {
+        NSString *bearing = [LSICardinalDirection directionForHeading:_currentWeather.windBearing];
+        _windLabel.text = [NSString stringWithFormat:@"%@ %.0fmph", bearing, _currentWeather.windSpeed];
+    }
     
     _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", (_currentWeather.humidity*100.)];
     _rainChanceLabel.text = [NSString stringWithFormat:@"%.0f%%", (_currentWeather.precipProbability*100.)];
