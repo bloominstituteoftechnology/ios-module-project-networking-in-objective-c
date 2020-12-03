@@ -10,9 +10,9 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
-#import "LSIWeatherForecast.h"
 #import "LSIFileHelper.h"
 #import "LSICardinalDirection.h"
+#import "LSIWeather.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -22,7 +22,7 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
-@property (nonatomic) LSIWeatherForecast *currentWeather;
+@property (nonatomic) LSIWeather *weather;
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *cityStateLabel;
@@ -129,13 +129,13 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    NSData *weatherData = loadFile(@"CurrentWeather.json", LSIWeatherViewController.class);
+    NSData *weatherData = loadFile(@"Weather.json", LSIWeatherViewController.class);
     NSError *jsonError = nil;
     NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
                                                                       options:0
                                                                         error:&jsonError];
     
-    _currentWeather = [[LSIWeatherForecast alloc] initWithDictionary:weatherDictionary];
+    _weather = [[LSIWeather alloc] initWithDictionary:weatherDictionary];
     
     [self updateViews];
     
@@ -147,15 +147,15 @@
         _cityStateLabel.text = [NSString stringWithFormat:@"%@, %@", _placemark.locality, _placemark.administrativeArea];
     }
     
-    _iconImageView.image = [LSIWeatherIcons weatherImageForIconName:_currentWeather.icon];
-    _summaryLabel.text = _currentWeather.summary;
-    _temperatureLabel.text = [NSString stringWithFormat:@"%.0f°F", _currentWeather.temperature];
-    _windLabel.text = [NSString stringWithFormat:@"%@ %.0f mph", [LSICardinalDirection directionForHeading:_currentWeather.windBearing], _currentWeather.windSpeed];
-    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0f°", _currentWeather.apparentTemperature];
-    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", _currentWeather.humidity];
-    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", _currentWeather.pressure];
-    _rainLabel.text = [NSString stringWithFormat:@"%.0f%%", _currentWeather.precipProbability];
-    _uvLabel.text = [NSString stringWithFormat:@"%.0f", _currentWeather.uvIndex];
+    _iconImageView.image = [LSIWeatherIcons weatherImageForIconName:_weather.weather.icon];
+    _summaryLabel.text = _weather.weather.summary;
+    _temperatureLabel.text = [NSString stringWithFormat:@"%.0f°F", _weather.weather.temperature];
+    _windLabel.text = [NSString stringWithFormat:@"%@ %.0f mph", [LSICardinalDirection directionForHeading:_weather.weather.windBearing], _weather.weather.windSpeed];
+    _apparentTemperatureLabel.text = [NSString stringWithFormat:@"%.0f°", _weather.weather.apparentTemperature];
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%", _weather.weather.humidity];
+    _pressureLabel.text = [NSString stringWithFormat:@"%.2f inHg", _weather.weather.pressure];
+    _rainLabel.text = [NSString stringWithFormat:@"%.0f%%", _weather.weather.precipProbability];
+    _uvLabel.text = [NSString stringWithFormat:@"%.0f", _weather.weather.uvIndex];
 }
 
 @end
