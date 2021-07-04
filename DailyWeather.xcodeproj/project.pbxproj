@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04EE6D4B2691926F004283D2 /* FGTWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */; };
+		04EE6D5026919559004283D2 /* OpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EE6D4F26919559004283D2 /* OpenWeather.json */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EE6D492691926E004283D2 /* FGTWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTWeatherForecast.h; sourceTree = "<group>"; };
+		04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTWeatherForecast.m; sourceTree = "<group>"; };
+		04EE6D4F26919559004283D2 /* OpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenWeather.json; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +127,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		04EE6D4E26919276004283D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04EE6D492691926E004283D2 /* FGTWeatherForecast.h */,
+				04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +157,10 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				04EE6D41269058BB004283D2 /* Resources */,
+				04EE6D4E26919276004283D2 /* Model */,
 				04EE6D42269058D1004283D2 /* Storyboards */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				04EE6D41269058BB004283D2 /* Resources */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
@@ -204,6 +219,7 @@
 				BDFC8F6723FD959A00A39B21 /* DailyWeather.json */,
 				BDFC8F6423FD959A00A39B21 /* HourlyWeather.json */,
 				BDFC8F6623FD959A00A39B21 /* Weather.json */,
+				04EE6D4F26919559004283D2 /* OpenWeather.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -252,6 +268,7 @@
 		BD69312A23FD905200C0DF09 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FGT;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Lambda, Inc";
 				TargetAttributes = {
@@ -290,6 +307,7 @@
 			files = (
 				BDFC8F6E23FD959A00A39B21 /* DailyWeather.json in Resources */,
 				BD69317523FD91D700C0DF09 /* Main.storyboard in Resources */,
+				04EE6D5026919559004283D2 /* OpenWeather.json in Resources */,
 				BDFC8F6A23FD959A00A39B21 /* CurrentWeather.json in Resources */,
 				BDFC8F6823FD959A00A39B21 /* HourlyWeather.json in Resources */,
 				BD69314523FD905300C0DF09 /* LaunchScreen.storyboard in Resources */,
@@ -327,6 +345,7 @@
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
+				04EE6D4B2691926F004283D2 /* FGTWeatherForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
