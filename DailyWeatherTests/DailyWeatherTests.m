@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+//#import "LSIFileHelper.h"
 
 @interface DailyWeatherTests : XCTestCase
 

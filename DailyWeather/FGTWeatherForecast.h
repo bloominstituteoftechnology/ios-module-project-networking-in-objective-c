@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,29 +15,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSDate *time;
 @property (nonatomic, readonly) NSString *summary;
-@property (nonatomic, readonly) NSString *icon;
-@property (nonatomic, readonly) NSNumber *precipProbability;
-@property (nonatomic, readonly) NSNumber *precipIntensity;
-@property (nonatomic, readonly) NSNumber *temperature;
-@property (nonatomic, readonly) NSNumber *apparentTemperature;
-@property (nonatomic, readonly) NSNumber *humidity;
-@property (nonatomic, readonly) NSNumber *pressure;
-@property (nonatomic, readonly) NSNumber *windSpeed;
-@property (nonatomic, readonly) NSNumber *windBearing;
-@property (nonatomic, readonly) NSNumber *uvIndex;
+@property (nonatomic, readonly) UIImage *icon;
+@property (nonatomic, readonly) double precipProbability;
+@property (nonatomic, readonly) double precipIntensity;
+@property (nonatomic, readonly) double temperature;
+@property (nonatomic, readonly) double apparentTemperature;
+@property (nonatomic, readonly) double humidity;
+@property (nonatomic, readonly) double pressure;
+@property (nonatomic, readonly) double windSpeed;
+@property (nonatomic, readonly) NSString *windBearing;
+@property (nonatomic, readonly) double uvIndex;
 
 -(instancetype)initWithTime:(NSDate *)aTime
                     summary:(NSString *)aSummary
-                       icon:(NSString *)aIcon
-          precipProbability:(NSNumber *)aPrecipProbability
-            precipIntensity:(NSNumber *)aPrecipIntensity
-                temperature:(NSNumber *)aTemperature
-        apparentTemperature:(NSNumber *)aApparentTemperature
-                   humidity:(NSNumber *)aHumidity
-                   pressure:(NSNumber *)aPressure
-                  windSpeed:(NSNumber *)aWindSpeed
-                windBearing:(NSNumber *)aWindBearing
-                    uvIndex:(NSNumber *)aUvIndex NS_DESIGNATED_INITIALIZER;
+                       icon:(UIImage *)aIcon
+          precipProbability:(double)aPrecipProbability
+            precipIntensity:(double)aPrecipIntensity
+                temperature:(double)aTemperature
+        apparentTemperature:(double)aApparentTemperature
+                   humidity:(double)aHumidity
+                   pressure:(double)aPressure
+                  windSpeed:(double)aWindSpeed
+                windBearing:(NSString *)aWindBearing
+                    uvIndex:(double)aUvIndex NS_DESIGNATED_INITIALIZER;
 
 
 
