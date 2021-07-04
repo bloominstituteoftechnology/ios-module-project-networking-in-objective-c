@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04EBA7B02691EC1A00ED8FBB /* FGTDailyWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBA7AF2691EC1A00ED8FBB /* FGTDailyWeatherTests.m */; };
+		04EBA7BF26924BFE00ED8FBB /* FGTOpenWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBA7BE26924BFE00ED8FBB /* FGTOpenWeatherModel.m */; };
 		04EE6D4B2691926F004283D2 /* FGTWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */; };
 		04EE6D5026919559004283D2 /* OpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EE6D4F26919559004283D2 /* OpenWeather.json */; };
 		04EE6D572691A6E9004283D2 /* LSIFileHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = BD69316223FD90D100C0DF09 /* LSIFileHelper.h */; };
@@ -15,7 +17,6 @@
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
 		BD69314523FD905300C0DF09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */; };
 		BD69314823FD905300C0DF09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69314723FD905300C0DF09 /* main.m */; };
-		BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69315123FD905400C0DF09 /* DailyWeatherTests.m */; };
 		BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69315D23FD907800C0DF09 /* LSIWeatherViewController.m */; };
 		BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316023FD90D000C0DF09 /* LSIFileHelper.m */; };
 		BD69316723FD90D100C0DF09 /* LSILog.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316323FD90D100C0DF09 /* LSILog.m */; };
@@ -50,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EBA7AF2691EC1A00ED8FBB /* FGTDailyWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTDailyWeatherTests.m; sourceTree = "<group>"; };
+		04EBA7BD26924BFE00ED8FBB /* FGTOpenWeatherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTOpenWeatherModel.h; sourceTree = "<group>"; };
+		04EBA7BE26924BFE00ED8FBB /* FGTOpenWeatherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTOpenWeatherModel.m; sourceTree = "<group>"; };
 		04EE6D492691926E004283D2 /* FGTWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTWeatherForecast.h; sourceTree = "<group>"; };
 		04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTWeatherForecast.m; sourceTree = "<group>"; };
 		04EE6D4F26919559004283D2 /* OpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenWeather.json; sourceTree = "<group>"; };
@@ -63,7 +67,6 @@
 		BD69314623FD905300C0DF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD69314723FD905300C0DF09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD69314D23FD905400C0DF09 /* DailyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD69315123FD905400C0DF09 /* DailyWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyWeatherTests.m; sourceTree = "<group>"; };
 		BD69315323FD905400C0DF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD69315C23FD907800C0DF09 /* LSIWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIWeatherViewController.h; sourceTree = "<group>"; };
 		BD69315D23FD907800C0DF09 /* LSIWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherViewController.m; sourceTree = "<group>"; };
@@ -104,6 +107,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04EBA7B62691EC9000ED8FBB /* LambdaSDK */ = {
+			isa = PBXGroup;
+			children = (
+				BD69315F23FD90D000C0DF09 /* LSIErrors.h */,
+				BD69316423FD90D100C0DF09 /* LSIErrors.m */,
+				BD69316223FD90D100C0DF09 /* LSIFileHelper.h */,
+				BD69316023FD90D000C0DF09 /* LSIFileHelper.m */,
+				BD69316123FD90D000C0DF09 /* LSILog.h */,
+				BD69316323FD90D100C0DF09 /* LSILog.m */,
+			);
+			name = LambdaSDK;
+			sourceTree = "<group>";
+		};
 		04EE6D41269058BB004283D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +148,8 @@
 			children = (
 				04EE6D492691926E004283D2 /* FGTWeatherForecast.h */,
 				04EE6D4A2691926E004283D2 /* FGTWeatherForecast.m */,
+				04EBA7BD26924BFE00ED8FBB /* FGTOpenWeatherModel.h */,
+				04EBA7BE26924BFE00ED8FBB /* FGTOpenWeatherModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -162,8 +180,8 @@
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
 				04EE6D41269058BB004283D2 /* Resources */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
+				04EBA7B62691EC9000ED8FBB /* LambdaSDK */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
-				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -171,25 +189,11 @@
 		BD69315023FD905400C0DF09 /* DailyWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD69315123FD905400C0DF09 /* DailyWeatherTests.m */,
+				04EBA7AF2691EC1A00ED8FBB /* FGTDailyWeatherTests.m */,
 				BD69315323FD905400C0DF09 /* Info.plist */,
 			);
 			path = DailyWeatherTests;
 			sourceTree = "<group>";
-		};
-		BD69316B23FD90D500C0DF09 /* LambdaSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BD69315F23FD90D000C0DF09 /* LSIErrors.h */,
-				BD69316423FD90D100C0DF09 /* LSIErrors.m */,
-				BD69316223FD90D100C0DF09 /* LSIFileHelper.h */,
-				BD69316023FD90D000C0DF09 /* LSIFileHelper.m */,
-				BD69316123FD90D000C0DF09 /* LSILog.h */,
-				BD69316323FD90D100C0DF09 /* LSILog.m */,
-			);
-			name = LambdaSDK;
-			path = DailyWeather/LambdaSDK;
-			sourceTree = SOURCE_ROOT;
 		};
 		BDFC8F6123FD94F600A39B21 /* View Controllers */ = {
 			isa = PBXGroup;
@@ -336,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EBA7BF26924BFE00ED8FBB /* FGTOpenWeatherModel.m in Sources */,
 				04EE6D572691A6E9004283D2 /* LSIFileHelper.h in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
@@ -358,7 +363,7 @@
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
-				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
+				04EBA7B02691EC1A00ED8FBB /* FGTDailyWeatherTests.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +541,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = DailyWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -556,7 +561,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = DailyWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
