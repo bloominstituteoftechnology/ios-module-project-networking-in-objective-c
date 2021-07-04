@@ -60,7 +60,18 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)aDictionary
 {
-    return [self initWithTime: NSDate.now
+    //Using the Weather.json file
+    NSDictionary *currently = [aDictionary objectForKey:@"currently"];
+    if(![currently isKindOfClass:NSDictionary.class]) return nil;
+    
+    NSNumber *timeInMilliseconds = [currently objectForKey:@"time"];
+    if(![timeInMilliseconds isKindOfClass:NSNumber.class])return  nil;
+    //Convert to valite date type
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds.longValue/1000];
+    
+    
+    
+    return [self initWithTime: time
                       summary: @""
                          icon: @""
             precipProbability: 0
