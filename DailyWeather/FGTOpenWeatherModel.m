@@ -62,9 +62,10 @@
     
     NSDictionary *weatherData = [weather objectAtIndex:0];
     
-    //TODO: use helper method to show correct format
-    NSString *icon = [weatherData objectForKey:@"icon"];
-    if(![icon isKindOfClass:NSString.class])return nil;
+
+    NSString *iconString = [weatherData objectForKey:@"icon"];
+    if(![iconString isKindOfClass:NSString.class])return nil;
+    UIImage *icon = [LSIWeatherIcons weatherImageForIconName:iconString];
     
     NSString *desc = [weatherData objectForKey:@"description"];
     if(![desc isKindOfClass:NSString.class])return nil;
@@ -98,12 +99,12 @@
     NSNumber *windSpeed = [wind objectForKey:@"speed"];
     if(![windSpeed isKindOfClass:NSNumber.class])return nil;
     
-    //TODO: use helper method to show correct format
+
     NSNumber *degNum = [wind objectForKey:@"deg"];
     if(![degNum isKindOfClass:NSNumber.class])return nil;
     NSString *windDeg = [LSICardinalDirection directionForHeading: degNum.doubleValue];
     
-    return [self initWithIcon:  [UIImage imageNamed: @"" ]
+    return [self initWithIcon:  icon
                          desc:  desc
                          temp:  temp.doubleValue
                     feelsLike:  feelsLike.doubleValue

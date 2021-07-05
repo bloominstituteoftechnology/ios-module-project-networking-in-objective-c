@@ -16,31 +16,29 @@
 static NSArray<NSString *> *_icons = nil;
 static NSString *unknownIcon = @"questionmark.circle.fill";
 
-/// Based on possible entries from `icon`: https://darksky.net/dev/docs
+/// Based on possible entries from `icon`: https://openweathermap.org/weather-conditions
 
 + (NSArray<NSString *> *)weatherIcons {
     if(!_icons) {
         _icons = @[
-            @"clear-day",
-            @"clear-day",
-            @"clear-night",
-            @"partly-cloudy-day",
-            @"partly-cloudy-night",
-            @"cloudy",
-            @"rain",
-            @"sleet",
-            @"snow",
-            @"wind",
-            @"fog",
-            
-            // Extras may not be used, but mentioned in API docs
-            @"hail",
-            @"thunderstorm",
-            @"tornado",
-            
-            // Extras for sunrise stretch goal
-            @"sunrise",
-            @"sunset",
+            @"01d",
+            @"01n",
+            @"02d",
+            @"02n",
+            @"03d",
+            @"03n",
+            @"04d",
+            @"04n",
+            @"09d",
+            @"09n",
+            @"10d",
+            @"10n",
+            @"11d",
+            @"11n",
+            @"13d",
+            @"13n",
+            @"50d",
+            @"50n",
         ];
     }
     return _icons;
