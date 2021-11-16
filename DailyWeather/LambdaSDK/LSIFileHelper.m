@@ -2,7 +2,7 @@
 //  LSIFileHelper.m
 //
 //  Created by Paul Solt on 1/21/20.
-//  Copyright © 2020 Lambda School. All rights reserved.
+//  Copyright © 2020 BloomTech. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
