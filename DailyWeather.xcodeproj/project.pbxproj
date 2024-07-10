@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CDD93B02564C7CB00F2C25D /* BRSWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD93AF2564C7CB00F2C25D /* BRSWeatherForecast.m */; };
+		7CDD93BF2567440200F2C25D /* BRSCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD93BE2567440200F2C25D /* BRSCurrentForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CDD93AE2564C7CB00F2C25D /* BRSWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRSWeatherForecast.h; sourceTree = "<group>"; };
+		7CDD93AF2564C7CB00F2C25D /* BRSWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRSWeatherForecast.m; sourceTree = "<group>"; };
+		7CDD93BD2567440200F2C25D /* BRSCurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRSCurrentForecast.h; sourceTree = "<group>"; };
+		7CDD93BE2567440200F2C25D /* BRSCurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRSCurrentForecast.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +126,10 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				7CDD93AE2564C7CB00F2C25D /* BRSWeatherForecast.h */,
+				7CDD93AF2564C7CB00F2C25D /* BRSWeatherForecast.m */,
+				7CDD93BE2567440200F2C25D /* BRSCurrentForecast.m */,
+				7CDD93BD2567440200F2C25D /* BRSCurrentForecast.h */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -306,8 +316,10 @@
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
+				7CDD93B02564C7CB00F2C25D /* BRSWeatherForecast.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
+				7CDD93BF2567440200F2C25D /* BRSCurrentForecast.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
