@@ -1,0 +1,20 @@
+{
+    "time": 1581004800,
+    "summary": "Clear",
+    "icon": "clear-day",
+    "precipIntensity": 0.0025,
+    "precipProbability": 0.15,
+    "precipType": "rain",
+    "temperature": 48.97,
+    "apparentTemperature": 48.22,
+    "dewPoint": 41.86,
+    "humidity": 0.76,
+    "pressure": 1023.4,
+    "windSpeed": 3.33,
+    "windGust": 4.24,
+    "windBearing": 19,
+    "cloudCover": 0.02,
+    "uvIndex": 0,
+    "visibility": 10,
+    "ozone": 280.6
+}
