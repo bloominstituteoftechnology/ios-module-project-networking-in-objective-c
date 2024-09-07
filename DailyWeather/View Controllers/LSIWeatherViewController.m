@@ -7,17 +7,32 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
-#import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "CurrentWeather.h"
+
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+@property (nonatomic) CurrentWeather *currentWeather;
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *precipChanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *apparentTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvLabel;
+
+
+
 
 @end
 
@@ -25,6 +40,7 @@
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+
 
 @end
 
@@ -56,6 +72,7 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    [self updateViews];
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
@@ -115,15 +132,44 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
+     NSURL *currentWeatherURL = [[NSBundle mainBundle] URLForResource:@"CurrentWeather" withExtension:@"json"];
+     NSData *jsonData = [NSData dataWithContentsOfURL:currentWeatherURL];
+     NSError *error = nil;
+     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    self.currentWeather = [[CurrentWeather alloc]initWithDictionary: json];
+    [self updateViews];
     
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
-- (void)updateViews {
-    if (self.placemark) {
+- (void)updateViews
+{
+    if (self.placemark && self.currentWeather) {
         // TODO: Update the City, State label
+        
+        
+        NSNumber *tempNumber = [NSNumber numberWithDouble: self.currentWeather.temperature];
+        NSNumber *wsNumber = [NSNumber numberWithDouble: self.currentWeather.windSpeed];
+        NSNumber *humidityNumber = [NSNumber numberWithDouble: self.currentWeather.humidity];
+        NSNumber *chanceRainNumber = [NSNumber numberWithDouble: self.currentWeather.precipProbability];
+        NSNumber *feelsLikeNumber = [NSNumber numberWithDouble: self.currentWeather.apparentTemperature];
+        NSNumber *pressureFromNumber = [NSNumber numberWithInt: self.currentWeather.pressure];
+        NSNumber *uvNumber = [NSNumber numberWithInt: self.currentWeather.uvIndex];
+        
+        
+        self.icon.image = self.currentWeather.icon;
+        self.locationLabel.text = self.placemark.name;
+        self.summaryLabel.text = self.currentWeather.summary;
+        self.tempLabel.text = [tempNumber stringValue];
+        self.windSpeedLabel.text = [wsNumber stringValue];
+        self.humidityLabel.text = [humidityNumber stringValue];
+        self.precipChanceLabel.text = [chanceRainNumber stringValue];
+        self.apparentTempLabel.text = [feelsLikeNumber stringValue];
+        self.pressureLabel.text = [pressureFromNumber stringValue];
+        self.uvLabel.text = [uvNumber stringValue];
+        
     }
     
     // TODO: Update the UI based on the current forecast
@@ -156,4 +202,6 @@
     [manager stopUpdatingLocation];
 }
 
+- (IBAction)info:(id)sender {
+}
 @end
