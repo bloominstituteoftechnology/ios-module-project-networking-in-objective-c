@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherForcast.h"
+#import "LSICurrentWeather.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +22,19 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForcast *forcast;
+@property (nonatomic) LSICurrentWeather *currentForcast;
+
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *cityWeather;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -56,7 +73,7 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
-    
+    [self updateViews];
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
 }
@@ -115,7 +132,15 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
-    
+ NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSError *jsonError = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+    NSLog(@"JSON: %@", json);
+    self.forcast = [[LSIWeatherForcast alloc] initWithDictionary:json];
+    [self updateViews];
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
@@ -123,8 +148,17 @@
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
-    }
+         self.cityWeather.text = self.placemark.name;
+     }
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.currently.icon];
+    self.windLabel.text = [LSICardinalDirection directionForHeading:self.forcast.currently.windSpeed.doubleValue];
+    self.summaryLabel.text = self.forcast.currently.summary;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%.0fº", self.forcast.currently.temperature];
+    self.humidityLabel.text = self.forcast.currently.humidity.stringValue;
+    self.chanceOfRainLabel.text = self.forcast.currently.precipProbability.stringValue;
+    self.feelsLikeLabel.text = [NSString stringWithFormat:@"%.0fº", self.forcast.currently.apparentTemperature];
+    self.pressureLabel.text = self.forcast.currently.pressure.stringValue;
+    self.uvIndexLabel.text = self.forcast.currently.uvIndex.stringValue;
     
     // TODO: Update the UI based on the current forecast
 }
