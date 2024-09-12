@@ -35,6 +35,16 @@
 		BDFC8F6F23FD959A00A39B21 /* DailyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6723FD959A00A39B21 /* DailyWeather.json */; };
 		BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
 		BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
+		E2348331246D181600E28A0F /* CBDWeatherForecastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2348330246D181600E28A0F /* CBDWeatherForecastTests.m */; };
+		E25B8492246C961500FA3C49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69314723FD905300C0DF09 /* main.m */; };
+		E25B8498246C968900FA3C49 /* CBDWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B8497246C968900FA3C49 /* CBDWeatherForecast.m */; };
+		E25B84A1246C9B7000FA3C49 /* CBDCurrentForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A0246C9B7000FA3C49 /* CBDCurrentForcast.m */; };
+		E25B84A4246CA04700FA3C49 /* CBDWeatherBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */; };
+		E25B84A6246CB76A00FA3C49 /* CBDCurrentForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */; };
+		E25B84AC246CEDA300FA3C49 /* CBDDailyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */; };
+		E25B84AE246CEDCE00FA3C49 /* CBDDailyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */; };
+		E25B84B0246CEDEA00FA3C49 /* CBDHourlyForcastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */; };
+		E25B84B3246CEE9C00FA3C49 /* CBDHourlyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +89,20 @@
 		BDFC8F6723FD959A00A39B21 /* DailyWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyWeather.json; sourceTree = "<group>"; };
 		BDFC8F7023FD999000A39B21 /* LSICardinalDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSICardinalDirection.h; sourceTree = "<group>"; };
 		BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSICardinalDirection.m; sourceTree = "<group>"; };
+		E2348330246D181600E28A0F /* CBDWeatherForecastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherForecastTests.m; sourceTree = "<group>"; };
+		E25B8496246C968900FA3C49 /* CBDWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDWeatherForecast.h; sourceTree = "<group>"; };
+		E25B8497246C968900FA3C49 /* CBDWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherForecast.m; sourceTree = "<group>"; };
+		E25B849F246C9B7000FA3C49 /* CBDCurrentForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDCurrentForcast.h; sourceTree = "<group>"; };
+		E25B84A0246C9B7000FA3C49 /* CBDCurrentForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDCurrentForcast.m; sourceTree = "<group>"; };
+		E25B84A2246CA04700FA3C49 /* CBDWeatherBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDWeatherBase.h; sourceTree = "<group>"; };
+		E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDWeatherBase.m; sourceTree = "<group>"; };
+		E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDCurrentForcastTests.m; sourceTree = "<group>"; };
+		E25B84AA246CEDA300FA3C49 /* CBDDailyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDDailyForcast.h; sourceTree = "<group>"; };
+		E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDDailyForcast.m; sourceTree = "<group>"; };
+		E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDDailyForcastTests.m; sourceTree = "<group>"; };
+		E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcastTests.m; sourceTree = "<group>"; };
+		E25B84B1246CEE9C00FA3C49 /* CBDHourlyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBDHourlyForcast.h; sourceTree = "<group>"; };
+		E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBDHourlyForcast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,19 +144,14 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				BD69313523FD905200C0DF09 /* AppDelegate.h */,
-				BD69313623FD905200C0DF09 /* AppDelegate.m */,
-				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
-				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
-				BD69317423FD91D700C0DF09 /* Main.storyboard */,
+				E25B8493246C961D00FA3C49 /* Models */,
+				E25B8494246C962400FA3C49 /* Views */,
 				BDFC8F6123FD94F600A39B21 /* View Controllers */,
+				BD69314723FD905300C0DF09 /* main.m */,
 				BDFC8F6223FD950900A39B21 /* Helpers */,
 				BDFC8F6323FD958300A39B21 /* JSON */,
 				BD69316B23FD90D500C0DF09 /* LambdaSDK */,
-				BD69314123FD905300C0DF09 /* Assets.xcassets */,
-				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
-				BD69314623FD905300C0DF09 /* Info.plist */,
-				BD69314723FD905300C0DF09 /* main.m */,
+				E25B8491246C95D300FA3C49 /* Resources */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -142,6 +161,10 @@
 			children = (
 				BD69315123FD905400C0DF09 /* DailyWeatherTests.m */,
 				BD69315323FD905400C0DF09 /* Info.plist */,
+				E25B84A5246CB76A00FA3C49 /* CBDCurrentForcastTests.m */,
+				E25B84AD246CEDCE00FA3C49 /* CBDDailyForcastTests.m */,
+				E25B84AF246CEDEA00FA3C49 /* CBDHourlyForcastTests.m */,
+				E2348330246D181600E28A0F /* CBDWeatherForecastTests.m */,
 			);
 			path = DailyWeatherTests;
 			sourceTree = "<group>";
@@ -190,6 +213,45 @@
 				BDFC8F6623FD959A00A39B21 /* Weather.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		E25B8491246C95D300FA3C49 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD69313523FD905200C0DF09 /* AppDelegate.h */,
+				BD69313623FD905200C0DF09 /* AppDelegate.m */,
+				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
+				BD69313923FD905200C0DF09 /* SceneDelegate.m */,
+				BD69314123FD905300C0DF09 /* Assets.xcassets */,
+				BD69314623FD905300C0DF09 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E25B8493246C961D00FA3C49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E25B8496246C968900FA3C49 /* CBDWeatherForecast.h */,
+				E25B8497246C968900FA3C49 /* CBDWeatherForecast.m */,
+				E25B849F246C9B7000FA3C49 /* CBDCurrentForcast.h */,
+				E25B84A0246C9B7000FA3C49 /* CBDCurrentForcast.m */,
+				E25B84A2246CA04700FA3C49 /* CBDWeatherBase.h */,
+				E25B84A3246CA04700FA3C49 /* CBDWeatherBase.m */,
+				E25B84AA246CEDA300FA3C49 /* CBDDailyForcast.h */,
+				E25B84AB246CEDA300FA3C49 /* CBDDailyForcast.m */,
+				E25B84B1246CEE9C00FA3C49 /* CBDHourlyForcast.h */,
+				E25B84B2246CEE9C00FA3C49 /* CBDHourlyForcast.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E25B8494246C962400FA3C49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD69317423FD91D700C0DF09 /* Main.storyboard */,
+				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,13 +363,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25B84B3246CEE9C00FA3C49 /* CBDHourlyForcast.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
+				E25B84AC246CEDA300FA3C49 /* CBDDailyForcast.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
+				E25B8498246C968900FA3C49 /* CBDWeatherForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
+				E25B84A4246CA04700FA3C49 /* CBDWeatherBase.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
+				E25B84A1246C9B7000FA3C49 /* CBDCurrentForcast.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
@@ -320,10 +387,15 @@
 			files = (
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
+				E25B84AE246CEDCE00FA3C49 /* CBDDailyForcastTests.m in Sources */,
 				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
+				E2348331246D181600E28A0F /* CBDWeatherForecastTests.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
+				E25B84A6246CB76A00FA3C49 /* CBDCurrentForcastTests.m in Sources */,
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
+				E25B8492246C961500FA3C49 /* main.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
+				E25B84B0246CEDEA00FA3C49 /* CBDHourlyForcastTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = DailyWeather/Info.plist;
+				INFOPLIST_FILE = DailyWeather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = DailyWeather/Info.plist;
+				INFOPLIST_FILE = DailyWeather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
