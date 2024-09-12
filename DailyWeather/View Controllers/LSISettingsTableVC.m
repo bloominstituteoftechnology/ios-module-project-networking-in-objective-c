@@ -21,13 +21,16 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
     
-    if (indexPath.row == 0) {
+  if (indexPath.row == 0) {
+    cell.textLabel.text = @"Todays Weather V.1.0";
+  } else
+    {
         cell.textLabel.text = @"Powered by Dark Sky";
         cell.textLabel.textColor = UIColor.systemBlueColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
