@@ -10,14 +10,37 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "CBDCurrentForcast.h"
+#import "CBDHourlyForcast.h"
+#import "CBDDailyForcast.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "CBDWeatherFetcher.h"
+#import "CBDWeatherForecast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+//MARK: - Private Properties
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+//@property (nonatomic) CBDCurrentForcast *currentForcast;
+@property (nonatomic) CBDWeatherFetcher *fetcher;
+@property (nonatomic) CBDWeatherForecast *forcast;
+
+// MARK: - IBOutlets
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipProbabilityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -31,6 +54,9 @@
 
 @implementation LSIWeatherViewController
 
+// MARK: - IBActions
+- (IBAction)getInformation:(id)sender {
+}
 
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -56,9 +82,14 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    self.locationLabel.text = @"-";
+    
+    [self requestWeatherForLocation:self.location];
+//    [self updateViews];
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
+    
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -112,21 +143,77 @@
 }
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
-    
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
+    /*
+    NSData *currentForcastData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+    NSLog(@"Current Weather: %@", currentForcastData);
+    NSError *jsonError = nil;
+    NSDictionary *currentWeatherDictionary = [NSJSONSerialization JSONObjectWithData:currentForcastData options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+    NSLog(@"JSON: %@", currentWeatherDictionary);
+    _currentForcast = [[CBDCurrentForcast alloc] initWithDictionary:currentWeatherDictionary];
+    NSLog(@"Current Weather: %@", self.currentForcast);
+     */
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    [self.fetcher fetchWeatherAtLatitude:_location.coordinate.latitude longitude:_location.coordinate.longitude completionBlock:^(CBDWeatherForecast * _Nullable forcast, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Weather Fetching Error: %@", error);
+            return;
+        }
+
+        NSLog(@"Fetched weather: %@", forcast);
+        self.forcast = forcast;
+        
+         __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateViews];
+        });
+    }];
 }
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        NSString *administrativeArea;
+        if (self.placemark.administrativeArea) {
+            administrativeArea = self.placemark.administrativeArea;
+        } else if (self.placemark.country) {
+            administrativeArea = self.placemark.country;
+        } else {
+            administrativeArea = @" ";
+        }
+        
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.placemark.locality, administrativeArea] ;
     }
     
     // TODO: Update the UI based on the current forecast
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.currentForecast.icon];
+    self.summaryLabel.text = self.forcast.currentForecast.summary;
+    
+    double temperature = round([self.forcast.currentForecast.temperature doubleValue]);
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", temperature];
+    
+    double windSpeed = round([self.forcast.currentForecast.windSpeed doubleValue]);
+    double windbearing = round([self.forcast.currentForecast.windBearing doubleValue]);
+    NSString *direction = [LSICardinalDirection directionForHeading:windbearing];
+    self.windLabel.text = [NSString stringWithFormat:@"%@ %0.0f mph", direction, windSpeed];
+    
+    double humidity = [self.forcast.currentForecast.humidity doubleValue] * 100.0;
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", humidity];
+    
+    double precipProbability = round([self.forcast.currentForecast.precipProbability doubleValue]);
+    self.precipProbabilityLabel.text = [NSString stringWithFormat:@"%0.0f%%", precipProbability];
+    
+    double apparentTemperature = round([self.forcast.currentForecast.apparentTemperature doubleValue]);
+    self.apparentTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f\u00B0 F", apparentTemperature];
+    
+    double pressure = round([self.forcast.currentForecast.pressure doubleValue]);
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.1f inHg", pressure];
+    
+    double uvIndex = round([self.forcast.currentForecast.uvIndex doubleValue]);
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%0.0f", uvIndex];
 }
 
 @end
@@ -156,4 +243,13 @@
     [manager stopUpdatingLocation];
 }
 
+- (CBDWeatherFetcher *)fetcher {
+    if (!_fetcher) {
+        _fetcher = [[CBDWeatherFetcher alloc] init];
+    }
+    return _fetcher;
+}
+
 @end
+
+

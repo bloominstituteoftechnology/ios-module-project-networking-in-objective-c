@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CBDCurrentForcast;
 
 typedef void (^LSILocationHandler)(CLPlacemark *placemark, NSError *error);
 
