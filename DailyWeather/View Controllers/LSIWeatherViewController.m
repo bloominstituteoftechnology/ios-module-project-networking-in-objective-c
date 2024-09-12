@@ -10,6 +10,7 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import <UIKit/UIKit.h>
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +19,18 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconIV;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *windLabel;
+@property (weak, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -30,8 +43,6 @@
 
 
 @implementation LSIWeatherViewController
-
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
