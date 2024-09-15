@@ -10,6 +10,7 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherConditions.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +19,11 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+
+// MARK: - IBOutlets
+
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -58,7 +64,14 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+    [self.toolbar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage new]
+              forToolbarPosition:UIBarPositionAny];
     // TODO: Handle settings button pressed
+    NSDictionary *weatherJSON = @{@"summary": @"clear"};
+    LSIWeatherConditions *conditions = [[LSIWeatherConditions alloc] initWithDictionary:weatherJSON];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
