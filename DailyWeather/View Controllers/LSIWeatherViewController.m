@@ -10,14 +10,37 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSICurrentWeather.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
+//MARK:- Properties
 
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+
+
+
+//MARK:- IBOutlets
+
+@property (strong, nonatomic) IBOutlet UIImageView *weatherSymbolImageView;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+@property (strong, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 
 @end
 
@@ -49,10 +72,15 @@
     return self;
 }
 
+- (IBAction)toolBarPressed:(UIBarButtonItem *)sender {
+    NSLog(@"Hello");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [self decodeDataAndUpdateViews];
+   
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
@@ -91,6 +119,21 @@
         NSLog(@"ERROR: Missing location, please provide location");
     }
 }
+- (void)decodeDataAndUpdateViews {
+    NSData *currentWeatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+    NSError *error = nil;
+    NSDictionary *currentWeatherJSON = [NSJSONSerialization JSONObjectWithData:currentWeatherData options:0 error: &error ];
+    LSICurrentWeather * currentWeather = [[LSICurrentWeather alloc] initWithDictionary:currentWeatherJSON];
+    
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.temperature,@"°F"];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%.2f%@",currentWeather.humidity,@"%"];
+    self.weatherSymbolImageView.image = [UIImage imageNamed:currentWeather.icon];
+    self.feelsLikeLabel.text = [NSString stringWithFormat:@"%.0f%@",currentWeather.apparentTemperature,@"°F"];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%.0f%@",currentWeather.pressure,@" inHg"];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%d",currentWeather.uvIndex];
+    self.windSpeedLabel.text = [NSString stringWithFormat:@"E %.2f mph",currentWeather.windSpeed];
+}
+
 
 - (void)requestUserFriendlyLocation:(CLLocation *)location {
     if(!_requestedLocation) {
