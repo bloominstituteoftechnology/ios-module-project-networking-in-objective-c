@@ -7,6 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LSIFileHelper.h"
+#import "EPWCurrentForecast.h"
+#import "EPWDailyWeather.h"
+#import "EPWHourlyWeather.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -14,12 +18,29 @@
 
 @implementation DailyWeatherTests
 
-- (void)testExample {
+- (void)testParseCurrentWeather {
+//    NSData *data = loadFile(@"CurrentWeather.json", DailyWeatherTests.class);
+//    
+//    NSError *error = nil;
+//    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+//
+//    if (error) { XCTFail(@"Parsing error: %@", error); }
+//    
+//     NSLog(@"JSON: %@", json);
+////     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+//    EPWCurrentForecast *currentForecast = [[EPWCurrentForecast alloc] initWithDictionary:json];
+//     NSLog(@"forecst: %@", currentForecast);
+//    
+//     NSDate *time = [NSDate dateWithTimeIntervalSince1970:1581003354];
+//     XCTAssertEqualObjects(@"Clear", forecast.summary);
+//     XCTAssertEqualObjects(time, forecast.time);
+}
 
-    // TODO: Use LSIFileHelper to load JSON from your test bundle
+- (void)testParseDailyWeather {
     
-    // TODO: Create Unit Tests for each separate JSON file
+}
 
+- (void)testParseHourlyWeather {
 }
 
 @end
