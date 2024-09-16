@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503D0EFD24BFCE1900C21ABF /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D0EFC24BFCE1900C21ABF /* LSIWeatherForecast.m */; };
+		503D0F0024BFD18F00C21ABF /* LSICurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D0EFF24BFD18F00C21ABF /* LSICurrentForecast.m */; };
+		503D0F0324C0EEEF00C21ABF /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D0F0224C0EEEF00C21ABF /* LSIDailyForecast.m */; };
+		503D0F0624C1075600C21ABF /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D0F0524C1075600C21ABF /* LSIHourlyForecast.m */; };
+		503D0F2224C3881E00C21ABF /* LSIWeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D0F2124C3881E00C21ABF /* LSIWeatherFetcher.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +53,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		503D0EFB24BFCE1900C21ABF /* LSIWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForecast.h; sourceTree = "<group>"; };
+		503D0EFC24BFCE1900C21ABF /* LSIWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherForecast.m; sourceTree = "<group>"; };
+		503D0EFE24BFD18F00C21ABF /* LSICurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentForecast.h; sourceTree = "<group>"; };
+		503D0EFF24BFD18F00C21ABF /* LSICurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentForecast.m; sourceTree = "<group>"; };
+		503D0F0124C0EEEF00C21ABF /* LSIDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIDailyForecast.h; sourceTree = "<group>"; };
+		503D0F0224C0EEEF00C21ABF /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
+		503D0F0424C1075600C21ABF /* LSIHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIHourlyForecast.h; sourceTree = "<group>"; };
+		503D0F0524C1075600C21ABF /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
+		503D0F2024C3881E00C21ABF /* LSIWeatherFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherFetcher.h; sourceTree = "<group>"; };
+		503D0F2124C3881E00C21ABF /* LSIWeatherFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherFetcher.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +135,16 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				503D0F2024C3881E00C21ABF /* LSIWeatherFetcher.h */,
+				503D0F2124C3881E00C21ABF /* LSIWeatherFetcher.m */,
+				503D0F0424C1075600C21ABF /* LSIHourlyForecast.h */,
+				503D0F0524C1075600C21ABF /* LSIHourlyForecast.m */,
+				503D0F0124C0EEEF00C21ABF /* LSIDailyForecast.h */,
+				503D0F0224C0EEEF00C21ABF /* LSIDailyForecast.m */,
+				503D0EFB24BFCE1900C21ABF /* LSIWeatherForecast.h */,
+				503D0EFC24BFCE1900C21ABF /* LSIWeatherForecast.m */,
+				503D0EFE24BFD18F00C21ABF /* LSICurrentForecast.h */,
+				503D0EFF24BFD18F00C21ABF /* LSICurrentForecast.m */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -301,10 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503D0F0624C1075600C21ABF /* LSIHourlyForecast.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
+				503D0EFD24BFCE1900C21ABF /* LSIWeatherForecast.m in Sources */,
+				503D0F0324C0EEEF00C21ABF /* LSIDailyForecast.m in Sources */,
+				503D0F0024BFD18F00C21ABF /* LSICurrentForecast.m in Sources */,
+				503D0F2224C3881E00C21ABF /* LSIWeatherFetcher.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
@@ -464,13 +494,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 6WA5TYMFND;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelsonhartle.DailyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -481,13 +511,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 6WA5TYMFND;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelsonhartle.DailyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
