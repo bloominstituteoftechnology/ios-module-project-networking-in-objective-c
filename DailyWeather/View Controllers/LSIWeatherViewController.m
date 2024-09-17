@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherForecast.h"
+
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +22,22 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForecast *forecast;
+
+// MARK:- Outlets
+// MARK:- Top View
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *cityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+// MARK:- Detailed view
+@property (strong, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipProbLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -25,6 +45,8 @@
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+
+
 
 @end
 
@@ -66,7 +88,7 @@
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
     if (location) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                
+
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if (error) {
                 completionHandler(nil, error);
@@ -114,9 +136,19 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForecast class]);
+
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]; // & = addres of
+    // Ooooh so we still use referencing pointers in obj-c. Lit
+
+    if (error) {
+        NSLog(@"Error parsing JSON: %@", json);
+        return;
+    }
+    NSLog(@"JSON: %@", json);
     
-    
-    
+    _forecast = [[LSIWeatherForecast alloc]initWithDictionary:json];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
@@ -124,6 +156,18 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        _iconImageView.image = [LSIWeatherIcons weatherImageForIconName:_forecast.icon];
+        _cityLabel.text = _placemark.name;
+        _summaryLabel.text = _forecast.summary;
+        _temperatureLabel.text = _forecast.temperature.stringValue;
+
+        // MARK:- Detail
+        _windSpeedLabel.text = _forecast.windSpeed.stringValue;
+        _humidityLabel.text = _forecast.humidity.stringValue;
+        _precipProbLabel.text = _forecast.precipProbability.stringValue;
+        _apparentLabel.text = _forecast.apparentTemperature.stringValue;
+        _pressureLabel.text = _forecast.pressure.stringValue;
+        _uvIndexLabel.text = _forecast.uvIndex.stringValue;
     }
     
     // TODO: Update the UI based on the current forecast
