@@ -10,14 +10,36 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIWeatherForecast.h"
+#import "LSICurrentForecast.h"
+#import "LSIWeatherIcons.h"
+#import "LSISettingsTableVC.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+// Properties
+
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSICurrentForecast *forecast;
+
+// Outlets
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *feelsLikeTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+
+
 
 @end
 
@@ -57,9 +79,27 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+    [self.toolBar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.toolBar setShadowImage:[UIImage new]
+              forToolbarPosition:UIBarPositionAny];
 }
+
+
+- (IBAction)settingsTapped:(UIBarButtonItem *)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    LSISettingsTableVC *settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"LSISettingsTableVC"];
+    
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    
+    [self presentViewController:navigationVC animated:YES completion:nil];
+    
+}
+
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
@@ -113,20 +153,39 @@
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+  if(!_requestedLocation) {
+        _requestedLocation = YES;
+        __block BOOL requestedLocation = _requestedLocation;
+        
+        [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
+            
+            NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
+            self.placemark = place;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateViews];
+            });
+            requestedLocation = NO;
+        }];
+    }
     
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+       self.locationLabel.text = [NSString stringWithFormat:@"%@, %@",
+                               self.placemark.locality,
+                               self.placemark.administrativeArea];
+        self.summaryLabel.text = self.forecast.summary;
     }
     
-    // TODO: Update the UI based on the current forecast
+    if (self.forecast) {
+        
+        NSLog(@"TEMP: %@", self.forecast);
+        self.temperatureLabel.text = [NSString stringWithFormat: @"%0.0fºF", self.forecast.temperature];
+        
+        self.weatherImage.image = [LSIWeatherIcons weatherImageForIconName:self.forecast.icon];
+    }
 }
 
 @end

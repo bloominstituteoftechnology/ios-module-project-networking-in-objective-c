@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		725A638E2448E9E40084B5C5 /* LSICurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 725A638D2448E9E40084B5C5 /* LSICurrentForecast.m */; };
+		725A63912448E9F20084B5C5 /* LSIDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 725A63902448E9F20084B5C5 /* LSIDailyForecast.m */; };
+		725A63942448E9FE0084B5C5 /* LSIHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 725A63932448E9FE0084B5C5 /* LSIHourlyForecast.m */; };
+		726EBA0B2447A7F100DF72EC /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 726EBA0A2447A7F100DF72EC /* LSIWeatherForecast.m */; };
+		726EBA0C2447A7F100DF72EC /* LSIWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 726EBA0A2447A7F100DF72EC /* LSIWeatherForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		725A638C2448E9E40084B5C5 /* LSICurrentForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSICurrentForecast.h; sourceTree = "<group>"; };
+		725A638D2448E9E40084B5C5 /* LSICurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSICurrentForecast.m; sourceTree = "<group>"; };
+		725A638F2448E9F20084B5C5 /* LSIDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIDailyForecast.h; sourceTree = "<group>"; };
+		725A63902448E9F20084B5C5 /* LSIDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIDailyForecast.m; sourceTree = "<group>"; };
+		725A63922448E9FE0084B5C5 /* LSIHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIHourlyForecast.h; sourceTree = "<group>"; };
+		725A63932448E9FE0084B5C5 /* LSIHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIHourlyForecast.m; sourceTree = "<group>"; };
+		726EBA092447A7F100DF72EC /* LSIWeatherForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherForecast.h; sourceTree = "<group>"; };
+		726EBA0A2447A7F100DF72EC /* LSIWeatherForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherForecast.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -133,6 +146,14 @@
 				BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */,
 				BD69314623FD905300C0DF09 /* Info.plist */,
 				BD69314723FD905300C0DF09 /* main.m */,
+				726EBA092447A7F100DF72EC /* LSIWeatherForecast.h */,
+				726EBA0A2447A7F100DF72EC /* LSIWeatherForecast.m */,
+				725A638C2448E9E40084B5C5 /* LSICurrentForecast.h */,
+				725A638D2448E9E40084B5C5 /* LSICurrentForecast.m */,
+				725A638F2448E9F20084B5C5 /* LSIDailyForecast.h */,
+				725A63902448E9F20084B5C5 /* LSIDailyForecast.m */,
+				725A63922448E9FE0084B5C5 /* LSIHourlyForecast.h */,
+				725A63932448E9FE0084B5C5 /* LSIHourlyForecast.m */,
 			);
 			path = DailyWeather;
 			sourceTree = "<group>";
@@ -303,11 +324,15 @@
 			files = (
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
+				725A63942448E9FE0084B5C5 /* LSIHourlyForecast.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
+				726EBA0B2447A7F100DF72EC /* LSIWeatherForecast.m in Sources */,
+				725A638E2448E9E40084B5C5 /* LSICurrentForecast.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
+				725A63912448E9F20084B5C5 /* LSIDailyForecast.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
@@ -324,6 +349,7 @@
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
+				726EBA0C2447A7F100DF72EC /* LSIWeatherForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 36JMR38FZL;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,7 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 36JMR38FZL;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
