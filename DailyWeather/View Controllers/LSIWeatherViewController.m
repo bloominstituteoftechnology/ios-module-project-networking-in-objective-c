@@ -10,6 +10,8 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "CurrentForecast.h"
+#import "LSIFileHelper.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +20,13 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+
+@property (weak, nonatomic) IBOutlet UILabel *cityStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+@property CurrentForecast *currentWeather;
 
 @end
 
@@ -58,7 +67,11 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+    [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.toolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
+    [self.toolbar isTranslucent];
     // TODO: Handle settings button pressed
+    
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -115,18 +128,33 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     
-    
-    
-    
+    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
+
+    NSError *jsonError = nil;
+    NSDictionary *currentDictionary = [NSJSONSerialization JSONObjectWithData:weatherData
+                                                                      options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&jsonError]; // NSError **
+    if (!currentDictionary) {
+        NSLog(@"We've got an error: %@", jsonError);
+    }
+    if (![currentDictionary isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"currentDictionary is not a dictionary!");
+        return;
+    }
+    CurrentForecast *current = [[CurrentForecast alloc] initWithDictionary:currentDictionary];
+    self.currentWeather = current;
+
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+//        self.cityStateLabel.text = self.location;
     }
     
     // TODO: Update the UI based on the current forecast
+    self.summaryLabel.text = self.currentWeather.summary;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%.1f°", self.currentWeather.temperature];
 }
 
 @end
