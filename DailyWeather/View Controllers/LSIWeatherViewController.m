@@ -10,6 +10,9 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "LSICardinalDirection.h"
+#import "LSIWeatherForcast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +21,20 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) LSIWeatherForcast *forcast;
+
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *cityWeather;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+
 
 @end
 
@@ -58,6 +75,13 @@
     [self.locationManager startUpdatingLocation];
     
     // TODO: Transparent toolbar with info button (Settings)
+
+     [self.toolbar setBackgroundImage:[UIImage new]
+                   forToolbarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+     [self.toolbar setShadowImage:[UIImage new]
+               forToolbarPosition:UIBarPositionAny];
+ 
     // TODO: Handle settings button pressed
 }
 
@@ -114,18 +138,39 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
+    NSData *data = loadFile(@"CurrentWeather.json", [LSIWeatherForcast class]);
+    NSError *jsonError = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parsing error: %@", jsonError);
+    }
+    NSLog(@"JSON: %@", json);
+    self.forcast = [[LSIWeatherForcast alloc] initWithDictionary:json];
+    [self updateViews];
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
+- (IBAction)infoButtonTapped:(UIBarButtonItem *)sender {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LSISettingsTableVC"];
+//    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
 - (void)updateViews {
     if (self.placemark) {
-        // TODO: Update the City, State label
+        self.cityWeather.text = self.placemark.name;
     }
-    
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:self.forcast.icon];
+    self.windLabel.text = [LSICardinalDirection directionForHeading:self.forcast.windSpeed.doubleValue];
+    self.summaryLabel.text = self.forcast.summary;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@\u00B0", self.forcast.temperature.stringValue];
+    self.humidityLabel.text = self.forcast.humidity.stringValue;
+    self.chanceOfRainLabel.text = self.forcast.precipProbability.stringValue;
+    self.feelsLikeLabel.text = self.forcast.apparentTemperature.stringValue;
+    self.pressureLabel.text = self.forcast.pressure.stringValue;
+    self.uvIndexLabel.text = self.forcast.uvIndex.stringValue;
     // TODO: Update the UI based on the current forecast
 }
 
