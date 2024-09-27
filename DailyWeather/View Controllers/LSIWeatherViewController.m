@@ -10,6 +10,8 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -19,6 +21,9 @@
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
 
+@property IBOutlet UIToolbar *bottomToolbar;
+
+
 @end
 
 // NOTE: You must declare the Category before the main implementation,
@@ -26,11 +31,11 @@
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
 
+
 @end
 
 
 @implementation LSIWeatherViewController
-
 
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -59,6 +64,16 @@
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
+
+    [self.bottomToolbar setBackgroundImage: [UIImage new]
+                        forToolbarPosition: UIBarPositionAny
+                                barMetrics: UIBarMetricsDefault];
+    [self.bottomToolbar setShadowImage: [UIImage new]
+                        forToolbarPosition: UIToolbarPositionAny];
+    
+    self.bottomToolbar.translucent = YES;
+    
+    //self.bottomToolbar.backgroundColor = [UIColor colorWithRed:((float) 0x000000) green:((float) 0x005700) blue:((float) 0x0000B6) alpha: 1.0];
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names

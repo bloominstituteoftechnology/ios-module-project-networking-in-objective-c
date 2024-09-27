@@ -12,10 +12,7 @@
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
 		BD69314523FD905300C0DF09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD69314323FD905300C0DF09 /* LaunchScreen.storyboard */; };
 		BD69314823FD905300C0DF09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69314723FD905300C0DF09 /* main.m */; };
-		BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69315123FD905400C0DF09 /* DailyWeatherTests.m */; };
 		BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69315D23FD907800C0DF09 /* LSIWeatherViewController.m */; };
-		BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316023FD90D000C0DF09 /* LSIFileHelper.m */; };
-		BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316023FD90D000C0DF09 /* LSIFileHelper.m */; };
 		BD69316723FD90D100C0DF09 /* LSILog.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316323FD90D100C0DF09 /* LSILog.m */; };
 		BD69316823FD90D100C0DF09 /* LSILog.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316323FD90D100C0DF09 /* LSILog.m */; };
 		BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316423FD90D100C0DF09 /* LSIErrors.m */; };
@@ -35,6 +32,9 @@
 		BDFC8F6F23FD959A00A39B21 /* DailyWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = BDFC8F6723FD959A00A39B21 /* DailyWeather.json */; };
 		BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
 		BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */; };
+		BEF40A4224C19A950068E983 /* DailyWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69315123FD905400C0DF09 /* DailyWeatherTests.m */; };
+		BEF40A4324C19B290068E983 /* LSIFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69316023FD90D000C0DF09 /* LSIFileHelper.m */; };
+		BEF40A4424C19B530068E983 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF40A3324C01B8F0068E983 /* CurrentWeather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +79,8 @@
 		BDFC8F6723FD959A00A39B21 /* DailyWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyWeather.json; sourceTree = "<group>"; };
 		BDFC8F7023FD999000A39B21 /* LSICardinalDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSICardinalDirection.h; sourceTree = "<group>"; };
 		BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSICardinalDirection.m; sourceTree = "<group>"; };
+		BEF40A3224C01B8F0068E983 /* CurrentWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
+		BEF40A3324C01B8F0068E983 /* CurrentWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentWeather.m; path = DailyWeather/Model/CurrentWeather.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				BEF40A2E24C01B430068E983 /* Model */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -190,6 +193,15 @@
 				BDFC8F6623FD959A00A39B21 /* Weather.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		BEF40A2E24C01B430068E983 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEF40A3224C01B8F0068E983 /* CurrentWeather.h */,
+				BEF40A3324C01B8F0068E983 /* CurrentWeather.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
@@ -318,11 +329,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF40A4424C19B530068E983 /* CurrentWeather.m in Sources */,
+				BEF40A4324C19B290068E983 /* LSIFileHelper.m in Sources */,
+				BEF40A4224C19A950068E983 /* DailyWeatherTests.m in Sources */,
 				BDFC8F7323FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69317323FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
-				BD69316623FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
 				BD69316823FD90D100C0DF09 /* LSILog.m in Sources */,
-				BD69315223FD905400C0DF09 /* DailyWeatherTests.m in Sources */,
 				BD69316A23FD90D100C0DF09 /* LSIErrors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,7 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = K4ZABLHUH8;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,7 +493,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = K4ZABLHUH8;
 				INFOPLIST_FILE = DailyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
