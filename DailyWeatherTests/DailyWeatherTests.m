@@ -7,6 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LSILog.h"
+#import "LSICurrenWeatherMock.h"
+#import "LSIErrors.h"
+#import "LSIFileHelper.h"
 
 @interface DailyWeatherTests : XCTestCase
 
@@ -15,7 +19,8 @@
 @implementation DailyWeatherTests
 
 - (void)testExample {
-
+    
+    
     // TODO: Use LSIFileHelper to load JSON from your test bundle
     
     // TODO: Create Unit Tests for each separate JSON file
