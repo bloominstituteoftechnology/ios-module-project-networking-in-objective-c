@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4452B9592569F05C00EBC864 /* LSIWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4452B9582569F05C00EBC864 /* LSIWeatherModel.m */; };
+		4452B9612569F07400EBC864 /* LSIWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4452B9602569F07400EBC864 /* LSIWeatherController.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4452B9572569F05C00EBC864 /* LSIWeatherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherModel.h; sourceTree = "<group>"; };
+		4452B9582569F05C00EBC864 /* LSIWeatherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherModel.m; sourceTree = "<group>"; };
+		4452B95F2569F07400EBC864 /* LSIWeatherController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIWeatherController.h; sourceTree = "<group>"; };
+		4452B9602569F07400EBC864 /* LSIWeatherController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIWeatherController.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +105,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4452B9562569F04200EBC864 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4452B9572569F05C00EBC864 /* LSIWeatherModel.h */,
+				4452B9582569F05C00EBC864 /* LSIWeatherModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4452B95C2569F06300EBC864 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4452B95F2569F07400EBC864 /* LSIWeatherController.h */,
+				4452B9602569F07400EBC864 /* LSIWeatherController.m */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		BD69312923FD905200C0DF09 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +144,8 @@
 		BD69313423FD905200C0DF09 /* DailyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				4452B95C2569F06300EBC864 /* Model Controller */,
+				4452B9562569F04200EBC864 /* Model */,
 				BD69313523FD905200C0DF09 /* AppDelegate.h */,
 				BD69313623FD905200C0DF09 /* AppDelegate.m */,
 				BD69313823FD905200C0DF09 /* SceneDelegate.h */,
@@ -302,6 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
+				4452B9612569F07400EBC864 /* LSIWeatherController.m in Sources */,
+				4452B9592569F05C00EBC864 /* LSIWeatherModel.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
