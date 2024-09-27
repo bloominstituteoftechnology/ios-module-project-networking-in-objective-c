@@ -10,6 +10,10 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSICurrentForecast.h"
+#import "LSIDailyForecast.h"
+#import "LSIWeatherForcast.h"
+
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +22,17 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+// MARK:- OUTLETS
+@property (strong, nonatomic) IBOutlet UIImage *iconImage;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempLabel;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvLabel;
 
 @end
 
@@ -112,12 +127,25 @@
 }
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
+    NSString *key = @"e79d21acb01d287235077aabb7b07190";
+    NSString *baseURLString = [NSString stringWithFormat:@"https://api.darksky.net/forecast/%@/%f,%f", key, location.coordinate.latitude, location.coordinate.longitude];
+    NSLog(@"%@", baseURLString);
+    
+    NSURL *currentWeatherURL = [NSURL URLWithString:baseURLString];//[[NSBundle mainBundle]
+                               // URLForResource:@"CurrentWeather" withExtension:currentWeatherURL];
+    
+    NSData *jsonData = [NSData dataWithContentsOfURL:currentWeatherURL];
+    
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    NSDictionary *current = [NSDictionary dictionaryWithDictionary:json [@"currently"]];
+#warning Error message here
+//    self.currentForecast = [[LSICurrentForecast alloc] initWithDictionary:current];
+    if (error) {
+        NSLog(@"JSON Parsing Error: %@", error);
+    }
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
-    
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
